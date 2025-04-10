@@ -1,12 +1,14 @@
 import styled, { css } from "styled-components";
 
-const inputStyles = css`
+export const formContainerWrapperWidth = "25rem";
+
+export const inputStyles = css`
   height: 1.5rem;
   padding: 0.5rem;
 `;
 
 export const FormContainer = styled.div`
-  width: 25rem;
+  width: ${formContainerWrapperWidth};
 `;
 
 export const Form = styled.form`

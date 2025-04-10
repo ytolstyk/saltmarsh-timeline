@@ -1,16 +1,17 @@
 import styled, { keyframes } from "styled-components";
 
 const dotSize = "0.75rem";
+const groupDotSize = "1.25rem";
 const eventLineHeight = "12rem";
 
 const fadeIn = keyframes`
   from {
     opacity: 0;
-    transform: scale(0.1) translateY(-50%) translateX(-50%);
+    transform: scale(0.1) translateY(-50%);
   }
   to {
     opacity: 1;
-    transform: scale(1) translateY(-50%) translateX(-50%);
+    transform: scale(1) translateY(-50%);
   }
 `;
 
@@ -43,21 +44,32 @@ export const LineBottom = styled.div`
   margin-top: 1rem;
 `;
 
-export const LineDot = styled.div<{ $percentLeft: number; $isActive: boolean }>`
+export const LineDot = styled.div<{
+  $percentLeft: number;
+  $isActive: boolean;
+  $isGroup: boolean;
+}>`
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: black;
+  text-align: center;
   cursor: pointer;
   left: ${(props) => props.$percentLeft}%;
   top: 50%;
-  transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%);
   position: absolute;
-  height: ${dotSize};
-  width: ${dotSize};
+  height: ${(props) => (props.$isGroup ? groupDotSize : dotSize)};
+  width: ${(props) => (props.$isGroup ? groupDotSize : dotSize)};
   border-radius: 1rem;
   background-color: ${(props) => (props.$isActive ? "#222" : "#ddd")};
   border: 2px solid #222;
 
   ${(props) => {
     if (props.$isActive) {
-      return "z-index: 10;";
+      return `
+        z-index: 10;
+        color: white;
+      `;
     }
   }};
 

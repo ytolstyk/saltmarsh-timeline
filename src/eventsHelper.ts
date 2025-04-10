@@ -12,3 +12,26 @@ export function removeEvent(
     );
   });
 }
+
+export function groupEvents(events: TimelineEvent[], daysRadius: number) {
+  const groupedEvents: { [key: number]: TimelineEvent[] } = {};
+
+  events.forEach((event) => {
+    const groupKey =
+      Math.floor(event.daysSinceOrigin / daysRadius) * daysRadius;
+    if (!groupedEvents[groupKey]) {
+      groupedEvents[groupKey] = [];
+    }
+    groupedEvents[groupKey].push(event);
+  });
+
+  const sortedKeys = Object.keys(groupedEvents)
+    .map(Number)
+    .sort((a, b) => a - b);
+  const timelineEventGroups = sortedKeys.map((daysSinceOrigin) => ({
+    daysSinceOrigin,
+    events: groupedEvents[daysSinceOrigin],
+  }));
+
+  return timelineEventGroups;
+}

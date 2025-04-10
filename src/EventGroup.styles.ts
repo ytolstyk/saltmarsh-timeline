@@ -11,7 +11,27 @@ const flyIn = keyframes`
   }
 `;
 
-export const CardWrapper = styled.div<{
+export const Divider = styled.hr`
+  margin: 1rem 3rem 0.25rem 0;
+`;
+
+export const EventGroupHeader = styled.div`
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const EventGroupText = styled.div`
+  font-size: 0.75rem;
+`;
+
+export const EventGroupDate = styled.div`
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+`;
+
+export const EventGroupWrapper = styled.div<{
   $percentLeft: number;
   $isHighlighted: boolean;
 }>`
@@ -26,6 +46,8 @@ export const CardWrapper = styled.div<{
   overflow: scroll;
   position: absolute;
   background-color: #333;
+  transition: all 0.2s ease-in-out;
+  animation: ${flyIn} 0.3s ease-out;
 
   ${(props) => {
     if (props.$isHighlighted) {
@@ -35,21 +57,4 @@ export const CardWrapper = styled.div<{
       `;
     }
   }}
-
-  transition: all 0.2s ease-in-out;
-  animation: ${flyIn} 0.3s ease-out;
-`;
-
-export const CardHeader = styled.div`
-  font-weight: 600;
-  font-size: 1rem;
-`;
-
-export const CardText = styled.div`
-  font-size: 0.75rem;
-`;
-
-export const CardDate = styled.div`
-  font-size: 0.75rem;
-  font-weight: 600;
 `;

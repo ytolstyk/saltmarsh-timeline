@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+export const remInPixels = 16;
+
 export const Container = styled.div`
   display: grid;
   width: 100%;

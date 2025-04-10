@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card } from "./Card";
+import { EventGroup } from "./EventGroup";
 import { RenderIf } from "./RenderIf";
 import {
   Line,
@@ -8,21 +8,29 @@ import {
   LineTop,
   LineWrapper,
 } from "./Timeline.styles";
-import { TimelineEvent } from "./types";
+import { TimelineEvent, TimelineSettingsProps } from "./types";
 import { useEvents } from "./useEvents";
+import { useWidth } from "./useWidth";
+import { useFilteredEventGroups } from "./useFilteredEventGroups";
+import { remInPixels } from "./App.styles";
 
 type Props = {
   onCardClick: (event: TimelineEvent) => void;
+  timelineSettings: TimelineSettingsProps;
 };
 
-export function Timeline({ onCardClick }: Props) {
+export function Timeline({ onCardClick, timelineSettings }: Props) {
+  const { elementRef, width } = useWidth(remInPixels * 10);
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
-  const { events, minDate, maxDate } = useEvents();
-  const offset = minDate;
-  const lineLength = maxDate - minDate;
+  const { events } = useEvents();
+  const { eventGroups, offset, lineLength } = useFilteredEventGroups(
+    events,
+    timelineSettings,
+    width
+  );
 
   const renderEventCards = (isEven: boolean) => {
-    return events.map((event, index) => {
+    return eventGroups.map((group, index) => {
       if (isEven && index % 2 !== 0) {
         return null;
       }
@@ -32,45 +40,49 @@ export function Timeline({ onCardClick }: Props) {
       }
 
       return (
-        <Card
+        <EventGroup
           key={index}
-          timelineEvent={event}
+          timelineEventGroup={group}
           index={index}
           setHighlightedIndex={setHighlightedIndex}
           isHighlighted={highlightedIndex === index}
           onCardClick={onCardClick}
-          percentLeft={((event.daysSinceOrigin - offset) / lineLength) * 100}
+          percentLeft={((group.daysSinceOrigin - offset) / lineLength) * 100}
         />
       );
     });
   };
 
   const renderLineDots = () => {
-    return events.map((event, index) => {
-      const percentLeft = ((event.daysSinceOrigin - offset) / lineLength) * 100;
+    return eventGroups.map((group, index) => {
+      const percentLeft = ((group.daysSinceOrigin - offset) / lineLength) * 100;
+      const numEvents = group.events.length > 1 ? group.events.length : "";
 
       return (
         <LineDot
           key={index}
-          onClick={() => onCardClick(event)}
+          onClick={() => onCardClick(group.events[0])}
           onMouseEnter={() => setHighlightedIndex(index)}
           onMouseLeave={() => setHighlightedIndex(null)}
           $percentLeft={percentLeft}
+          $isGroup={group.events.length > 1}
           $isActive={highlightedIndex === index}
-        />
+        >
+          {numEvents}
+        </LineDot>
       );
     });
   };
 
   return (
-    <div>
-      <RenderIf condition={!events || events.length === 0}>
+    <div ref={elementRef}>
+      <RenderIf condition={!eventGroups || eventGroups.length === 0}>
         <p>No events to display</p>
       </RenderIf>
-      <RenderIf condition={events?.length === 1}>
+      <RenderIf condition={eventGroups?.length === 1}>
         <LineWrapper>
-          <Card
-            timelineEvent={events[0]}
+          <EventGroup
+            timelineEventGroup={eventGroups[0]}
             index={0}
             isHighlighted={true}
             setHighlightedIndex={setHighlightedIndex}
@@ -79,7 +91,7 @@ export function Timeline({ onCardClick }: Props) {
           />
         </LineWrapper>
       </RenderIf>
-      <RenderIf condition={events?.length > 1}>
+      <RenderIf condition={eventGroups?.length > 1}>
         <LineWrapper>
           <LineTop>{renderEventCards(true)}</LineTop>
           <Line>{renderLineDots()}</Line>

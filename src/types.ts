@@ -9,3 +9,13 @@ export type FormDate = {
   months: number;
   days: number;
 };
+
+export type TimelineSettingsProps = {
+  startYear: number | string | null;
+  endYear: number | string | null;
+};
+
+export type TimelineEventGroup = {
+  daysSinceOrigin: number;
+  events: TimelineEvent[];
+};

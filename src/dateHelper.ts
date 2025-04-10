@@ -1,4 +1,4 @@
-import { FormDate } from "./types";
+import { FormDate, TimelineEvent } from "./types";
 
 type MonthObj = {
   monthName: string;
@@ -96,4 +96,65 @@ export function convertDaysToReadableDate(daysNum: number): string {
   const dayName = daysOptionsNumToDayName(dateObj.days - 1); // -1 because days are 1-based in the calendar
 
   return `${dayName}, ${monthName} ${dateObj.days}, ${dateObj.years}`;
+}
+
+export function convertYearsToDays(years: number): number {
+  return years * DAYS_IN_YEAR;
+}
+
+export function filterEventsByDateRange(
+  events: TimelineEvent[],
+  startYear: number | string | null,
+  endYear: number | string | null
+): TimelineEvent[] {
+  if (!events || events.length === 0) {
+    return [];
+  }
+
+  if (startYear === null || endYear === null) {
+    return events;
+  }
+
+  if (typeof startYear === "string") {
+    startYear = parseInt(startYear);
+  }
+
+  if (typeof endYear === "string") {
+    endYear = parseInt(endYear);
+  }
+
+  if (isNaN(startYear) || isNaN(endYear)) {
+    throw new Error("startYear and endYear must be numbers");
+  }
+
+  if (startYear > endYear) {
+    throw new Error("startYear cannot be greater than endYear");
+  }
+
+  return events.filter((event) => {
+    return (
+      event.daysSinceOrigin >= convertYearsToDays(startYear) &&
+      event.daysSinceOrigin <= convertYearsToDays(endYear)
+    );
+  });
+}
+
+export function numValueOrZero(value: number | string): number | string {
+  if (typeof value === "number" || value === "-") {
+    return value;
+  }
+
+  if (typeof value === "string" && value.trim() !== "") {
+    return parseInt(value);
+  }
+
+  return 0;
+}
+
+export function radiusInDays(
+  lineLength: number,
+  totalDays: number,
+  dotRadius: number
+): number {
+  return Math.ceil((dotRadius / lineLength) * totalDays);
 }
