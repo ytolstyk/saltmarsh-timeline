@@ -3,6 +3,7 @@ import {
   Bold,
   Controls,
   ImportControls,
+  SuccessMessage,
   Table,
   UploadLabel,
 } from "./CSVModal.styles";
@@ -17,6 +18,13 @@ export function CSVModal() {
   const [file, setFile] = useState<File | null>(null);
   const [previewArray, setPreviewArray] = useState<Array<T[]>>([]);
   const { appendEvents, overrideEvents } = useEvents();
+  const [screen, setScreen] = useState<"success" | null>(null);
+
+  const reset = () => {
+    setFile(null);
+    setPreviewArray([]);
+    setScreen(null);
+  };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0] || null;
@@ -28,12 +36,16 @@ export function CSVModal() {
     const events = convertCSVToEvents(previewArray);
 
     appendEvents(events);
+    reset();
+    setScreen("success");
   };
 
   const handleOverrideClick = () => {
     const events = convertCSVToEvents(previewArray);
 
     overrideEvents(events);
+    reset();
+    setScreen("success");
   };
 
   const readCSV = (file: File) => {
@@ -57,6 +69,7 @@ export function CSVModal() {
 
   useEffect(() => {
     if (file) {
+      setScreen(null);
       readCSV(file);
     }
   }, [file]);
@@ -82,6 +95,9 @@ export function CSVModal() {
   return (
     <div>
       <h2>CSV Import</h2>
+      <RenderIf condition={screen === "success"}>
+        <SuccessMessage>Successfully imported events!</SuccessMessage>
+      </RenderIf>
       <RenderIf condition={!file}>
         <div>
           <p>Click the button or drag and drop your file below.</p>
