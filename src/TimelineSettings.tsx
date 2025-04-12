@@ -6,6 +6,8 @@ import {
   TimelineSettingsFormRow,
   TimelineSettingsTitle,
 } from "./TimelineSettings.styles";
+import { openModal } from "./modalHelper";
+import { CSVModal } from "./CSVModal";
 
 type Props = {
   onSettingsChange: (settings: TimelineSettingsProps) => void;
@@ -59,6 +61,12 @@ export function TimelineSettings({
     });
   };
 
+  const handleUploadClick = () => {
+    openModal({
+      contentComponent: <CSVModal />,
+    });
+  };
+
   return (
     <TimelineSettingsContainer>
       <TimelineSettingsTitle>Timeline Settings</TimelineSettingsTitle>
@@ -85,6 +93,11 @@ export function TimelineSettings({
           </button>
           <button type="button" onClick={handleReset}>
             Reset
+          </button>
+        </TimelineSettingsFormRow>
+        <TimelineSettingsFormRow>
+          <button type="button" onClick={handleUploadClick}>
+            Upload CSV
           </button>
         </TimelineSettingsFormRow>
       </form>

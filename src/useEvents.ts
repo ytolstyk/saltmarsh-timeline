@@ -10,23 +10,28 @@ export function useEvents() {
     error,
   } = useSWR<TimelineEvent[]>(eventKey, getEvents);
 
-  const updateEvents = async (events: TimelineEvent[]) => {
+  const appendEvents = async (newEvents: TimelineEvent[]) => {
     try {
-      await setEvents(events);
+      const updatedEvents = [...(events || []), ...newEvents];
+      await setEvents(updatedEvents);
       mutate();
     } catch (e) {
-      console.error("Failed to set events in useEvents", e);
+      console.error("Failed to append events in useEvents", e);
+    }
+  };
+
+  const overrideEvents = async (newEvents: TimelineEvent[]) => {
+    try {
+      await setEvents(newEvents);
+      mutate();
+    } catch (e) {
+      console.error("Failed to override events in useEvents", e);
     }
   };
 
   const addEvent = async (event: TimelineEvent) => {
-    if (!events) {
-      console.error("No events to add to");
-      return;
-    }
-
     try {
-      await setEvents([...events, event]);
+      await setEvents([...(events || []), event]);
       mutate();
     } catch (e) {
       console.error("Failed to add event in useEvents", e);
@@ -78,7 +83,8 @@ export function useEvents() {
     mutate,
     error,
     addEvent,
-    updateEvents,
+    overrideEvents,
     deleteEvent,
+    appendEvents,
   };
 }

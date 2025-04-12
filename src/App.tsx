@@ -5,6 +5,7 @@ import { EventForm } from "./EventForm.tsx";
 import { Timeline } from "./Timeline.tsx";
 import { CurrentEventCard } from "./CurrentEventCard.tsx";
 import { TimelineSettings } from "./TimelineSettings.tsx";
+import { Modal } from "./Modal.tsx";
 
 function App() {
   const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | null>(
@@ -30,6 +31,7 @@ function App() {
         onCardClick={setSelectedEvent}
         timelineSettings={timelineSettings}
       />
+      <Modal />
     </Container>
   );
 }
