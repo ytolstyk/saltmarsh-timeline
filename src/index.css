@@ -12,3 +12,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@font-face {
+  font-family: "Battlesbridge";
+  src: url("./assets/fonts/Battlesbridge.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Booter";
+  src: url("./assets/fonts/Booter.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

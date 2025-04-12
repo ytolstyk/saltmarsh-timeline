@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AppHeader, Container } from "./App.styles.ts";
+import { AppHeader, Container, Title } from "./App.styles.ts";
 import { TimelineEvent, TimelineSettingsProps } from "./types.ts";
 import { EventForm } from "./EventForm.tsx";
 import { Timeline } from "./Timeline.tsx";
@@ -19,6 +19,7 @@ function App() {
 
   return (
     <Container>
+      <Title>Ghosts of Saltmarsh Timeline</Title>
       <AppHeader>
         <EventForm />
         <CurrentEventCard selectedEvent={selectedEvent} />

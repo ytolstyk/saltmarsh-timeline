@@ -13,3 +13,10 @@ export const AppHeader = styled.div`
   margin: 1rem;
   margin-bottom: 0;
 `;
+
+export const Title = styled.h1`
+  font-family: "Booter";
+  text-align: center;
+  margin: 0;
+  font-size: 5rem;
+`;
