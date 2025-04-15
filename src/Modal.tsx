@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ModalCloseButton, ModalContent, ModalOverlay } from "./Modal.styles";
 import { OPEN_MODAL, CLOSE_MODAL } from "./modalHelper";
 
