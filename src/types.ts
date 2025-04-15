@@ -19,3 +19,5 @@ export type TimelineEventGroup = {
   daysSinceOrigin: number;
   events: TimelineEvent[];
 };
+
+export type CSVModalPreview = Array<Array<string>>;

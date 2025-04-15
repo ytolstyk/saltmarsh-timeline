@@ -11,12 +11,13 @@ import { RenderIf } from "./RenderIf";
 import { convertCSVToEvents, validateCSVArray } from "./csvHelper";
 import { DAYS, MONTHS } from "./dateHelper";
 import { useEvents } from "./useEvents";
+import { CSVModalPreview } from "./types";
 
 const HEADERS = ["Day", "Month", "Year", "Event", "Description"];
 
 export function CSVModal() {
   const [file, setFile] = useState<File | null>(null);
-  const [previewArray, setPreviewArray] = useState<Array<T[]>>([]);
+  const [previewArray, setPreviewArray] = useState<CSVModalPreview>([]);
   const { appendEvents, overrideEvents } = useEvents();
   const [screen, setScreen] = useState<"success" | null>(null);
 
@@ -53,6 +54,7 @@ export function CSVModal() {
 
     reader.onload = function (event) {
       const csv = event.target?.result;
+      // @ts-expect-error csv is a string here
       const lines = csv?.split("\n");
       const data = [];
 
@@ -128,7 +130,7 @@ export function CSVModal() {
                   if (cellIndex === 0) {
                     return (
                       <td key={cellIndex}>
-                        {cell} - {DAYS[cell]}
+                        {cell} - {DAYS[Number(cell)]}
                       </td>
                     );
                   }
@@ -136,7 +138,7 @@ export function CSVModal() {
                   if (cellIndex === 1) {
                     return (
                       <td key={cellIndex}>
-                        {cell} - {MONTHS[cell][0]}
+                        {cell} - {MONTHS[Number(cell)][0]}
                       </td>
                     );
                   }

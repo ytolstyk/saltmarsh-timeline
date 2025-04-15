@@ -1,5 +1,5 @@
 import { convertInputToDays, MONTHS } from "./dateHelper";
-import { TimelineEvent } from "./types";
+import { CSVModalPreview, TimelineEvent } from "./types";
 
 export function validateCSVArray(csvArray: string[][]): {
   isValid: boolean;
@@ -62,7 +62,9 @@ export function validateCSVArray(csvArray: string[][]): {
   return { isValid: true, message: "CSV is valid" };
 }
 
-export function convertCSVToEvents(previewArray: Array<T[]>): TimelineEvent[] {
+export function convertCSVToEvents(
+  previewArray: CSVModalPreview
+): TimelineEvent[] {
   return previewArray.map((row) => {
     return {
       daysSinceOrigin: convertInputToDays({
