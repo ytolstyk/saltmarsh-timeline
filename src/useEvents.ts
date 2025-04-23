@@ -2,6 +2,7 @@ import useSWR from "swr";
 import { TimelineEvent } from "./types";
 import { eventKey, getEvents, setEvents } from "./localStorageHelper";
 import { useMemo } from "react";
+import { v4 as uuid } from "uuid";
 
 export function useEvents() {
   const {
@@ -30,6 +31,10 @@ export function useEvents() {
   };
 
   const addEvent = async (event: TimelineEvent) => {
+    if (!event.id) {
+      event.id = uuid();
+    }
+
     try {
       await setEvents([...(events || []), event]);
       mutate();
@@ -45,11 +50,7 @@ export function useEvents() {
     }
 
     const updatedEvents = events.filter((event) => {
-      return (
-        event.daysSinceOrigin !== eventToDelete.daysSinceOrigin ||
-        event.title !== eventToDelete.title ||
-        event.description !== eventToDelete.description
-      );
+      return event.id !== eventToDelete.id;
     });
 
     try {
@@ -76,12 +77,31 @@ export function useEvents() {
     return Math.max(...events.map((event) => event.daysSinceOrigin));
   }, [events]);
 
+  const tags = useMemo(() => {
+    if (!events) {
+      return [];
+    }
+
+    const tagsSet = new Set<string>();
+
+    events.forEach((event) => {
+      if (event.tags) {
+        event.tags.forEach((tag) => {
+          tagsSet.add(tag);
+        });
+      }
+    });
+
+    return Array.from(tagsSet);
+  }, [events]);
+
   return {
     events: events || [],
     minDate,
     maxDate,
     mutate,
     error,
+    tags,
     addEvent,
     overrideEvents,
     deleteEvent,

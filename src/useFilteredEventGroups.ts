@@ -1,15 +1,19 @@
 import { useMemo } from "react";
 import { remInPixels } from "./App.styles";
-import { filterEventsByDateRange, radiusInDays } from "./dateHelper";
+import {
+  filterEventsByDateRange,
+  filterEventsByTags,
+  radiusInDays,
+} from "./dateHelper";
 import { groupEvents } from "./eventsHelper";
-import { TimelineEvent, TimelineSettingsProps } from "./types";
+import { TimelineEvent, TimelineSettingsData } from "./types";
 
 export function useFilteredEventGroups(
   events: TimelineEvent[],
-  timelineSettings: TimelineSettingsProps,
+  timelineSettings: TimelineSettingsData,
   width: number
 ) {
-  const filteredEvents = useMemo(
+  const timeFilteredEvents = useMemo(
     () =>
       filterEventsByDateRange(
         events,
@@ -17,6 +21,10 @@ export function useFilteredEventGroups(
         timelineSettings.endYear
       ),
     [events, timelineSettings]
+  );
+  const filteredEvents = useMemo(
+    () => filterEventsByTags(timeFilteredEvents, timelineSettings.checkedTags),
+    [timeFilteredEvents, timelineSettings.checkedTags]
   );
   const filteredMinDate = useMemo(
     () => Math.min(...filteredEvents.map((event) => event.daysSinceOrigin)),

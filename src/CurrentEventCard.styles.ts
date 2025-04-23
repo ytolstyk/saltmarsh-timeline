@@ -28,5 +28,6 @@ export const CurrentCardDate = styled.div`
 `;
 
 export const CurrentCardDeleteWrapper = styled.div`
-  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
 `;

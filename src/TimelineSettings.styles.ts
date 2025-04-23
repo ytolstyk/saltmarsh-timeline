@@ -1,11 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { formContainerWrapperWidth, inputStyles } from "./EventForm.styles";
 
-export const TimelineSettingsTitle = styled.h2`
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  margin-top: 0;
+const buttonStyles = css`
+  height: 2rem;
+  cursor: pointer;
 `;
 
 export const TimelineSettingsContainer = styled.div`
@@ -30,6 +28,26 @@ export const TimelineSettingsFormRow = styled.div`
   }
 
   > button {
-    height: 2rem;
+    ${buttonStyles}
   }
+`;
+
+export const ButtonWrapper = styled.div`
+  position: relative;
+
+  > button {
+    ${buttonStyles}
+  }
+`;
+
+export const NeedsAttention = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 0.5rem;
+  width: 0.5rem;
+  background-color: red;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  transform: translateX(50%) translateY(-50%);
 `;

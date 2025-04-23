@@ -49,7 +49,7 @@ export const ImportControls = styled.div`
   }
 `;
 
-export const Bold = styled.span`
+export const Bold = styled.div`
   font-weight: bold;
 `;
 

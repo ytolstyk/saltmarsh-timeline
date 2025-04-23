@@ -8,15 +8,16 @@ import {
   LineTop,
   LineWrapper,
 } from "./Timeline.styles";
-import { TimelineEvent, TimelineSettingsProps } from "./types";
+import { TimelineEvent, TimelineSettingsData } from "./types";
 import { useEvents } from "./useEvents";
 import { useWidth } from "./useWidth";
 import { useFilteredEventGroups } from "./useFilteredEventGroups";
 import { remInPixels } from "./App.styles";
+import { percentLeft } from "./timelineHelper";
 
 type Props = {
   onCardClick: (event: TimelineEvent) => void;
-  timelineSettings: TimelineSettingsProps;
+  timelineSettings: TimelineSettingsData;
 };
 
 export function Timeline({ onCardClick, timelineSettings }: Props) {
@@ -46,8 +47,9 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
           index={index}
           setHighlightedIndex={setHighlightedIndex}
           isHighlighted={highlightedIndex === index}
+          checkedTags={timelineSettings.checkedTags}
           onCardClick={onCardClick}
-          percentLeft={((group.daysSinceOrigin - offset) / lineLength) * 100}
+          percentLeft={percentLeft(group.daysSinceOrigin, offset, lineLength)}
         />
       );
     });
@@ -55,7 +57,6 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
 
   const renderLineDots = () => {
     return eventGroups.map((group, index) => {
-      const percentLeft = ((group.daysSinceOrigin - offset) / lineLength) * 100;
       const numEvents = group.events.length > 1 ? group.events.length : "";
 
       return (
@@ -64,7 +65,7 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
           onClick={() => onCardClick(group.events[0])}
           onMouseEnter={() => setHighlightedIndex(index)}
           onMouseLeave={() => setHighlightedIndex(null)}
-          $percentLeft={percentLeft}
+          $percentLeft={percentLeft(group.daysSinceOrigin, offset, lineLength)}
           $isGroup={group.events.length > 1}
           $isActive={highlightedIndex === index}
         >
@@ -86,6 +87,7 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
             index={0}
             isHighlighted={true}
             setHighlightedIndex={setHighlightedIndex}
+            checkedTags={timelineSettings.checkedTags}
             onCardClick={onCardClick}
             percentLeft={50}
           />

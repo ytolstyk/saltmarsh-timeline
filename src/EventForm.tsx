@@ -7,8 +7,11 @@ import {
   MONTHS,
 } from "./dateHelper";
 import { useEvents } from "./useEvents";
+import { v4 as uuid } from "uuid";
 
-const initialFormData: TimelineEvent = {
+type FormData = Omit<TimelineEvent, "id">;
+
+const initialFormData: FormData = {
   daysSinceOrigin: 0,
   title: "",
   description: "",
@@ -21,7 +24,7 @@ const initialDate = {
 
 export function EventForm() {
   const [date, setDate] = useState(initialDate);
-  const [formData, setFormData] = useState<TimelineEvent>(initialFormData);
+  const [formData, setFormData] = useState<FormData>(initialFormData);
   const { addEvent } = useEvents();
 
   const handleDateChange =
@@ -54,9 +57,11 @@ export function EventForm() {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
+
     addEvent({
       ...formData,
       daysSinceOrigin: convertInputToDays(date),
+      id: uuid(),
     });
 
     setFormData(initialFormData);

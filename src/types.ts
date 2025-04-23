@@ -1,7 +1,9 @@
 export type TimelineEvent = {
+  id: string;
   daysSinceOrigin: number;
   title: string;
   description: string;
+  tags?: string[];
 };
 
 export type FormDate = {
@@ -10,9 +12,12 @@ export type FormDate = {
   days: number;
 };
 
-export type TimelineSettingsProps = {
+export type CheckedTags = Record<string, boolean>;
+
+export type TimelineSettingsData = {
   startYear: number | string | null;
   endYear: number | string | null;
+  checkedTags: CheckedTags;
 };
 
 export type TimelineEventGroup = {

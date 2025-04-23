@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  `;
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -10,6 +21,7 @@ export const ModalOverlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 `;
 
 export const ModalContent = styled.div`
@@ -22,6 +34,8 @@ export const ModalContent = styled.div`
   color: #222;
   max-height: 80vh;
   overflow-y: auto;
+
+  animation: ${fadeIn} 0.2s ease-in-out;
 `;
 
 export const ModalCloseButton = styled.button`

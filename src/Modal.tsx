@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ModalCloseButton, ModalContent, ModalOverlay } from "./Modal.styles";
 import { OPEN_MODAL, CLOSE_MODAL } from "./modalHelper";
+import { BsXLg } from "react-icons/bs";
 
 export function Modal() {
   const [modalContent, setModalContent] = useState(null);
@@ -51,7 +52,9 @@ export function Modal() {
   return (
     <ModalOverlay onClick={handleModalClose}>
       <ModalContent onClick={(e) => e.stopPropagation()}>
-        <ModalCloseButton onClick={handleModalClose}>X</ModalCloseButton>
+        <ModalCloseButton onClick={handleModalClose}>
+          <BsXLg />
+        </ModalCloseButton>
         {modalContent}
       </ModalContent>
     </ModalOverlay>

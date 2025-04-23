@@ -7,14 +7,18 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "type-check": "tsc -b"
   },
   "dependencies": {
     "react": "^19.0.0",
     "react-datetime-picker": "^6.0.1",
     "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
     "styled-components": "^6.1.16",
-    "swr": "^2.3.3"
+    "styled-icons": "^10.47.1",
+    "swr": "^2.3.3",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",

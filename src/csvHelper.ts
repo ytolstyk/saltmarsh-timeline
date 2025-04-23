@@ -1,5 +1,6 @@
 import { convertInputToDays, MONTHS } from "./dateHelper";
 import { CSVModalPreview, TimelineEvent } from "./types";
+import { v4 as uuid } from "uuid";
 
 export function validateCSVArray(csvArray: string[][]): {
   isValid: boolean;
@@ -8,10 +9,12 @@ export function validateCSVArray(csvArray: string[][]): {
   for (let i = 0; i < csvArray.length; i++) {
     const row = csvArray[i];
 
-    if (row.length !== 5) {
+    if (row.length < 5) {
       return {
         isValid: false,
-        message: `Row ${i + 1} does not have 5 columns: ${row.join(",")}`,
+        message: `Row ${i + 1} does not have at least 5 columns: ${row.join(
+          ","
+        )}`,
       };
     }
 
@@ -67,6 +70,7 @@ export function convertCSVToEvents(
 ): TimelineEvent[] {
   return previewArray.map((row) => {
     return {
+      id: uuid(),
       daysSinceOrigin: convertInputToDays({
         years: parseInt(row[2]),
         months: parseInt(row[1]),
@@ -74,6 +78,7 @@ export function convertCSVToEvents(
       }),
       title: row[3],
       description: row[4],
+      tags: row[5] ? row[5].split("|") : [],
     };
   });
 }

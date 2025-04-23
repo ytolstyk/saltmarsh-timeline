@@ -1,4 +1,4 @@
-import { FormDate, TimelineEvent } from "./types";
+import { CheckedTags, FormDate, TimelineEvent } from "./types";
 
 type MonthObj = {
   monthName: string;
@@ -136,6 +136,27 @@ export function filterEventsByDateRange(
       event.daysSinceOrigin >= convertYearsToDays(startYear) &&
       event.daysSinceOrigin <= convertYearsToDays(endYear)
     );
+  });
+}
+
+export function filterEventsByTags(
+  events: TimelineEvent[],
+  checkedTags: CheckedTags
+) {
+  if (!events || events.length === 0) {
+    return [];
+  }
+
+  if (Object.values(checkedTags).every((val) => !val)) {
+    return events;
+  }
+
+  return events.filter((event) => {
+    if (!event.tags) {
+      return false;
+    }
+
+    return event.tags.some((tag) => checkedTags[tag]);
   });
 }
 

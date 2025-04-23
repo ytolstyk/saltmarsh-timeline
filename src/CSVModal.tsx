@@ -13,7 +13,7 @@ import { DAYS, MONTHS } from "./dateHelper";
 import { useEvents } from "./useEvents";
 import { CSVModalPreview } from "./types";
 
-const HEADERS = ["Day", "Month", "Year", "Event", "Description"];
+const HEADERS = ["Day", "Month", "Year", "Event", "Description", "Tags"];
 
 export function CSVModal() {
   const [file, setFile] = useState<File | null>(null);
@@ -92,6 +92,32 @@ export function CSVModal() {
     );
   };
 
+  const renderTableRows = () => {
+    return previewArray.map((row, rowIndex) => (
+      <tr key={rowIndex}>
+        {row.map((cell, cellIndex) => {
+          if (cellIndex === 0) {
+            return (
+              <td key={cellIndex}>
+                {cell} - {DAYS[Number(cell)]}
+              </td>
+            );
+          }
+
+          if (cellIndex === 1) {
+            return (
+              <td key={cellIndex}>
+                {cell} - {MONTHS[Number(cell)][0]}
+              </td>
+            );
+          }
+
+          return <td key={cellIndex}>{cell}</td>;
+        })}
+      </tr>
+    ));
+  };
+
   const validationResult = validateCSVArray(previewArray);
 
   return (
@@ -103,10 +129,15 @@ export function CSVModal() {
       <RenderIf condition={!file}>
         <div>
           <p>Click the button or drag and drop your file below.</p>
-          <p>
-            The expected format is <Bold>day,month,year,title,description</Bold>{" "}
-            with the types <Bold>number,number,number,string,string</Bold>
-          </p>
+          <div>
+            The expected format is
+            <Bold>day: number</Bold>
+            <Bold>month: number</Bold>
+            <Bold>year: number</Bold>
+            <Bold>title: string</Bold>
+            <Bold>description: string</Bold>
+            <Bold>tags: string|string|string...</Bold>
+          </div>
         </div>
         {renderUpload()}
       </RenderIf>
@@ -123,40 +154,10 @@ export function CSVModal() {
               ))}
             </tr>
           </thead>
-          <tbody>
-            {previewArray.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((cell, cellIndex) => {
-                  if (cellIndex === 0) {
-                    return (
-                      <td key={cellIndex}>
-                        {cell} - {DAYS[Number(cell)]}
-                      </td>
-                    );
-                  }
-
-                  if (cellIndex === 1) {
-                    return (
-                      <td key={cellIndex}>
-                        {cell} - {MONTHS[Number(cell)][0]}
-                      </td>
-                    );
-                  }
-
-                  return <td key={cellIndex}>{cell}</td>;
-                })}
-              </tr>
-            ))}
-          </tbody>
+          <tbody>{renderTableRows()}</tbody>
         </Table>
         <Controls>
-          <button
-            type="button"
-            onClick={() => {
-              setFile(null);
-              setPreviewArray([]);
-            }}
-          >
+          <button type="button" onClick={reset}>
             Reset
           </button>
           <ImportControls>
