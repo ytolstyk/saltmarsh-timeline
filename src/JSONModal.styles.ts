@@ -1,8 +1,20 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const buttonStyles = css`
   height: 2rem;
   cursor: pointer;
+`;
+
+const bounce = keyframes`
+  0% {
+    transform: rotate(90deg) scale(1, 1.2) translateY(1rem);
+  }
+  50% {
+    transform: rotate(90deg) scale(1);
+  }
+  100% {
+    transform: rotate(90deg) scale(1, 1.2) translateY(1rem);
+  }
 `;
 
 export const UploadLabel = styled.label`
@@ -42,12 +54,20 @@ export const Controls = styled.div`
 `;
 
 export const ImportControls = styled.div`
+  position: relative;
   display: flex;
   gap: 1rem;
 
   > button {
     ${buttonStyles}
   }
+`;
+
+export const IconWrapper = styled.div`
+  position: absolute;
+  left: -2rem;
+
+  animation: ${bounce} 1s ease-out infinite;
 `;
 
 export const Bold = styled.div<{ $inline?: boolean }>`

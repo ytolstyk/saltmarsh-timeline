@@ -6,6 +6,7 @@ import {
   SuccessMessage,
   Table,
   UploadLabel,
+  IconWrapper,
 } from "./JSONModal.styles";
 import { RenderIf } from "./RenderIf";
 import {
@@ -16,6 +17,7 @@ import {
 import { DAYS, MONTHS } from "./dateHelper";
 import { useEvents } from "./useEvents";
 import { JSONPreviewBlob } from "./types";
+import { BsHandIndex } from "react-icons/bs";
 
 const HEADERS = ["Day", "Month", "Year", "Event", "Description", "Tags"];
 
@@ -163,6 +165,9 @@ export function JSONModal({ initialData }: Props) {
             Reset
           </button>
           <ImportControls>
+            <IconWrapper>
+              <BsHandIndex size={25} />
+            </IconWrapper>
             <button type="button" onClick={handleAppendClick}>
               Append
             </button>
