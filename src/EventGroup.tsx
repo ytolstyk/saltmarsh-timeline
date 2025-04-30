@@ -7,6 +7,8 @@ import {
   EventGroupText,
   EventGroupWrapper,
   Group,
+  HeaderCounter,
+  HeaderWrapper,
 } from "./EventGroup.styles";
 import { RenderIf } from "./RenderIf";
 import { convertDaysToReadableDate } from "./dateHelper";
@@ -66,7 +68,14 @@ export function EventGroup({
           onClick={handleCardClick(timelineEvent)}
           $showHover={events.length > 1}
         >
-          <EventGroupHeader>{timelineEvent.title}</EventGroupHeader>
+          <HeaderWrapper>
+            <EventGroupHeader>{timelineEvent.title}</EventGroupHeader>
+            <RenderIf condition={events.length > 1}>
+              <HeaderCounter>
+                {index + 1}/{events.length}
+              </HeaderCounter>
+            </RenderIf>
+          </HeaderWrapper>
           <EventGroupDate>
             {convertDaysToReadableDate(timelineEvent.daysSinceOrigin)}
           </EventGroupDate>

@@ -15,7 +15,16 @@ export const Divider = styled.hr`
   margin: 1rem 3rem 0.25rem 0;
 `;
 
+export const HeaderWrapper = styled.div`
+  display: flex;
+`;
+
+export const HeaderCounter = styled.div`
+  flex: 0;
+`;
+
 export const EventGroupHeader = styled.div`
+  flex: 1;
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 0.5rem;
