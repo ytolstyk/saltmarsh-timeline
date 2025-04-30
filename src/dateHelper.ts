@@ -1,5 +1,7 @@
 import { CheckedTags, FormDate, TimelineEvent } from "./types";
 
+const DOWNTIME_TAG = "downtime";
+
 type MonthObj = {
   monthName: string;
   monthIndex: number;
@@ -141,17 +143,30 @@ export function filterEventsByDateRange(
 
 export function filterEventsByTags(
   events: TimelineEvent[],
-  checkedTags: CheckedTags
+  checkedTags: CheckedTags,
+  excludeDowntime: boolean
 ) {
   if (!events || events.length === 0) {
     return [];
   }
 
-  if (Object.values(checkedTags).every((val) => !val)) {
-    return events;
+  let filteredEvents = events;
+
+  if (excludeDowntime) {
+    filteredEvents = events.filter((event) => {
+      if (!event.tags) {
+        return false;
+      }
+
+      return !event.tags.some((tag) => tag === DOWNTIME_TAG);
+    });
   }
 
-  return events.filter((event) => {
+  if (Object.values(checkedTags).every((val) => !val)) {
+    return filteredEvents;
+  }
+
+  return filteredEvents.filter((event) => {
     if (!event.tags) {
       return false;
     }

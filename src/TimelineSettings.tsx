@@ -23,6 +23,7 @@ type TimelineSettingsForm = {
   startYear: number | string;
   endYear: number | string;
   checkedTags: CheckedTags;
+  excludeDowntime: boolean;
 };
 
 const IT_TIMELINE = {
@@ -38,6 +39,7 @@ export function TimelineSettings({
     startYear: timelineSettings.startYear || "",
     endYear: timelineSettings.endYear || "",
     checkedTags: timelineSettings.checkedTags || {},
+    excludeDowntime: timelineSettings.excludeDowntime,
   });
 
   const handleSettingsChange =
@@ -53,13 +55,29 @@ export function TimelineSettings({
       });
     };
 
+  const handleExcludeDowntimeClick = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { checked } = event.target;
+
+    setFormData({
+      ...formData,
+      excludeDowntime: checked,
+    });
+    onSettingsChange({
+      ...timelineSettings,
+      excludeDowntime: checked,
+    });
+  };
+
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const { startYear, endYear, checkedTags } = formData;
+    const { startYear, endYear, checkedTags, excludeDowntime } = formData;
     const newSettings: TimelineSettingsData = {
       startYear: startYear === "-" ? null : startYear,
       endYear: endYear === "-" ? null : endYear,
       checkedTags,
+      excludeDowntime,
     };
 
     if (
@@ -77,17 +95,19 @@ export function TimelineSettings({
   };
 
   const handleDatesReset = () => {
-    const { checkedTags } = timelineSettings;
+    const { checkedTags, excludeDowntime } = timelineSettings;
 
     setFormData({
       startYear: "",
       endYear: "",
       checkedTags,
+      excludeDowntime,
     });
     onSettingsChange({
       startYear: null,
       endYear: null,
       checkedTags,
+      excludeDowntime,
     });
   };
 
@@ -159,6 +179,16 @@ export function TimelineSettings({
           <button type="submit" onClick={handleSubmit}>
             Apply
           </button>
+        </TimelineSettingsFormRow>
+        <TimelineSettingsFormRow>
+          <label>
+            <input
+              type="checkbox"
+              onChange={handleExcludeDowntimeClick}
+              checked={formData.excludeDowntime}
+            />
+            Exclude downtime
+          </label>
         </TimelineSettingsFormRow>
         <TimelineSettingsFormRow>
           <ButtonWrapper>

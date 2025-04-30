@@ -56,6 +56,12 @@ export const EmptyMessageWrapper = styled.div`
   }
 `;
 
+export const EventCounter = styled.div`
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+`;
+
 export const LineDot = styled.div<{
   $percentLeft: number;
   $isActive: boolean;

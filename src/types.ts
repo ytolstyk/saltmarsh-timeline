@@ -18,6 +18,7 @@ export type TimelineSettingsData = {
   startYear: number | string | null;
   endYear: number | string | null;
   checkedTags: CheckedTags;
+  excludeDowntime: boolean;
 };
 
 export type TimelineEventGroup = {

@@ -23,8 +23,17 @@ export function useFilteredEventGroups(
     [events, timelineSettings]
   );
   const filteredEvents = useMemo(
-    () => filterEventsByTags(timeFilteredEvents, timelineSettings.checkedTags),
-    [timeFilteredEvents, timelineSettings.checkedTags]
+    () =>
+      filterEventsByTags(
+        timeFilteredEvents,
+        timelineSettings.checkedTags,
+        timelineSettings.excludeDowntime
+      ),
+    [
+      timeFilteredEvents,
+      timelineSettings.checkedTags,
+      timelineSettings.excludeDowntime,
+    ]
   );
   const filteredMinDate = useMemo(
     () => Math.min(...filteredEvents.map((event) => event.daysSinceOrigin)),

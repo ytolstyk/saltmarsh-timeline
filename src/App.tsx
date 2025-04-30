@@ -20,6 +20,7 @@ function App() {
       startYear: null,
       endYear: null,
       checkedTags: {},
+      excludeDowntime: true,
     });
   const { elementRef, width } = useWidth();
   const isMobileWidth = width < MOBILE_WIDTH;

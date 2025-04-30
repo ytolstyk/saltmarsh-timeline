@@ -8,6 +8,7 @@ import {
   LineDot,
   LineTop,
   LineWrapper,
+  EventCounter,
 } from "./Timeline.styles";
 import { TimelineEvent, TimelineSettingsData } from "./types";
 import { useEvents } from "./useEvents";
@@ -29,11 +30,8 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
   const { elementRef, width } = useWidth(remInPixels * 10);
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const { events } = useEvents();
-  const { eventGroups, offset, lineLength } = useFilteredEventGroups(
-    events,
-    timelineSettings,
-    width
-  );
+  const { eventGroups, offset, lineLength, filteredEvents } =
+    useFilteredEventGroups(events, timelineSettings, width);
 
   const handleSeedClick = () => {
     openModal({
@@ -119,6 +117,7 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
         </LineWrapper>
       </RenderIf>
       <RenderIf condition={eventGroups?.length > 1}>
+        <EventCounter>{filteredEvents.length} events</EventCounter>
         <LineWrapper>
           <LineTop>{renderEventCards(true)}</LineTop>
           <Line>{renderLineDots()}</Line>

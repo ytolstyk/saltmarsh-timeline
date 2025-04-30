@@ -30,6 +30,10 @@ export const TimelineSettingsFormRow = styled.div`
   > button {
     ${buttonStyles}
   }
+
+  > label {
+    cursor: pointer;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -52,8 +56,8 @@ export const NeedsAttention = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  height: 0.5rem;
-  width: 0.5rem;
+  height: 0.75rem;
+  width: 0.75rem;
   background-color: red;
   border: 1px solid white;
   border-radius: 0.5rem;
