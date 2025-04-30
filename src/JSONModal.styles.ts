@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 const buttonStyles = css`
   height: 2rem;
+  cursor: pointer;
 `;
 
 export const UploadLabel = styled.label`
@@ -49,8 +50,10 @@ export const ImportControls = styled.div`
   }
 `;
 
-export const Bold = styled.div`
+export const Bold = styled.div<{ $inline?: boolean }>`
   font-weight: bold;
+
+  ${(props) => (props.$inline ? "display: inline-block;" : "")}
 `;
 
 export const Table = styled.table`
@@ -63,6 +66,7 @@ export const Table = styled.table`
     padding: 0.5rem;
     text-align: left;
     border: 1px solid #dee2e6;
+    white-space: pre-line;
   }
 
   th {

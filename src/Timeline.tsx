@@ -2,6 +2,7 @@ import { useState } from "react";
 import { EventGroup } from "./EventGroup";
 import { RenderIf } from "./RenderIf";
 import {
+  EmptyMessageWrapper,
   Line,
   LineBottom,
   LineDot,
@@ -14,6 +15,10 @@ import { useWidth } from "./useWidth";
 import { useFilteredEventGroups } from "./useFilteredEventGroups";
 import { remInPixels } from "./App.styles";
 import { percentLeft } from "./timelineHelper";
+import { openModal } from "./modalHelper";
+import { JSONModal } from "./JSONModal";
+import { convertJSONDataToBlobs } from "./jsonHelper";
+import jsonFile from "./assets/saltmarsh_timeline.json";
 
 type Props = {
   onCardClick: (event: TimelineEvent) => void;
@@ -29,6 +34,14 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
     timelineSettings,
     width
   );
+
+  const handleSeedClick = () => {
+    openModal({
+      contentComponent: (
+        <JSONModal initialData={convertJSONDataToBlobs(jsonFile)} />
+      ),
+    });
+  };
 
   const renderEventCards = (isEven: boolean) => {
     return eventGroups.map((group, index) => {
@@ -75,10 +88,22 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
     });
   };
 
+  const noEvents = !events || events.length === 0;
+  const noEventGroups = !noEvents && (!eventGroups || eventGroups.length === 0);
+
   return (
     <div ref={elementRef}>
-      <RenderIf condition={!eventGroups || eventGroups.length === 0}>
-        <p>No events to display</p>
+      <RenderIf condition={noEvents}>
+        <EmptyMessageWrapper>
+          <div>
+            There are no events in the system. You can import the timeline
+            spreadsheet to get started.
+          </div>
+          <button onClick={handleSeedClick}>Get started</button>
+        </EmptyMessageWrapper>
+      </RenderIf>
+      <RenderIf condition={noEventGroups}>
+        <EmptyMessageWrapper>All events are filtered out</EmptyMessageWrapper>
       </RenderIf>
       <RenderIf condition={eventGroups?.length === 1}>
         <LineWrapper>

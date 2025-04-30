@@ -1,6 +1,11 @@
 import { useMemo, useState } from "react";
 import { RenderIf } from "./RenderIf";
-import { ButtonsWrapper, TagLabel, TagsWrapper } from "./TagsModal.styles";
+import {
+  ButtonsWrapper,
+  TagLabel,
+  TagsWrapper,
+  TagsModalWrapper,
+} from "./TagsModal.styles";
 import { useEvents } from "./useEvents";
 import { CheckedTags } from "./types";
 import { closeModal } from "./modalHelper";
@@ -40,7 +45,7 @@ export function TagsModal({ checkedTags, setCheckedTags }: Props) {
   }, [tags]);
 
   return (
-    <div>
+    <TagsModalWrapper>
       <h1>Filter by Tags</h1>
       <RenderIf condition={tags.length === 0}>
         <p>No tags available</p>
@@ -71,6 +76,6 @@ export function TagsModal({ checkedTags, setCheckedTags }: Props) {
           </button>
         </ButtonsWrapper>
       </RenderIf>
-    </div>
+    </TagsModalWrapper>
   );
 }

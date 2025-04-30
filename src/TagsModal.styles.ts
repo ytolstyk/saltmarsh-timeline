@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const TagsModalWrapper = styled.div`
+  max-width: 40rem;
+`;
+
 export const TagLabel = styled.label<{ $isChecked: boolean }>`
   position: relative;
   cursor: pointer;
@@ -33,8 +37,11 @@ export const TagLabel = styled.label<{ $isChecked: boolean }>`
 `;
 
 export const TagsWrapper = styled.div`
-  display: flex;
-  gap: 1rem;
+  > label {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const ButtonsWrapper = styled.div`

@@ -23,6 +23,7 @@ export const EventGroupHeader = styled.div`
 
 export const EventGroupText = styled.div`
   font-size: 0.75rem;
+  white-space: pre-line;
 `;
 
 export const EventGroupDate = styled.div`
@@ -46,12 +47,16 @@ export const Group = styled.div<{ $showHover: boolean }>`
 `;
 
 export const EventGroupTags = styled.div`
-  display: flex;
-  gap: 0.5rem;
   margin-top: 0.5rem;
+
+  > div:not(:last-child) {
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
 `;
 
 export const EventGroupTag = styled.div<{ $isSelected: boolean }>`
+  display: inline-block;
   padding: 0 0.5rem;
   border-radius: 0.25rem;
   background-color: ${(props) =>

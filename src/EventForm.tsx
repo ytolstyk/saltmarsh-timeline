@@ -15,6 +15,7 @@ const initialFormData: FormData = {
   daysSinceOrigin: 0,
   title: "",
   description: "",
+  tags: [],
 };
 const initialDate = {
   years: 0,
@@ -55,11 +56,21 @@ export function EventForm() {
       setFormData({ ...formData, [key]: event.currentTarget.value });
     };
 
+  const handleTagsInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.currentTarget;
+
+    setFormData({
+      ...formData,
+      tags: value ? value.split("|") : [],
+    });
+  };
+
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
 
     addEvent({
       ...formData,
+      tags: formData.tags?.map((val) => val.trim()).filter((val) => val !== ""),
       daysSinceOrigin: convertInputToDays(date),
       id: uuid(),
     });
@@ -117,6 +128,11 @@ export function EventForm() {
           placeholder="Description"
           value={formData.description}
           onChange={handleInputChange("description")}
+        />
+        <input
+          placeholder="Tags separated by |"
+          value={formData.tags?.join("|")}
+          onChange={handleTagsInputChange}
         />
         <button onClick={handleSubmit}>Add</button>
       </Form>

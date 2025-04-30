@@ -44,6 +44,18 @@ export const LineBottom = styled.div`
   margin-top: 1rem;
 `;
 
+export const EmptyMessageWrapper = styled.div`
+  margin: 2rem auto 0;
+  text-align: center;
+  max-width: 30rem;
+
+  > button {
+    margin-top: 1rem;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+  }
+`;
+
 export const LineDot = styled.div<{
   $percentLeft: number;
   $isActive: boolean;

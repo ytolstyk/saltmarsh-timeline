@@ -3,14 +3,16 @@ import { CheckedTags, TimelineSettingsData } from "./types";
 import { numValueOrZero } from "./dateHelper";
 import {
   ButtonWrapper,
+  FullWidthButton,
   NeedsAttention,
   TimelineSettingsContainer,
   TimelineSettingsFormRow,
 } from "./TimelineSettings.styles";
 import { openModal } from "./modalHelper";
-import { CSVModal } from "./CSVModal";
+import { JSONModal } from "./JSONModal";
 import { TagsModal } from "./TagsModal";
 import { RenderIf } from "./RenderIf";
+import { DeleteAllModal } from "./DeleteAllModal";
 
 type Props = {
   onSettingsChange: (settings: TimelineSettingsData) => void;
@@ -60,25 +62,38 @@ export function TimelineSettings({
       checkedTags,
     };
 
+    if (
+      !Number.isInteger(newSettings.startYear) ||
+      !Number.isInteger(newSettings.endYear)
+    ) {
+      return;
+    }
+
+    if (newSettings.startYear! > newSettings.endYear!) {
+      return;
+    }
+
     onSettingsChange(newSettings);
   };
 
-  const handleReset = () => {
+  const handleDatesReset = () => {
+    const { checkedTags } = timelineSettings;
+
     setFormData({
       startYear: "",
       endYear: "",
-      checkedTags: {},
+      checkedTags,
     });
     onSettingsChange({
       startYear: null,
       endYear: null,
-      checkedTags: {},
+      checkedTags,
     });
   };
 
   const handleRestrictClick = () => {
     const restrictedData = {
-      ...formData,
+      ...timelineSettings,
       ...IT_TIMELINE,
     };
 
@@ -88,7 +103,7 @@ export function TimelineSettings({
 
   const handleUploadClick = () => {
     openModal({
-      contentComponent: <CSVModal />,
+      contentComponent: <JSONModal />,
     });
   };
 
@@ -110,27 +125,32 @@ export function TimelineSettings({
     });
   };
 
+  const handleDeleteEverythingClick = () => {
+    openModal({
+      contentComponent: <DeleteAllModal />,
+    });
+  };
+
   return (
     <TimelineSettingsContainer>
       <form>
         <TimelineSettingsFormRow>
-          <label>Start year</label>
           <input
             type="text"
+            placeholder="Start year"
             value={formData.startYear}
             onChange={handleSettingsChange("startYear")}
           />
-        </TimelineSettingsFormRow>
-        <TimelineSettingsFormRow>
-          <label>End year</label>
+          to
           <input
             type="text"
+            placeholder="End year"
             value={formData.endYear}
             onChange={handleSettingsChange("endYear")}
           />
         </TimelineSettingsFormRow>
         <TimelineSettingsFormRow>
-          <button type="button" onClick={handleReset}>
+          <button type="button" onClick={handleDatesReset}>
             Reset
           </button>
           <button type="button" onClick={handleRestrictClick}>
@@ -142,9 +162,9 @@ export function TimelineSettings({
         </TimelineSettingsFormRow>
         <TimelineSettingsFormRow>
           <ButtonWrapper>
-            <button type="button" onClick={handleTagsClick}>
+            <FullWidthButton type="button" onClick={handleTagsClick}>
               Filter by tags
-            </button>
+            </FullWidthButton>
             <RenderIf
               condition={Object.values(timelineSettings.checkedTags).some(
                 (val) => val
@@ -155,9 +175,14 @@ export function TimelineSettings({
           </ButtonWrapper>
         </TimelineSettingsFormRow>
         <TimelineSettingsFormRow>
-          <button type="button" onClick={handleUploadClick}>
-            Upload CSV
-          </button>
+          <FullWidthButton type="button" onClick={handleUploadClick}>
+            Upload JSON
+          </FullWidthButton>
+        </TimelineSettingsFormRow>
+        <TimelineSettingsFormRow>
+          <FullWidthButton type="button" onClick={handleDeleteEverythingClick}>
+            Delete everything
+          </FullWidthButton>
         </TimelineSettingsFormRow>
       </form>
     </TimelineSettingsContainer>

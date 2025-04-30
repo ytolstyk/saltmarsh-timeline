@@ -34,10 +34,18 @@ export const TimelineSettingsFormRow = styled.div`
 
 export const ButtonWrapper = styled.div`
   position: relative;
+  width: 100%;
+  flex: 1;
 
   > button {
     ${buttonStyles}
   }
+`;
+
+export const FullWidthButton = styled.button`
+  ${buttonStyles};
+  flex: 1;
+  width: 100%;
 `;
 
 export const NeedsAttention = styled.div`

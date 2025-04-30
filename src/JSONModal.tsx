@@ -6,18 +6,28 @@ import {
   SuccessMessage,
   Table,
   UploadLabel,
-} from "./CSVModal.styles";
+} from "./JSONModal.styles";
 import { RenderIf } from "./RenderIf";
-import { convertCSVToEvents, validateCSVArray } from "./csvHelper";
+import {
+  convertJSONDataToBlobs,
+  convertJSONToEvents,
+  validateJSONArray,
+} from "./jsonHelper";
 import { DAYS, MONTHS } from "./dateHelper";
 import { useEvents } from "./useEvents";
-import { CSVModalPreview } from "./types";
+import { JSONPreviewBlob } from "./types";
 
 const HEADERS = ["Day", "Month", "Year", "Event", "Description", "Tags"];
 
-export function CSVModal() {
+type Props = {
+  initialData?: JSONPreviewBlob[];
+};
+
+export function JSONModal({ initialData }: Props) {
   const [file, setFile] = useState<File | null>(null);
-  const [previewArray, setPreviewArray] = useState<CSVModalPreview>([]);
+  const [previewArray, setPreviewArray] = useState<JSONPreviewBlob[]>(
+    initialData ?? []
+  );
   const { appendEvents, overrideEvents } = useEvents();
   const [screen, setScreen] = useState<"success" | null>(null);
 
@@ -34,7 +44,7 @@ export function CSVModal() {
   };
 
   const handleAppendClick = () => {
-    const events = convertCSVToEvents(previewArray);
+    const events = convertJSONToEvents(previewArray);
 
     appendEvents(events);
     reset();
@@ -42,26 +52,20 @@ export function CSVModal() {
   };
 
   const handleOverrideClick = () => {
-    const events = convertCSVToEvents(previewArray);
+    const events = convertJSONToEvents(previewArray);
 
     overrideEvents(events);
     reset();
     setScreen("success");
   };
 
-  const readCSV = (file: File) => {
+  const readJSON = (file: File) => {
     const reader = new FileReader();
 
     reader.onload = function (event) {
-      const csv = event.target?.result;
-      // @ts-expect-error csv is a string here
-      const lines = csv?.split("\n");
-      const data = [];
-
-      for (const line of lines) {
-        const values = line.split(",");
-        data.push(values);
-      }
+      const json = event.target?.result;
+      // @ts-expect-error json is a string here
+      const data = convertJSONDataToBlobs(JSON.parse(json));
 
       setPreviewArray(data);
     };
@@ -72,7 +76,7 @@ export function CSVModal() {
   useEffect(() => {
     if (file) {
       setScreen(null);
-      readCSV(file);
+      readJSON(file);
     }
   }, [file]);
 
@@ -86,7 +90,7 @@ export function CSVModal() {
           id="file-upload"
           type="file"
           onChange={handleFileChange}
-          accept=".csv"
+          accept=".json"
         />
       </UploadLabel>
     );
@@ -95,45 +99,53 @@ export function CSVModal() {
   const renderTableRows = () => {
     return previewArray.map((row, rowIndex) => (
       <tr key={rowIndex}>
-        {row.map((cell, cellIndex) => {
-          if (cellIndex === 0) {
+        {Object.keys(row).map((key) => {
+          if (key === "days") {
             return (
-              <td key={cellIndex}>
-                {cell} - {DAYS[Number(cell)]}
+              <td key={key}>
+                {row[key]} - {DAYS[row[key] - 1]}
               </td>
             );
           }
 
-          if (cellIndex === 1) {
+          if (key === "months") {
             return (
-              <td key={cellIndex}>
-                {cell} - {MONTHS[Number(cell)][0]}
+              <td key={key}>
+                {row[key]} - {MONTHS[row[key] - 1][0]}
               </td>
             );
           }
 
-          return <td key={cellIndex}>{cell}</td>;
+          if (key === "tags") {
+            return <td key={key}>{row[key]?.join(",")}</td>;
+          }
+
+          // @ts-expect-error key comes from the row object
+          return <td key={key}>{row[key]}</td>;
         })}
       </tr>
     ));
   };
 
-  const validationResult = validateCSVArray(previewArray);
+  const validationResult = validateJSONArray(previewArray);
+
+  const isPreviewArray = previewArray?.length > 1;
+  const noFileNoPreview = !file && !isPreviewArray;
 
   return (
     <div>
-      <h2>CSV Import</h2>
+      <h2>JSON Import</h2>
       <RenderIf condition={screen === "success"}>
         <SuccessMessage>Successfully imported events!</SuccessMessage>
       </RenderIf>
-      <RenderIf condition={!file}>
+      <RenderIf condition={noFileNoPreview}>
         <div>
           <p>Click the button or drag and drop your file below.</p>
           <div>
             The expected format is
-            <Bold>day: number</Bold>
-            <Bold>month: number</Bold>
-            <Bold>year: number</Bold>
+            <Bold>
+              date: "day{"<number>"},month{"<number>"},year{"<number>"}"
+            </Bold>
             <Bold>title: string</Bold>
             <Bold>description: string</Bold>
             <Bold>tags: string|string|string...</Bold>
@@ -141,21 +153,11 @@ export function CSVModal() {
         </div>
         {renderUpload()}
       </RenderIf>
-      <RenderIf condition={Boolean(file) && !validationResult.isValid}>
+      <RenderIf condition={isPreviewArray && !validationResult.isValid}>
         <p>{validationResult.message}</p>
       </RenderIf>
-      <RenderIf condition={Boolean(file) && validationResult.isValid}>
-        Preview of <Bold>{file?.name}</Bold>
-        <Table>
-          <thead>
-            <tr>
-              {HEADERS.map((header, index) => (
-                <th key={index}>{header}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>{renderTableRows()}</tbody>
-        </Table>
+      <RenderIf condition={isPreviewArray && validationResult.isValid}>
+        Preview of <Bold $inline>{file ? file.name : "seed data"}</Bold>
         <Controls>
           <button type="button" onClick={reset}>
             Reset
@@ -169,6 +171,16 @@ export function CSVModal() {
             </button>
           </ImportControls>
         </Controls>
+        <Table>
+          <thead>
+            <tr>
+              {HEADERS.map((header, index) => (
+                <th key={index}>{header}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>{renderTableRows()}</tbody>
+        </Table>
       </RenderIf>
     </div>
   );

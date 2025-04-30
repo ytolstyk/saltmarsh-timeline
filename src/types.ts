@@ -25,4 +25,18 @@ export type TimelineEventGroup = {
   events: TimelineEvent[];
 };
 
-export type CSVModalPreview = Array<Array<string>>;
+export type JSONImportObj = {
+  date: string;
+  title: string;
+  description: string;
+  tags?: string;
+};
+
+export type JSONPreviewBlob = {
+  days: number;
+  months: number;
+  years: number;
+  title: string;
+  description: string;
+  tags?: string[];
+};

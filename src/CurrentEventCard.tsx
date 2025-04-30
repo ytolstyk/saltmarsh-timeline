@@ -21,21 +21,28 @@ export function CurrentEventCard({ selectedEvent, clearEvent }: Props) {
     return null;
   }
 
+  const handleDeleteClick = () => {
+    deleteEvent(selectedEvent);
+    clearEvent();
+  };
+
   return (
     <CurrentEventCardWrapper>
-      <CurrentCardHeader>{selectedEvent.title}</CurrentCardHeader>
-      <CurrentCardDate>
-        {convertDaysToReadableDate(selectedEvent.daysSinceOrigin)}
-      </CurrentCardDate>
-      <CurrentCardText>{selectedEvent.description}</CurrentCardText>
-      <CurrentCardDeleteWrapper>
-        <button type="button" onClick={() => deleteEvent(selectedEvent)}>
-          Delete
-        </button>
-        <button type="button" onClick={clearEvent}>
-          Close
-        </button>
-      </CurrentCardDeleteWrapper>
+      <div>
+        <CurrentCardHeader>{selectedEvent.title}</CurrentCardHeader>
+        <CurrentCardDate>
+          {convertDaysToReadableDate(selectedEvent.daysSinceOrigin)}
+        </CurrentCardDate>
+        <CurrentCardText>{selectedEvent.description}</CurrentCardText>
+        <CurrentCardDeleteWrapper>
+          <button type="button" onClick={handleDeleteClick}>
+            Delete
+          </button>
+          <button type="button" onClick={clearEvent}>
+            Close
+          </button>
+        </CurrentCardDeleteWrapper>
+      </div>
     </CurrentEventCardWrapper>
   );
 }

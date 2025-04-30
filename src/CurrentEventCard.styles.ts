@@ -6,7 +6,7 @@ export const CurrentEventCardWrapper = styled.div`
   border-radius: 0.5rem;
   border: 1px solid #ccc;
   padding: 0.5rem;
-  width: 15rem;
+  width: 20rem;
   max-height: 15rem;
   overflow: scroll;
   background-color: #333;
@@ -18,8 +18,10 @@ export const CurrentCardHeader = styled.div`
 `;
 
 export const CurrentCardText = styled.div`
+  margin-top: 1rem;
   flex: 1;
-  font-size: 0.75rem;
+  font-size: 1rem;
+  white-space: pre-line;
 `;
 
 export const CurrentCardDate = styled.div`
@@ -28,6 +30,11 @@ export const CurrentCardDate = styled.div`
 `;
 
 export const CurrentCardDeleteWrapper = styled.div`
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
+
+  > button {
+    cursor: pointer;
+  }
 `;
