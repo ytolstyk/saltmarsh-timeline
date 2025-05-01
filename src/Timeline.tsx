@@ -10,7 +10,7 @@ import {
   LineWrapper,
   EventCounter,
 } from "./Timeline.styles";
-import { TimelineEvent, TimelineSettingsData } from "./types";
+import { TimelineEventGroup, TimelineSettingsData } from "./types";
 import { useEvents } from "./useEvents";
 import { useWidth } from "./useWidth";
 import { useFilteredEventGroups } from "./useFilteredEventGroups";
@@ -20,13 +20,13 @@ import { openModal } from "./modalHelper";
 import { JSONModal } from "./JSONModal";
 import { convertJSONDataToBlobs } from "./jsonHelper";
 import jsonFile from "./assets/saltmarsh_timeline.json";
+import { CurrentEventGroup } from "./CurrentEventGroup";
 
 type Props = {
-  onCardClick: (event: TimelineEvent) => void;
   timelineSettings: TimelineSettingsData;
 };
 
-export function Timeline({ onCardClick, timelineSettings }: Props) {
+export function Timeline({ timelineSettings }: Props) {
   const { elementRef, width } = useWidth(remInPixels * 10);
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const { events } = useEvents();
@@ -37,6 +37,17 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
     openModal({
       contentComponent: (
         <JSONModal initialData={convertJSONDataToBlobs(jsonFile)} />
+      ),
+    });
+  };
+
+  const handleGroupClick = (group: TimelineEventGroup) => () => {
+    openModal({
+      contentComponent: (
+        <CurrentEventGroup
+          eventGroup={group}
+          checkedTags={timelineSettings.checkedTags}
+        />
       ),
     });
   };
@@ -59,7 +70,6 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
           setHighlightedIndex={setHighlightedIndex}
           isHighlighted={highlightedIndex === index}
           checkedTags={timelineSettings.checkedTags}
-          onCardClick={onCardClick}
           percentLeft={percentLeft(group.daysSinceOrigin, offset, lineLength)}
         />
       );
@@ -73,7 +83,7 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
       return (
         <LineDot
           key={index}
-          onClick={() => onCardClick(group.events[0])}
+          onClick={handleGroupClick(group)}
           onMouseEnter={() => setHighlightedIndex(index)}
           onMouseLeave={() => setHighlightedIndex(null)}
           $percentLeft={percentLeft(group.daysSinceOrigin, offset, lineLength)}
@@ -111,13 +121,14 @@ export function Timeline({ onCardClick, timelineSettings }: Props) {
             isHighlighted={true}
             setHighlightedIndex={setHighlightedIndex}
             checkedTags={timelineSettings.checkedTags}
-            onCardClick={onCardClick}
             percentLeft={50}
           />
         </LineWrapper>
       </RenderIf>
       <RenderIf condition={eventGroups?.length > 1}>
-        <EventCounter>{filteredEvents.length} events</EventCounter>
+        <EventCounter>
+          Showing {filteredEvents.length} of {events.length} total events
+        </EventCounter>
         <LineWrapper>
           <LineTop>{renderEventCards(true)}</LineTop>
           <Line>{renderLineDots()}</Line>

@@ -12,7 +12,9 @@ import {
 } from "./EventGroup.styles";
 import { RenderIf } from "./RenderIf";
 import { convertDaysToReadableDate } from "./dateHelper";
+import { openModal } from "./modalHelper";
 import { TimelineEventGroup, TimelineEvent, CheckedTags } from "./types";
+import { CurrentEventGroup } from "./CurrentEventGroup";
 
 type Props = {
   timelineEventGroup: TimelineEventGroup;
@@ -20,7 +22,6 @@ type Props = {
   percentLeft: number;
   isHighlighted: boolean;
   checkedTags: CheckedTags;
-  onCardClick: (event: TimelineEvent) => void;
   setHighlightedIndex: (index: number | null) => void;
 };
 
@@ -30,7 +31,6 @@ export function EventGroup({
   percentLeft,
   isHighlighted,
   checkedTags,
-  onCardClick,
   setHighlightedIndex,
 }: Props) {
   if (!timelineEventGroup) {
@@ -38,8 +38,16 @@ export function EventGroup({
   }
 
   const { events } = timelineEventGroup;
-  const handleCardClick = (event: TimelineEvent) => () => {
-    onCardClick(event);
+
+  const handleGroupClick = () => {
+    openModal({
+      contentComponent: (
+        <CurrentEventGroup
+          eventGroup={timelineEventGroup}
+          checkedTags={checkedTags}
+        />
+      ),
+    });
   };
 
   const renderTags = (timelineEvent: TimelineEvent) => {
@@ -63,11 +71,7 @@ export function EventGroup({
 
     return events.map((timelineEvent, index) => {
       return (
-        <Group
-          key={index}
-          onClick={handleCardClick(timelineEvent)}
-          $showHover={events.length > 1}
-        >
+        <Group key={index} $showHover={events.length > 1}>
           <HeaderWrapper>
             <EventGroupHeader>{timelineEvent.title}</EventGroupHeader>
             <RenderIf condition={events.length > 1}>
@@ -101,6 +105,7 @@ export function EventGroup({
       $isHighlighted={isHighlighted}
       onMouseEnter={() => setHighlightedIndex(index)}
       onMouseLeave={() => setHighlightedIndex(null)}
+      onClick={handleGroupClick}
     >
       {renderEvents()}
     </EventGroupWrapper>

@@ -7,11 +7,11 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const AppHeader = styled.div`
+export const AppFooter = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 1rem;
-  margin-bottom: 0;
+  margin-bottom: 10rem;
 `;
 
 export const Title = styled.h1`

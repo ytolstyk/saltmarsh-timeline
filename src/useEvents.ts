@@ -43,6 +43,31 @@ export function useEvents() {
     }
   };
 
+  const updateEvent = async (eventToUpdate: TimelineEvent) => {
+    if (!events) {
+      console.error("No events to update");
+      return;
+    }
+
+    const updatedEvents = events.map((event) => {
+      if (event.id === eventToUpdate.id) {
+        return {
+          ...event,
+          ...eventToUpdate,
+        };
+      }
+
+      return event;
+    });
+
+    try {
+      await setEvents(updatedEvents);
+      mutate();
+    } catch (e) {
+      console.error("Failed to update event in useEvents", e);
+    }
+  };
+
   const deleteEvent = async (eventToDelete: TimelineEvent) => {
     if (!events) {
       console.error("No events to delete from");
@@ -103,6 +128,7 @@ export function useEvents() {
     error,
     tags,
     addEvent,
+    updateEvent,
     overrideEvents,
     deleteEvent,
     appendEvents,

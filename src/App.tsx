@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { AppHeader, Container, Title } from "./App.styles.ts";
-import { TimelineEvent, TimelineSettingsData } from "./types.ts";
+import { AppFooter, Container, Title } from "./App.styles.ts";
+import { TimelineSettingsData } from "./types.ts";
 import { EventForm } from "./EventForm.tsx";
 import { Timeline } from "./Timeline.tsx";
-import { CurrentEventCard } from "./CurrentEventCard.tsx";
 import { TimelineSettings } from "./TimelineSettings.tsx";
 import { Modal } from "./Modal.tsx";
 import { useWidth } from "./useWidth.ts";
@@ -12,9 +11,6 @@ import { RenderIf } from "./RenderIf.tsx";
 const MOBILE_WIDTH = 1000;
 
 function App() {
-  const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | null>(
-    null
-  );
   const [timelineSettings, setTimelineSettings] =
     useState<TimelineSettingsData>({
       startYear: null,
@@ -29,21 +25,14 @@ function App() {
     <Container ref={elementRef}>
       <Title>Ghosts of Saltmarsh Timeline</Title>
       <RenderIf condition={!isMobileWidth}>
-        <AppHeader>
+        <Timeline timelineSettings={timelineSettings} />
+        <AppFooter>
           <EventForm />
-          <CurrentEventCard
-            selectedEvent={selectedEvent}
-            clearEvent={() => setSelectedEvent(null)}
-          />
           <TimelineSettings
             timelineSettings={timelineSettings}
             onSettingsChange={setTimelineSettings}
           />
-        </AppHeader>
-        <Timeline
-          onCardClick={setSelectedEvent}
-          timelineSettings={timelineSettings}
-        />
+        </AppFooter>
         <Modal />
       </RenderIf>
       <RenderIf condition={isMobileWidth}>

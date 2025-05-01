@@ -53,7 +53,7 @@ export function Modal() {
     <ModalOverlay onClick={handleModalClose}>
       <ModalContent onClick={(e) => e.stopPropagation()}>
         <ModalCloseButton onClick={handleModalClose}>
-          <BsXLg />
+          <BsXLg size={25} />
         </ModalCloseButton>
         {modalContent}
       </ModalContent>
