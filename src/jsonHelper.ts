@@ -1,4 +1,8 @@
-import { convertInputToDays, MONTHS } from "./dateHelper";
+import {
+  convertInputToDays,
+  convertDaysToDateObject,
+  MONTHS,
+} from "./dateHelper";
 import { JSONImportObj, JSONPreviewBlob, TimelineEvent } from "./types";
 import { v4 as uuid } from "uuid";
 
@@ -99,4 +103,32 @@ export function convertJSONToEvents(
       tags,
     };
   });
+}
+
+export function convertEventsToJSON(events: TimelineEvent[]): JSONImportObj[] {
+  return events.map((event) => {
+    const { daysSinceOrigin, title, description, tags } = event;
+    const { years, months, days } = convertDaysToDateObject(daysSinceOrigin);
+
+    return {
+      date: `${days - 1},${months},${years}`,
+      title,
+      description,
+      tags: tags ? tags.join("|") : "",
+    };
+  });
+}
+
+export function downloadJSONEvents(
+  events: TimelineEvent[],
+  filename: string = "saltmarsh_timeline_events.json"
+) {
+  const jsonString = JSON.stringify(convertEventsToJSON(events), null, 2);
+  const blob = new Blob([jsonString], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
 }

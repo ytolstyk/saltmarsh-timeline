@@ -13,6 +13,8 @@ import { JSONModal } from "./JSONModal";
 import { TagsModal } from "./TagsModal";
 import { RenderIf } from "./RenderIf";
 import { DeleteAllModal } from "./DeleteAllModal";
+import { downloadJSONEvents } from "./jsonHelper";
+import { useEvents } from "./useEvents";
 
 type Props = {
   onSettingsChange: (settings: TimelineSettingsData) => void;
@@ -41,6 +43,7 @@ export function TimelineSettings({
     checkedTags: timelineSettings.checkedTags || {},
     excludeDowntime: timelineSettings.excludeDowntime,
   });
+  const { events } = useEvents();
 
   const handleSettingsChange =
     (key: keyof Pick<TimelineSettingsData, "startYear" | "endYear">) =>
@@ -127,6 +130,10 @@ export function TimelineSettings({
     });
   };
 
+  const handleDownloadClick = () => {
+    downloadJSONEvents(events);
+  };
+
   const handleCheckedTagsSubmit = (tagChanges: CheckedTags) => {
     onSettingsChange({
       ...timelineSettings,
@@ -207,6 +214,9 @@ export function TimelineSettings({
         <TimelineSettingsFormRow>
           <FullWidthButton type="button" onClick={handleUploadClick}>
             Upload JSON
+          </FullWidthButton>
+          <FullWidthButton type="button" onClick={handleDownloadClick}>
+            Download JSON
           </FullWidthButton>
         </TimelineSettingsFormRow>
         <TimelineSettingsFormRow>
