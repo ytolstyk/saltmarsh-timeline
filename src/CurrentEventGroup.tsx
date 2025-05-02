@@ -18,6 +18,7 @@ import { CheckedTags } from "./types";
 import { useState } from "react";
 import { EditEventForm } from "./EditEventForm";
 import { BsCalendar3, BsFillTagsFill } from "react-icons/bs";
+import { closeModal } from "./modalHelper";
 
 type Props = {
   eventGroup: TimelineEventGroup;
@@ -32,7 +33,20 @@ export function CurrentEventGroup({ eventGroup, checkedTags }: Props) {
   const { events } = currentEventGroup;
 
   const handleDeleteClick = (event: TimelineEvent) => () => {
+    const currentEvents = currentEventGroup.events.filter(
+      (currentEvent) => currentEvent.id !== event.id
+    );
+    const newEventGroup = {
+      ...currentEventGroup,
+      events: currentEvents,
+    };
+
+    setCurrentEventGroup(newEventGroup);
     deleteEvent(event);
+
+    if (currentEvents.length === 0) {
+      closeModal();
+    }
   };
 
   const handleEditClick = (eventId: string) => () => {
