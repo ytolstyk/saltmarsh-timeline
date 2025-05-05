@@ -6,7 +6,6 @@ export const CurrentGroupWrapper = styled.div`
   padding: 0.5rem;
   min-width: 30rem;
   max-width: 50rem;
-  overflow: scroll;
   gap: 2rem;
 `;
 
@@ -73,5 +72,6 @@ export const Tag = styled.div<{ $isSelected: boolean }>`
     props.$isSelected ? "rgb(137, 222, 131)" : "rgb(172, 216, 253)"};
   border: 1px solid rgb(139, 139, 139);
   font-size: 0.75rem;
+  font-weight: 600;
   text-transform: capitalize;
 `;

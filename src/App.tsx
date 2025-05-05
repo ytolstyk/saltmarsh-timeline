@@ -13,8 +13,8 @@ const MOBILE_WIDTH = 1000;
 function App() {
   const [timelineSettings, setTimelineSettings] =
     useState<TimelineSettingsData>({
-      startYear: null,
-      endYear: null,
+      startYear: 575,
+      endYear: 600,
       checkedTags: {},
       excludeDowntime: true,
     });

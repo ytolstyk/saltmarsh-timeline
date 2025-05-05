@@ -17,6 +17,7 @@ export const Divider = styled.hr`
 
 export const HeaderWrapper = styled.div`
   display: flex;
+  gap: 0.5rem;
 `;
 
 export const HeaderCounter = styled.div`
@@ -41,20 +42,6 @@ export const EventGroupDate = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-export const Group = styled.div<{ $showHover: boolean }>`
-  cursor: pointer;
-
-  ${(props) => {
-    if (props.$showHover) {
-      return `
-        &:hover {
-          background-color: #444;
-        }
-      `;
-    }
-  }}
-`;
-
 export const EventGroupTags = styled.div`
   margin-top: 0.5rem;
 
@@ -69,7 +56,7 @@ export const EventGroupTag = styled.div<{ $isSelected: boolean }>`
   padding: 0 0.5rem;
   border-radius: 0.25rem;
   background-color: ${(props) =>
-    props.$isSelected ? "rgb(48, 117, 43)" : "rgb(90, 90, 90)"};
+    props.$isSelected ? "rgb(48, 117, 43)" : "rgb(73, 73, 73)"};
   border: 1px solid rgb(139, 139, 139);
   font-size: 0.75rem;
   text-transform: capitalize;
@@ -79,6 +66,7 @@ export const EventGroupWrapper = styled.div<{
   $percentLeft: number;
   $isHighlighted: boolean;
 }>`
+  cursor: pointer;
   transform: translateX(-50%) scale(0.9);
   left: ${(props) => props.$percentLeft}%;
   border-radius: 0.5rem;
@@ -91,6 +79,7 @@ export const EventGroupWrapper = styled.div<{
   background-color: #333;
   transition: all 0.2s ease-in-out;
   animation: ${flyIn} 0.3s ease-out;
+  background-color: rgb(87, 87, 87);
 
   ${(props) => {
     if (props.$isHighlighted) {

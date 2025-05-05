@@ -71,7 +71,7 @@ export function EventGroup({
 
     return events.map((timelineEvent, index) => {
       return (
-        <Group key={index} $showHover={events.length > 1}>
+        <div key={index}>
           <HeaderWrapper>
             <EventGroupHeader>{timelineEvent.title}</EventGroupHeader>
             <RenderIf condition={events.length > 1}>
@@ -94,7 +94,7 @@ export function EventGroup({
           <RenderIf condition={index < events.length - 1}>
             <Divider />
           </RenderIf>
-        </Group>
+        </div>
       );
     });
   };
