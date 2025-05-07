@@ -20,3 +20,15 @@ export const Title = styled.h1`
   margin: 0;
   font-size: 5rem;
 `;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2rem;
+
+  > button {
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+  }
+`;
