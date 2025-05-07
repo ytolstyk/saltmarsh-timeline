@@ -6,7 +6,6 @@ import {
   EventGroupTags,
   EventGroupText,
   EventGroupWrapper,
-  Group,
   HeaderCounter,
   HeaderWrapper,
 } from "./EventGroup.styles";
