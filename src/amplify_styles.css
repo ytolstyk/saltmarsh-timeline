@@ -34,6 +34,30 @@ fieldset {
   justify-content: center;
 }
 
+.federated-sign-in-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.amplify-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.amplify-divider {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.amplify-divider--small {
+  width: 80%;
+}
+
 .amplify-tabs {
   width: 100%;
   display: flex;
@@ -46,7 +70,6 @@ fieldset {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 1rem;
 }
 
 .amplify-tabs__item {
@@ -56,6 +79,7 @@ fieldset {
   font-size: 1.5rem;
   cursor: pointer;
   padding: 1rem;
+  border-radius: 0 0 1rem 1rem;
 }
 
 .amplify-tabs__item:hover {
@@ -64,6 +88,7 @@ fieldset {
 
 .amplify-tabs__item--active {
   border-top: 3px solid white;
+  background-color: #2f2f2f;
 }
 
 legend {
