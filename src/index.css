@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: content-box;
+}
+
 @font-face {
   font-family: "Battlesbridge";
   src: url("./assets/fonts/Battlesbridge.ttf") format("truetype");
