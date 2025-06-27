@@ -15,9 +15,9 @@ export const auth = defineAuth({
       },
       callbackUrls: [
         "http://localhost:5173/",
-        "https://saltmarsh-timeline.com",
-        "https://www.saltmarsh-timeline.com",
-        "https://dev.d1o0zj6tq2dxh8.amplifyapp.com",
+        "https://saltmarsh-timeline.com/",
+        "https://www.saltmarsh-timeline.com/",
+        "https://dev.d1o0zj6tq2dxh8.amplifyapp.com/",
       ],
       logoutUrls: [
         "http://localhost:5173/",
