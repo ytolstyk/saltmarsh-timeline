@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const CampaignProvider = ({ children }: Props) => {
-  const { campaigns, campaign, campaignId, rawCampaign, setCampaignId } =
+  const { campaigns, campaign, campaignId, rawCampaign, setCampaignId, erase } =
     useCampaigns();
 
   return (
@@ -17,6 +17,7 @@ export const CampaignProvider = ({ children }: Props) => {
         campaignId,
         rawCampaign,
         setCampaignId: (id: string) => setCampaignId(id),
+        erase,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { CheckedTags, TimelineSettingsData } from "./types";
 import {
   FormRow,
@@ -9,14 +9,14 @@ import {
 } from "./TimelineSettings.styles";
 import { TagsModal } from "./TagsModal";
 import { useTimelineSettings } from "./useTimelineSettings";
-import { useCampaigns } from "./useCampaigns";
 import { useEvents } from "./useEvents";
 import { Button, Chip, Divider, RangeSlider, Text } from "@mantine/core";
 import { modals } from "@mantine/modals";
+import { CampaignContext } from "./CampaignContext";
 
 export function TimelineSettings() {
   const { timelineSettings, update } = useTimelineSettings();
-  const { campaign } = useCampaigns();
+  const { campaign } = useContext(CampaignContext);
   const { minDateYears, maxDateYears } = useEvents();
 
   const [formData, setFormData] = useState<Partial<TimelineSettingsData>>({
