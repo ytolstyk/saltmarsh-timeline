@@ -1,5 +1,4 @@
 import { TimelineEvent } from "./types";
-import { CurrentCardDate } from "./CurrentEventGroup.styles";
 import { convertDaysToReadableDate } from "./dateHelper";
 import { RenderIf } from "./RenderIf";
 import { EditEventFormContainer } from "./EditEventForm.styles";
@@ -10,9 +9,11 @@ import {
   Divider,
   Flex,
   TagsInput,
+  Text,
   Textarea,
   TextInput,
 } from "@mantine/core";
+import { BsCalendar3 } from "react-icons/bs";
 
 type Props = {
   event: TimelineEvent;
@@ -74,9 +75,10 @@ export function EditEventForm({
 
   return (
     <EditEventFormContainer>
-      <CurrentCardDate>
+      <Text ta="center">
+        <BsCalendar3 size={15} />{" "}
         {convertDaysToReadableDate(event.daysSinceOrigin)}
-      </CurrentCardDate>
+      </Text>
       <TextInput
         value={formEvent.title}
         label="Title"

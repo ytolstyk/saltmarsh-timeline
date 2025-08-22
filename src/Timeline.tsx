@@ -2,13 +2,11 @@ import { useState } from "react";
 import { EventGroup } from "./EventGroup";
 import { RenderIf } from "./RenderIf";
 import {
-  EmptyMessageWrapper,
   Line,
   LineRight,
   LineDot,
   LineLeft,
   LineWrapper,
-  EventCounter,
   lineHeight,
   TimelineWrapper,
 } from "./Timeline.styles";
@@ -16,12 +14,9 @@ import { TimelineEventGroup } from "./types";
 import { useEvents } from "./useEvents";
 import { useFilteredEventGroups } from "./useFilteredEventGroups";
 import { percentFromTop } from "./timelineHelper";
-import { JSONModal } from "./JSONModal";
-import { convertJSONDataToBlobs } from "./jsonHelper";
-import jsonFile from "./assets/saltmarsh_timeline.json";
 import { CurrentEventGroup } from "./CurrentEventGroup";
+import { Text } from "@mantine/core";
 import { modals } from "@mantine/modals";
-import { Button } from "@mantine/core";
 import { useTimelineSettings } from "./useTimelineSettings";
 
 export function Timeline() {
@@ -30,14 +25,6 @@ export function Timeline() {
   const { events } = useEvents();
   const { eventGroups, offset, lineLength, filteredEvents } =
     useFilteredEventGroups(events, timelineSettings, lineHeight);
-
-  const handleSeedClick = () => {
-    modals.open({
-      title: "Seed Timeline",
-      size: "lg",
-      children: <JSONModal initialData={convertJSONDataToBlobs(jsonFile)} />,
-    });
-  };
 
   const handleGroupClick = (group: TimelineEventGroup) => () => {
     modals.open({
@@ -106,18 +93,15 @@ export function Timeline() {
   return (
     <TimelineWrapper>
       <RenderIf condition={noEvents}>
-        <EmptyMessageWrapper>
-          <div>
-            There are no events in the system. You can import the timeline
-            spreadsheet to get started.
-          </div>
-          <Button variant="primary" onClick={handleSeedClick} mt="lg">
-            Get started
-          </Button>
-        </EmptyMessageWrapper>
+        <Text ta="center" mt="2rem">
+          There are no events in the system. You can import the timeline
+          spreadsheet to get started.
+        </Text>
       </RenderIf>
       <RenderIf condition={noEventGroups}>
-        <EmptyMessageWrapper>All events are filtered out</EmptyMessageWrapper>
+        <Text ta="center" mt="2rem">
+          All events are filtered out
+        </Text>
       </RenderIf>
       <RenderIf condition={eventGroups?.length === 1}>
         <LineWrapper $noHeight>
@@ -132,9 +116,9 @@ export function Timeline() {
         </LineWrapper>
       </RenderIf>
       <RenderIf condition={eventGroups?.length > 1}>
-        <EventCounter>
+        <Text mb="1rem" ta="right">
           Showing {filteredEvents.length} of {events.length} total events
-        </EventCounter>
+        </Text>
         <LineWrapper>
           <LineLeft>{renderEventCards(true)}</LineLeft>
           <Line>{renderLineDots()}</Line>

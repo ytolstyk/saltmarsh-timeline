@@ -62,17 +62,6 @@ export const LineRight = styled.div`
   height: 100%;
 `;
 
-export const EmptyMessageWrapper = styled.div`
-  margin: 2rem auto 0;
-  text-align: center;
-`;
-
-export const EventCounter = styled.div`
-  margin-bottom: 1rem;
-  text-align: center;
-  font-size: 1.5rem;
-`;
-
 export const LineDot = styled.div<{
   $percentTop: number;
   $isActive: boolean;

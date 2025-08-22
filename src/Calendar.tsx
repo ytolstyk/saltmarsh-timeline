@@ -13,6 +13,7 @@ export function Calendar() {
         <Grid.Col
           span={{ base: 12, md: span }}
           offset={{ base: 0, md: offset }}
+          key={month[0]}
         >
           <Paper p="md" withBorder>
             <Text ta="center" fw={700} size="lg" mb="md">
@@ -31,7 +32,7 @@ export function Calendar() {
   const renderDayLabels = () => {
     return DAYS_ABBR.map((day) => {
       return (
-        <Grid.Col span={12 / 7}>
+        <Grid.Col span={12 / 7} key={day}>
           <Text size="sm" fw={700}>
             {day}
           </Text>
@@ -49,10 +50,10 @@ export function Calendar() {
       }
 
       return (
-        <Grid.Col span={12 / 7}>
-          <Text>
-            <Day>{dayText}</Day>
-          </Text>
+        <Grid.Col span={12 / 7} key={index}>
+          <Day>
+            <Text>{dayText}</Text>
+          </Day>
         </Grid.Col>
       );
     });

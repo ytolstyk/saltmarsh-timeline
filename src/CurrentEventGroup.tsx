@@ -1,12 +1,3 @@
-import {
-  CurrentCardDate,
-  CurrentCardHeader,
-  CurrentCardText,
-  CurrentCardTags,
-  CurrentGroupWrapper,
-  TagTitle,
-  EventContainer,
-} from "./CurrentEventGroup.styles";
 import { convertDaysToReadableDate } from "./dateHelper";
 import { TimelineEvent, TimelineEventGroup } from "./types";
 import { RenderIf } from "./RenderIf";
@@ -16,7 +7,7 @@ import { EditEventForm } from "./EditEventForm";
 import { BsCalendar3, BsFillTagsFill } from "react-icons/bs";
 import { useState } from "react";
 import { modals } from "@mantine/modals";
-import { Badge, Button, Divider, Flex } from "@mantine/core";
+import { Badge, Button, Divider, Flex, Grid, Stack, Text } from "@mantine/core";
 
 type Props = {
   eventGroup: TimelineEventGroup;
@@ -109,40 +100,53 @@ export function CurrentEventGroup({ eventGroup, checkedTags }: Props) {
         );
       }
 
+      const calendarSpan = events.length > 1 ? 10 : 12;
+      const calendarOffset = events.length > 1 ? 1 : 0;
+
       return (
-        <EventContainer key={timelineEvent.id}>
-          <CurrentCardDate>
-            <div>
-              <BsCalendar3 size={15} />
-              {convertDaysToReadableDate(timelineEvent.daysSinceOrigin)}
-            </div>
+        <Stack key={timelineEvent.id} gap="1rem">
+          <Grid justify="space-between">
+            <Grid.Col span={calendarSpan} offset={calendarOffset}>
+              <Text ta="center">
+                <BsCalendar3 size={15} />{" "}
+                {convertDaysToReadableDate(timelineEvent.daysSinceOrigin)}
+              </Text>
+            </Grid.Col>
             <RenderIf condition={events.length > 1}>
-              <div>
-                {index + 1}/{events.length}
-              </div>
+              <Grid.Col span={1}>
+                <Text size="sm">
+                  {index + 1}/{events.length}
+                </Text>
+              </Grid.Col>
             </RenderIf>
-          </CurrentCardDate>
-          <CurrentCardHeader>{timelineEvent.title}</CurrentCardHeader>
-          <CurrentCardText>{timelineEvent.description}</CurrentCardText>
+          </Grid>
+          <Text fw={700}>{timelineEvent.title}</Text>
+          <Text>{timelineEvent.description}</Text>
           <RenderIf
             condition={Boolean(
               timelineEvent.tags && timelineEvent.tags.length > 0
             )}
           >
-            <TagTitle>
-              <BsFillTagsFill size={15} /> Tags:
-            </TagTitle>
-            <CurrentCardTags>{renderTags(timelineEvent)}</CurrentCardTags>
+            <div>
+              <Text mb="xs">
+                <BsFillTagsFill size={15} /> Tags:
+              </Text>
+              <Flex gap="0.5rem" fw="wrap">
+                {renderTags(timelineEvent)}
+              </Flex>
+            </div>
           </RenderIf>
-          <Flex justify="flex-end" mt="md" gap="md">
+          <Flex justify="space-between" mt="md">
             <Button
-              variant="default"
+              variant="outline"
+              color="red"
               onClick={handleDeleteClick(timelineEvent)}
             >
               Delete
             </Button>
             <Button
-              variant="default"
+              variant="outline"
+              color="blue"
               onClick={handleEditClick(timelineEvent.id)}
             >
               Edit
@@ -151,10 +155,10 @@ export function CurrentEventGroup({ eventGroup, checkedTags }: Props) {
           <RenderIf condition={index < events.length - 1}>
             <Divider />
           </RenderIf>
-        </EventContainer>
+        </Stack>
       );
     });
   };
 
-  return <CurrentGroupWrapper>{renderEvents()}</CurrentGroupWrapper>;
+  return <Stack gap="2rem">{renderEvents()}</Stack>;
 }
