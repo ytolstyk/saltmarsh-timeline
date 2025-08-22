@@ -1,28 +1,31 @@
 import { useEffect, useRef, useState } from "react";
 
-export function useWidth(subtractMargin: number = 0) {
+export function useDimensions() {
   const elementRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    const updateWidth = () => {
+    const updateDimensions = () => {
       if (elementRef.current) {
         setWidth(elementRef.current.getBoundingClientRect().width);
+        setHeight(elementRef.current.getBoundingClientRect().height);
       }
     };
 
     setTimeout(() => {
-      updateWidth();
+      updateDimensions();
     }, 0);
-    window.addEventListener("resize", updateWidth);
+    window.addEventListener("resize", updateDimensions);
 
     return () => {
-      window.removeEventListener("resize", updateWidth);
+      window.removeEventListener("resize", updateDimensions);
     };
   }, []);
 
   return {
     elementRef,
-    width: Math.max(0, width - subtractMargin),
+    width,
+    height,
   };
 }

@@ -171,13 +171,13 @@
     "date": "18,15,564",
     "title": "Arienh's Tragedy",
     "description": "Arienh’s family drowns in a freak storm, which is caused by the summoning of the Eye of the Deep by the Scarlet Brotherhood. Arienh rejects the call to become the Herald.\nSgothgah, the Heretic Aboleth, accidentally is summoned to the Prime Material Plane along with the Eye in the Deep. Sgothgah consumes the mind of a Scarlet Brotherhood cultist and becomes “infected” with faith in the Chained Oblivion.",
-    "tags": "lore|arienh"
+    "tags": "lore,arienh"
   },
   {
     "date": "19,15,564",
     "title": "Ferrin Finds Arienh",
     "description": "Ferrin Kastilar finds a half-drowned Arienh.",
-    "tags": "lore|arienh"
+    "tags": "lore,arienh"
   },
   {
     "date": "21,15,564",
@@ -249,7 +249,7 @@
     "date": "1,1,569",
     "title": "Gerrike slain",
     "description": "Gerrike and Katrien Lankkamp slain in the Yeomanry during an ambush by centaurs raiding from the Little Hills.",
-    "tags": "lore|MK"
+    "tags": "lore,MK"
   },
   {
     "date": "1,3,569",
@@ -261,7 +261,7 @@
     "date": "1,5,569",
     "title": "MK is born",
     "description": "Mah’Kaylah’s fiery birth: the Memory of Iuz (one of its Nine Shards) inhabits the shell that Drawmij & Nenredhe were preparing. The demon manifests, destroys the Manor in the Yeomanry, and kills most of the people there. Afterwards, the person who would become Mah’Kaylah vanishes.",
-    "tags": "lore|MK"
+    "tags": "lore,MK"
   },
   {
     "date": "1,8,569",
@@ -309,19 +309,19 @@
     "date": "12,1,576",
     "title": "Brotherhood finds Eye",
     "description": "The Scarlet Brotherhood locates the Eye in the Deep. The Falling Star sent to capture it.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "6,4,576",
     "title": "Falling star captures the Kraken",
     "description": "The Falling Star defeats Sgothgah and captures the Kraken.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "21,5,576",
     "title": "Falling Star returns",
     "description": "The Falling Star returns with the captive Kraken.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "14,6,576",
@@ -333,19 +333,19 @@
     "date": "15,6,576",
     "title": "IT Crew first mission",
     "description": "Meeting at Saltmarsh town hall. They agree to the mission to the Lizardfolk cave.",
-    "tags": "it crew|lizardfolk"
+    "tags": "it crew,lizardfolk"
   },
   {
     "date": "16,6,576",
     "title": "Lizardfolk battle",
     "description": "Sail for the Lizardfolk cave, attacked by Sahuagin. Battle with Lizardfolk and surrender.\nThe Falling Star departs Abbey Isle for the Styes.",
-    "tags": "it crew|lizardfolk|falling star"
+    "tags": "it crew,lizardfolk,falling star"
   },
   {
     "date": "17,6,576",
     "title": "Lizardfolk negotiations",
     "description": "Negotiations with Lizardfolk.",
-    "tags": "it crew|lizardfolk"
+    "tags": "it crew,lizardfolk"
   },
   {
     "date": "18,6,576",
@@ -357,7 +357,7 @@
     "date": "19,6,576",
     "title": "Thousand Teeth",
     "description": "Battle of Thousand Teeth.\n(Joza finds the cultists in the swamp)\nSgothgah arrives in the Styes, and enslaves several of the Falling Star’s officers (including Arjan Mon)",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "20,6,576",
@@ -369,25 +369,25 @@
     "date": "21,6,576",
     "title": "Lizardfolk feast",
     "description": "Celebrations with Lizardfolk.",
-    "tags": "it crew|lizardfolk"
+    "tags": "it crew,lizardfolk"
   },
   {
     "date": "22,6,576",
     "title": "First mission complete",
     "description": "Return to Saltmarsh, reporting to the council. The IT squad goes its separate ways.\nThe Falling Star and Sgothgah attack Abbey Isle. Most of the Scarlet Brotherhood killed. The Falling Star officers free themselves from enslavement, and the Falling Star flees (settling in Port Torvin). Sgothgah brings the Kraken back to the Styes.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "23,6,576",
     "title": "First downtime",
     "description": "Downtime: \nAirell schemes\n\nArienh works as a healer & gets a house\n\nKellan works for Keledek\n\nMah-Kaylah trains\n\nMornie visits the Styes\n\nIn the Styes, Mr. Dory is ‘altered’ by Sgothgah. He isn’t enslaved, but makes a deal with the Aboleth in exchange for his life.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,8,576",
     "title": "First Lantern Ghost murder",
     "description": "Richfest, a week-long midsummer celebration:\nMah’Kaylah goes home with Xendros\n\nAirell picks pockets\n\nKellan & Mornie make friends\n\nIn the Styes, Jarme is enslaved. He commits the first Lantern Ghost murders.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "3,9,576",
@@ -411,7 +411,7 @@
     "date": "7,9,576",
     "title": "Rat's Tail Sail",
     "description": "IT Squad sets sail. The Rat’s Tail is attacked by the Falling Star. They are met by the Sundowner, pretending to be the pirates.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "8,9,576",
@@ -465,7 +465,7 @@
     "date": "17,9,576",
     "title": "Abbey Isle exploration",
     "description": "Sail for Abbey Isle. Battle with the Sahuagin.\nMeet the priests and soldiers of Abbey Isle, make a deal with them. The priests plan to betray them.\nExplore the monoliths. Kellen has a vision.",
-    "tags": "it crew|falling star|kellen"
+    "tags": "it crew,falling star,kellen"
   },
   {
     "date": "18,9,576",
@@ -483,7 +483,7 @@
     "date": "20,9,576",
     "title": "Independent Saltmarsh",
     "description": "Saltmarsh breaks away from the Duke, commandeers his fleet.\nEveryone discovers that Yusgrolir is sailing a fleet to conquer Saltmarsh.\nSkerrin tries to blackmail Airell.\nDuke Feldrin evacuates Saltmarsh\nPirates in jail “escape” and are killed by MK.",
-    "tags": "it crew|airell|mk"
+    "tags": "it crew,airell,mk"
   },
   {
     "date": "21,9,576",
@@ -506,25 +506,25 @@
     "date": "1,10,576",
     "title": "Traveling downtime",
     "description": "Airell & Mornie visit Burle and head to the Yeomanry for the funeral of Tangle Bough\n\nMah’Kaylah sets sail with Xendros for Iuz\n\nKellen visits Seaton, and then the Hold of the Sea Princes (by way of the Styes).\n\nArienh builds a memorial to Ferrin, uses spells to enrich the land, and begins research on the Sahuagin in Eliander’s Library.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,11,576",
     "title": "More traveling downtime",
     "description": "Airell & Mornie return to Burle from the funeral. Airell continues studying from Kiara Shadowbreaker. Mornie begins crafting more Walloping Ammo.\n\nMah’Kaylah reaches Iuz.\n\nKellen returns from the Sea Princes and attempts to craft a toy steam engine. It fails.\n\nArienh finishes her research and begins spying on Skerrin, using her wildshape.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,12,576",
     "title": "Parties everywhere",
     "description": "Airell & Mornie: party in Burle!\n\nMah’kaylah: party in Iuz!\n\nArienh & Kellen: party in Saltmarsh!",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,13,576",
     "title": "Working downtime",
     "description": "Airell heads to Gradsul, to continue his studies.\n\nMornie finishes making Walloping Ammo, then returns to Saltmarsh to study history of the region in Eliander’s library.\n\nMah’kaylah enjoys scenic Iuz.\n\nKellen builds a working toy steam engine, begins working as a tinker at the Dwarven Anvil (the town blacksmith).\n\nArienh continues spying on Skerrin.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "10,13,576",
@@ -535,13 +535,13 @@
     "date": "1,14,576",
     "title": "More working downtime",
     "description": "Airell continues studying in Gradsul, supplementing his income by working as a street card hustler.\n\nMornie finishes her research on history and begins researching Suloise artifacts in Keledek’s library.\n\nMah’Kaylah begins her voyage back from Iuz.\n\nKellen continues to work as a tinker.\n\nArienh begins studying the obelisks and tomes on Abbey Isle, with the help of Keledek the Unspoken.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,15,576",
     "title": "More working downtime",
     "description": "Airell continues studying & working Gradsul.\n\nMornie finishes her research and speaks with Krag the gravedigger about Saltmarsh history.\n\nKellen works as a tinker\n\nArienh splits time between researching Scarlet Brotherhood customs from the tomes and spying on Skerrin. She makes an unexpected discovery…",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "6,15,576",
@@ -578,7 +578,7 @@
     "date": "16,15,576",
     "title": "Arienh frees the vampire",
     "description": "Mah’Kaylah & Xendros return (by ship) from Iuz.\nArienh sails to the Hool Marsh and back; she frees the vampire.",
-    "tags": "mk|arienh"
+    "tags": "mk,arienh"
   },
   {
     "date": "17,15,576",
@@ -601,7 +601,7 @@
     "date": "25,15,576",
     "title": "Free City of Saltmarsh",
     "description": "King Kimbertos makes his pronouncement:\nDuke Feldrin is promoted to general of the King’s Rearguard.\n\nSaltmarsh is declared a Free City.\n\nThe Duchy of Salinmoor reorganized into the Barony of Salinmoor (after some territory is given to Saltmarsh and some to the Duchy of Gradsul).\n\nEliander Fireborn is knighted and appointed to rule the Barony of Salimoor, from its capital, Seaton.\n\nSir Piersym of Seconforth appointed to the Saltmarsh Council.\n\nMornie (and others) are approached by Nenredhe, and given the mission to go to the Styes.",
-    "tags": "it crew|mornie"
+    "tags": "it crew,mornie"
   },
   {
     "date": "27,15,576",
@@ -617,25 +617,25 @@
     "date": "1,16,576",
     "title": "Manor battle Chuul",
     "description": "IT Squad sails to the Styes, stopping at the Manor first. They battle the remaining Chuul.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "2,16,576",
     "title": "Styes sickness",
     "description": "IT Squad enters the Styes & investigates. Airell gets the Water Sickness. Kellen enslaved by Sgothgah.",
-    "tags": "it crew|falling star|airell|kellen"
+    "tags": "it crew,falling star,airell,kellen"
   },
   {
     "date": "3,16,576",
     "title": "Captured by Skum",
     "description": "IT Squad interviews Emil Trantor in the Asylum and Constable Jute. They discover the half-sunken ship and are captured in a Skum ambush. \nAirell sneaks away before the fight.",
-    "tags": "it crew|airell"
+    "tags": "it crew,airell"
   },
   {
     "date": "4,16,576",
     "title": "Sgothgah's Slaves",
     "description": "IT Squad recover from their defeat, and are all enslaved by Sgothgah.\nAirell gets his stuff back.",
-    "tags": "it crew|airell"
+    "tags": "it crew,airell"
   },
   {
     "date": "5,16,576",
@@ -647,49 +647,49 @@
     "date": "6,16,576",
     "title": "Arienh goes boom",
     "description": "Nenredhe & Drawmij appear. Nenredhe cures the IT Crew of their slimy affliction. Mornie is expelled from her organization by Nenredhe.\nThe Battle of the Hemlock Pit: Arienh blows up Dory’s warehouse. Mr. Dory is killed. Harid joins with the IT Crew.",
-    "tags": "it crew|mornie|arienh"
+    "tags": "it crew,mornie,arienh"
   },
   {
     "date": "7,16,576",
     "title": "Burglary and murder",
     "description": "Airell & Mornie rob a merchant’s house. They go to Rashlen’s home, are ambushed, and killed Rashlen.",
-    "tags": "airell|mornie"
+    "tags": "airell,mornie"
   },
   {
     "date": "1,1,577",
     "title": "Skerrin's Dreams",
     "description": "IT Crew lays low in The Styes. Kellen uses Dream on Skerrin. They are picked up by the Falling Star on the 3rd.",
-    "tags": "it crew|kellen|falling star"
+    "tags": "it crew,kellen,falling star"
   },
   {
     "date": "4,1,577",
     "title": "Flying T-Rex!",
     "description": "The Falling Star arrives in Saltmarsh at dusk. Skerrin has fled Saltmarsh, leaving a letter blaming the IT Crew. Mk & Xendros have a tiff.\nSahuagin Attack: Flying T-Rex! Eda (almost) Dies!",
-    "tags": "falling star|it crew|mk"
+    "tags": "falling star,it crew,mk"
   },
   {
     "date": "5,1,577",
     "title": "Turtleback Agatha",
     "description": "IT Crew tracks Skerrin to Turtleback Agatha’s home. Arienh make a bargain with the hag.\nThe IT Crew continues to Seaton, meeting Kellen’s family.",
-    "tags": "it crew|arienh|kellen"
+    "tags": "it crew,arienh,kellen"
   },
   {
     "date": "6,1,577",
     "title": "Skerrin's fall",
     "description": "Airenh, Kellen, and MK are summoned by Eliander. Airell & Mornie find the inn where Skerrin is staying.\nSkerrin’s Fall: the IT Crew attack Skerrin & his men before he can sail away. Skerrin & most of his men are killed.\nIT Crew jailed in St. Cuthbert’s House. Airell is disguised as a crewmember, also jailed.",
-    "tags": "it crew|arienh|kellen|mk|airell|mornie"
+    "tags": "it crew,arienh,kellen,mk,airell,mornie"
   },
   {
     "date": "7,1,577",
     "title": "Custody at Eliander's",
     "description": "Eliander takes the IT Crew (minus Airell) into his custody.",
-    "tags": "it crew|airell"
+    "tags": "it crew,airell"
   },
   {
     "date": "8,1,577",
     "title": "Relax in the Citadel",
     "description": "IT Crew relaxes in the Citadel.\nAirell is interrogated, but convinces the priests he is crazy.",
-    "tags": "it crew|airell"
+    "tags": "it crew,airell"
   },
   {
     "date": "10,1,577",
@@ -701,85 +701,85 @@
     "date": "13,1,577",
     "title": "Downtime",
     "description": "Airell departs Seaton for Gradsul, to complete his studies.\n\nArienh, Kellen, MK, & Mornie return to Saltmarsh. \n\nArienh brews potions & learns Ancient Suloise from MK. \n\nMornie begins selling the items the IT Crew has collected. \n\nKellen does magical research.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,2,577",
     "title": "Downtime",
     "description": "Airell finishes his studies in Gradsul.\n\nArienh continues her potion making and learning Ancient Suloise.\n\nKellen spends the month in Seaton, introducing Gellan Primewater to people in the Gnome community. She researches at the Academy and studies the book given to her by the Hag.\n\nMornie travels to Blue, selling the Cli Lyre and doing a ‘small favor’ for Xendros.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,3,577",
     "title": "Con against Duke Feldren begins",
     "description": "Airell begins laying the groundwork for his con against Duke Feldren. He does magical research as well.\n\nArienh, MK, Kellen, & Mornie hunt Perytons in the Flotsam Isles.",
-    "tags": "airell|arienh|mk|kellen|mornie|downtime|it crew"
+    "tags": "airell,arienh,mk,kellen,mornie,downtime,it crew"
   },
   {
     "date": "1,4,577",
     "title": "Sea Grove ritual",
     "description": "Airell: meets with Duke Feldren.\n\nArienh: lead the ritual at the Sea Grove, receiving an ill omen.\n\nKellen, MK, Mornie: Attend the ritual at the Sea Grove.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,5,577",
     "title": "Pixie Quest",
     "description": "Airell: the Duke’s Gambit hit’s a snag… Decides to head towards Greyhawk.\n\nArienh & MK: Pixie Quest! Head to Burle, then the Little Hills. Joined by Xendros & Thokk, then Wydhaus. Reach the lake of Pakilis the Druid.\n\nKellen & Mornie: Unicorn Search! Travel on ship to Safeton by way of Gradsul, Gryax, and Scant.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,6,577",
     "title": "Unicorn",
     "description": "Airell arrives in Greyhawk.\n\nArienh & MK: Travel north through the Little Hill & find Reyna Yargrove. Then travel across Keoland to city of Niol Dra.\n\nKellen & Mornie: Find the unicorn! They travel overland through Celene, meeting Garik the Werebear. Kellen gets a Pseudodragon! They rescue Kejal the Waywatcher from Orcs & a Tanarukk.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,7,577",
     "title": "Feywild adventures",
     "description": "Airell: in Greyhawk, doing Airell-type things.\n\nArienh & MK: Travel north to the Axewood & enter the Feywild to battle the Voice of Scorn. Due to the Feywild’s magic, the two days there are two weeks in real time. They then return to Niol Dra.\n\nKellen & Mornie: return home to Saltmarsh on ship.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,8,577",
     "title": "Parties everywhere",
     "description": "Airell: party in Greyhawk!\n\nArienh & MK: party in Niol Dra as guests of the king!\n\nKellen & Mornie: party in Saltmarsh!",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,9,577",
     "title": "To Greyhawk",
     "description": "Airell: doing more of the same in Greyhawk.\n\nArienh, Kellen, MK, & Mornie: travel by ship to Greyhawk.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,10,577",
     "title": "Greyhawk",
     "description": "Airell: finishes his time in Greyhawk and sets sail for Saltmarsh.\n\nArienh, Kellen, MK, & Mornie: reach Greyhawk by third week. Spend a week in Greyhawk before turning around and sailing back",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,11,577",
     "title": "To Saltmarsh",
     "description": "Airell: travel by ship to Saltmarsh\n\nArienh, Kellen, MK, & Mornie: travel by ship from Greyhawk to Saltmarsh.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,12,577",
     "title": "Confronting Eda",
     "description": "Airell, Arienh, Kellen, MK, & Mornie: Party in Saltmarsh!\n\nKellen & Arienh confront Eda Oweland about whomever is looking for Arienh.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,13,577",
     "title": "Downtime",
     "description": "Airell: Doing Airell Things in Saltmarsh.\n\nArienh: Crafting magic items\n\nKellen: Reading her creep book gift from the hag.\n\nMornie: Crafting magic items.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "17,13,577",
     "title": "Sahuagin infiltration",
     "description": "IT Crew set sail to infiltrate the Sahuagin Lair, meeting Varsis Liadon, Borgas the Locathah, and Gedik the Orc.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "18,13,577",
@@ -854,7 +854,7 @@
     "date": "20,14,577",
     "title": "Rescue of the Styes",
     "description": "IT Crew & Falling Star rescue the Styes.\nThe Kraken attacks! Drawmij teleports the IT Crew (minus Airell) to the Sea Cow.",
-    "tags": "it crew|falling star|airell"
+    "tags": "it crew,falling star,airell"
   },
   {
     "date": "21,14,577",
@@ -889,37 +889,37 @@
     "date": "13,15,577",
     "title": "Housewarming",
     "description": "Settling into life in their new home:\n\nAirell shops in Seaton, then trains in Saltmarsh.\n\nArienh helps Mornie craft & searches for a possible acolyte.\n\nKellen finishes her creepy gift from Turtleback Agatha.\n\nMK builds a gazebo.\n\nMornie sells things and finishes the earrings.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,16,577",
     "title": "Parties everywhere",
     "description": "Everyone parties in Saltmarsh!",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,1,578",
     "title": "Learnings",
     "description": "Airell continues to train, but also visits Gradsul to check out the Blind Father’s activities. After he returns, he continues to train but also performs the ritual to awaken the Warden of the Fore (which summons Ajarmash the Rakshasa)\n\nArienh starts modifying her old house into a brewery. She identifies Gedik as a possible acolyte and begins training him in the Old Faith.\nKellen builds an internal fan system for their new home, then constructs weird magi-tech components for her spells, and finally tries her hand at gambling.\n\nMK tutors Mornie on Ancient Suloise.\n\nMornie continues learning Ancient Suloise but also helps Arienh convert her former home into a brewery.\n\nAjarmash, as the Garden Quarter Strangler, murders six people.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "8,3,578",
     "title": "Fake Airell murderer",
     "description": "IT Crew begins wind walking to Greyhawk.\n\nAjarmash, disguised as Airell, murders his seventh victim. This time, he is “caught”, revealing the identity of the Garden Quarter Strangler.",
-    "tags": "it crew|airell"
+    "tags": "it crew,airell"
   },
   {
     "date": "10,3,578",
     "title": "MK punching guards",
     "description": "IT Crew arrives in Greyhawk. MK starts a turf war with the City Watch over 5gp.",
-    "tags": "it crew|mk"
+    "tags": "it crew,mk"
   },
   {
     "date": "11,3,578",
     "title": "BroSeb",
     "description": "Airell is framed by the Bishop of St. Cuthbert (actually Ajarmash) and arrested.\n\nBrother Sebastian offers his help to the IT Crew.\n\nKellen & Mornie help break Airell out of jail.",
-    "tags": "airell|it crew|kellen|mornie"
+    "tags": "airell,it crew,kellen,mornie"
   },
   {
     "date": "12,3,578",
@@ -936,7 +936,7 @@
     "date": "14,3,578",
     "title": "Toymaker",
     "description": "Kellen, Arienh, & Mornie visit the Toymaker.",
-    "tags": "kellen|arienh|mornie"
+    "tags": "kellen,arienh,mornie"
   },
   {
     "date": "18,3,578",
@@ -948,49 +948,49 @@
     "date": "21,3,578",
     "title": "Airell and the weird finger",
     "description": "Airell reincarnated by Arienh.",
-    "tags": "airell|arienh"
+    "tags": "airell,arienh"
   },
   {
     "date": "1,4,578",
     "title": "Arienh's dominance",
     "description": "Airell, Kellen, Mornie, & MK: mellow times in Greyhawk.\n\nArienh: Establishing her dominance in Saltmarsh",
-    "tags": "airell|arienh|kellen|mornie|mk|it crew"
+    "tags": "airell,arienh,kellen,mornie,mk,it crew"
   },
   {
     "date": "22,3,578",
     "title": "Crafting and learning",
     "description": "Airell:\n\nArienh: In Saltmarsh, teaching Gedik & harvesting Rapture Weed.\n\nKellen: Crafting a magic item, learning to lie, trying to join the Guild of Wizardry\n\nMornie: Crafting a magic item, learning Ancient Suloise\n\nMK: Teaching Ancient Suloise & learning the subtle art of intimidation.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,6,578",
     "title": "Crafting and learning",
     "description": "Airell:\n\nArienh: Back in Greyhawk. Travelling the region while teaching Gedik.\n\nKellen: Crafting a magic item, learning to lie, research\n\nMornie: Crafting a magic item, learning Ancient Suloise, research\n\nMK: Teaching Ancient Suloise & learning intimidation actually is a subtle art.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "22,6,578",
     "title": "MK Quest - sail",
     "description": "MK Quest: Arienh, Gedik, MK set sail to Hardby.",
-    "tags": "mk|arienh"
+    "tags": "mk,arienh"
   },
   {
     "date": "23,6,578",
     "title": "MK Quest - Hardby",
     "description": "MK Quest: Arienh, Gedik, MK arrive in Hardby.",
-    "tags": "mk|arienh"
+    "tags": "mk,arienh"
   },
   {
     "date": "24,6,578",
     "title": "MK Question - to the Yeomanry",
     "description": "MK Quest: the trio begin Wind Walking from Hardby to the Yeomanry.",
-    "tags": "mk|arienh"
+    "tags": "mk,arienh"
   },
   {
     "date": "26,6,578",
     "title": "Klee boom boom",
     "description": "MK Quest: the trio arrive in the Yeomanry, near Longspear. They travel north, find the location of MK’s family. They are joined by Klee.",
-    "tags": "mk|arienh"
+    "tags": "mk,arienh"
   },
   {
     "date": "27,6,578",
@@ -1002,43 +1002,43 @@
     "date": "28,6,578",
     "title": "Attach of the giants in Barrowbend",
     "description": "MK Quest: trio, with the Lankkamps, visit grave of Gerrieke and Katriene. \n\nThe Battle of Barrowbend: giants attack.",
-    "tags": "mk|arienh"
+    "tags": "mk,arienh"
   },
   {
     "date": "1,7,578",
     "title": "Crafting and learning",
     "description": "Airell: Crafting a magic item, training, and Airell shenanigans\n\nArienh: Harvesting seaweed in Saltmarsh, then exploring the Greyhawk region, all while teaching\n\nKellen: Crafting a magic item, learning to lie, research\n\nMornie: Crafting a magic item, learning Ancient Suloise, & research.\n\nMK: Teaching Ancient Suloise & learning that intimidation is about the threat, not the action.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,12,578",
     "title": "Parties everywhere",
     "description": "Drunken shenanigans in Greyhawk!",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,13,578",
     "title": "More crafting and learning",
     "description": "Airell: Crafting a magic item, training, and gambling.\n\nArienh: potion making & training in Saltmarsh\n\nKellen: Crafting a magic item\n\nMornie: Crafting a magic item\n\nMK: Understanding that intimidation is about the way you say it and the words you choose.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,16,578",
     "title": "Silly times",
     "description": "Silly times in Greyhawk!",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,1,579",
     "title": "More crafting and learning",
     "description": "Airell: Crafting a magic item, training, and gambling.\n\nArienh: potion making & training in Saltmarsh\n\nKellen: Crafting a magic item\n\nMornie: Crafting a magic item\n\nMK: Finally getting the idea of how to intimidate someone.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "21,1,579",
     "title": "Heroes Feast by Arienh",
     "description": "Arienh returns to Greyhawk, and provides a Heroe’s Feast for the IT Crew.",
-    "tags": "arienh|it crew"
+    "tags": "arienh,it crew"
   },
   {
     "date": "22,1,579",
@@ -1062,13 +1062,13 @@
     "date": "25,1,579",
     "title": "Tasha appears and dies",
     "description": "IT Crew ambushed by automatons on Zagyg’s Promenade, flees to the Hall of Memory. \n\nThey return to the Promenade, teleporting to Zagyg’s Chambers at the very top of the Guild of Wizardry in Greyhawk City.\n\nTasha is restored, and binds MK’s demon (actually a Shard of Iuz). They all go to the Godtrap, where Tasha betrays them. \n\nTasha (actually a simulacrum) is defeated, the Demonomicon handed over to Zagyg, and a pact forged between Kellen and Zagyg.",
-    "tags": "it crew|mk"
+    "tags": "it crew,mk"
   },
   {
     "date": "1,2,579",
     "title": "Training & Research",
     "description": "Airell: Training & Research\n\nArienh: Training & research\n\nKellen: Research\n\nMornie: Selling diamonds, learning Celestial, and gathering info on the Brotherhood (meeting a spy).\n\nMK: Thinks about her Mommy, talks to Drawmij, gets hugs from Mornie.",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "13,2,579",
@@ -1080,19 +1080,19 @@
     "date": "14,2,579",
     "title": "Airell visits Waldorf",
     "description": "Airell visits Waldorf, escapes the trap & is smuggled away in a barrel.\n\nThe rest of the IT Crew is gathered by Org Nenshen. \n\nOrg Nenshens questions the IT Crew about Airell & the Rakshasa. He decides the IT Crew should leave Greyhawk.",
-    "tags": "airell|it crew"
+    "tags": "airell,it crew"
   },
   {
     "date": "15,2,579",
     "title": "Arienh connection",
     "description": "The IT Crew prepares to leave. Arienh infodumps on all the connections between the Obelisks, Iuz, his nine Shards, etc. \nAirell talks to Eda. \nIrrik Sellum is un-petrified.",
-    "tags": "it crew|arienh|airell"
+    "tags": "it crew,arienh,airell"
   },
   {
     "date": "20,2,579",
     "title": "To Scant",
     "description": "IT Crew sails for Scant aboard the Silkworm",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "25,2,579",
@@ -1104,19 +1104,19 @@
     "date": "15,3,579",
     "title": "IT crew arrives in Scant",
     "description": "IT Crew arrives in Scant",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "16,3,579",
     "title": "Scant explodes",
     "description": "IT Crew explores Scant; visits the Sturdy Spruce. \nMornie makes contact with Aelar.",
-    "tags": "it crew|mornie"
+    "tags": "it crew,mornie"
   },
   {
     "date": "17,3,579",
     "title": "Scant beast attacks",
     "description": "Kellen buys a sword. \nArienh & Airell visit a shipwreck.\nA beast mysteriously attacks the mansion of a respected Scant family.",
-    "tags": "kellen|arienh|airell"
+    "tags": "kellen,arienh,airell"
   },
   {
     "date": "18,3,579",
@@ -1128,55 +1128,55 @@
     "date": "19,3,579",
     "title": "Bigby dies",
     "description": "Mornie meets with Drawmij: it’s a trap!\nDrawmij is poisoned and his body taken over by Bigby.\nThe IT Crew is met by Eri, who lies about lying, but gets them into Bigby’s tower. The IT Crew has a conversation with Bigby, which is interrupted by Nenredhe (and company) attacking.\nBigby is killed. In his place the Strength of Iuz manifests. The IT Crew almost destroy the Shard before it is reabsorbed by someone (likely Iuz).",
-    "tags": "mornie|it crew"
+    "tags": "mornie,it crew"
   },
   {
     "date": "20,3,579",
     "title": "Harid's plan",
     "description": "The IT Crew camps outside Scant, until they are picked up by the Falling Star.\nHarid is on the Falling Star, and pitches them a convoluted plan.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "21,3,579",
     "title": "Falling Star sails to Naeri",
     "description": "The Falling Star (with IT Crew) sail to Naeri, in the County of Idee.",
-    "tags": "falling star|it crew"
+    "tags": "falling star,it crew"
   },
   {
     "date": "27,3,579",
     "title": "Downtime training",
     "description": "Airell: Training & crafting\n\nArienh: Training & crafting\n\nKellen: Creating the ritual to destroy the Grimoire\n\nMornie: Training & crafting\n\nMK: Training",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "18,5,579",
     "title": "Mornie reads Grimoire",
     "description": "Mornie reads the Grimoire, gets a bad headache.\n\nArienh trips balls & has a dream",
-    "tags": "mornie|arienh"
+    "tags": "mornie,arienh"
   },
   {
     "date": "19,5,579",
     "title": "Theft of a Chalice",
     "description": "The IT Crew, led by MK, investigate the theft of a chalice.",
-    "tags": "it crew|mk"
+    "tags": "it crew,mk"
   },
   {
     "date": "21,5,579",
     "title": "Arienh reads Grimoire",
     "description": "IT Crew meets with Harid, agrees to his crazy plan.\n\nArienh reads from the Grimoire. She’s fine.\n\nKellen, Mornie, and Airell steal a statue.",
-    "tags": "it crew|arienh|kellen|mornie|airell"
+    "tags": "it crew,arienh,kellen,mornie,airell"
   },
   {
     "date": "24,5,579",
     "title": "MK's friends",
     "description": "The three muggers/thieves of the chalice are delivered to MK. She spares(!) them and makes them part of the crew (!?) of the Falling Star.",
-    "tags": "mk|falling star"
+    "tags": "mk,falling star"
   },
   {
     "date": "15,6,579",
     "title": "Falling Star sails for Kro Terlep",
     "description": "Falling Star (with IT Crew and Harid) set sail for Kro Terlep.",
-    "tags": "falling star|it crew"
+    "tags": "falling star,it crew"
   },
   {
     "date": "21,6,579",
@@ -1188,19 +1188,19 @@
     "date": "22,6,579",
     "title": "Downtime training",
     "description": "Airell: Training\n\nArienh: Crafting\n\nKellen: Teaching\n\nMornie: Training\n\nMK: Training",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "9,7,579",
     "title": "Gardens of Order",
     "description": "IT Crew meets Loh’Zerith in Gardens of Order. They try to kill him, then flee Kro Terlep with the Falling Star crew.\n\nRunning the Gauntlet: the Falling Star fights past the Brotherhood blockade at the river mouth and into the Azure Sea.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "10,7,579",
     "title": "Evading Brotherhood fleet",
     "description": "IT Crew & Falling Star attempt to evade the Brotherhood fleet.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "13,7,579",
@@ -1212,25 +1212,25 @@
     "date": "14,7,579",
     "title": "Voice of Obedience",
     "description": "The Voice of Obedience teleports aboard the Falling Star with an offer of truce. The IT Crew is teleported back to Kro Terlep for an audience with the Father of Obedience.\n\nParlay with the Father of Obedience. He reads the Grimoire and demands that the Watchers of Oblivion have their minds read. Loh’Zerith and Inzarne attack the Father before teleporting away.\n\nThe IT Crew and Voice of Obedience teleport to the Tower of the Eye. They destroy the Grimoire copies and kill Inzarne and Loh’Zerith.\n\nIT Crew wind walks to safety. The Voice of Obedience heads back to Kro Terlep.",
-    "tags": "falling star|it crew"
+    "tags": "falling star,it crew"
   },
   {
     "date": "16,7,579",
     "title": "Falling Star sails for Gryrax",
     "description": "IT Crew rendezvous with the Falling Star, set sail for Gryrax.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "24,7,579",
     "title": "Voice of Obedience visit",
     "description": "Voice of Obedience teleports with Harid aboard the Falling Star. They return borrowed and stolen items, with some rewards.",
-    "tags": "falling star|it crew"
+    "tags": "falling star,it crew"
   },
   {
     "date": "27,7,579",
     "title": "IT Crew arrives in Gryrax",
     "description": "IT Crew arrives in Gryrax.",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "28,7,579",
@@ -1242,25 +1242,25 @@
     "date": "1,8,579",
     "title": "MK's olympic run",
     "description": "Party in Gryrax! MK participates in the Trials!",
-    "tags": "it crew|mk"
+    "tags": "it crew,mk"
   },
   {
     "date": "2,9,579",
     "title": "Falling Star sails for Breekas Teeth",
     "description": "The Falling Star and IT Crew sail from Gryrax, south along the Amedio Jungle, and beyond the Azure Sea. They cross the Pearl Sea for an Archipelago known as Breekas Teeth.",
-    "tags": "falling star|it crew"
+    "tags": "falling star,it crew"
   },
   {
     "date": "4,10,579",
     "title": "People of Nalnaliras",
     "description": "Falling Star replenish supplies on an isle in Breekas Teeth. The IT Crew meet the People of Nalnaliras.",
-    "tags": "falling star|it crew"
+    "tags": "falling star,it crew"
   },
   {
     "date": "7,10,579",
     "title": "Elder Tempest",
     "description": "Falling Star and IT Crew flee Breekas Teeth, chased by the Elder Tempest.",
-    "tags": "falling star|it crew"
+    "tags": "falling star,it crew"
   },
   {
     "date": "8,10,579",
@@ -1272,7 +1272,7 @@
     "date": "17,10,579",
     "title": "Anthala Quen",
     "description": "Falling Star is escorted by the Scarlet Brotherhood through the Tilva Straight. \n\nOn the 19th, the Brotherhood ships are attacked by the Area Mors and the dragon turtle. The IT Crew meets Anthala Quen. \n\nThey also take on survivors: Quarion, Coraline, and Yenellis.",
-    "tags": "falling star|it crew"
+    "tags": "falling star,it crew"
   },
   {
     "date": "19,10,579",
@@ -1284,7 +1284,7 @@
     "date": "22,10,579",
     "title": "Anthala Quen and the Old Faith",
     "description": "IT Crew speaks with Anthala Quen, learns the history of the Old Faith. Arienh accepts Anthala’s modifications to the challenge.",
-    "tags": "it crew|arienh"
+    "tags": "it crew,arienh"
   },
   {
     "date": "23,10,579",
@@ -1296,37 +1296,37 @@
     "date": "3,11,579",
     "title": "Arienh's cursed challenge",
     "description": "Falling Star reaches Jehlum, and the village of Lendorian exiles.\n\nThe challenge between the IT Crew and Anthala Quen & Cindoarrath the dragon turtle. Airell fails the challenge when he swims under water to attack Cindoarrath. Arien leaves the party, teleporting through a tree.\n\nIT Crew accidentally returns to village of Lendorian refugees on Jehlum Isle.\n\nArienh returns to Saltmarsh, finds out Gedik was killed by Ma Garret. In confrontation, Arienh goes T-Rex and ends the Garret clan.",
-    "tags": "falling star|it crew|airell|arienh"
+    "tags": "falling star,it crew,airell,arienh"
   },
   {
     "date": "4,11,579",
     "title": "Arienh deal with Turtleback Agatha",
     "description": "IT Crew sails into the open ocean, debates how to find Arienh. Kellen contacts Drawmij.\n\nArienh visit Turtleback Agatha and makes a deal with her to save Saltmarsh. It involves making a trade with Granny Nightshade and then double-crossing her.",
-    "tags": "it crew|falling star|arienh|kellen"
+    "tags": "it crew,falling star,arienh,kellen"
   },
   {
     "date": "5,11,579",
     "title": "Arienh and Agatha travel to Janustrem Depths",
     "description": "IT Crew continues search for Arienh, with Kellen contacting Drawmij and Airell contacting Eda. Airell asks Eda where Arienh is going: Scornkeep. They decide to return to Saltmarsh.\n\nArienh (wildshaped as a bird) and Agatha travel to Janustrem Depths.",
-    "tags": "it crew|arienh|kellen|airell"
+    "tags": "it crew,arienh,kellen,airell"
   },
   {
     "date": "6,11,579",
     "title": "Arienh and Agatha reach Scornkeep",
     "description": "Arienh and Agatha reach Scornkeep. Arienh trades the Sword of the Betrayers for the moment of time where Stratis slew Lethregal and fathered Hieroneous. She stabs Granny Nightshade in the hand, leaving with command of the Scorn Court’s cadre of Oni. (See -621 CY above)\n\nIT Crew (with Coraline, Yennelis, and Quarion) teleports to Seaton via teleportation circle. They meet Eliander and take horses to Saltmarsh. The people of Saltmarsh welcome them and tell them what Arienh did to Ma Garret. \n\nVohen uses the sending stone to contact Mornie; tells her that Sohral has had a seizure. Sohral repeats the words “The Daughter of the Betrayers has undone the Father of the Invincible.” \n\nAirell contacts Eda, who tells them that the place where they will be able to meet up with Arienh is Gradsul.",
-    "tags": "arienh|it crew|mornie|airell"
+    "tags": "arienh,it crew,mornie,airell"
   },
   {
     "date": "7,11,579",
     "title": "Travel to Gradsul",
     "description": "Arienh, Agatha, and Oni travel through the Dreadwood towards Gradsul.\n\nIT Crew sails from Saltmarsh for Gradsul.",
-    "tags": "arienh|it crew|falling star"
+    "tags": "arienh,it crew,falling star"
   },
   {
     "date": "9,11,579",
     "title": "Priest of Pelor pays",
     "description": "IT Crew reaches Gradsul. Kellen attacks a priest of Pelor.",
-    "tags": "it crew|kellen|falling star"
+    "tags": "it crew,kellen,falling star"
   },
   {
     "date": "10,11,579",
@@ -1338,19 +1338,19 @@
     "date": "11,11,579",
     "title": "Saltmarsh attacked by Granny Nightshade",
     "description": "IT Crew still hiding out in Gradsul\n\nArienh, Agatha, and Oni reach Gradsul.\n\nSaltmarsh is attacked by two of the vampire consorts of Granny Nightshade.",
-    "tags": "it crew|arienh"
+    "tags": "it crew,arienh"
   },
   {
     "date": "12,11,579",
     "title": "DarkRienh is cured",
     "description": "IT Crew battles Arienh, Agatha, and the Oni. They manage to remove the madness from Arienh. Then they have to flee the Thieves Guild / Church of Pelor hit squad coming their way. Owl Express loses their followers.",
-    "tags": "it crew|arienh"
+    "tags": "it crew,arienh"
   },
   {
     "date": "13,11,579",
     "title": "Dealings with Vampires / First Betrayer",
     "description": "IT Crew attacked by the Wild Hunt led by a vampire consort of Granny Nightshade. The vampire places a geas on MK in exchange for information.\n\nIT Crew tree-teleports back to Saltmarsh, finds the two other vampire consorts finishing a ritual that would kill all Betrayers. Arienh steps into the black flame, becoming the First Betrayer.\n\nIT Crew rides to Berle, heading towards Scornkeep in the Dreadwood.",
-    "tags": "it crew|mk|arienh"
+    "tags": "it crew,mk,arienh"
   },
   {
     "date": "14,11,579",
@@ -1368,19 +1368,19 @@
     "date": "16,11,579",
     "title": "Staff of Deepwood",
     "description": "In Berle, Arienh is given the Staff of the Deepwood by the Silverstand Elves.\n\nIT Crew rides back to Saltmarsh, and a night on the town. Arienh is visited by Agatha. Airell is visited by Olidammara.",
-    "tags": "arienh|it crew|airell"
+    "tags": "arienh,it crew,airell"
   },
   {
     "date": "17,11,579",
     "title": "Long rest",
     "description": "Long rest in Saltmarsh",
-    "tags": "downtime|it crew"
+    "tags": "downtime,it crew"
   },
   {
     "date": "27,11,579",
     "title": "To Lendor",
     "description": "IT Crew teleports to Pontylver, then sails towards Lendorian Maelstrom",
-    "tags": "it crew|falling star"
+    "tags": "it crew,falling star"
   },
   {
     "date": "6,12,579",
@@ -1392,7 +1392,7 @@
     "date": "7,12,579",
     "title": "Madness at Firewatch Isle",
     "description": "IT Crew explores Firewatch Isle, noticing madness spreading in some of their people. Explore the abbey. They find Jazdirzoud, who is nearly dead. He asks them to save his remaining people on nearby island.\nArienh & Mornie scout nearby island (Lof Ospyr), spot the Lendorians held captive by the Rune Takers (a band of crazed Elves). They flee back to Firewatch Isle.\nIT Crew returns and is ambushed by the Rune Takers. They fight off the ambush, find the Lendorians dead, and return to Firewatch Isle.\nDuring the rest, Mornie reviews all the Firewatch Isle journals left by the Brotherhood.",
-    "tags": "it crew|arienh|mornie"
+    "tags": "it crew,arienh,mornie"
   },
   {
     "date": "1,13,579",
@@ -1418,31 +1418,31 @@
     "date": "18,13,579",
     "title": "Training in Spindrift Isles",
     "description": "Airell: Training & Crafting Pontylver \n\nArienh: Teaching and Relaxing in Spindrift Isles\n\nKellen: “Relaxing” in the Spindrift Isles\n\nMah-Kaylah: Training in Spindrift Isles\n\nMornie: Selling magic items in Pontylver",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,16,579",
     "title": "Party in Pontylver",
     "description": "Airell: partying in Pontylver \n\nArienh: partying in Spindrift Isles\n\nKellen: “partying” in Spindrift Isles\n\nMah-Kaylah: partying in Spindrift Isles\n\nMornie: partying in Pontylver",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,1,580",
     "title": "More training",
     "description": "Airell: Training & Crafting Pontylver \n\nArienh: Teaching and Brewing potions in Spindrift Isles\n\nKellen: “Relaxing” in the Spindrift Isles\n\nMah-Kaylah: Training in Spindrift Isles\n\nMornie: Selling magic items, Researching & Diamond shopping in Pontylver",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "1,4,580",
     "title": "More partying",
     "description": "Airell: partying in Pontylver \n\nArienh: leading Druidic rites in Spindrift Isles\n\nKellen: “partying” in Spindrift Isles\n\nMah-Kaylah: partying in Spindrift Isles\n\nMornie: partying in Pontylver",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "2,5,580",
     "title": "Even more training",
     "description": "Falling Star sails from Spindrift Isles. Downtime:\n\nAirell: training \n\nArienh: brewing potions\n\nKellen: “teaching”\n\nMah-Kaylah: training\n\nMornie: training",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "27,5,580",
@@ -1454,13 +1454,13 @@
     "date": "3,6,580",
     "title": "Training",
     "description": "Falling Star flies to Castle Greyhawk.\n\nAirell: training \n\nArienh: brewing potions\n\nKellen: “teaching”\n\nMah-Kaylah: training\n\nMornie: training",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "21,6,580",
     "title": "Training",
     "description": "Falling Star sails for Saltmarsh.\n\nAirell: training \n\nArienh: brewing potions\n\nKellen: “teaching”\n\nMah-Kaylah: training\n\nMornie: training",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "3,7,580",
@@ -1472,19 +1472,19 @@
     "date": "12,7,580",
     "title": "Drawmij dies",
     "description": "Eliander Fireborn arrives in Saltmarsh, along with Kellen’s family.\n\nDramij cast Day Dream spell on Kellen, tells her everything he knows about Iuz and the obelisks. He gives his final orders for Mornie before he is killed by Mordenkainen and Tasha.",
-    "tags": "kellen|mornie"
+    "tags": "kellen,mornie"
   },
   {
     "date": "13,7,580",
     "title": "Downtime",
     "description": "MK & Kellen: downtime",
-    "tags": "mk|kellen"
+    "tags": "mk,kellen"
   },
   {
     "date": "15,7,580",
     "title": "Blind Father's retribution",
     "description": "Blind Father’s retribution: Airell, Arienh, and Mornie pay a visit to Gradsul. The less said about that, the better.",
-    "tags": "airell|arienh|mornie"
+    "tags": "airell,arienh,mornie"
   },
   {
     "date": "1,8,580",
@@ -1496,19 +1496,19 @@
     "date": "3,9,580",
     "title": "Crazed stone giants",
     "description": "Falling Star & IT Crew depart for the Yeomanry. Ambushed by crazed stone giants and undead hill giants.",
-    "tags": "falling star|it crew"
+    "tags": "falling star,it crew"
   },
   {
     "date": "4,9,580",
     "title": "Baron Airell",
     "description": "IT Crew arrives in Longspear, in the Yeomanry. Airell named Baron by King Kimbertos Scotti",
-    "tags": "it crew|airell"
+    "tags": "it crew,airell"
   },
   {
     "date": "6,9,580",
     "title": "Gnome skyship rescue",
     "description": "Falling Star heads for the Jotens. Rescue the gnome skyship, then travel on to Jotendalr pass.",
-    "tags": "falling star|it crew"
+    "tags": "falling star,it crew"
   },
   {
     "date": "7,9,580",
@@ -1526,19 +1526,19 @@
     "date": "9,9,580",
     "title": "Battle with the Fist of the Furnace",
     "description": "IT Crew arrives at Altisaur, just past midnight. Sneak inside the Fist of the Furnace’s citadel. \n\nBattle with the Fist of the Furnance; Mordenkainen, Tasha, and Reyna ambush everyone. They capture Ogrdrannal and MK.\n\nIT Crew (minus MK) teleports with a rescued Wydhaus back to the Falling Star. Right into a battle with the undead giants in the Yeomanry.\n\nMK has a dream with Tasha. She awakes outside Castle Greyhawk.",
-    "tags": "it crew|mk"
+    "tags": "it crew,mk"
   },
   {
     "date": "10,9,580",
     "title": "Reunion in Greyhawk",
     "description": "IT Crew meets with Kimbertos.\n\nMK walks back to Greyhawk, finds Hacrar, contacts IT Crew.\n\nIT Crew tree-ports to Greyhawk. Airell finds out he’s famous.",
-    "tags": "it crew|mk|airell"
+    "tags": "it crew,mk,airell"
   },
   {
     "date": "11,9,580",
     "title": "Rest in Greyhawk",
     "description": "Long rest in Greyhawk. IT Crew meets with the Ruling Directorate. Mordenkainen scries on / talks to the IT Crew.",
-    "tags": "it crew|downtime"
+    "tags": "it crew,downtime"
   },
   {
     "date": "15,9,580",
@@ -1556,19 +1556,19 @@
     "date": "17,9,580",
     "title": "Battle at the Godtrap",
     "description": "Early AM: Rescue of Nalnaliras’ cave. IT Crew helps Nalnaliras defeat the demon horde. Nalnaliras wants to destroy Xendros, who teleports out with MK and Kellen.\n\nXendros, MK, Kellen reach the Godtrap. Mordenkainen appears along the way. Xendros and Mordenkainen kill Ogdrannal, extract his shard, and trap it in the Godtrap. They perform spirit surgery on MK, separating the shard from her.\n\nAirell, Arienh, Mornie teleport in via Kellen’s talisman. Mordenkainen & Xendros refuse to stop whatever they’re planning next. \n\nBattle at the Godtrap. Mordenkainen flees. Xendros is slain.\n\nIT Crew returns to Nalnaliras, who sends them back to the top of Castle Greyhawk. Only MK, Kellen, and Arienh keep their memories. (Airell: “Why am I holding Xendros’s head?”)",
-    "tags": "it crew|mk|kellen|airell|arienh|mornie"
+    "tags": "it crew,mk,kellen,airell,arienh,mornie"
   },
   {
     "date": "18,9,580",
     "title": "Long rest at Greyhawk",
     "description": "IT Crew returns to Greyhawk. Takes long rest.",
-    "tags": "it crew|downtime"
+    "tags": "it crew,downtime"
   },
   {
     "date": "25,9,580",
     "title": "Training",
     "description": "Airell: Training, selling, crafting\n\nArienh: Teaching, Brewing\n\nKellen: Crafting\n\nMK: Crafting a song\n\nMornie: Training",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   },
   {
     "date": "13,13,580",
@@ -1615,13 +1615,13 @@
     "date": "26,13,580",
     "title": "IT on Celene",
     "description": "IT Crew trades with Duergar lord: magic items for teleportation to Celene.\n\nIT on Celene: crosses the moonscape with Kellen briefly reconnecting to the Chained Oblivion. Fless the Mind Flayers and the Elder Brain dragon.\n\nIT Crew negotiates with Kymneraph. Reyna refuses the terms, Arienh challenges her. Druidic ritual combat: whoever grounds Kymneraph first wins. IT Crew succeeds, Arienh becomes the High Druid of the Old Faith.",
-    "tags": "it crew|arienh"
+    "tags": "it crew,arienh"
   },
   {
     "date": "27,13,580",
     "title": "Fixing Celene obelisk",
     "description": "Kellen & Mornie fix the obelisk on Celene. IT Crew teleports back to Greyhawk.",
-    "tags": "kellen|mornie|it crew"
+    "tags": "kellen,mornie,it crew"
   },
   {
     "date": "27,13,580",
@@ -1633,18 +1633,18 @@
     "date": "1,1,581",
     "title": "Arienh the Great Druid",
     "description": "IT Crew still suspended in time.\n\nSomewhere during this time, Arienh’s mind summoned by the Druidic Rite to a conclave with the other Great Druids. Tentative agreement that she is the High Druid, if she can defeat Iuz and Rel Hjalnar.",
-    "tags": "it crew|arienh"
+    "tags": "it crew,arienh"
   },
   {
     "date": "15,6,581",
     "title": "Rest and Greyhawk",
     "description": "Arrive in Greyhawk. Long rest.",
-    "tags": "it crew|downtime"
+    "tags": "it crew,downtime"
   },
   {
     "date": "22,6,581",
     "title": "Downtime",
     "description": "Airell: \n\nArienh: Brewing\n\nKellen: Research, crafting\n\nMK: \n\nMornie: Training",
-    "tags": "downtime|airell|arienh|kellen|mk|mornie|it crew"
+    "tags": "downtime,airell,arienh,kellen,mk,mornie,it crew"
   }
 ]

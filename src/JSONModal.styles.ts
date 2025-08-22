@@ -1,5 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 
+const uploadWidth = "40rem";
+
 const buttonStyles = css`
   height: 2rem;
   cursor: pointer;
@@ -17,30 +19,12 @@ const bounce = keyframes`
   }
 `;
 
-export const UploadLabel = styled.label`
-  display: block;
-  margin-top: 2rem;
-  position: relative;
-  cursor: pointer;
-  padding: 1rem 0;
-  color: #007bff;
-  background-color: #f8f9fa;
-  border-radius: 0.5rem;
-  text-align: center;
-
-  &:hover {
-    background-color: #e2e6ea;
-  }
-
-  > input {
-    cursor: pointer;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+export const UploadWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: ${uploadWidth};
+  margin: 0 auto;
 `;
 
 export const Controls = styled.div`

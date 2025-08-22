@@ -1,17 +1,25 @@
 import { useState, ChangeEvent, SyntheticEvent } from "react";
-import { DateWrapper, Form, FormContainer } from "./EventForm.styles";
-import { TimelineEvent } from "./types";
+import { Form } from "./EventForm.styles";
+import { TimelineFormEvent } from "./types";
 import {
   convertInputToDays,
   daysOptionsNumToDayName,
   MONTHS,
 } from "./dateHelper";
 import { useEvents } from "./useEvents";
-import { v4 as uuid } from "uuid";
+import {
+  Button,
+  Fieldset,
+  Grid,
+  NativeSelect,
+  NumberInput,
+  TagsInput,
+  Textarea,
+  TextInput,
+} from "@mantine/core";
+import { modals } from "@mantine/modals";
 
-type FormData = Omit<TimelineEvent, "id">;
-
-const initialFormData: FormData = {
+const initialFormData: TimelineFormEvent = {
   daysSinceOrigin: 0,
   title: "",
   description: "",
@@ -25,13 +33,16 @@ const initialDate = {
 
 export function EventForm() {
   const [date, setDate] = useState(initialDate);
-  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [formData, setFormData] = useState<TimelineFormEvent>(initialFormData);
   const { addEvent } = useEvents();
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleDateChange =
     (key: keyof typeof date) =>
     (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
+      setErrors({});
       const value = parseInt(event.currentTarget.value) || 0;
+
       setDate({
         ...date,
         [key]: value,
@@ -50,92 +61,149 @@ export function EventForm() {
     }));
   };
 
+  const handleYearsChange = (value: number | string) => {
+    setDate((prevDate) => ({
+      ...prevDate,
+      years: Number(value),
+    }));
+  };
+
   const handleInputChange =
     (key: keyof typeof formData) =>
     (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setFormData({ ...formData, [key]: event.currentTarget.value });
     };
 
-  const handleTagsInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.currentTarget;
-
+  const handleTagsInputChange = (tags: string[]) => {
     setFormData({
       ...formData,
-      tags: value ? value.split("|") : [],
+      tags,
     });
+  };
+
+  const isValid = () => {
+    setErrors({});
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.title.trim()) {
+      newErrors.title = "Title is required";
+    }
+
+    if (date.years < 0) {
+      newErrors.years = "Year cannot be negative";
+    }
+
+    if (date.months < 0 || date.months >= MONTHS.length) {
+      newErrors.months = "Invalid month selected";
+    }
+
+    if (date.days < 0 || date.days > MONTHS[date.months][1]) {
+      newErrors.days = `Day must be between 1 and ${MONTHS[date.months][1]}`;
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
 
+    if (!isValid()) {
+      return;
+    }
+
     addEvent({
       ...formData,
       tags: formData.tags?.map((val) => val.trim()).filter((val) => val !== ""),
       daysSinceOrigin: convertInputToDays(date),
-      id: uuid(),
     });
 
     setFormData(initialFormData);
     setDate(initialDate);
+    modals.closeAll();
   };
 
-  const renderDayOptions = () => {
+  const dayOptions = () => {
     const options = [];
+
     for (let i = 0; i < MONTHS[date.months][1]; i++) {
-      options.push(
-        <option key={i} value={i + 1}>
-          {i + 1} - {daysOptionsNumToDayName(i)}
-        </option>
-      );
+      options.push({
+        value: String(i + 1),
+        label: `${i + 1} - ${daysOptionsNumToDayName(i)}`,
+      });
     }
 
     return options;
   };
 
-  const renderMonthOptions = () => {
-    return MONTHS.map((month, index) => {
-      return (
-        <option key={month[0]} value={index}>
-          {index + 1} - {month[0]}
-        </option>
-      );
-    });
+  const monthOptions = () => {
+    return MONTHS.map((month, index) => ({
+      value: String(index),
+      label: `${index + 1} - ${month[0]}`,
+    }));
   };
 
   return (
-    <FormContainer>
-      <Form onSubmit={handleSubmit}>
-        <DateWrapper>
-          <select value={date.days} onChange={handleDateChange("days")}>
-            {renderDayOptions()}
-          </select>
-          <select value={date.months} onChange={handleMonthChange}>
-            {renderMonthOptions()}
-          </select>
-          <input
-            placeholder="Year"
-            value={date.years}
-            onChange={handleDateChange("years")}
-            type="number"
-          />
-        </DateWrapper>
-        <input
-          placeholder="Title"
+    <Form onSubmit={handleSubmit}>
+      <Fieldset legend="Date">
+        <Grid gutter="sm">
+          <Grid.Col span={4}>
+            <NativeSelect
+              label="Day"
+              value={date.days}
+              data={dayOptions()}
+              onChange={handleDateChange("days")}
+              error={errors.days}
+            />
+          </Grid.Col>
+          <Grid.Col span={5}>
+            <NativeSelect
+              label="Month"
+              value={date.months}
+              data={monthOptions()}
+              onChange={handleMonthChange}
+              error={errors.months}
+            />
+          </Grid.Col>
+          <Grid.Col span={3}>
+            <NumberInput
+              label="Year"
+              value={date.years}
+              onChange={handleYearsChange}
+              error={errors.years}
+            />
+          </Grid.Col>
+        </Grid>
+      </Fieldset>
+      <Fieldset legend="Event Details">
+        <TextInput
+          label="Title"
+          placeholder="Name of the event"
           value={formData.title}
           onChange={handleInputChange("title")}
+          error={errors.title}
         />
-        <textarea
+        <Textarea
+          label="Description"
           placeholder="Description"
           value={formData.description}
           onChange={handleInputChange("description")}
+          mt="md"
+          error={errors.description}
         />
-        <input
-          placeholder="Tags separated by |"
-          value={formData.tags?.join("|")}
+        <TagsInput
+          label="Tags"
+          placeholder="Tags will be used to filter events"
+          value={formData.tags}
           onChange={handleTagsInputChange}
+          mt="md"
+          error={errors.tags}
         />
-        <button onClick={handleSubmit}>Add</button>
-      </Form>
-    </FormContainer>
+      </Fieldset>
+      <Button variant="primary" onClick={handleSubmit}>
+        Add Event
+      </Button>
+    </Form>
   );
 }

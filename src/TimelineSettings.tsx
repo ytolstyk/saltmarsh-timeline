@@ -1,149 +1,95 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CheckedTags, TimelineSettingsData } from "./types";
-import { numValueOrZero } from "./dateHelper";
 import {
-  ButtonWrapper,
-  FullWidthButton,
-  NeedsAttention,
+  FormRow,
+  RangeSelectorContainer,
+  SelectedTagsCount,
   TimelineSettingsContainer,
-  TimelineSettingsFormRow,
+  TimelineSettingsFormSection,
 } from "./TimelineSettings.styles";
-import { openModal } from "./modalHelper";
-import { JSONModal } from "./JSONModal";
 import { TagsModal } from "./TagsModal";
-import { RenderIf } from "./RenderIf";
-import { DeleteAllModal } from "./DeleteAllModal";
-import { downloadJSONEvents } from "./jsonHelper";
+import { useTimelineSettings } from "./useTimelineSettings";
+import { useCampaigns } from "./useCampaigns";
 import { useEvents } from "./useEvents";
+import { Button, Chip, Divider, RangeSlider, Text } from "@mantine/core";
+import { modals } from "@mantine/modals";
 
-type Props = {
-  onSettingsChange: (settings: TimelineSettingsData) => void;
-  timelineSettings: TimelineSettingsData;
-};
+export function TimelineSettings() {
+  const { timelineSettings, update } = useTimelineSettings();
+  const { campaign } = useCampaigns();
+  const { minDateYears, maxDateYears } = useEvents();
 
-type TimelineSettingsForm = {
-  startYear: number | string;
-  endYear: number | string;
-  checkedTags: CheckedTags;
-  excludeDowntime: boolean;
-};
-
-const IT_TIMELINE = {
-  startYear: 575,
-  endYear: 600,
-};
-
-export function TimelineSettings({
-  timelineSettings,
-  onSettingsChange,
-}: Props) {
-  const [formData, setFormData] = useState<TimelineSettingsForm>({
-    startYear: timelineSettings.startYear || "",
-    endYear: timelineSettings.endYear || "",
-    checkedTags: timelineSettings.checkedTags || {},
-    excludeDowntime: timelineSettings.excludeDowntime,
+  const [formData, setFormData] = useState<Partial<TimelineSettingsData>>({
+    startYear: timelineSettings?.startYear ?? minDateYears,
+    endYear: timelineSettings?.endYear ?? maxDateYears,
   });
-  const { events } = useEvents();
 
-  const handleSettingsChange =
-    (key: keyof Pick<TimelineSettingsData, "startYear" | "endYear">) =>
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const { value } = event.target;
-      const numberValue = value.replace(/[^0-9-]/g, "");
-      const yearValue = numValueOrZero(numberValue);
+  useEffect(() => {
+    if (timelineSettings) setFormData(timelineSettings);
+  }, [timelineSettings]);
 
-      setFormData({
-        ...formData,
-        [key]: yearValue,
-      });
-    };
-
-  const handleExcludeDowntimeClick = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const { checked } = event.target;
+  const handleYearRangeChange = (value: number[]) => {
+    const [start, end] = value;
 
     setFormData({
-      ...formData,
-      excludeDowntime: checked,
+      startYear: start,
+      endYear: end,
     });
-    onSettingsChange({
+  };
+
+  const handleYearRangeChangeEnd = (value: number[]) => {
+    const [start, end] = value;
+
+    update({
+      ...timelineSettings,
+      startYear: start,
+      endYear: end,
+    });
+  };
+
+  const handleExcludeDowntimeClick = (checked: boolean) => {
+    update({
       ...timelineSettings,
       excludeDowntime: checked,
     });
   };
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    const { startYear, endYear, checkedTags, excludeDowntime } = formData;
-    const newSettings: TimelineSettingsData = {
-      startYear: startYear === "-" ? null : startYear,
-      endYear: endYear === "-" ? null : endYear,
-      checkedTags,
-      excludeDowntime,
-    };
-
-    if (
-      !Number.isInteger(newSettings.startYear) ||
-      !Number.isInteger(newSettings.endYear)
-    ) {
-      return;
-    }
-
-    if (newSettings.startYear! > newSettings.endYear!) {
-      return;
-    }
-
-    onSettingsChange(newSettings);
-  };
-
   const handleDatesReset = () => {
-    const { checkedTags, excludeDowntime } = timelineSettings;
-
-    setFormData({
-      startYear: "",
-      endYear: "",
-      checkedTags,
-      excludeDowntime,
-    });
-    onSettingsChange({
-      startYear: null,
-      endYear: null,
-      checkedTags,
-      excludeDowntime,
+    update({
+      ...timelineSettings,
+      startYear: minDateYears,
+      endYear: maxDateYears,
     });
   };
 
   const handleRestrictClick = () => {
     const restrictedData = {
       ...timelineSettings,
-      ...IT_TIMELINE,
+      ...{
+        startYear: campaign?.campaignStartYear ?? minDateYears,
+        endYear: campaign?.campaignEndYear ?? maxDateYears,
+      },
     };
 
-    setFormData(restrictedData);
-    onSettingsChange(restrictedData);
-  };
-
-  const handleUploadClick = () => {
-    openModal({
-      contentComponent: <JSONModal />,
-    });
-  };
-
-  const handleDownloadClick = () => {
-    downloadJSONEvents(events);
+    update(restrictedData);
   };
 
   const handleCheckedTagsSubmit = (tagChanges: CheckedTags) => {
-    onSettingsChange({
+    update({
       ...timelineSettings,
       checkedTags: tagChanges,
     });
   };
 
   const handleTagsClick = () => {
-    openModal({
-      contentComponent: (
+    if (!timelineSettings) {
+      return;
+    }
+
+    modals.open({
+      title: "Filter by tags",
+      size: "lg",
+      children: (
         <TagsModal
           checkedTags={timelineSettings.checkedTags}
           setCheckedTags={handleCheckedTagsSubmit}
@@ -152,79 +98,76 @@ export function TimelineSettings({
     });
   };
 
-  const handleDeleteEverythingClick = () => {
-    openModal({
-      contentComponent: <DeleteAllModal />,
-    });
-  };
+  const selectedTagsCount = useMemo(() => {
+    if (timelineSettings) {
+      return Object.values(timelineSettings.checkedTags).filter((val) => val)
+        .length;
+    }
+
+    return 0;
+  }, [timelineSettings]);
 
   return (
-    <TimelineSettingsContainer>
-      <form>
-        <TimelineSettingsFormRow>
-          <input
-            type="text"
-            placeholder="Start year"
-            value={formData.startYear}
-            onChange={handleSettingsChange("startYear")}
-          />
-          to
-          <input
-            type="text"
-            placeholder="End year"
-            value={formData.endYear}
-            onChange={handleSettingsChange("endYear")}
-          />
-        </TimelineSettingsFormRow>
-        <TimelineSettingsFormRow>
-          <button type="button" onClick={handleDatesReset}>
-            Reset
-          </button>
-          <button type="button" onClick={handleRestrictClick}>
-            IT Timeline
-          </button>
-          <button type="submit" onClick={handleSubmit}>
-            Apply
-          </button>
-        </TimelineSettingsFormRow>
-        <TimelineSettingsFormRow>
-          <label>
-            <input
-              type="checkbox"
-              onChange={handleExcludeDowntimeClick}
-              checked={formData.excludeDowntime}
+    <>
+      <Divider
+        mt="xl"
+        my="xs"
+        label="Timeline Settings"
+        labelPosition="center"
+      />
+      <TimelineSettingsContainer>
+        <TimelineSettingsFormSection>
+          <RangeSelectorContainer>
+            <Text size="md" mt="sm" ta="center">
+              Range in years
+            </Text>
+            <RangeSlider
+              mt="lg"
+              min={minDateYears}
+              max={maxDateYears}
+              onChange={handleYearRangeChange}
+              onChangeEnd={handleYearRangeChangeEnd}
+              minRange={1}
+              value={[
+                formData.startYear ?? minDateYears,
+                formData.endYear ?? maxDateYears,
+              ]}
+              marks={[
+                { value: minDateYears, label: minDateYears },
+                { value: maxDateYears, label: maxDateYears },
+              ]}
+              step={1}
             />
+          </RangeSelectorContainer>
+          <FormRow>
+            <Button variant="default" onClick={handleRestrictClick}>
+              Use Campaign Timeline
+            </Button>
+            <Button variant="default" onClick={handleDatesReset}>
+              Reset
+            </Button>
+          </FormRow>
+          <Chip
+            checked={timelineSettings.excludeDowntime}
+            onChange={handleExcludeDowntimeClick}
+          >
             Exclude downtime
-          </label>
-        </TimelineSettingsFormRow>
-        <TimelineSettingsFormRow>
-          <ButtonWrapper>
-            <FullWidthButton type="button" onClick={handleTagsClick}>
-              Filter by tags
-            </FullWidthButton>
-            <RenderIf
-              condition={Object.values(timelineSettings.checkedTags).some(
-                (val) => val
-              )}
-            >
-              <NeedsAttention />
-            </RenderIf>
-          </ButtonWrapper>
-        </TimelineSettingsFormRow>
-        <TimelineSettingsFormRow>
-          <FullWidthButton type="button" onClick={handleUploadClick}>
-            Upload JSON
-          </FullWidthButton>
-          <FullWidthButton type="button" onClick={handleDownloadClick}>
-            Download JSON
-          </FullWidthButton>
-        </TimelineSettingsFormRow>
-        <TimelineSettingsFormRow>
-          <FullWidthButton type="button" onClick={handleDeleteEverythingClick}>
-            Delete everything
-          </FullWidthButton>
-        </TimelineSettingsFormRow>
-      </form>
-    </TimelineSettingsContainer>
+          </Chip>
+        </TimelineSettingsFormSection>
+        <TimelineSettingsFormSection>
+          <Button
+            leftSection={
+              selectedTagsCount === 0 ? null : (
+                <SelectedTagsCount>{selectedTagsCount}</SelectedTagsCount>
+              )
+            }
+            variant="default"
+            onClick={handleTagsClick}
+          >
+            Filter by tags
+          </Button>
+        </TimelineSettingsFormSection>
+      </TimelineSettingsContainer>
+    </>
   );
 }

@@ -4,46 +4,46 @@ import { RenderIf } from "./RenderIf";
 import {
   EmptyMessageWrapper,
   Line,
-  LineBottom,
+  LineRight,
   LineDot,
-  LineTop,
+  LineLeft,
   LineWrapper,
   EventCounter,
+  lineHeight,
+  TimelineWrapper,
 } from "./Timeline.styles";
-import { TimelineEventGroup, TimelineSettingsData } from "./types";
+import { TimelineEventGroup } from "./types";
 import { useEvents } from "./useEvents";
-import { useWidth } from "./useWidth";
 import { useFilteredEventGroups } from "./useFilteredEventGroups";
-import { remInPixels } from "./App.styles";
-import { percentLeft } from "./timelineHelper";
-import { openModal } from "./modalHelper";
+import { percentFromTop } from "./timelineHelper";
 import { JSONModal } from "./JSONModal";
 import { convertJSONDataToBlobs } from "./jsonHelper";
 import jsonFile from "./assets/saltmarsh_timeline.json";
 import { CurrentEventGroup } from "./CurrentEventGroup";
+import { modals } from "@mantine/modals";
+import { Button } from "@mantine/core";
+import { useTimelineSettings } from "./useTimelineSettings";
 
-type Props = {
-  timelineSettings: TimelineSettingsData;
-};
-
-export function Timeline({ timelineSettings }: Props) {
-  const { elementRef, width } = useWidth(remInPixels * 10);
+export function Timeline() {
+  const { timelineSettings } = useTimelineSettings();
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const { events } = useEvents();
   const { eventGroups, offset, lineLength, filteredEvents } =
-    useFilteredEventGroups(events, timelineSettings, width);
+    useFilteredEventGroups(events, timelineSettings, lineHeight);
 
   const handleSeedClick = () => {
-    openModal({
-      contentComponent: (
-        <JSONModal initialData={convertJSONDataToBlobs(jsonFile)} />
-      ),
+    modals.open({
+      title: "Seed Timeline",
+      size: "lg",
+      children: <JSONModal initialData={convertJSONDataToBlobs(jsonFile)} />,
     });
   };
 
   const handleGroupClick = (group: TimelineEventGroup) => () => {
-    openModal({
-      contentComponent: (
+    modals.open({
+      title: `Event Group (${group.events.length})`,
+      size: "lg",
+      children: (
         <CurrentEventGroup
           eventGroup={group}
           checkedTags={timelineSettings.checkedTags}
@@ -70,7 +70,7 @@ export function Timeline({ timelineSettings }: Props) {
           setHighlightedIndex={setHighlightedIndex}
           isHighlighted={highlightedIndex === index}
           checkedTags={timelineSettings.checkedTags}
-          percentLeft={percentLeft(group.daysSinceOrigin, offset, lineLength)}
+          percentTop={percentFromTop(group.daysSinceOrigin, offset, lineLength)}
         />
       );
     });
@@ -86,7 +86,11 @@ export function Timeline({ timelineSettings }: Props) {
           onClick={handleGroupClick(group)}
           onMouseEnter={() => setHighlightedIndex(index)}
           onMouseLeave={() => setHighlightedIndex(null)}
-          $percentLeft={percentLeft(group.daysSinceOrigin, offset, lineLength)}
+          $percentTop={percentFromTop(
+            group.daysSinceOrigin,
+            offset,
+            lineLength
+          )}
           $isGroup={group.events.length > 1}
           $isActive={highlightedIndex === index}
         >
@@ -100,28 +104,30 @@ export function Timeline({ timelineSettings }: Props) {
   const noEventGroups = !noEvents && (!eventGroups || eventGroups.length === 0);
 
   return (
-    <div ref={elementRef}>
+    <TimelineWrapper>
       <RenderIf condition={noEvents}>
         <EmptyMessageWrapper>
           <div>
             There are no events in the system. You can import the timeline
             spreadsheet to get started.
           </div>
-          <button onClick={handleSeedClick}>Get started</button>
+          <Button variant="primary" onClick={handleSeedClick} mt="lg">
+            Get started
+          </Button>
         </EmptyMessageWrapper>
       </RenderIf>
       <RenderIf condition={noEventGroups}>
         <EmptyMessageWrapper>All events are filtered out</EmptyMessageWrapper>
       </RenderIf>
       <RenderIf condition={eventGroups?.length === 1}>
-        <LineWrapper>
+        <LineWrapper $noHeight>
           <EventGroup
             timelineEventGroup={eventGroups[0]}
             index={0}
             isHighlighted={true}
             setHighlightedIndex={setHighlightedIndex}
             checkedTags={timelineSettings.checkedTags}
-            percentLeft={50}
+            percentTop={50}
           />
         </LineWrapper>
       </RenderIf>
@@ -130,11 +136,11 @@ export function Timeline({ timelineSettings }: Props) {
           Showing {filteredEvents.length} of {events.length} total events
         </EventCounter>
         <LineWrapper>
-          <LineTop>{renderEventCards(true)}</LineTop>
+          <LineLeft>{renderEventCards(true)}</LineLeft>
           <Line>{renderLineDots()}</Line>
-          <LineBottom>{renderEventCards(false)}</LineBottom>
+          <LineRight>{renderEventCards(false)}</LineRight>
         </LineWrapper>
       </RenderIf>
-    </div>
+    </TimelineWrapper>
   );
 }

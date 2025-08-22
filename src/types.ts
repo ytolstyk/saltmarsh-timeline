@@ -1,9 +1,40 @@
-export type TimelineEvent = {
-  id: string;
+import type { Schema } from "../amplify/data/resource";
+
+export type TimelineEvent = Schema["Event"]["type"];
+
+export type TimelineFormEvent = {
   daysSinceOrigin: number;
   title: string;
   description: string;
   tags?: string[];
+};
+
+export type Campaign = Schema["Campaign"]["type"];
+
+export type TimelineMetadata = Schema["TimelineSettings"]["type"];
+
+export type CampaignInfo = {
+  id: string;
+  name: string;
+  description: string;
+  startDate: string;
+  endDate: string | null;
+  campaignStartYear?: number | null;
+  campaignEndYear?: number | null;
+};
+
+export type CampaignFormData = Pick<
+  Campaign,
+  | "name"
+  | "description"
+  | "startDate"
+  | "endDate"
+  | "campaignStartYear"
+  | "campaignEndYear"
+>;
+
+export type CampaignFormUpdateData = Partial<Campaign> & {
+  id: string;
 };
 
 export type FormDate = {
@@ -15,8 +46,8 @@ export type FormDate = {
 export type CheckedTags = Record<string, boolean>;
 
 export type TimelineSettingsData = {
-  startYear: number | string | null;
-  endYear: number | string | null;
+  startYear: number | null;
+  endYear: number | null;
   checkedTags: CheckedTags;
   excludeDowntime: boolean;
 };
@@ -41,3 +72,5 @@ export type JSONPreviewBlob = {
   description: string;
   tags?: string[];
 };
+
+export type NotificationStyle = "success" | "error" | "info" | "warning";

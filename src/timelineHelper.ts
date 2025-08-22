@@ -1,4 +1,4 @@
-export function percentLeft(
+export function percentFromTop(
   daysSinceOrigin: number,
   offset: number,
   lineLength: number

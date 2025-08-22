@@ -1,15 +1,11 @@
 import { useMemo, useState } from "react";
 import { RenderIf } from "./RenderIf";
-import {
-  ButtonsWrapper,
-  TagLabel,
-  TagsWrapper,
-  TagsModalWrapper,
-} from "./TagsModal.styles";
+import { ButtonsWrapper, ChipWrapper } from "./TagsModal.styles";
 import { useEvents } from "./useEvents";
 import { CheckedTags } from "./types";
-import { closeModal } from "./modalHelper";
-import { BsCheck } from "react-icons/bs";
+import { modals } from "@mantine/modals";
+import { Button, Chip } from "@mantine/core";
+import { showNotification } from "./notificationHelper";
 
 type Props = {
   checkedTags: CheckedTags;
@@ -23,20 +19,36 @@ export function TagsModal({ checkedTags, setCheckedTags }: Props) {
 
   const handleSubmit = () => {
     setCheckedTags(modalCheckedTags);
-    closeModal();
+    const selectedTagsCount = Object.values(modalCheckedTags).filter(
+      (val) => val
+    ).length;
+
+    const message = selectedTagsCount
+      ? `Applied ${selectedTagsCount} tags to filter events`
+      : "No tags selected, showing all events";
+
+    showNotification({
+      title: "Tags Updated",
+      message,
+    });
+    modals.closeAll();
   };
 
   const handleReset = () => {
     setCheckedTags({});
-    closeModal();
+
+    showNotification({
+      title: "Tags Reset",
+      message: "All tags have been reset, showing all events",
+    });
+
+    modals.closeAll();
   };
 
-  const handleCheckChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = event.target;
-
+  const handleCheckChange = (tag: string) => (checked: boolean) => {
     setModalCheckedTags({
       ...modalCheckedTags,
-      [name]: checked,
+      [tag]: checked,
     });
   };
 
@@ -45,37 +57,33 @@ export function TagsModal({ checkedTags, setCheckedTags }: Props) {
   }, [tags]);
 
   return (
-    <TagsModalWrapper>
-      <h1>Filter by Tags</h1>
+    <div>
       <RenderIf condition={tags.length === 0}>
         <p>No tags available</p>
       </RenderIf>
       <RenderIf condition={tags.length > 0}>
-        <TagsWrapper>
-          {sortedTags.map((tag, index) => (
-            <TagLabel key={index} $isChecked={modalCheckedTags[tag]}>
+        {sortedTags.map((tag, index) => (
+          <ChipWrapper key={index}>
+            <Chip
+              checked={Boolean(modalCheckedTags[tag])}
+              onChange={handleCheckChange(tag)}
+              name={tag}
+              value={tag}
+              variant="filled"
+            >
               {tag}
-              <RenderIf condition={Boolean(modalCheckedTags[tag])}>
-                <BsCheck />
-              </RenderIf>
-              <input
-                type="checkbox"
-                name={tag}
-                onChange={handleCheckChange}
-                checked={Boolean(modalCheckedTags[tag])}
-              />
-            </TagLabel>
-          ))}
-        </TagsWrapper>
+            </Chip>
+          </ChipWrapper>
+        ))}
         <ButtonsWrapper>
-          <button type="button" onClick={handleReset}>
+          <Button variant="default" onClick={handleReset}>
             Reset
-          </button>
-          <button type="button" onClick={handleSubmit}>
+          </Button>
+          <Button variant="primary" onClick={handleSubmit}>
             Apply
-          </button>
+          </Button>
         </ButtonsWrapper>
       </RenderIf>
-    </TagsModalWrapper>
+    </div>
   );
 }

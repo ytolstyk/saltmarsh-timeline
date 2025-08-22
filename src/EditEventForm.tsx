@@ -1,16 +1,18 @@
 import { TimelineEvent } from "./types";
-import { CurrentCardDate, TagTitle } from "./CurrentEventGroup.styles";
-import { Divider } from "./EventGroup.styles";
+import { CurrentCardDate } from "./CurrentEventGroup.styles";
 import { convertDaysToReadableDate } from "./dateHelper";
 import { RenderIf } from "./RenderIf";
-import {
-  ButtonWrapper,
-  EditEventFormContainer,
-  EditTextArea,
-  TextInput,
-} from "./EditEventForm.styles";
+import { EditEventFormContainer } from "./EditEventForm.styles";
 import { useEvents } from "./useEvents";
 import { useState, ChangeEvent } from "react";
+import {
+  Button,
+  Divider,
+  Flex,
+  TagsInput,
+  Textarea,
+  TextInput,
+} from "@mantine/core";
 
 type Props = {
   event: TimelineEvent;
@@ -28,23 +30,27 @@ export function EditEventForm({
   const [formEvent, setFormEvent] = useState<{
     title: string;
     description: string;
-    tags: string;
+    tags: string[];
   }>({
     title: event.title,
     description: event.description,
-    tags: event.tags?.join(", ") || "",
+    // @ts-expect-error i refuse to believe this will be null
+    tags: event.tags?.filter(Boolean) || [],
   });
   const { updateEvent } = useEvents();
 
-  const handleSaveClick = () => {
+  const handleSaveClick = async () => {
     const newEvent = {
       ...event,
       title: formEvent.title,
       description: formEvent.description,
-      tags: formEvent.tags.split(",").map((tag) => tag.trim()),
-    };
+      tags: formEvent.tags.map((tag) => tag?.trim()).filter(Boolean),
+    } as TimelineEvent;
 
-    updateEvent(newEvent);
+    if (!(await updateEvent(newEvent))) {
+      return;
+    }
+
     onSaveClick(newEvent);
   };
 
@@ -59,37 +65,45 @@ export function EditEventForm({
     }));
   };
 
+  const handleTagsChange = (tags: string[]) => {
+    setFormEvent((prevFormEvent) => ({
+      ...prevFormEvent,
+      tags,
+    }));
+  };
+
   return (
     <EditEventFormContainer>
       <CurrentCardDate>
         {convertDaysToReadableDate(event.daysSinceOrigin)}
       </CurrentCardDate>
       <TextInput
-        type="text"
         value={formEvent.title}
+        label="Title"
+        placeholder="Enter event title"
         name="title"
         onChange={handleInputChange}
       />
-      <EditTextArea
+      <Textarea
         name="description"
+        label="Description"
+        placeholder="Enter event description"
         onChange={handleInputChange}
         value={formEvent.description}
       />
-      <TagTitle>Tags:</TagTitle>
-      <TextInput
-        type="text"
+      <TagsInput
+        label="Tags"
         value={formEvent.tags}
-        name="tags"
-        onChange={handleInputChange}
+        onChange={handleTagsChange}
       />
-      <ButtonWrapper>
-        <button type="button" onClick={() => onCancelClick(event.id)}>
+      <Flex justify="flex-end" mt="md" gap="md">
+        <Button variant="default" onClick={() => onCancelClick(event.id)}>
           Cancel
-        </button>
-        <button type="button" onClick={handleSaveClick}>
+        </Button>
+        <Button variant="primary" onClick={handleSaveClick}>
           Save
-        </button>
-      </ButtonWrapper>
+        </Button>
+      </Flex>
       <RenderIf condition={renderDivider}>
         <Divider />
       </RenderIf>

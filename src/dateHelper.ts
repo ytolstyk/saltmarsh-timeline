@@ -10,7 +10,16 @@ type MonthObj = {
 
 const DAYS_IN_WEEK = 7;
 const DAYS_IN_MONTH = 28;
-const DAYS_IN_YEAR = 364; // 12 months of 28 days + 4 months of 7 days (28*12 + 7*4 = 364)
+export const DAYS_IN_YEAR = 364; // 12 months of 28 days + 4 months of 7 days (28*12 + 7*4 = 364)
+export const DAYS_ABBR = [
+  "Star",
+  "Sun",
+  "Moon",
+  "Gods",
+  "Winds",
+  "Earth",
+  "Fire",
+];
 export const DAYS = [
   "Starday",
   "Sunday",
@@ -171,7 +180,13 @@ export function filterEventsByTags(
       return false;
     }
 
-    return event.tags.some((tag) => checkedTags[tag]);
+    return event.tags.some((tag) => {
+      if (!tag) {
+        return false;
+      }
+
+      return checkedTags[tag];
+    });
   });
 }
 

@@ -19,9 +19,11 @@ export function groupEvents(events: TimelineEvent[], daysRadius: number) {
   events.forEach((event) => {
     const groupKey =
       Math.floor(event.daysSinceOrigin / daysRadius) * daysRadius;
+
     if (!groupedEvents[groupKey]) {
       groupedEvents[groupKey] = [];
     }
+
     groupedEvents[groupKey].push(event);
   });
 

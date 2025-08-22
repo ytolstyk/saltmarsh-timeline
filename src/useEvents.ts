@@ -1,88 +1,127 @@
 import useSWR from "swr";
-import { TimelineEvent } from "./types";
-import { eventKey, getEvents, setEvents } from "./localStorageHelper";
-import { useMemo } from "react";
-import { v4 as uuid } from "uuid";
+import { TimelineEvent, TimelineFormEvent } from "./types";
+import { useContext, useEffect, useMemo } from "react";
+import {
+  batchCreateEvents,
+  batchDeleteEvents,
+  createEvent,
+  getEvents,
+  updateEventAPI,
+  deleteEventAPI,
+} from "./amplifyApi";
+import { handleErrors } from "./handleErrors";
+import { CampaignContext } from "./CampaignContext";
+import { DAYS_IN_YEAR } from "./dateHelper";
+import { showNotification } from "./notificationHelper";
 
 export function useEvents() {
+  const { campaignId, rawCampaign } = useContext(CampaignContext);
+
   const {
     data: events,
     mutate,
     error,
-  } = useSWR<TimelineEvent[]>(eventKey, getEvents);
+  } = useSWR<TimelineEvent[]>("api/events", () => getEvents(rawCampaign));
 
-  const appendEvents = async (newEvents: TimelineEvent[]) => {
+  useEffect(() => {
+    if (campaignId) {
+      mutate();
+    }
+  }, [campaignId, mutate]);
+
+  const appendEvents = async (newEvents: TimelineFormEvent[]) => {
     try {
-      const updatedEvents = [...(events || []), ...newEvents];
-      await setEvents(updatedEvents);
+      await batchCreateEvents(newEvents, campaignId);
       mutate();
     } catch (e) {
-      console.error("Failed to append events in useEvents", e);
+      handleErrors("Failed to append events in useEvents", e);
     }
   };
 
-  const overrideEvents = async (newEvents: TimelineEvent[]) => {
+  const overrideEvents = async (newEvents: TimelineFormEvent[]) => {
     try {
-      await setEvents(newEvents);
+      if (events) {
+        await batchDeleteEvents(events.map((event) => event.id));
+      }
+
+      await batchCreateEvents(newEvents, campaignId);
+
       mutate();
     } catch (e) {
-      console.error("Failed to override events in useEvents", e);
+      handleErrors("Failed to override events in useEvents", e);
     }
   };
 
-  const addEvent = async (event: TimelineEvent) => {
-    if (!event.id) {
-      event.id = uuid();
-    }
-
+  const addEvent = async (event: TimelineFormEvent) => {
     try {
-      await setEvents([...(events || []), event]);
+      const data = await createEvent(event, campaignId);
+
       mutate();
+
+      showNotification({
+        title: "Event created",
+        message: `Event "${data?.title}" created successfully`,
+        color: "green",
+      });
+
+      return data;
     } catch (e) {
-      console.error("Failed to add event in useEvents", e);
+      handleErrors("Failed to add event in useEvents", e);
     }
   };
 
   const updateEvent = async (eventToUpdate: TimelineEvent) => {
-    if (!events) {
-      console.error("No events to update");
-      return;
-    }
-
-    const updatedEvents = events.map((event) => {
-      if (event.id === eventToUpdate.id) {
-        return {
-          ...event,
-          ...eventToUpdate,
-        };
-      }
-
-      return event;
-    });
-
     try {
-      await setEvents(updatedEvents);
+      const data = await updateEventAPI(eventToUpdate);
+
       mutate();
+
+      showNotification({
+        title: "Event updated",
+        message: `Event "${data?.title}" updated successfully`,
+        color: "green",
+      });
+
+      return data;
     } catch (e) {
-      console.error("Failed to update event in useEvents", e);
+      handleErrors(
+        `Failed to update event in useEvents. ID: ${eventToUpdate.id}`,
+        e
+      );
+
+      return false;
     }
   };
 
-  const deleteEvent = async (eventToDelete: TimelineEvent) => {
-    if (!events) {
-      console.error("No events to delete from");
-      return;
-    }
-
-    const updatedEvents = events.filter((event) => {
-      return event.id !== eventToDelete.id;
-    });
-
+  const deleteEvent = async (eventId: string) => {
     try {
-      await setEvents(updatedEvents);
+      const data = await deleteEventAPI(eventId);
+
+      mutate();
+
+      showNotification({
+        title: "Event deleted",
+        message: `Event "${data?.title}" deleted successfully`,
+        color: "green",
+      });
+
+      return data;
+    } catch (e) {
+      handleErrors(`Failed to delete event in useEvents. ID: ${eventId}`, e);
+
+      return false;
+    }
+  };
+
+  const deleteAllCampaignEvents = async () => {
+    try {
+      if (events) {
+        await batchDeleteEvents(events.map((event) => event.id));
+      }
+
       mutate();
     } catch (e) {
-      console.error("Failed to delete event in useEvents", e);
+      handleErrors("Failed to delete all campaign events in useEvents", e);
     }
   };
 
@@ -102,6 +141,13 @@ export function useEvents() {
     return Math.max(...events.map((event) => event.daysSinceOrigin));
   }, [events]);
 
+  const { minDateYears, maxDateYears } = useMemo(() => {
+    const minYears = Math.floor(minDate / DAYS_IN_YEAR);
+    const maxYears = Math.ceil(maxDate / DAYS_IN_YEAR);
+
+    return { minDateYears: minYears, maxDateYears: maxYears };
+  }, [minDate, maxDate]);
+
   const tags = useMemo(() => {
     if (!events) {
       return [];
@@ -112,7 +158,7 @@ export function useEvents() {
     events.forEach((event) => {
       if (event.tags) {
         event.tags.forEach((tag) => {
-          tagsSet.add(tag);
+          if (tag) tagsSet.add(tag);
         });
       }
     });
@@ -124,6 +170,8 @@ export function useEvents() {
     events: events || [],
     minDate,
     maxDate,
+    minDateYears,
+    maxDateYears,
     mutate,
     error,
     tags,
@@ -131,6 +179,7 @@ export function useEvents() {
     updateEvent,
     overrideEvents,
     deleteEvent,
+    deleteAllCampaignEvents,
     appendEvents,
   };
 }

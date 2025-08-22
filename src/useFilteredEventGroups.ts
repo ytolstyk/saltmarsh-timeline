@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { remInPixels } from "./App.styles";
 import {
   filterEventsByDateRange,
   filterEventsByTags,
@@ -7,11 +6,12 @@ import {
 } from "./dateHelper";
 import { groupEvents } from "./eventsHelper";
 import { TimelineEvent, TimelineSettingsData } from "./types";
+import { dotFullSize } from "./Timeline.styles";
 
 export function useFilteredEventGroups(
   events: TimelineEvent[],
   timelineSettings: TimelineSettingsData,
-  width: number
+  height: number
 ) {
   const timeFilteredEvents = useMemo(
     () =>
@@ -47,8 +47,8 @@ export function useFilteredEventGroups(
   const lineLength = filteredMaxDate - filteredMinDate;
 
   const daysRadius = useMemo(
-    () => radiusInDays(width, filteredMaxDate - filteredMinDate, remInPixels),
-    [width, filteredMaxDate, filteredMinDate]
+    () => radiusInDays(height, filteredMaxDate - filteredMinDate, dotFullSize),
+    [height, filteredMaxDate, filteredMinDate]
   );
 
   const eventGroups = useMemo(

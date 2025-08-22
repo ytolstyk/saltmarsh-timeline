@@ -53,25 +53,3 @@ export const CurrentCardDate = styled.div`
     gap: 0.5rem;
   }
 `;
-
-export const CurrentCardButtonWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  > button {
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-  }
-`;
-
-export const Tag = styled.div<{ $isSelected: boolean }>`
-  display: inline-block;
-  padding: 0 1rem;
-  border-radius: 0.25rem;
-  background-color: ${(props) =>
-    props.$isSelected ? "rgb(137, 222, 131)" : "rgb(172, 216, 253)"};
-  border: 1px solid rgb(139, 139, 139);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: capitalize;
-`;

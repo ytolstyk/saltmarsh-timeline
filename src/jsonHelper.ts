@@ -3,8 +3,12 @@ import {
   convertDaysToDateObject,
   MONTHS,
 } from "./dateHelper";
-import { JSONImportObj, JSONPreviewBlob, TimelineEvent } from "./types";
-import { v4 as uuid } from "uuid";
+import {
+  JSONImportObj,
+  JSONPreviewBlob,
+  TimelineEvent,
+  TimelineFormEvent,
+} from "./types";
 
 export function convertJSONDataToBlobs(json: JSONImportObj[]) {
   return json.map((row: JSONImportObj) => {
@@ -17,7 +21,7 @@ export function convertJSONDataToBlobs(json: JSONImportObj[]) {
       years,
       title,
       description,
-      tags: tags ? tags.split("|") : [],
+      tags: tags ? tags.split(",") : [],
     };
   });
 }
@@ -87,12 +91,11 @@ export function validateJSONArray(json: JSONPreviewBlob[]): {
 
 export function convertJSONToEvents(
   previewArray: JSONPreviewBlob[]
-): TimelineEvent[] {
+): TimelineFormEvent[] {
   return previewArray.map((row) => {
     const { days, months, years, title, description, tags } = row;
 
     return {
-      id: uuid(),
       daysSinceOrigin: convertInputToDays({
         years,
         months,
@@ -114,7 +117,7 @@ export function convertEventsToJSON(events: TimelineEvent[]): JSONImportObj[] {
       date: `${days - 1},${months},${years}`,
       title,
       description,
-      tags: tags ? tags.join("|") : "",
+      tags: tags ? tags.join(",") : "",
     };
   });
 }

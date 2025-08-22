@@ -1,18 +1,15 @@
 import styled, { keyframes } from "styled-components";
 
-const flyIn = keyframes`
+const fadeIn = keyframes`
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(100rem) scale(0.1);
+    transform: scale(0.1);
   }
+
   to {
     opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(0.9);
+    transform: scale(0.9);
   }
-`;
-
-export const Divider = styled.hr`
-  margin: 1rem 3rem 0.25rem 0;
 `;
 
 export const HeaderWrapper = styled.div`
@@ -51,40 +48,22 @@ export const EventGroupTags = styled.div`
   }
 `;
 
-export const EventGroupTag = styled.div<{ $isSelected: boolean }>`
-  display: inline-block;
-  padding: 0 0.5rem;
-  border-radius: 0.25rem;
-  background-color: ${(props) =>
-    props.$isSelected ? "rgb(48, 117, 43)" : "rgb(73, 73, 73)"};
-  border: 1px solid rgb(139, 139, 139);
-  font-size: 0.75rem;
-  text-transform: capitalize;
-`;
-
-export const EventGroupWrapper = styled.div<{
-  $percentLeft: number;
+export const EventGroupPosition = styled.div<{
+  $percentTop: number;
   $isHighlighted: boolean;
 }>`
   cursor: pointer;
-  transform: translateX(-50%) scale(0.9);
-  left: ${(props) => props.$percentLeft}%;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  width: 10rem;
-  max-height: 10rem;
-  overflow: scroll;
+  top: ${(props) => props.$percentTop}%;
+  width: clamp(10rem, 100%, 25rem);
   position: absolute;
-  background-color: #333;
+  transform: scale(0.95);
   transition: all 0.2s ease-in-out;
-  animation: ${flyIn} 0.3s ease-out;
-  background-color: rgb(87, 87, 87);
+  animation: ${fadeIn} 0.2s ease-out;
 
   ${(props) => {
     if (props.$isHighlighted) {
       return `
-        transform: translateX(-50%) scale(1);
+        transform: scale(1);
         z-index: 10;
       `;
     }

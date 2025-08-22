@@ -1,24 +1,23 @@
 import {
-  Divider,
   EventGroupDate,
   EventGroupHeader,
-  EventGroupTag,
+  EventGroupPosition,
   EventGroupTags,
   EventGroupText,
-  EventGroupWrapper,
   HeaderCounter,
   HeaderWrapper,
 } from "./EventGroup.styles";
 import { RenderIf } from "./RenderIf";
 import { convertDaysToReadableDate } from "./dateHelper";
-import { openModal } from "./modalHelper";
 import { TimelineEventGroup, TimelineEvent, CheckedTags } from "./types";
 import { CurrentEventGroup } from "./CurrentEventGroup";
+import { modals } from "@mantine/modals";
+import { Badge, Divider, Paper, ScrollArea } from "@mantine/core";
 
 type Props = {
   timelineEventGroup: TimelineEventGroup;
   index: number;
-  percentLeft: number;
+  percentTop: number;
   isHighlighted: boolean;
   checkedTags: CheckedTags;
   setHighlightedIndex: (index: number | null) => void;
@@ -27,7 +26,7 @@ type Props = {
 export function EventGroup({
   timelineEventGroup,
   index,
-  percentLeft,
+  percentTop,
   isHighlighted,
   checkedTags,
   setHighlightedIndex,
@@ -39,8 +38,10 @@ export function EventGroup({
   const { events } = timelineEventGroup;
 
   const handleGroupClick = () => {
-    openModal({
-      contentComponent: (
+    modals.open({
+      title: `Event Group (${timelineEventGroup.events.length})`,
+      size: "lg",
+      children: (
         <CurrentEventGroup
           eventGroup={timelineEventGroup}
           checkedTags={checkedTags}
@@ -55,10 +56,14 @@ export function EventGroup({
     }
 
     return timelineEvent.tags.map((tag) => {
+      if (!tag) {
+        return null;
+      }
+
       return (
-        <EventGroupTag key={tag} $isSelected={checkedTags[tag]}>
+        <Badge key={tag} color={checkedTags[tag] ? "blue" : "gray"}>
           {tag}
-        </EventGroupTag>
+        </Badge>
       );
     });
   };
@@ -91,7 +96,7 @@ export function EventGroup({
             <EventGroupTags>{renderTags(timelineEvent)}</EventGroupTags>
           </RenderIf>
           <RenderIf condition={index < events.length - 1}>
-            <Divider />
+            <Divider mt="md" mb="md" />
           </RenderIf>
         </div>
       );
@@ -99,14 +104,16 @@ export function EventGroup({
   };
 
   return (
-    <EventGroupWrapper
-      $percentLeft={percentLeft}
+    <EventGroupPosition
+      $percentTop={percentTop}
       $isHighlighted={isHighlighted}
       onMouseEnter={() => setHighlightedIndex(index)}
       onMouseLeave={() => setHighlightedIndex(null)}
       onClick={handleGroupClick}
     >
-      {renderEvents()}
-    </EventGroupWrapper>
+      <Paper shadow="sm" p="md" withBorder>
+        <ScrollArea.Autosize mah={160}>{renderEvents()}</ScrollArea.Autosize>
+      </Paper>
+    </EventGroupPosition>
   );
 }

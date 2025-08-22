@@ -1,24 +1,22 @@
 import {
   CurrentCardDate,
-  CurrentCardButtonWrapper,
   CurrentCardHeader,
   CurrentCardText,
   CurrentCardTags,
   CurrentGroupWrapper,
   TagTitle,
-  Tag,
   EventContainer,
 } from "./CurrentEventGroup.styles";
 import { convertDaysToReadableDate } from "./dateHelper";
 import { TimelineEvent, TimelineEventGroup } from "./types";
 import { RenderIf } from "./RenderIf";
 import { useEvents } from "./useEvents";
-import { Divider } from "./EventGroup.styles";
 import { CheckedTags } from "./types";
-import { useState } from "react";
 import { EditEventForm } from "./EditEventForm";
 import { BsCalendar3, BsFillTagsFill } from "react-icons/bs";
-import { closeModal } from "./modalHelper";
+import { useState } from "react";
+import { modals } from "@mantine/modals";
+import { Badge, Button, Divider, Flex } from "@mantine/core";
 
 type Props = {
   eventGroup: TimelineEventGroup;
@@ -32,7 +30,7 @@ export function CurrentEventGroup({ eventGroup, checkedTags }: Props) {
   const { deleteEvent } = useEvents();
   const { events } = currentEventGroup;
 
-  const handleDeleteClick = (event: TimelineEvent) => () => {
+  const handleDeleteClick = (event: TimelineEvent) => async () => {
     const currentEvents = currentEventGroup.events.filter(
       (currentEvent) => currentEvent.id !== event.id
     );
@@ -41,11 +39,14 @@ export function CurrentEventGroup({ eventGroup, checkedTags }: Props) {
       events: currentEvents,
     };
 
+    if (!(await deleteEvent(event.id))) {
+      return;
+    }
+
     setCurrentEventGroup(newEventGroup);
-    deleteEvent(event);
 
     if (currentEvents.length === 0) {
-      closeModal();
+      modals.closeAll();
     }
   };
 
@@ -82,10 +83,14 @@ export function CurrentEventGroup({ eventGroup, checkedTags }: Props) {
     }
 
     return timelineEvent.tags.sort().map((tag) => {
+      if (!tag) {
+        return null;
+      }
+
       return (
-        <Tag key={tag} $isSelected={checkedTags[tag]}>
+        <Badge key={tag} color={checkedTags[tag] ? "blue" : "gray"}>
           {tag}
-        </Tag>
+        </Badge>
       );
     });
   };
@@ -119,20 +124,30 @@ export function CurrentEventGroup({ eventGroup, checkedTags }: Props) {
           </CurrentCardDate>
           <CurrentCardHeader>{timelineEvent.title}</CurrentCardHeader>
           <CurrentCardText>{timelineEvent.description}</CurrentCardText>
-          <RenderIf condition={Boolean(timelineEvent.tags)}>
+          <RenderIf
+            condition={Boolean(
+              timelineEvent.tags && timelineEvent.tags.length > 0
+            )}
+          >
             <TagTitle>
               <BsFillTagsFill size={15} /> Tags:
             </TagTitle>
             <CurrentCardTags>{renderTags(timelineEvent)}</CurrentCardTags>
           </RenderIf>
-          <CurrentCardButtonWrapper>
-            <button type="button" onClick={handleDeleteClick(timelineEvent)}>
+          <Flex justify="flex-end" mt="md" gap="md">
+            <Button
+              variant="default"
+              onClick={handleDeleteClick(timelineEvent)}
+            >
               Delete
-            </button>
-            <button type="button" onClick={handleEditClick(timelineEvent.id)}>
+            </Button>
+            <Button
+              variant="default"
+              onClick={handleEditClick(timelineEvent.id)}
+            >
               Edit
-            </button>
-          </CurrentCardButtonWrapper>
+            </Button>
+          </Flex>
           <RenderIf condition={index < events.length - 1}>
             <Divider />
           </RenderIf>
