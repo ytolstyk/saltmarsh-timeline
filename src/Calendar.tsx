@@ -33,7 +33,7 @@ export function Calendar() {
     return DAYS_ABBR.map((day) => {
       return (
         <Grid.Col span={12 / 7} key={day}>
-          <Text size="sm" fw={700}>
+          <Text size="sm" fw={700} ta="center">
             {day}
           </Text>
         </Grid.Col>
@@ -50,7 +50,7 @@ export function Calendar() {
       }
 
       return (
-        <Grid.Col span={12 / 7} key={index}>
+        <Grid.Col span={12 / 7} key={index} ta="center">
           <Day>
             <Text>{dayText}</Text>
           </Day>
