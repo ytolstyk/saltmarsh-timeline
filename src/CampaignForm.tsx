@@ -91,10 +91,15 @@ export function CampaignForm({ campaign }: Props) {
       return;
     }
 
+    const payload = {
+      ...formData,
+      endDate: formData.endDate === "" ? null : formData.endDate,
+    };
+
     if (isEditing && campaign) {
-      editCampaign({ ...formData, id: campaign.id });
+      editCampaign({ ...payload, id: campaign.id });
     } else {
-      addCampaign(formData);
+      addCampaign(payload);
     }
 
     setFormData({

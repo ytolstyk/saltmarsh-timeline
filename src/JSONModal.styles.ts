@@ -77,10 +77,3 @@ export const Table = styled.table`
     background-color: #f8f9fa;
   }
 `;
-
-export const SuccessMessage = styled.div`
-  padding: 0.5rem 1rem;
-  background-color: #d4edda;
-  border-radius: 0.5rem;
-  border: 1px solid rgb(146, 186, 156);
-`;

@@ -123,6 +123,8 @@ export function TimelineSettings() {
             </Text>
             <RangeSlider
               mt="lg"
+              pl="sm"
+              pr="sm"
               min={minDateYears}
               max={maxDateYears}
               onChange={handleYearRangeChange}

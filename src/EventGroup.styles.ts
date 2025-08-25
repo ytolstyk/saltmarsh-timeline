@@ -12,33 +12,6 @@ const fadeIn = keyframes`
   }
 `;
 
-export const HeaderWrapper = styled.div`
-  display: flex;
-  gap: 0.5rem;
-`;
-
-export const HeaderCounter = styled.div`
-  flex: 0;
-`;
-
-export const EventGroupHeader = styled.div`
-  flex: 1;
-  font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-`;
-
-export const EventGroupText = styled.div`
-  font-size: 0.75rem;
-  white-space: pre-line;
-`;
-
-export const EventGroupDate = styled.div`
-  font-size: 0.75rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-`;
-
 export const EventGroupTags = styled.div`
   margin-top: 0.5rem;
 

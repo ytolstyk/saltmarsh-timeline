@@ -31,11 +31,33 @@ export function useEvents() {
 
   const appendEvents = async (newEvents: TimelineFormEvent[]) => {
     try {
-      await batchCreateEvents(newEvents, campaignId);
+      const { errors, importedEvents } = await batchCreateEvents(
+        newEvents,
+        campaignId
+      );
+
       mutate();
+
+      if (Object.keys(errors).length > 0) {
+        showNotification({
+          title: "Batch create errors",
+          message: `The batch import ran with ${Object.keys(errors).length} errors. ${importedEvents} events have been imported.`,
+          color: "red",
+        });
+      } else {
+        showNotification({
+          title: "Events created",
+          message: `Imported ${importedEvents} events.`,
+          color: "green",
+        });
+      }
+
+      return errors;
     } catch (e) {
       handleErrors("Failed to append events in useEvents", e);
     }
+
+    return {};
   };
 
   const overrideEvents = async (newEvents: TimelineFormEvent[]) => {
@@ -44,9 +66,28 @@ export function useEvents() {
         await batchDeleteEvents(events.map((event) => event.id));
       }
 
-      await batchCreateEvents(newEvents, campaignId);
+      const { errors, importedEvents } = await batchCreateEvents(
+        newEvents,
+        campaignId
+      );
 
       mutate();
+
+      if (Object.keys(errors).length > 0) {
+        showNotification({
+          title: "Batch create errors",
+          message: `The batch import ran with ${Object.keys(errors).length} errors. ${importedEvents} events have been imported.`,
+          color: "red",
+        });
+      } else {
+        showNotification({
+          title: "Events created",
+          message: `Imported ${importedEvents} events.`,
+          color: "green",
+        });
+      }
+
+      return errors;
     } catch (e) {
       handleErrors("Failed to override events in useEvents", e);
     }

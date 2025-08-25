@@ -2,6 +2,14 @@ import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
 
 const schema = a
   .schema({
+    EventFields: a.customType({
+      daysSinceOrigin: a.integer().required(),
+      title: a.string().required(),
+      description: a.string().required(),
+      tags: a.string().array(),
+      campaignId: a.id().required(),
+    }),
+
     Event: a.model({
       daysSinceOrigin: a.integer().required(),
       title: a.string().required(),
@@ -32,6 +40,18 @@ const schema = a
         excludeDowntime: a.boolean().default(true),
       })
       .authorization((allow) => [allow.owner()]),
+
+    // BatchCreateEvent: a
+    //   .mutation()
+    //   .arguments({ events: a.ref("EventFields").array() })
+    //   .returns(a.ref("Event").array())
+    //   .authorization((allow) => [allow.authenticated()])
+    //   .handler(
+    //     a.handler.custom({
+    //       dataSource: a.ref("Event"),
+    //       entry: "./BatchCreateEventHandler.ts",
+    //     })
+    //   ),
   })
   .authorization((allow) => [allow.authenticated()]);
 

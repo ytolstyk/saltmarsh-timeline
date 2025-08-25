@@ -29,14 +29,32 @@ export const batchCreateEvents = async (
   events: TimelineFormEvent[],
   campaignId: string
 ) => {
-  await Promise.all(
-    events.map((event) => {
-      return amplifyClient.models.Event.create({
-        ...event,
-        campaignId,
-      });
-    })
-  );
+  const batchSize = 50;
+  const errors: Record<string, string> = {};
+  let importedEvents = 0;
+
+  for (let i = 0; i < events.length; i += batchSize) {
+    const currentBatch = events.slice(i, i + batchSize);
+
+    const result = await Promise.all(
+      currentBatch.map((event) =>
+        amplifyClient.models.Event.create({
+          ...event,
+          campaignId,
+        })
+      )
+    );
+
+    result.forEach((response, index) => {
+      if (response.errors && response.errors.length > 1) {
+        errors[index + 1] = String(response.errors[0]);
+      } else {
+        importedEvents += 1;
+      }
+    });
+  }
+
+  return { errors, importedEvents };
 };
 
 export const updateEventAPI = async (eventToUpdate: TimelineEvent) => {
@@ -63,11 +81,14 @@ export const deleteEventAPI = async (eventId: string) => {
 };
 
 export const batchDeleteEvents = async (eventIds: string[]) => {
-  await Promise.all(
-    eventIds.map((id) => {
-      return amplifyClient.models.Event.delete({ id });
-    })
-  );
+  const batchSize = 50;
+
+  for (let i = 0; i < eventIds.length; i += batchSize) {
+    const currentBatch = eventIds.slice(i, i + batchSize);
+    await Promise.all(
+      currentBatch.map((id) => amplifyClient.models.Event.delete({ id }))
+    );
+  }
 };
 
 export const getEvents = async (campaign: Campaign | null) => {
@@ -75,7 +96,7 @@ export const getEvents = async (campaign: Campaign | null) => {
     return [];
   }
 
-  const { data, errors } = await campaign.events();
+  const { data, errors } = await campaign.events({ limit: 500 });
 
   if (errors && errors.length > 0) {
     throw errors;

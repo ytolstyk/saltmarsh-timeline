@@ -168,7 +168,7 @@ export function App() {
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Header>
-            <Title>Ghosts of Saltmarsh Timeline</Title>
+            <Title>{campaign.name} Timeline</Title>
             <Button variant="outline" onClick={signOut}>
               Sign out
             </Button>

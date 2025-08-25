@@ -3,7 +3,6 @@ import {
   Bold,
   Controls,
   ImportControls,
-  SuccessMessage,
   IconWrapper,
   UploadWrapper,
 } from "./JSONModal.styles";
@@ -27,7 +26,7 @@ const JSON_EXAMPLE = `{
   "title": "The Battle of Town",
   "description": "We really had it out for that bad guy.",
   "tags": "lore,battle"
-}`;
+}[]`;
 
 type Props = {
   initialData?: JSONPreviewBlob[];
@@ -39,12 +38,11 @@ export function JSONModal({ initialData }: Props) {
     initialData ?? []
   );
   const { appendEvents, overrideEvents } = useEvents();
-  const [screen, setScreen] = useState<"success" | null>(null);
+  const [, setErrors] = useState<Record<number, string>>({});
 
   const reset = () => {
     setFile(null);
     setPreviewArray([]);
-    setScreen(null);
   };
 
   const handleFileChange = (files: FileWithPath[]) => {
@@ -53,17 +51,16 @@ export function JSONModal({ initialData }: Props) {
     setFile(selectedFile);
 
     if (selectedFile) {
-      setScreen(null);
       readJSON(selectedFile);
     }
   };
 
-  const handleAppendClick = () => {
+  const handleAppendClick = async () => {
     const events = convertJSONToEvents(previewArray);
 
-    appendEvents(events);
+    const { errors: importErrors } = await appendEvents(events);
+    setErrors(importErrors);
     reset();
-    setScreen("success");
   };
 
   const handleOverrideClick = () => {
@@ -71,7 +68,6 @@ export function JSONModal({ initialData }: Props) {
 
     overrideEvents(events);
     reset();
-    setScreen("success");
   };
 
   const readJSON = (file: File) => {
@@ -171,9 +167,6 @@ export function JSONModal({ initialData }: Props) {
 
   return (
     <div>
-      <RenderIf condition={screen === "success"}>
-        <SuccessMessage>Successfully imported events!</SuccessMessage>
-      </RenderIf>
       <RenderIf condition={noFileNoPreview}>
         <UploadWrapper>
           <div>

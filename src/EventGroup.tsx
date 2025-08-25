@@ -1,18 +1,10 @@
-import {
-  EventGroupDate,
-  EventGroupHeader,
-  EventGroupPosition,
-  EventGroupTags,
-  EventGroupText,
-  HeaderCounter,
-  HeaderWrapper,
-} from "./EventGroup.styles";
+import { EventGroupPosition, EventGroupTags } from "./EventGroup.styles";
 import { RenderIf } from "./RenderIf";
 import { convertDaysToReadableDate } from "./dateHelper";
 import { TimelineEventGroup, TimelineEvent, CheckedTags } from "./types";
 import { CurrentEventGroup } from "./CurrentEventGroup";
 import { modals } from "@mantine/modals";
-import { Badge, Divider, Paper, ScrollArea } from "@mantine/core";
+import { Badge, Divider, Paper, ScrollArea, Text, Title } from "@mantine/core";
 
 type Props = {
   timelineEventGroup: TimelineEventGroup;
@@ -74,20 +66,18 @@ export function EventGroup({
     }
 
     return events.map((timelineEvent, index) => {
+      const header =
+        events.length > 1
+          ? `${index + 1}: ${timelineEvent.title}`
+          : timelineEvent.title;
+
       return (
         <div key={index}>
-          <HeaderWrapper>
-            <EventGroupHeader>{timelineEvent.title}</EventGroupHeader>
-            <RenderIf condition={events.length > 1}>
-              <HeaderCounter>
-                {index + 1}/{events.length}
-              </HeaderCounter>
-            </RenderIf>
-          </HeaderWrapper>
-          <EventGroupDate>
+          <Title order={5}>{header}</Title>
+          <Text mt="xs" size="sm" c="indigo" fw={700}>
             {convertDaysToReadableDate(timelineEvent.daysSinceOrigin)}
-          </EventGroupDate>
-          <EventGroupText>{timelineEvent.description}</EventGroupText>
+          </Text>
+          <Text mt="xs">{timelineEvent.description}</Text>
           <RenderIf
             condition={Boolean(
               timelineEvent.tags && timelineEvent.tags.length > 0
