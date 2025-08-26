@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lineBlue } from "./Timeline.styles";
 
 export const TimelineSettingsContainer = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ export const FormRow = styled.div`
 `;
 
 export const SelectedTagsCount = styled.div`
-  background-color: #777;
+  background-color: ${lineBlue};
   border-radius: 50%;
   color: white;
   width: 1.25rem;

@@ -6,7 +6,7 @@ export const dotFullSize = dotSize + dotBorder * 2;
 const groupDotSize = "1.5rem";
 export const lineHeight = 1400;
 
-const lineBlue = "#0063ff";
+export const lineBlue = "#0063ff";
 
 const fadeIn = keyframes`
   from {

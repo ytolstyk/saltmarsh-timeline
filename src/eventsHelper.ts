@@ -1,20 +1,13 @@
 import { TimelineEvent } from "./types";
 
-export function removeEvent(
-  events: TimelineEvent[],
-  eventToDelete: TimelineEvent
-) {
-  return events.filter((event) => {
-    return (
-      event.daysSinceOrigin !== eventToDelete.daysSinceOrigin ||
-      event.title !== eventToDelete.title ||
-      event.description !== eventToDelete.description
-    );
+export function sortEvents(events: TimelineEvent[]) {
+  return events.sort((a, b) => {
+    return a.daysSinceOrigin - b.daysSinceOrigin;
   });
 }
 
 export function groupEvents(events: TimelineEvent[], daysRadius: number) {
-  const groupedEvents: { [key: number]: TimelineEvent[] } = {};
+  const groupedEvents: { [key: string]: TimelineEvent[] } = {};
 
   events.forEach((event) => {
     const groupKey =
@@ -25,6 +18,10 @@ export function groupEvents(events: TimelineEvent[], daysRadius: number) {
     }
 
     groupedEvents[groupKey].push(event);
+  });
+
+  Object.keys(groupedEvents).forEach((key) => {
+    groupedEvents[key] = sortEvents(groupedEvents[key]);
   });
 
   const sortedKeys = Object.keys(groupedEvents)
