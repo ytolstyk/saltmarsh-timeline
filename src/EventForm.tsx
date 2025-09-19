@@ -1,23 +1,19 @@
 import { useState, ChangeEvent, SyntheticEvent } from "react";
 import { Form } from "./EventForm.styles";
 import { TimelineFormEvent } from "./types";
-import {
-  convertInputToDays,
-  daysOptionsNumToDayName,
-  MONTHS,
-} from "./dateHelper";
+import { convertInputToDays, MONTHS } from "./dateHelper";
 import { useEvents } from "./useEvents";
 import {
   Button,
   Fieldset,
   Grid,
-  NativeSelect,
   NumberInput,
   TagsInput,
   Textarea,
   TextInput,
 } from "@mantine/core";
 import { modals } from "@mantine/modals";
+import { Datepicker } from "./Datepicker";
 
 const initialFormData: TimelineFormEvent = {
   daysSinceOrigin: 0,
@@ -37,27 +33,16 @@ export function EventForm() {
   const { addEvent } = useEvents();
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleDateChange =
-    (key: keyof typeof date) =>
-    (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
-      setErrors({});
-      const value = parseInt(event.currentTarget.value) || 0;
-
-      setDate({
-        ...date,
-        [key]: value,
-      });
-    };
-
-  const handleMonthChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const value = parseInt(event.currentTarget.value) || 0;
-    const maxDaysInMonth = MONTHS[value][1];
-    const days = maxDaysInMonth < date.days ? 1 : date.days;
+  const handleDatepickerChange = (selectedDate: {
+    day: number;
+    monthIndex: number;
+  }) => {
+    setErrors({});
 
     setDate((prevDate) => ({
       ...prevDate,
-      months: value,
-      days,
+      days: selectedDate.day,
+      months: selectedDate.monthIndex,
     }));
   };
 
@@ -124,46 +109,14 @@ export function EventForm() {
     modals.closeAll();
   };
 
-  const dayOptions = () => {
-    const options = [];
-
-    for (let i = 0; i < MONTHS[date.months][1]; i++) {
-      options.push({
-        value: String(i + 1),
-        label: `${i + 1} - ${daysOptionsNumToDayName(i)}`,
-      });
-    }
-
-    return options;
-  };
-
-  const monthOptions = () => {
-    return MONTHS.map((month, index) => ({
-      value: String(index),
-      label: `${index + 1} - ${month[0]}`,
-    }));
-  };
-
   return (
     <Form onSubmit={handleSubmit}>
       <Fieldset legend="Date">
         <Grid gutter="sm">
-          <Grid.Col span={4}>
-            <NativeSelect
-              label="Day"
-              value={date.days}
-              data={dayOptions()}
-              onChange={handleDateChange("days")}
-              error={errors.days}
-            />
-          </Grid.Col>
-          <Grid.Col span={5}>
-            <NativeSelect
-              label="Month"
-              value={date.months}
-              data={monthOptions()}
-              onChange={handleMonthChange}
-              error={errors.months}
+          <Grid.Col span={9}>
+            <Datepicker
+              onChange={handleDatepickerChange}
+              value={{ day: date.days, monthIndex: date.months }}
             />
           </Grid.Col>
           <Grid.Col span={3}>
