@@ -4,6 +4,12 @@
 
 This app helps you track Dungeons and Dragons events for campaigns. It uses a DnD calendar under the hood.
 
+## Run locally
+
+To run this locally, you'll need to create an Amplify sandbox that can feed the UI local data.
+
+Clone the repo, run `npm install`, and then `npm run start` to get things going.
+
 ## Tech
 
 - React
