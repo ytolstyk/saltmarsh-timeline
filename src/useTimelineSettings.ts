@@ -85,8 +85,8 @@ export const useTimelineSettings = () => {
 
   const timelineSettingsData = useMemo(
     () => ({
-      startYear: timelineSettings?.startYear || null,
-      endYear: timelineSettings?.endYear || null,
+      startYear: timelineSettings?.startYear ?? null,
+      endYear: timelineSettings?.endYear ?? null,
       checkedTags: timelineSettingsResult?.checkedTags || {},
       excludeDowntime: Boolean(timelineSettings?.excludeDowntime),
       showAllEvents: Boolean(timelineSettings?.showAllEvents),

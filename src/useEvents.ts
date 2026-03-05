@@ -179,7 +179,7 @@ export function useEvents() {
 
   const { minDateYears, maxDateYears } = useMemo(() => {
     const minYears = Math.floor(minDate / DAYS_IN_YEAR);
-    const maxYears = Math.ceil(maxDate / DAYS_IN_YEAR);
+    const maxYears = Math.floor(maxDate / DAYS_IN_YEAR);
 
     return { minDateYears: minYears, maxDateYears: maxYears };
   }, [minDate, maxDate]);

@@ -153,7 +153,7 @@ export function filterEventsByDateRange(
     if (isPrehistory(event.daysSinceOrigin)) return true;
     return (
       event.daysSinceOrigin >= convertYearsToDays(startYear) &&
-      event.daysSinceOrigin <= convertYearsToDays(endYear)
+      event.daysSinceOrigin < convertYearsToDays(endYear + 1)
     );
   });
 }
