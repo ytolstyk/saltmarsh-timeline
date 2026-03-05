@@ -202,6 +202,78 @@ export function numValueOrZero(value: number | string): number | string {
   return 0;
 }
 
+function getTerms(query: string): string[] {
+  return query
+    .trim()
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
+}
+
+function termMatchesAnyField(
+  term: string,
+  title: string,
+  description: string,
+  tags: (string | null)[] | null | undefined
+): boolean {
+  const t = term.toLowerCase();
+  return (
+    title.toLowerCase().includes(t) ||
+    description.toLowerCase().includes(t) ||
+    (tags?.some((tag) => tag && tag.toLowerCase().includes(t)) ?? false)
+  );
+}
+
+// Returns ranges for every occurrence of every query term in text, sorted and
+// merged so the highlighter can render them in a single pass.
+export function getFuzzyMatchRanges(
+  query: string,
+  text: string
+): Array<[number, number]> {
+  const terms = getTerms(query);
+  const t = text.toLowerCase();
+  const raw: Array<[number, number]> = [];
+
+  for (const term of terms) {
+    let i = 0;
+    while (i <= t.length - term.length) {
+      if (t.slice(i, i + term.length) === term) {
+        raw.push([i, i + term.length - 1]);
+        i += term.length;
+      } else {
+        i++;
+      }
+    }
+  }
+
+  raw.sort((a, b) => a[0] - b[0]);
+  const merged: Array<[number, number]> = [];
+  for (const range of raw) {
+    if (merged.length > 0 && range[0] <= merged[merged.length - 1][1] + 1) {
+      merged[merged.length - 1][1] = Math.max(
+        merged[merged.length - 1][1],
+        range[1]
+      );
+    } else {
+      merged.push([range[0], range[1]]);
+    }
+  }
+  return merged;
+}
+
+export function filterEventsBySearch(
+  events: TimelineEvent[],
+  query: string
+): TimelineEvent[] {
+  if (!query.trim()) return events;
+  const terms = getTerms(query);
+  return events.filter((event) =>
+    terms.every((term) =>
+      termMatchesAnyField(term, event.title, event.description, event.tags)
+    )
+  );
+}
+
 export function radiusInDays(
   lineLength: number,
   totalDays: number,

@@ -15,18 +15,20 @@ import { useEvents } from "./useEvents";
 import { useFilteredEventGroups } from "./useFilteredEventGroups";
 import { percentFromTop } from "./timelineHelper";
 import { CurrentEventGroup } from "./CurrentEventGroup";
-import { Badge, Chip, Group, Paper, Stack, Text, Title } from "@mantine/core";
+import { Badge, Chip, Group, Paper, Stack, Text, TextInput, Title } from "@mantine/core";
 import { modals } from "@mantine/modals";
 import { useTimelineSettings } from "./useTimelineSettings";
 import { convertDaysToReadableDate } from "./dateHelper";
+import { HighlightText } from "./HighlightText";
 
 export function Timeline() {
   const { timelineSettings } = useTimelineSettings();
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const [ungrouped, setUngrouped] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const { events } = useEvents();
   const { eventGroups, offset, lineLength, filteredEvents } =
-    useFilteredEventGroups(events, timelineSettings, lineHeight, ungrouped);
+    useFilteredEventGroups(events, timelineSettings, lineHeight, ungrouped, searchQuery);
 
   const handleGroupClick = (group: TimelineEventGroup) => () => {
     modals.open({
@@ -94,6 +96,14 @@ export function Timeline() {
 
   return (
     <TimelineWrapper>
+      <RenderIf condition={!noEvents}>
+        <TextInput
+          placeholder="Search by title, description, or tag…"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.currentTarget.value)}
+          mb="md"
+        />
+      </RenderIf>
       <RenderIf condition={noEvents}>
         <Text ta="center" mt="2rem">
           There are no events in the system. You can import the timeline
@@ -135,8 +145,12 @@ export function Timeline() {
                   <Text size="sm" c="indigo" fw={700}>
                     {convertDaysToReadableDate(event.daysSinceOrigin)}
                   </Text>
-                  <Title order={5} mt="xs">{event.title}</Title>
-                  <Text mt="xs">{event.description}</Text>
+                  <Title order={5} mt="xs">
+                    <HighlightText text={event.title} query={searchQuery} />
+                  </Title>
+                  <Text mt="xs">
+                    <HighlightText text={event.description} query={searchQuery} />
+                  </Text>
                   {event.tags && event.tags.some(Boolean) && (
                     <Group mt="xs" gap="xs">
                       {event.tags.filter(Boolean).map((tag) => (

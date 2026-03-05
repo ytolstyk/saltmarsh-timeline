@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import {
   filterEventsByDateRange,
+  filterEventsBySearch,
   filterEventsByTags,
   radiusInDays,
 } from "./dateHelper";
@@ -12,7 +13,8 @@ export function useFilteredEventGroups(
   events: TimelineEvent[],
   timelineSettings: TimelineSettingsData,
   height: number,
-  ungrouped: boolean = false
+  ungrouped: boolean = false,
+  searchQuery: string = ""
 ) {
   const timeFilteredEvents = useMemo(
     () =>
@@ -23,7 +25,7 @@ export function useFilteredEventGroups(
       ),
     [events, timelineSettings]
   );
-  const filteredEvents = useMemo(
+  const tagFilteredEvents = useMemo(
     () =>
       filterEventsByTags(
         timeFilteredEvents,
@@ -35,6 +37,10 @@ export function useFilteredEventGroups(
       timelineSettings.checkedTags,
       timelineSettings.excludeDowntime,
     ]
+  );
+  const filteredEvents = useMemo(
+    () => filterEventsBySearch(tagFilteredEvents, searchQuery),
+    [tagFilteredEvents, searchQuery]
   );
   const filteredMinDate = useMemo(
     () =>
