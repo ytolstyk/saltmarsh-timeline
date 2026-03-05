@@ -77,10 +77,22 @@ export function App() {
     modals.openConfirmModal({
       title: "Delete Current Campaign",
       children: (
-        <Text size="sm">
-          This will delete the current campaign and all its events. Are you sure
-          about this?
-        </Text>
+        <Stack gap="sm">
+          <Text size="sm">
+            This will delete the current campaign and all its events. Are you sure
+            about this?
+          </Text>
+          {events.length > 0 && (
+            <Button
+              variant="light"
+              color="blue"
+              size="xs"
+              onClick={() => downloadJSONEvents(events)}
+            >
+              Download events before deleting ({events.length})
+            </Button>
+          )}
+        </Stack>
       ),
       labels: { confirm: "It's gone", cancel: "No, wait!" },
       onCancel: () => modals.closeAll(),
