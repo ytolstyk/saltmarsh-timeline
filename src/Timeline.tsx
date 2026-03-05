@@ -187,7 +187,7 @@ export function Timeline() {
                 </Text>
                 {event.tags && event.tags.some(Boolean) && (
                   <Group mt="xs" gap="xs">
-                    {event.tags.filter(Boolean).map((tag) => (
+                    {(event.tags.filter(Boolean) as string[]).map((tag) => (
                       <Badge key={tag} variant="light" color={timelineSettings.checkedTags[tag] ? "blue" : "gray"} size="sm">
                         {tag}
                       </Badge>
