@@ -160,7 +160,7 @@ export function App() {
       padding="md"
       header={{ height: { base: 56, md: 60 } }}
       navbar={{
-        width: { base: 320 },
+        width: { base: 380 },
         breakpoint: "sm",
         collapsed: { mobile: !opened },
       }}
