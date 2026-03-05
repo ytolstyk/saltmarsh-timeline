@@ -2,23 +2,63 @@
 
 [https://www.saltmarsh-timeline.com/](https://www.saltmarsh-timeline.com/)
 
-This app helps you track Dungeons and Dragons events for campaigns. It uses a DnD calendar under the hood.
+A campaign event tracker for Dungeons & Dragons, built around the Greyhawk calendar. Log events by in-game date, visualize them on a vertical timeline, and filter by tags or date range.
 
-## Run locally
+## Features
 
-To run this locally, you'll need to create an Amplify sandbox that can feed the UI local data.
+- **Timeline view** — events are plotted on a vertical timeline; nearby events are automatically grouped into a single dot to avoid overlap
+- **Greyhawk calendar** — dates use the D&D calendar (364-day year: 12 months of 28 days + 4 festival weeks of 7 days)
+- **Multiple campaigns** — create and switch between campaigns, each with its own events and settings
+- **Tag filtering** — tag events and filter the timeline by one or more tags; optionally hide downtime events
+- **Date range filter** — restrict the timeline to a specific year range
+- **Calendar view** — browse events in a monthly calendar layout
+- **JSON import/export** — bulk-import events from a JSON file or download all events for backup
 
-Clone the repo, run `npm install`, and then `npm run start` to get things going.
+## Running Locally
 
-## Tech
+The app requires an AWS Amplify sandbox for the backend.
 
-- React
-- Typescript
-- AWS Amplify
-- AWS Cognito
-- Mantine
-- File upload/download
+1. Clone the repo
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start an Amplify sandbox (see [Amplify Gen 2 docs](https://docs.amplify.aws/react/start/)):
+   ```bash
+   npx ampx sandbox
+   ```
+4. Start the dev server:
+   ```bash
+   npm run dev
+   ```
 
-## What's what
+## JSON Import Format
 
-The events are automatically displayed on a timeline of fixed height. If they are too close to each other, the UI groups them together. You can filter the events based on tags and by restricting the timeline.
+Events can be bulk-imported via a JSON file. Each object must have:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `date` | `"days,months,years"` | Comma-separated integers (e.g. `"5,3,591"`) |
+| `title` | string | Event title (required, non-empty) |
+| `description` | string | Event description (required, non-empty) |
+| `tags` | string | Comma-separated tags (optional, e.g. `"combat,downtime"`) |
+
+Example:
+```json
+[
+  {
+    "date": "1,1,591",
+    "title": "Campaign begins",
+    "description": "The party meets at the Inn of the Welcome Wench.",
+    "tags": "session-1"
+  }
+]
+```
+
+## Tech Stack
+
+- React 19 + TypeScript + Vite
+- [Mantine](https://mantine.dev/) v8 (UI components)
+- AWS Amplify Gen 2 (AppSync GraphQL backend)
+- AWS Cognito (authentication)
+- SWR (data fetching)
