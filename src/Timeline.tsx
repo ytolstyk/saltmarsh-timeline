@@ -22,11 +22,11 @@ import { convertDaysToReadableDate } from "./dateHelper";
 import { HighlightText } from "./HighlightText";
 
 export function Timeline() {
-  const { timelineSettings } = useTimelineSettings();
+  const { timelineSettings, update } = useTimelineSettings();
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
-  const [ungrouped, setUngrouped] = useState(false);
-  const [reversed, setReversed] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const ungrouped = timelineSettings.showAllEvents;
+  const reversed = timelineSettings.reverseOrder;
   const { events } = useEvents();
   const { eventGroups, offset, lineLength, filteredEvents, height, prehistoryGroup } =
     useFilteredEventGroups(events, timelineSettings, ungrouped, searchQuery);
@@ -152,10 +152,16 @@ export function Timeline() {
       <RenderIf condition={(eventGroups?.length > 0 || Boolean(prehistoryGroup)) && !noEventGroups}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
           <Group gap="xs">
-            <Chip checked={ungrouped} onChange={setUngrouped}>
+            <Chip
+              checked={ungrouped}
+              onChange={(v) => update({ ...timelineSettings, showAllEvents: v })}
+            >
               Show all events
             </Chip>
-            <Chip checked={reversed} onChange={setReversed}>
+            <Chip
+              checked={reversed}
+              onChange={(v) => update({ ...timelineSettings, reverseOrder: v })}
+            >
               Reverse order
             </Chip>
           </Group>

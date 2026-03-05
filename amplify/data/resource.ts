@@ -38,6 +38,8 @@ const schema = a
         endYear: a.integer(),
         checkedTags: a.string().array(),
         excludeDowntime: a.boolean().default(true),
+        showAllEvents: a.boolean().default(false),
+        reverseOrder: a.boolean().default(false),
       })
       .authorization((allow) => [allow.owner()]),
 

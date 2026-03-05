@@ -54,6 +54,20 @@ export function TimelineSettings() {
     });
   };
 
+  const handleShowAllEventsClick = (checked: boolean) => {
+    update({
+      ...timelineSettings,
+      showAllEvents: checked,
+    });
+  };
+
+  const handleReverseOrderClick = (checked: boolean) => {
+    update({
+      ...timelineSettings,
+      reverseOrder: checked,
+    });
+  };
+
   const handleDatesReset = () => {
     update({
       ...timelineSettings,
@@ -154,6 +168,18 @@ export function TimelineSettings() {
             onChange={handleExcludeDowntimeClick}
           >
             Exclude downtime
+          </Chip>
+          <Chip
+            checked={timelineSettings.showAllEvents}
+            onChange={handleShowAllEventsClick}
+          >
+            Show all events
+          </Chip>
+          <Chip
+            checked={timelineSettings.reverseOrder}
+            onChange={handleReverseOrderClick}
+          >
+            Reverse order
           </Chip>
         </TimelineSettingsFormSection>
         <TimelineSettingsFormSection>

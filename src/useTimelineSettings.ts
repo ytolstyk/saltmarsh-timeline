@@ -89,6 +89,8 @@ export const useTimelineSettings = () => {
       endYear: timelineSettings?.endYear || null,
       checkedTags: timelineSettingsResult?.checkedTags || {},
       excludeDowntime: Boolean(timelineSettings?.excludeDowntime),
+      showAllEvents: Boolean(timelineSettings?.showAllEvents),
+      reverseOrder: Boolean(timelineSettings?.reverseOrder),
     }),
     [timelineSettingsResult, timelineSettings],
   );

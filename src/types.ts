@@ -50,6 +50,8 @@ export type TimelineSettingsData = {
   endYear: number | null;
   checkedTags: CheckedTags;
   excludeDowntime: boolean;
+  showAllEvents: boolean;
+  reverseOrder: boolean;
 };
 
 export type TimelineEventGroup = {
