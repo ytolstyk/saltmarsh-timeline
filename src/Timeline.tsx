@@ -24,6 +24,7 @@ export function Timeline() {
   const { timelineSettings } = useTimelineSettings();
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const [ungrouped, setUngrouped] = useState(false);
+  const [reversed, setReversed] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { events } = useEvents();
   const { eventGroups, offset, lineLength, filteredEvents, height, prehistoryGroup } =
@@ -40,6 +41,11 @@ export function Timeline() {
         />
       ),
     });
+  };
+
+  const calcPercentTop = (daysSinceOrigin: number) => {
+    const pct = percentFromTop(daysSinceOrigin, offset, lineLength);
+    return reversed ? 100 - pct : pct;
   };
 
   const renderEventCards = (isEven: boolean) => {
@@ -60,7 +66,7 @@ export function Timeline() {
           setHighlightedIndex={setHighlightedIndex}
           isHighlighted={highlightedIndex === index}
           checkedTags={timelineSettings.checkedTags}
-          percentTop={percentFromTop(group.daysSinceOrigin, offset, lineLength)}
+          percentTop={calcPercentTop(group.daysSinceOrigin)}
         />
       );
     });
@@ -76,11 +82,7 @@ export function Timeline() {
           onClick={handleGroupClick(group)}
           onMouseEnter={() => setHighlightedIndex(index)}
           onMouseLeave={() => setHighlightedIndex(null)}
-          $percentTop={percentFromTop(
-            group.daysSinceOrigin,
-            offset,
-            lineLength
-          )}
+          $percentTop={calcPercentTop(group.daysSinceOrigin)}
           $isGroup={group.events.length > 1}
           $isActive={highlightedIndex === index}
         >
@@ -147,9 +149,14 @@ export function Timeline() {
       </RenderIf>
       <RenderIf condition={(eventGroups?.length > 0 || Boolean(prehistoryGroup)) && !noEventGroups}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-          <Chip checked={ungrouped} onChange={setUngrouped}>
-            Show all events
-          </Chip>
+          <Group gap="xs">
+            <Chip checked={ungrouped} onChange={setUngrouped}>
+              Show all events
+            </Chip>
+            <Chip checked={reversed} onChange={setReversed}>
+              Reverse order
+            </Chip>
+          </Group>
           <Text>
             Showing {filteredEvents.length} of {events.length} total events
           </Text>
@@ -157,7 +164,7 @@ export function Timeline() {
       </RenderIf>
       <RenderIf condition={ungrouped && eventGroups?.length > 0 && !noEventGroups}>
         <Stack gap="sm">
-          {eventGroups.map((group, index) => {
+          {(reversed ? [...eventGroups].reverse() : eventGroups).map((group, index) => {
             const event = group.events[0];
             return (
               <Paper key={index} shadow="xs" p="md" withBorder>
