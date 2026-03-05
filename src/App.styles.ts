@@ -5,8 +5,10 @@ export const remInPixels = 16;
 export const Title = styled.h1`
   font-family: "Booter";
   margin: 0;
-  font-size: clamp(1.5rem, 5vw, 3rem);
-  line-height: 1.5rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.75rem);
+  line-height: 1;
+  color: #0063ff;
+  letter-spacing: 0.01em;
 `;
 
 export const Header = styled.div`
@@ -17,5 +19,5 @@ export const Header = styled.div`
 `;
 
 export const ActionButtonContainer = styled.div`
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 `;

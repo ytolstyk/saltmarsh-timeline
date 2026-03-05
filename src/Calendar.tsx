@@ -1,4 +1,4 @@
-import { Grid } from "@mantine/core";
+import { Grid, Text } from "@mantine/core";
 import { MONTHS } from "./dateHelper";
 import { CalendarMonth } from "./CalendarMonth";
 
@@ -21,5 +21,12 @@ export function Calendar() {
     });
   };
 
-  return <Grid>{renderMonths()}</Grid>;
+  return (
+    <>
+      <Text size="xs" fw={600} tt="uppercase" c="blue.5" mb="md" style={{ letterSpacing: "0.08em" }}>
+        Greyhawk Calendar — Oerth
+      </Text>
+      <Grid gutter="md">{renderMonths()}</Grid>
+    </>
+  );
 }

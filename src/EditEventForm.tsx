@@ -13,7 +13,6 @@ import {
   Textarea,
   TextInput,
 } from "@mantine/core";
-import { BsCalendar3 } from "react-icons/bs";
 
 type Props = {
   event: TimelineEvent;
@@ -75,8 +74,7 @@ export function EditEventForm({
 
   return (
     <EditEventFormContainer>
-      <Text ta="center">
-        <BsCalendar3 size={15} />{" "}
+      <Text size="xs" fw={600} tt="uppercase" c="blue.6" style={{ letterSpacing: "0.04em" }}>
         {convertDaysToReadableDate(event.daysSinceOrigin)}
       </Text>
       <TextInput
@@ -99,10 +97,10 @@ export function EditEventForm({
         onChange={handleTagsChange}
       />
       <Flex justify="flex-end" mt="md" gap="md">
-        <Button variant="default" onClick={() => onCancelClick(event.id)}>
+        <Button variant="subtle" color="gray" size="xs" onClick={() => onCancelClick(event.id)}>
           Cancel
         </Button>
-        <Button variant="primary" onClick={handleSaveClick}>
+        <Button variant="filled" size="xs" onClick={handleSaveClick}>
           Save
         </Button>
       </Flex>

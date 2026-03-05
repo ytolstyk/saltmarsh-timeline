@@ -129,20 +129,20 @@ export function Timeline() {
           {eventGroups.map((group, index) => {
             const event = group.events[0];
             return (
-              <Paper key={index} shadow="sm" p="md" withBorder>
-                <Text size="sm" c="indigo" fw={700}>
+              <Paper key={index} shadow="xs" p="md" withBorder>
+                <Text size="xs" c="blue.6" fw={600} tt="uppercase" style={{ letterSpacing: "0.04em" }}>
                   {convertDaysToReadableDate(event.daysSinceOrigin)}
                 </Text>
-                <Title order={5} mt="xs">
+                <Title order={5} mt={4} lh={1.3}>
                   <HighlightText text={event.title} query={searchQuery} />
                 </Title>
-                <Text mt="xs">
+                <Text mt="xs" size="sm" c="gray.7">
                   <HighlightText text={event.description} query={searchQuery} />
                 </Text>
                 {event.tags && event.tags.some(Boolean) && (
                   <Group mt="xs" gap="xs">
                     {event.tags.filter(Boolean).map((tag) => (
-                      <Badge key={tag} color={timelineSettings.checkedTags[tag] ? "blue" : "gray"}>
+                      <Badge key={tag} variant="light" color={timelineSettings.checkedTags[tag] ? "blue" : "gray"} size="sm">
                         {tag}
                       </Badge>
                     ))}

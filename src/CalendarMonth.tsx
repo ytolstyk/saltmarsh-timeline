@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Grid, Paper, Text } from "@mantine/core";
+import { Button, ButtonGroup, Grid, Paper, Text, Title } from "@mantine/core";
 import { DAYS_ABBR, MONTHS } from "./dateHelper";
 import { Day } from "./Calendar.styles";
 import { useState } from "react";
@@ -34,7 +34,7 @@ export function CalendarMonth({
     return DAYS_ABBR.map((day) => {
       return (
         <Grid.Col span={12 / 7} key={day}>
-          <Text size="sm" fw={700} ta="center">
+          <Text size="xs" fw={700} ta="center" c="blue.4" tt="uppercase" style={{ letterSpacing: "0.06em" }}>
             {day}
           </Text>
         </Grid.Col>
@@ -57,7 +57,7 @@ export function CalendarMonth({
             $isSelected={Boolean(isSelected)}
             onClick={handleClickDay(index)}
           >
-            <Text>{dayText}</Text>
+            {dayText}
           </Day>
         </Grid.Col>
       );
@@ -94,16 +94,23 @@ export function CalendarMonth({
     }
 
     return (
-      <Text ta="center" fw={700} size="lg" mb="md">
+      <Title order={5} ta="center" c="blue.7" mb="sm">
         {monthName}
-      </Text>
+      </Title>
     );
   };
 
   return (
-    <Paper p="md" withBorder>
+    <Paper
+      p="md"
+      shadow="xs"
+      style={{
+        borderTop: "3px solid #3b82f6",
+        overflow: "hidden",
+      }}
+    >
       {renderMonthName()}
-      <Grid>
+      <Grid gutter={4}>
         {renderDayLabels()}
         {renderDayNumbers(numDays)}
       </Grid>

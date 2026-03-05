@@ -11,7 +11,30 @@ import { AuthContextWrappers } from "./AuthContextWrappers";
 import { createTheme, MantineProvider } from "@mantine/core";
 
 const theme = createTheme({
-  /** Put your mantine theme override here */
+  primaryColor: "blue",
+  defaultRadius: "md",
+  fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+  colors: {
+    blue: [
+      "#e6eeff",
+      "#ccdcff",
+      "#99b8ff",
+      "#6694ff",
+      "#3370ff",
+      "#0063ff",
+      "#0052d6",
+      "#0042ad",
+      "#003184",
+      "#00215a",
+    ],
+  },
+  components: {
+    Button: { defaultProps: { radius: "md" } },
+    Paper: { defaultProps: { radius: "md" } },
+    Select: { defaultProps: { radius: "md" } },
+    TextInput: { defaultProps: { radius: "md" } },
+    Textarea: { defaultProps: { radius: "md" } },
+  },
 });
 
 createRoot(document.getElementById("root")!).render(

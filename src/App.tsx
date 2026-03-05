@@ -111,35 +111,36 @@ export function App() {
   const renderMenu = () => {
     return (
       <ActionButtonContainer>
-        <Divider mt="xl" my="xl" label="Actions" labelPosition="center" />
-        <Stack>
-          <Button variant="default" onClick={handleAddEventClick}>
+        <Divider my="md" label="Actions" labelPosition="center" />
+        <Stack gap="xs">
+          <Button variant="filled" onClick={handleAddEventClick}>
             Add Event
           </Button>
-          <Button variant="default" onClick={handleAddCampaignClick}>
+          <Button variant="light" onClick={handleAddCampaignClick}>
             Add Campaign
           </Button>
-          <Button variant="default" onClick={handleEditCampaignClick}>
+          <Button variant="light" onClick={handleEditCampaignClick}>
             Edit Campaign
           </Button>
-          <Button variant="default" onClick={handleUploadClick}>
+          <Button variant="subtle" color="gray" onClick={handleUploadClick}>
             Upload Events JSON
           </Button>
-          <Button variant="default" onClick={handleDownloadClick}>
+          <Button variant="subtle" color="gray" onClick={handleDownloadClick}>
             Download Events JSON
           </Button>
-          <Button variant="default" onClick={handleViewCalendarClick}>
+          <Button variant="subtle" color="gray" onClick={handleViewCalendarClick}>
             View calendar
           </Button>
           <Button
             color="red"
-            variant="outline"
+            variant="subtle"
             onClick={handleDeleteEverythingClick}
+            mt="sm"
           >
-            Delete Current Campaign Events
+            Delete Campaign Events
           </Button>
-          <Button color="red" variant="filled" onClick={handleDeleteCampaign}>
-            Delete Current Campaign
+          <Button color="red" variant="light" onClick={handleDeleteCampaign}>
+            Delete Campaign
           </Button>
         </Stack>
       </ActionButtonContainer>
@@ -157,25 +158,37 @@ export function App() {
   return (
     <AppShell
       padding="md"
-      header={{ height: { base: 60, md: 70, lg: 80 } }}
+      header={{ height: { base: 56, md: 60 } }}
       navbar={{
-        width: { base: 400 },
+        width: { base: 320 },
         breakpoint: "sm",
         collapsed: { mobile: !opened },
       }}
     >
-      <AppShell.Header>
-        <Group h="100%" px="md">
+      <AppShell.Header
+        style={{
+          background: "#ffffff",
+          borderBottom: "1px solid #e8eaf0",
+          boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+        }}
+      >
+        <Group h="100%" px="lg">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Header>
             <Title>{campaign.name} Timeline</Title>
-            <Button variant="outline" onClick={signOut}>
+            <Button variant="subtle" color="gray" size="sm" onClick={signOut}>
               Sign out
             </Button>
           </Header>
         </Group>
       </AppShell.Header>
-      <AppShell.Navbar p="md">
+      <AppShell.Navbar
+        p="md"
+        style={{
+          background: "#ffffff",
+          borderRight: "1px solid #e8eaf0",
+        }}
+      >
         <ScrollArea style={{ height: "100%" }} type="hover" offsetScrollbars>
           <Select
             label="Current Campaign"
@@ -187,7 +200,7 @@ export function App() {
           {renderMenu()}
         </ScrollArea>
       </AppShell.Navbar>
-      <AppShell.Main>
+      <AppShell.Main style={{ background: "#f0f2f7" }}>
         <Timeline />
       </AppShell.Main>
     </AppShell>

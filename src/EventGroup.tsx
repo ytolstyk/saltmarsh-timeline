@@ -53,7 +53,7 @@ export function EventGroup({
       }
 
       return (
-        <Badge key={tag} color={checkedTags[tag] ? "blue" : "gray"}>
+        <Badge key={tag} variant="light" color={checkedTags[tag] ? "blue" : "gray"} size="sm">
           {tag}
         </Badge>
       );
@@ -73,11 +73,11 @@ export function EventGroup({
 
       return (
         <div key={index}>
-          <Title order={5}>{header}</Title>
-          <Text mt="xs" size="sm" c="indigo" fw={700}>
+          <Title order={5} lh={1.3}>{header}</Title>
+          <Text mt={4} size="xs" c="blue.6" fw={600} tt="uppercase" style={{ letterSpacing: "0.04em" }}>
             {convertDaysToReadableDate(timelineEvent.daysSinceOrigin)}
           </Text>
-          <Text mt="xs">{timelineEvent.description}</Text>
+          <Text mt="xs" size="sm" c="gray.7">{timelineEvent.description}</Text>
           <RenderIf
             condition={Boolean(
               timelineEvent.tags && timelineEvent.tags.length > 0
@@ -101,7 +101,15 @@ export function EventGroup({
       onMouseLeave={() => setHighlightedIndex(null)}
       onClick={handleGroupClick}
     >
-      <Paper shadow="sm" p="md" withBorder>
+      <Paper
+        shadow={isHighlighted ? "md" : "xs"}
+        p="md"
+        withBorder
+        style={{
+          borderColor: isHighlighted ? "#0063ff40" : undefined,
+          transition: "box-shadow 0.18s ease, border-color 0.18s ease",
+        }}
+      >
         <ScrollArea.Autosize mah={160}>{renderEvents()}</ScrollArea.Autosize>
       </Paper>
     </EventGroupPosition>
