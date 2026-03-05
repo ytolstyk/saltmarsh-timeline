@@ -71,9 +71,6 @@ export function useFilteredEventGroups(
       ),
     [datedEvents]
   );
-  const offset = filteredMinDate;
-  const lineLength = filteredMaxDate - filteredMinDate;
-
   const height = useMemo(
     () =>
       Math.max(
@@ -102,6 +99,15 @@ export function useFilteredEventGroups(
     if (prehistoryEvents.length === 0) return null;
     return { daysSinceOrigin: PREHISTORY_DAYS, events: prehistoryEvents };
   }, [prehistoryEvents]);
+
+  // Derive offset and lineLength from actual group positions so the first and
+  // last dots land exactly at 0% and 100% of the line.
+  const offset =
+    eventGroups.length > 0 ? eventGroups[0].daysSinceOrigin : filteredMinDate;
+  const lineLength =
+    eventGroups.length > 1
+      ? eventGroups[eventGroups.length - 1].daysSinceOrigin - offset
+      : 0;
 
   return {
     eventGroups,
