@@ -4,7 +4,7 @@ import {
   getTimelineSettings,
   updateTimelineSettings,
 } from "./amplifyApi";
-import { useContext, useEffect, useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { CampaignContext } from "./CampaignContext";
 import { TimelineMetadata, TimelineSettingsData } from "./types";
 import { handleErrors } from "./handleErrors";
@@ -17,14 +17,10 @@ export const useTimelineSettings = () => {
     mutate,
     error,
     isLoading,
-  } = useSWR<TimelineMetadata | null>("api/timelineSettings", () =>
-    getTimelineSettings(rawCampaign)
+  } = useSWR<TimelineMetadata | null>(
+    rawCampaign ? ["api/timelineSettings", rawCampaign.id] : null,
+    () => getTimelineSettings(rawCampaign),
   );
-
-  useEffect(() => {
-    mutate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rawCampaign]);
 
   const update = async (settings: TimelineSettingsData) => {
     if (!rawCampaign) {
@@ -78,7 +74,7 @@ export const useTimelineSettings = () => {
 
           return acc;
         },
-        {}
+        {},
       ) || {};
 
     return {
@@ -94,12 +90,12 @@ export const useTimelineSettings = () => {
       checkedTags: timelineSettingsResult?.checkedTags || {},
       excludeDowntime: Boolean(timelineSettings?.excludeDowntime),
     }),
-    [timelineSettingsResult, timelineSettings]
+    [timelineSettingsResult, timelineSettings],
   );
 
   return {
     timelineSettings: timelineSettingsData,
-    rawTiemlineSettings: timelineSettingsResult,
+    rawTimelineSettings: timelineSettingsResult,
     mutate,
     error,
     isLoading,

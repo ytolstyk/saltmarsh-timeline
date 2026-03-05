@@ -1,7 +1,7 @@
 import { TimelineEvent } from "./types";
 
 export function sortEvents(events: TimelineEvent[]) {
-  return events.sort((a, b) => {
+  return [...events].sort((a, b) => {
     return a.daysSinceOrigin - b.daysSinceOrigin;
   });
 }

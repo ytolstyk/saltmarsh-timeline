@@ -57,14 +57,14 @@ export function validateJSONArray(json: JSONPreviewBlob[]): {
       };
     }
 
-    if (months < 1 || months > MONTHS.length) {
+    if (months < 0 || months >= MONTHS.length) {
       return {
         isValid: false,
         message: `Row ${i + 1} has an invalid month value: ${values.join(",")}`,
       };
     }
 
-    if (days < 1 || days > MONTHS[months - 1][1]) {
+    if (days < 0 || days >= MONTHS[months][1]) {
       return {
         isValid: false,
         message: `Row ${i + 1} has an invalid day value: ${values.join(",")}`,

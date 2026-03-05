@@ -163,8 +163,8 @@ export function filterEventsByTags(
 
   if (excludeDowntime) {
     filteredEvents = events.filter((event) => {
-      if (!event.tags) {
-        return false;
+      if (!event.tags || event.tags.length === 0) {
+        return true;
       }
 
       return !event.tags.some((tag) => tag === DOWNTIME_TAG);

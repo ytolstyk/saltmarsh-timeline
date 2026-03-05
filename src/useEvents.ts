@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import { TimelineEvent, TimelineFormEvent } from "./types";
-import { useContext, useEffect, useMemo } from "react";
+import { useContext, useMemo } from "react";
 import {
   batchCreateEvents,
   batchDeleteEvents,
@@ -21,13 +21,10 @@ export function useEvents() {
     data: events,
     mutate,
     error,
-  } = useSWR<TimelineEvent[]>("api/events", () => getEvents(rawCampaign));
-
-  useEffect(() => {
-    if (campaignId) {
-      mutate();
-    }
-  }, [campaignId, mutate]);
+  } = useSWR<TimelineEvent[]>(
+    campaignId ? ["api/events", campaignId] : null,
+    () => getEvents(rawCampaign)
+  );
 
   const appendEvents = async (newEvents: TimelineFormEvent[]) => {
     try {
@@ -62,14 +59,14 @@ export function useEvents() {
 
   const overrideEvents = async (newEvents: TimelineFormEvent[]) => {
     try {
-      if (events) {
-        await batchDeleteEvents(events.map((event) => event.id));
-      }
-
       const { errors, importedEvents } = await batchCreateEvents(
         newEvents,
         campaignId
       );
+
+      if (events) {
+        await batchDeleteEvents(events.map((event) => event.id));
+      }
 
       mutate();
 
@@ -171,7 +168,7 @@ export function useEvents() {
       return 0;
     }
 
-    return Math.min(...events.map((event) => event.daysSinceOrigin));
+    return events.reduce((min, e) => Math.min(min, e.daysSinceOrigin), Infinity);
   }, [events]);
 
   const maxDate = useMemo(() => {
@@ -179,7 +176,7 @@ export function useEvents() {
       return 0;
     }
 
-    return Math.max(...events.map((event) => event.daysSinceOrigin));
+    return events.reduce((max, e) => Math.max(max, e.daysSinceOrigin), -Infinity);
   }, [events]);
 
   const { minDateYears, maxDateYears } = useMemo(() => {
