@@ -26,7 +26,7 @@ export function Timeline() {
   const [ungrouped, setUngrouped] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { events } = useEvents();
-  const { eventGroups, offset, lineLength, filteredEvents, height } =
+  const { eventGroups, offset, lineLength, filteredEvents, height, prehistoryGroup } =
     useFilteredEventGroups(events, timelineSettings, ungrouped, searchQuery);
 
   const handleGroupClick = (group: TimelineEventGroup) => () => {
@@ -91,7 +91,7 @@ export function Timeline() {
   };
 
   const noEvents = !events || events.length === 0;
-  const noEventGroups = !noEvents && (!eventGroups || eventGroups.length === 0);
+  const noEventGroups = !noEvents && (!eventGroups || eventGroups.length === 0) && !prehistoryGroup;
 
   return (
     <TimelineWrapper>
@@ -114,7 +114,38 @@ export function Timeline() {
           All events are filtered out
         </Text>
       </RenderIf>
-      <RenderIf condition={eventGroups?.length > 0 && !noEventGroups}>
+      <RenderIf condition={Boolean(prehistoryGroup) && !noEvents}>
+        <Paper
+          shadow="xs"
+          p="md"
+          mb="md"
+          withBorder
+          style={{
+            borderLeft: "3px solid #6b7280",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            modals.open({
+              title: `Pre-History (${prehistoryGroup!.events.length})`,
+              size: "lg",
+              children: (
+                <CurrentEventGroup
+                  eventGroup={prehistoryGroup!}
+                  checkedTags={timelineSettings.checkedTags}
+                />
+              ),
+            });
+          }}
+        >
+          <Text size="xs" fw={700} tt="uppercase" c="gray.5" style={{ letterSpacing: "0.08em" }} mb={4}>
+            Pre-History
+          </Text>
+          <Text size="sm" c="gray.6">
+            {prehistoryGroup?.events.length} event{prehistoryGroup?.events.length === 1 ? "" : "s"} — click to view
+          </Text>
+        </Paper>
+      </RenderIf>
+      <RenderIf condition={(eventGroups?.length > 0 || Boolean(prehistoryGroup)) && !noEventGroups}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
           <Chip checked={ungrouped} onChange={setUngrouped}>
             Show all events

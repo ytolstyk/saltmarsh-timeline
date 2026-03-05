@@ -11,7 +11,7 @@ import {
 } from "./amplifyApi";
 import { handleErrors } from "./handleErrors";
 import { CampaignContext } from "./CampaignContext";
-import { DAYS_IN_YEAR } from "./dateHelper";
+import { DAYS_IN_YEAR, isPrehistory } from "./dateHelper";
 import { showNotification } from "./notificationHelper";
 
 export function useEvents() {
@@ -164,19 +164,17 @@ export function useEvents() {
   };
 
   const minDate = useMemo(() => {
-    if (!events || events.length === 0) {
-      return 0;
-    }
-
-    return events.reduce((min, e) => Math.min(min, e.daysSinceOrigin), Infinity);
+    if (!events || events.length === 0) return 0;
+    const dated = events.filter((e) => !isPrehistory(e.daysSinceOrigin));
+    if (dated.length === 0) return 0;
+    return dated.reduce((min, e) => Math.min(min, e.daysSinceOrigin), Infinity);
   }, [events]);
 
   const maxDate = useMemo(() => {
-    if (!events || events.length === 0) {
-      return 0;
-    }
-
-    return events.reduce((max, e) => Math.max(max, e.daysSinceOrigin), -Infinity);
+    if (!events || events.length === 0) return 0;
+    const dated = events.filter((e) => !isPrehistory(e.daysSinceOrigin));
+    if (dated.length === 0) return 0;
+    return dated.reduce((max, e) => Math.max(max, e.daysSinceOrigin), -Infinity);
   }, [events]);
 
   const { minDateYears, maxDateYears } = useMemo(() => {

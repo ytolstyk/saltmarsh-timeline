@@ -3,6 +3,8 @@ import {
   filterEventsByDateRange,
   filterEventsBySearch,
   filterEventsByTags,
+  isPrehistory,
+  PREHISTORY_DAYS,
   radiusInDays,
 } from "./dateHelper";
 import { groupEvents, sortEvents } from "./eventsHelper";
@@ -45,21 +47,29 @@ export function useFilteredEventGroups(
     () => filterEventsBySearch(tagFilteredEvents, searchQuery),
     [tagFilteredEvents, searchQuery]
   );
+  const datedEvents = useMemo(
+    () => filteredEvents.filter((e) => !isPrehistory(e.daysSinceOrigin)),
+    [filteredEvents]
+  );
+  const prehistoryEvents = useMemo(
+    () => filteredEvents.filter((e) => isPrehistory(e.daysSinceOrigin)),
+    [filteredEvents]
+  );
   const filteredMinDate = useMemo(
     () =>
-      filteredEvents.reduce(
+      datedEvents.reduce(
         (min, e) => Math.min(min, e.daysSinceOrigin),
         Infinity
       ),
-    [filteredEvents]
+    [datedEvents]
   );
   const filteredMaxDate = useMemo(
     () =>
-      filteredEvents.reduce(
+      datedEvents.reduce(
         (max, e) => Math.max(max, e.daysSinceOrigin),
         -Infinity
       ),
-    [filteredEvents]
+    [datedEvents]
   );
   const offset = filteredMinDate;
   const lineLength = filteredMaxDate - filteredMinDate;
@@ -68,9 +78,9 @@ export function useFilteredEventGroups(
     () =>
       Math.max(
         MIN_HEIGHT,
-        Math.min(MAX_HEIGHT, filteredEvents.length * PX_PER_EVENT)
+        Math.min(MAX_HEIGHT, datedEvents.length * PX_PER_EVENT)
       ),
-    [filteredEvents.length]
+    [datedEvents.length]
   );
 
   const daysRadius = useMemo(
@@ -80,17 +90,23 @@ export function useFilteredEventGroups(
 
   const eventGroups = useMemo(() => {
     if (ungrouped) {
-      return sortEvents(filteredEvents).map((event) => ({
+      return sortEvents(datedEvents).map((event) => ({
         daysSinceOrigin: event.daysSinceOrigin,
         events: [event],
       }));
     }
-    return groupEvents(filteredEvents, daysRadius);
-  }, [filteredEvents, daysRadius, ungrouped]);
+    return groupEvents(datedEvents, daysRadius);
+  }, [datedEvents, daysRadius, ungrouped]);
+
+  const prehistoryGroup = useMemo(() => {
+    if (prehistoryEvents.length === 0) return null;
+    return { daysSinceOrigin: PREHISTORY_DAYS, events: prehistoryEvents };
+  }, [prehistoryEvents]);
 
   return {
     eventGroups,
     filteredEvents,
+    prehistoryGroup,
     offset,
     lineLength,
     height,

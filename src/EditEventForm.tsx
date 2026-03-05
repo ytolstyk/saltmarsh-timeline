@@ -1,18 +1,28 @@
 import { TimelineEvent } from "./types";
-import { convertDaysToReadableDate } from "./dateHelper";
+import {
+  convertDaysToDateObject,
+  convertInputToDays,
+  isPrehistory,
+  PREHISTORY_DAYS,
+} from "./dateHelper";
 import { RenderIf } from "./RenderIf";
 import { EditEventFormContainer } from "./EditEventForm.styles";
 import { useEvents } from "./useEvents";
 import { useState, ChangeEvent } from "react";
 import {
   Button,
+  Checkbox,
   Divider,
+  Fieldset,
   Flex,
+  Grid,
+  NumberInput,
   TagsInput,
   Text,
   Textarea,
   TextInput,
 } from "@mantine/core";
+import { Datepicker } from "./Datepicker";
 
 type Props = {
   event: TimelineEvent;
@@ -27,6 +37,9 @@ export function EditEventForm({
   onSaveClick,
   onCancelClick,
 }: Props) {
+  const prehistoric0 = isPrehistory(event.daysSinceOrigin);
+  const dateObj0 = prehistoric0 ? null : convertDaysToDateObject(event.daysSinceOrigin);
+
   const [formEvent, setFormEvent] = useState<{
     title: string;
     description: string;
@@ -37,6 +50,12 @@ export function EditEventForm({
     // @ts-expect-error i refuse to believe this will be null
     tags: event.tags?.filter(Boolean) || [],
   });
+  const [prehistoric, setPrehistoric] = useState(prehistoric0);
+  const [date, setDate] = useState({
+    years: dateObj0?.years ?? 0,
+    months: dateObj0?.months ?? 0,
+    days: dateObj0 ? dateObj0.days - 1 : 0, // Datepicker uses 0-indexed days
+  });
   const { updateEvent } = useEvents();
 
   const handleSaveClick = async () => {
@@ -45,6 +64,7 @@ export function EditEventForm({
       title: formEvent.title,
       description: formEvent.description,
       tags: formEvent.tags.map((tag) => tag?.trim()).filter(Boolean),
+      daysSinceOrigin: prehistoric ? PREHISTORY_DAYS : convertInputToDays(date),
     } as TimelineEvent;
 
     if (!(await updateEvent(newEvent))) {
@@ -72,11 +92,42 @@ export function EditEventForm({
     }));
   };
 
+  const handleDatepickerChange = (selected: { day: number; monthIndex: number }) => {
+    setDate((prev) => ({ ...prev, days: selected.day, months: selected.monthIndex }));
+  };
+
   return (
     <EditEventFormContainer>
-      <Text size="xs" fw={600} tt="uppercase" c="blue.6" style={{ letterSpacing: "0.04em" }}>
-        {convertDaysToReadableDate(event.daysSinceOrigin)}
-      </Text>
+      <Checkbox
+        label="Pre-History event (no specific date)"
+        checked={prehistoric}
+        onChange={(e) => setPrehistoric(e.currentTarget.checked)}
+        mb="xs"
+      />
+      {!prehistoric && (
+        <Fieldset legend="Date" mb="xs">
+          <Grid gutter="sm">
+            <Grid.Col span={9}>
+              <Datepicker
+                onChange={handleDatepickerChange}
+                value={{ day: date.days, monthIndex: date.months }}
+              />
+            </Grid.Col>
+            <Grid.Col span={3}>
+              <NumberInput
+                label="Year"
+                value={date.years}
+                onChange={(v) => setDate((prev) => ({ ...prev, years: Number(v) }))}
+              />
+            </Grid.Col>
+          </Grid>
+        </Fieldset>
+      )}
+      {prehistoric && (
+        <Text size="xs" fw={600} tt="uppercase" c="gray.5" mb="xs" style={{ letterSpacing: "0.04em" }}>
+          Pre-History
+        </Text>
+      )}
       <TextInput
         value={formEvent.title}
         label="Title"

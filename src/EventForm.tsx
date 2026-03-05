@@ -1,10 +1,11 @@
 import { useState, ChangeEvent, SyntheticEvent } from "react";
 import { Form } from "./EventForm.styles";
 import { TimelineFormEvent } from "./types";
-import { convertInputToDays, MONTHS } from "./dateHelper";
+import { convertInputToDays, MONTHS, PREHISTORY_DAYS } from "./dateHelper";
 import { useEvents } from "./useEvents";
 import {
   Button,
+  Checkbox,
   Fieldset,
   Grid,
   NumberInput,
@@ -30,6 +31,7 @@ const initialDate = {
 export function EventForm() {
   const [date, setDate] = useState(initialDate);
   const [formData, setFormData] = useState<TimelineFormEvent>(initialFormData);
+  const [prehistoric, setPrehistoric] = useState(false);
   const { addEvent } = useEvents();
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -74,16 +76,18 @@ export function EventForm() {
       newErrors.title = "Title is required";
     }
 
-    if (date.years < 0) {
-      newErrors.years = "Year cannot be negative";
-    }
+    if (!prehistoric) {
+      if (date.years < 0) {
+        newErrors.years = "Year cannot be negative";
+      }
 
-    if (date.months < 0 || date.months >= MONTHS.length) {
-      newErrors.months = "Invalid month selected";
-    }
+      if (date.months < 0 || date.months >= MONTHS.length) {
+        newErrors.months = "Invalid month selected";
+      }
 
-    if (date.days < 0 || date.days > MONTHS[date.months][1]) {
-      newErrors.days = `Day must be between 1 and ${MONTHS[date.months][1]}`;
+      if (date.days < 0 || date.days > MONTHS[date.months][1]) {
+        newErrors.days = `Day must be between 1 and ${MONTHS[date.months][1]}`;
+      }
     }
 
     setErrors(newErrors);
@@ -101,7 +105,7 @@ export function EventForm() {
     addEvent({
       ...formData,
       tags: formData.tags?.map((val) => val.trim()).filter((val) => val !== ""),
-      daysSinceOrigin: convertInputToDays(date),
+      daysSinceOrigin: prehistoric ? PREHISTORY_DAYS : convertInputToDays(date),
     });
 
     setFormData(initialFormData);
@@ -111,24 +115,32 @@ export function EventForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Fieldset legend="Date">
-        <Grid gutter="sm">
-          <Grid.Col span={9}>
-            <Datepicker
-              onChange={handleDatepickerChange}
-              value={{ day: date.days, monthIndex: date.months }}
-            />
-          </Grid.Col>
-          <Grid.Col span={3}>
-            <NumberInput
-              label="Year"
-              value={date.years}
-              onChange={handleYearsChange}
-              error={errors.years}
-            />
-          </Grid.Col>
-        </Grid>
-      </Fieldset>
+      <Checkbox
+        label="Pre-History event (no specific date)"
+        checked={prehistoric}
+        onChange={(e) => setPrehistoric(e.currentTarget.checked)}
+        mb="sm"
+      />
+      {!prehistoric && (
+        <Fieldset legend="Date">
+          <Grid gutter="sm">
+            <Grid.Col span={9}>
+              <Datepicker
+                onChange={handleDatepickerChange}
+                value={{ day: date.days, monthIndex: date.months }}
+              />
+            </Grid.Col>
+            <Grid.Col span={3}>
+              <NumberInput
+                label="Year"
+                value={date.years}
+                onChange={handleYearsChange}
+                error={errors.years}
+              />
+            </Grid.Col>
+          </Grid>
+        </Fieldset>
+      )}
       <Fieldset legend="Event Details">
         <TextInput
           label="Title"
@@ -154,7 +166,7 @@ export function EventForm() {
           error={errors.tags}
         />
       </Fieldset>
-      <Button variant="primary" onClick={handleSubmit}>
+      <Button variant="filled" onClick={handleSubmit}>
         Add Event
       </Button>
     </Form>

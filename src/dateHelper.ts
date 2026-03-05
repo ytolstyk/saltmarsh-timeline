@@ -2,6 +2,12 @@ import { CheckedTags, FormDate, TimelineEvent } from "./types";
 
 const DOWNTIME_TAG = "downtime";
 
+export const PREHISTORY_DAYS = -999999999;
+
+export function isPrehistory(days: number): boolean {
+  return days === PREHISTORY_DAYS;
+}
+
 type MonthObj = {
   monthName: string;
   monthIndex: number;
@@ -101,6 +107,7 @@ export function convertDaysToDateObject(daysNum: number): FormDate {
 }
 
 export function convertDaysToReadableDate(daysNum: number): string {
+  if (isPrehistory(daysNum)) return "Pre-History";
   const dateObj = convertDaysToDateObject(daysNum);
 
   const monthName = MONTHS[dateObj.months][0];
@@ -143,6 +150,7 @@ export function filterEventsByDateRange(
   }
 
   return events.filter((event) => {
+    if (isPrehistory(event.daysSinceOrigin)) return true;
     return (
       event.daysSinceOrigin >= convertYearsToDays(startYear) &&
       event.daysSinceOrigin <= convertYearsToDays(endYear)
