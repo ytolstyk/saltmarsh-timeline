@@ -7,7 +7,6 @@ import {
   LineDot,
   LineLeft,
   LineWrapper,
-  lineHeight,
   TimelineWrapper,
 } from "./Timeline.styles";
 import { TimelineEventGroup } from "./types";
@@ -27,8 +26,8 @@ export function Timeline() {
   const [ungrouped, setUngrouped] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { events } = useEvents();
-  const { eventGroups, offset, lineLength, filteredEvents } =
-    useFilteredEventGroups(events, timelineSettings, lineHeight, ungrouped, searchQuery);
+  const { eventGroups, offset, lineLength, filteredEvents, height } =
+    useFilteredEventGroups(events, timelineSettings, ungrouped, searchQuery);
 
   const handleGroupClick = (group: TimelineEventGroup) => () => {
     modals.open({
@@ -167,7 +166,7 @@ export function Timeline() {
         </LineWrapper>
       </RenderIf>
       <RenderIf condition={!ungrouped && eventGroups?.length > 1}>
-        <LineWrapper>
+        <LineWrapper $height={height}>
           <LineLeft>{renderEventCards(true)}</LineLeft>
           <Line>{renderLineDots()}</Line>
           <LineRight>{renderEventCards(false)}</LineRight>

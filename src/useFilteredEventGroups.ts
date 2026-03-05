@@ -9,10 +9,13 @@ import { groupEvents, sortEvents } from "./eventsHelper";
 import { TimelineEvent, TimelineSettingsData } from "./types";
 import { dotFullSize } from "./Timeline.styles";
 
+const MIN_HEIGHT = 400;
+const MAX_HEIGHT = 5000;
+const PX_PER_EVENT = 80;
+
 export function useFilteredEventGroups(
   events: TimelineEvent[],
   timelineSettings: TimelineSettingsData,
-  height: number,
   ungrouped: boolean = false,
   searchQuery: string = ""
 ) {
@@ -61,6 +64,15 @@ export function useFilteredEventGroups(
   const offset = filteredMinDate;
   const lineLength = filteredMaxDate - filteredMinDate;
 
+  const height = useMemo(
+    () =>
+      Math.max(
+        MIN_HEIGHT,
+        Math.min(MAX_HEIGHT, filteredEvents.length * PX_PER_EVENT)
+      ),
+    [filteredEvents.length]
+  );
+
   const daysRadius = useMemo(
     () => radiusInDays(height, filteredMaxDate - filteredMinDate, dotFullSize),
     [height, filteredMaxDate, filteredMinDate]
@@ -81,5 +93,6 @@ export function useFilteredEventGroups(
     filteredEvents,
     offset,
     lineLength,
+    height,
   };
 }

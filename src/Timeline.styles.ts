@@ -23,11 +23,12 @@ export const TimelineWrapper = styled.div`
   margin-bottom: 20rem;
 `;
 
-export const LineWrapper = styled.div<{ $noHeight?: boolean }>`
+export const LineWrapper = styled.div<{ $noHeight?: boolean; $height?: number }>`
   align-content: center;
   position: relative;
   display: flex;
-  height: ${(props) => (props.$noHeight ? "auto" : `${lineHeight}px`)};
+  height: ${(props) =>
+    props.$noHeight ? "auto" : `${props.$height ?? lineHeight}px`};
   justify-content: center;
 `;
 
