@@ -31,10 +31,14 @@ export const StickySearch = styled.div`
   padding: 0.5rem 0;
 `;
 
-export const LineWrapper = styled.div<{ $noHeight?: boolean; $height?: number }>`
+export const LineWrapper = styled.div<{
+  $noHeight?: boolean;
+  $height?: number;
+}>`
   align-content: center;
   position: relative;
   display: flex;
+  margin-top: 8rem;
   height: ${(props) =>
     props.$noHeight ? "auto" : `${props.$height ?? lineHeight}px`};
   justify-content: center;
@@ -82,7 +86,11 @@ export const LineDot = styled.div<{
   text-align: center;
   cursor: pointer;
   top: ${(props) => props.$percentTop}%;
+  transform: translateY(-50%);
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: ${(props) => (props.$isGroup ? groupDotSize : `${dotSize}px`)};
   width: ${(props) => (props.$isGroup ? groupDotSize : `${dotSize}px`)};
   border-radius: 1rem;
@@ -94,10 +102,13 @@ export const LineDot = styled.div<{
       return `
         z-index: 10;
         color: white;
+        transform: translateY(-50%);
       `;
     }
   }};
 
-  transition: all 0.2s ease-in-out;
+  transition:
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
   animation: ${fadeIn} 0.3s ease-out;
 `;

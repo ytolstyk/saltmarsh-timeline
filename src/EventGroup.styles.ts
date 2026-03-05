@@ -3,12 +3,12 @@ import styled, { keyframes } from "styled-components";
 const fadeIn = keyframes`
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(calc(-50% + 6px));
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-50%);
   }
 `;
 
@@ -27,15 +27,16 @@ export const EventGroupPosition = styled.div<{
 }>`
   cursor: pointer;
   top: ${(props) => props.$percentTop}%;
+  transform: translateY(-50%);
   width: clamp(10rem, 100%, 22rem);
   position: absolute;
-  transition: all 0.18s ease-in-out;
+  transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out;
   animation: ${fadeIn} 0.2s ease-out;
 
   ${(props) => {
     if (props.$isHighlighted) {
       return `
-        transform: translateY(-2px);
+        transform: translateY(calc(-50% - 2px));
         z-index: 10;
       `;
     }
