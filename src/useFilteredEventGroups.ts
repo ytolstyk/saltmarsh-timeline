@@ -4,14 +4,15 @@ import {
   filterEventsByTags,
   radiusInDays,
 } from "./dateHelper";
-import { groupEvents } from "./eventsHelper";
+import { groupEvents, sortEvents } from "./eventsHelper";
 import { TimelineEvent, TimelineSettingsData } from "./types";
 import { dotFullSize } from "./Timeline.styles";
 
 export function useFilteredEventGroups(
   events: TimelineEvent[],
   timelineSettings: TimelineSettingsData,
-  height: number
+  height: number,
+  ungrouped: boolean = false
 ) {
   const timeFilteredEvents = useMemo(
     () =>
@@ -36,11 +37,19 @@ export function useFilteredEventGroups(
     ]
   );
   const filteredMinDate = useMemo(
-    () => Math.min(...filteredEvents.map((event) => event.daysSinceOrigin)),
+    () =>
+      filteredEvents.reduce(
+        (min, e) => Math.min(min, e.daysSinceOrigin),
+        Infinity
+      ),
     [filteredEvents]
   );
   const filteredMaxDate = useMemo(
-    () => Math.max(...filteredEvents.map((event) => event.daysSinceOrigin)),
+    () =>
+      filteredEvents.reduce(
+        (max, e) => Math.max(max, e.daysSinceOrigin),
+        -Infinity
+      ),
     [filteredEvents]
   );
   const offset = filteredMinDate;
@@ -51,10 +60,15 @@ export function useFilteredEventGroups(
     [height, filteredMaxDate, filteredMinDate]
   );
 
-  const eventGroups = useMemo(
-    () => groupEvents(filteredEvents, daysRadius),
-    [filteredEvents, daysRadius]
-  );
+  const eventGroups = useMemo(() => {
+    if (ungrouped) {
+      return sortEvents(filteredEvents).map((event) => ({
+        daysSinceOrigin: event.daysSinceOrigin,
+        events: [event],
+      }));
+    }
+    return groupEvents(filteredEvents, daysRadius);
+  }, [filteredEvents, daysRadius, ungrouped]);
 
   return {
     eventGroups,
