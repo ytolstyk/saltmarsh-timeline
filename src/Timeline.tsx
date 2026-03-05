@@ -115,7 +115,46 @@ export function Timeline() {
           All events are filtered out
         </Text>
       </RenderIf>
-      <RenderIf condition={eventGroups?.length === 1}>
+      <RenderIf condition={eventGroups?.length > 0 && !noEventGroups}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+          <Chip checked={ungrouped} onChange={setUngrouped}>
+            Show all events
+          </Chip>
+          <Text>
+            Showing {filteredEvents.length} of {events.length} total events
+          </Text>
+        </div>
+      </RenderIf>
+      <RenderIf condition={ungrouped && eventGroups?.length > 0 && !noEventGroups}>
+        <Stack gap="sm">
+          {eventGroups.map((group, index) => {
+            const event = group.events[0];
+            return (
+              <Paper key={index} shadow="sm" p="md" withBorder>
+                <Text size="sm" c="indigo" fw={700}>
+                  {convertDaysToReadableDate(event.daysSinceOrigin)}
+                </Text>
+                <Title order={5} mt="xs">
+                  <HighlightText text={event.title} query={searchQuery} />
+                </Title>
+                <Text mt="xs">
+                  <HighlightText text={event.description} query={searchQuery} />
+                </Text>
+                {event.tags && event.tags.some(Boolean) && (
+                  <Group mt="xs" gap="xs">
+                    {event.tags.filter(Boolean).map((tag) => (
+                      <Badge key={tag} color={timelineSettings.checkedTags[tag] ? "blue" : "gray"}>
+                        {tag}
+                      </Badge>
+                    ))}
+                  </Group>
+                )}
+              </Paper>
+            );
+          })}
+        </Stack>
+      </RenderIf>
+      <RenderIf condition={!ungrouped && eventGroups?.length === 1}>
         <LineWrapper $noHeight>
           <EventGroup
             timelineEventGroup={eventGroups[0]}
@@ -127,51 +166,12 @@ export function Timeline() {
           />
         </LineWrapper>
       </RenderIf>
-      <RenderIf condition={eventGroups?.length > 1}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-          <Chip checked={ungrouped} onChange={setUngrouped}>
-            Show all events
-          </Chip>
-          <Text>
-            Showing {filteredEvents.length} of {events.length} total events
-          </Text>
-        </div>
-        <RenderIf condition={ungrouped}>
-          <Stack gap="sm">
-            {eventGroups.map((group, index) => {
-              const event = group.events[0];
-              return (
-                <Paper key={index} shadow="sm" p="md" withBorder>
-                  <Text size="sm" c="indigo" fw={700}>
-                    {convertDaysToReadableDate(event.daysSinceOrigin)}
-                  </Text>
-                  <Title order={5} mt="xs">
-                    <HighlightText text={event.title} query={searchQuery} />
-                  </Title>
-                  <Text mt="xs">
-                    <HighlightText text={event.description} query={searchQuery} />
-                  </Text>
-                  {event.tags && event.tags.some(Boolean) && (
-                    <Group mt="xs" gap="xs">
-                      {event.tags.filter(Boolean).map((tag) => (
-                        <Badge key={tag} color={timelineSettings.checkedTags[tag] ? "blue" : "gray"}>
-                          {tag}
-                        </Badge>
-                      ))}
-                    </Group>
-                  )}
-                </Paper>
-              );
-            })}
-          </Stack>
-        </RenderIf>
-        <RenderIf condition={!ungrouped}>
-          <LineWrapper>
-            <LineLeft>{renderEventCards(true)}</LineLeft>
-            <Line>{renderLineDots()}</Line>
-            <LineRight>{renderEventCards(false)}</LineRight>
-          </LineWrapper>
-        </RenderIf>
+      <RenderIf condition={!ungrouped && eventGroups?.length > 1}>
+        <LineWrapper>
+          <LineLeft>{renderEventCards(true)}</LineLeft>
+          <Line>{renderLineDots()}</Line>
+          <LineRight>{renderEventCards(false)}</LineRight>
+        </LineWrapper>
       </RenderIf>
     </TimelineWrapper>
   );
