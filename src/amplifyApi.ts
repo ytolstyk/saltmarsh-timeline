@@ -9,10 +9,25 @@ import {
   TimelineSettingsData,
 } from "./types";
 
+// ─── Validation helpers ───────────────────────────────────────────────────────
+
+function requireId(id: string | undefined | null, label: string) {
+  if (!id || !id.trim()) throw new Error(`${label} is required`);
+}
+
+function requireString(value: string | undefined | null, label: string) {
+  if (!value || !value.trim()) throw new Error(`${label} is required`);
+}
+
+// ─── Events ──────────────────────────────────────────────────────────────────
+
 export const createEvent = async (
   event: TimelineFormEvent,
   campaignId: string
 ) => {
+  requireId(campaignId, "campaignId");
+  requireString(event.title, "Event title");
+
   const { data, errors } = await amplifyClient.models.Event.create({
     ...event,
     campaignId,
@@ -29,6 +44,12 @@ export const batchCreateEvents = async (
   events: TimelineFormEvent[],
   campaignId: string
 ) => {
+  requireId(campaignId, "campaignId");
+
+  if (!events || events.length === 0) {
+    return { errors: {}, importedEvents: 0 };
+  }
+
   const batchSize = 50;
   const errors: Record<string, string> = {};
   let importedEvents = 0;
@@ -46,8 +67,8 @@ export const batchCreateEvents = async (
     );
 
     result.forEach((response, index) => {
-      if (response.errors && response.errors.length > 1) {
-        errors[index + 1] = String(response.errors[0]);
+      if (response.errors && response.errors.length >= 1) {
+        errors[i + index + 1] = String(response.errors[0]);
       } else {
         importedEvents += 1;
       }
@@ -58,6 +79,9 @@ export const batchCreateEvents = async (
 };
 
 export const updateEventAPI = async (eventToUpdate: TimelineEvent) => {
+  requireId(eventToUpdate.id, "Event id");
+  requireString(eventToUpdate.title, "Event title");
+
   const { data, errors } =
     await amplifyClient.models.Event.update(eventToUpdate);
 
@@ -69,6 +93,8 @@ export const updateEventAPI = async (eventToUpdate: TimelineEvent) => {
 };
 
 export const deleteEventAPI = async (eventId: string) => {
+  requireId(eventId, "Event id");
+
   const { data, errors } = await amplifyClient.models.Event.delete({
     id: eventId,
   });
@@ -81,13 +107,22 @@ export const deleteEventAPI = async (eventId: string) => {
 };
 
 export const batchDeleteEvents = async (eventIds: string[]) => {
+  if (!eventIds || eventIds.length === 0) {
+    return;
+  }
+
   const batchSize = 50;
 
   for (let i = 0; i < eventIds.length; i += batchSize) {
     const currentBatch = eventIds.slice(i, i + batchSize);
-    await Promise.all(
+    const results = await Promise.all(
       currentBatch.map((id) => amplifyClient.models.Event.delete({ id }))
     );
+
+    const batchErrors = results.flatMap((r) => r.errors ?? []);
+    if (batchErrors.length > 0) {
+      throw batchErrors;
+    }
   }
 };
 
@@ -105,6 +140,8 @@ export const getEvents = async (campaign: Campaign | null) => {
   return data;
 };
 
+// ─── Campaigns ───────────────────────────────────────────────────────────────
+
 export const getCampaigns = async () => {
   const { data, errors } = await amplifyClient.models.Campaign.list();
 
@@ -116,22 +153,21 @@ export const getCampaigns = async () => {
 };
 
 export const createCampaign = async (campaignData: CampaignFormData) => {
+  requireString(campaignData.name, "Campaign name");
+  requireString(campaignData.startDate, "Campaign start date");
+
   const { data: campaign, errors: campaignErrors } =
     await amplifyClient.models.Campaign.create({
       ...campaignData,
       endDate: campaignData.endDate || null,
     });
 
-  if (!campaign) {
-    throw "Failed to create campaign";
+  if (campaignErrors && campaignErrors.length > 0) {
+    throw campaignErrors;
   }
 
-  if (campaignErrors && campaignErrors.length > 0) {
-    if (campaign) {
-      await amplifyClient.models.Campaign.delete({ id: campaign.id });
-    }
-
-    throw campaignErrors;
+  if (!campaign) {
+    throw new Error("Failed to create campaign");
   }
 
   const { errors: timelineSettingsErrors } =
@@ -139,7 +175,7 @@ export const createCampaign = async (campaignData: CampaignFormData) => {
       campaignId: campaign.id,
     });
 
-  if (timelineSettingsErrors && timelineSettingsErrors?.length > 0) {
+  if (timelineSettingsErrors && timelineSettingsErrors.length > 0) {
     await amplifyClient.models.Campaign.delete({ id: campaign.id });
     throw timelineSettingsErrors;
   }
@@ -147,20 +183,56 @@ export const createCampaign = async (campaignData: CampaignFormData) => {
   return campaign;
 };
 
+export const updateCampaign = async (campaign: CampaignFormUpdateData) => {
+  requireId(campaign.id, "Campaign id");
+  requireString(campaign.name, "Campaign name");
+
+  const { data, errors } = await amplifyClient.models.Campaign.update(campaign);
+
+  if (errors && errors.length > 0) {
+    throw errors;
+  }
+
+  return data;
+};
+
 export const deleteCampaign = async (campaignId: string) => {
-  const { data: campaign } = await amplifyClient.models.Campaign.get({
-    id: campaignId,
-  });
+  requireId(campaignId, "Campaign id");
+
+  const { data: campaign, errors: getErrors } =
+    await amplifyClient.models.Campaign.get({ id: campaignId });
+
+  if (getErrors && getErrors.length > 0) {
+    throw getErrors;
+  }
 
   if (campaign) {
-    const { data: events } = await campaign.events({ limit: 10000 });
+    const { data: events, errors: eventsErrors } = await campaign.events({
+      limit: 10000,
+    });
+
+    if (eventsErrors && eventsErrors.length > 0) {
+      throw eventsErrors;
+    }
+
     if (events && events.length > 0) {
       await batchDeleteEvents(events.map((e) => e.id));
     }
 
-    const { data: settings } = await campaign.timelineSettings();
+    const { data: settings, errors: settingsErrors } =
+      await campaign.timelineSettings();
+
+    if (settingsErrors && settingsErrors.length > 0) {
+      throw settingsErrors;
+    }
+
     if (settings) {
-      await amplifyClient.models.TimelineSettings.delete({ id: settings.id });
+      const { errors: deleteSettingsErrors } =
+        await amplifyClient.models.TimelineSettings.delete({ id: settings.id });
+
+      if (deleteSettingsErrors && deleteSettingsErrors.length > 0) {
+        throw deleteSettingsErrors;
+      }
     }
   }
 
@@ -175,32 +247,7 @@ export const deleteCampaign = async (campaignId: string) => {
   return data;
 };
 
-export const updateCampaign = async (campaign: CampaignFormUpdateData) => {
-  const { data, errors } = await amplifyClient.models.Campaign.update(campaign);
-
-  if (errors && errors.length > 0) {
-    throw errors;
-  }
-
-  return data;
-};
-
-export const createTimelineSettings = async (
-  timelineSettings: TimelineSettingsData,
-  campaignId: string
-) => {
-  const { data, errors } = await amplifyClient.models.TimelineSettings.create({
-    ...timelineSettings,
-    checkedTags: checkedTagsToPayload(timelineSettings.checkedTags),
-    campaignId,
-  });
-
-  if (errors && errors.length > 0) {
-    throw errors;
-  }
-
-  return data;
-};
+// ─── Timeline settings ────────────────────────────────────────────────────────
 
 export const getTimelineSettings = async (campaign: Campaign | null) => {
   if (!campaign) {
@@ -216,12 +263,44 @@ export const getTimelineSettings = async (campaign: Campaign | null) => {
   return data;
 };
 
+export const createTimelineSettings = async (
+  timelineSettings: TimelineSettingsData,
+  campaignId: string
+) => {
+  requireId(campaignId, "campaignId");
+
+  const { data, errors } = await amplifyClient.models.TimelineSettings.create({
+    campaignId,
+    startYear: timelineSettings.startYear,
+    endYear: timelineSettings.endYear,
+    checkedTags: checkedTagsToPayload(timelineSettings.checkedTags),
+    excludeDowntime: timelineSettings.excludeDowntime,
+    showAllEvents: timelineSettings.showAllEvents,
+    reverseOrder: timelineSettings.reverseOrder,
+  });
+
+  if (errors && errors.length > 0) {
+    throw errors;
+  }
+
+  return data;
+};
+
 export const updateTimelineSettings = async (
   settings: Partial<TimelineSettingsData> & { id: string; campaignId: string }
 ) => {
+  requireId(settings.id, "TimelineSettings id");
+  requireId(settings.campaignId, "campaignId");
+
   const { data, errors } = await amplifyClient.models.TimelineSettings.update({
-    ...settings,
+    id: settings.id,
+    campaignId: settings.campaignId,
+    startYear: settings.startYear,
+    endYear: settings.endYear,
     checkedTags: checkedTagsToPayload(settings.checkedTags),
+    excludeDowntime: settings.excludeDowntime,
+    showAllEvents: settings.showAllEvents,
+    reverseOrder: settings.reverseOrder,
   });
 
   if (errors && errors.length > 0) {
