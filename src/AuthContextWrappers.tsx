@@ -9,9 +9,20 @@ import { ModalsProvider } from "@mantine/modals";
 
 Amplify.configure(outputs);
 
+const components = {
+  Header() {
+    return (
+      <div className="saltmarsh-auth-header">
+        <h1>Saltmarsh Timeline</h1>
+        <p>Track your campaign events</p>
+      </div>
+    );
+  },
+};
+
 export const AuthContextWrappers = () => {
   return (
-    <Authenticator>
+    <Authenticator components={components}>
       <CampaignProvider>
         <MantineProvider>
           <ModalsProvider>

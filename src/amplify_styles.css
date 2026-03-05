@@ -1,3 +1,69 @@
+/* ── Login page layout ─────────────────────────────────── */
 [data-amplify-authenticator] {
-  margin-top: 2rem;
+  --amplify-colors-brand-primary-10:  #e6eeff;
+  --amplify-colors-brand-primary-20:  #ccdcff;
+  --amplify-colors-brand-primary-40:  #80aaff;
+  --amplify-colors-brand-primary-60:  #3377ff;
+  --amplify-colors-brand-primary-80:  #0063ff;
+  --amplify-colors-brand-primary-90:  #0052d6;
+  --amplify-colors-brand-primary-100: #003da3;
+
+  --amplify-colors-background-primary:   #ffffff;
+  --amplify-colors-background-secondary: #f8f9fc;
+  --amplify-colors-border-primary:       #d0d7e3;
+  --amplify-colors-border-focus:         #0063ff;
+
+  --amplify-fonts-default-variable: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --amplify-fonts-default-static:   Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --amplify-radii-small:  6px;
+  --amplify-radii-medium: 8px;
+  --amplify-radii-large:  12px;
+
+  --amplify-components-authenticator-router-border-color:  var(--amplify-colors-border-primary);
+  --amplify-components-authenticator-router-border-width:  1px;
+  --amplify-components-authenticator-router-border-radius: var(--amplify-radii-large);
+  --amplify-components-authenticator-router-box-shadow:    0 4px 24px rgba(0, 99, 255, 0.08);
+
+  --amplify-components-button-primary-background-color:         #0063ff;
+  --amplify-components-button-primary-hover-background-color:   #0052d6;
+  --amplify-components-button-primary-active-background-color:  #003da3;
+  --amplify-components-button-primary-color:                    #ffffff;
+  --amplify-components-button-border-radius:                    var(--amplify-radii-medium);
+
+  --amplify-components-fieldcontrol-border-radius: var(--amplify-radii-small);
+  --amplify-components-fieldcontrol-focus-border-color: #0063ff;
+
+  --amplify-components-tabs-item-active-color:        #0063ff;
+  --amplify-components-tabs-item-active-border-color: #0063ff;
+  --amplify-components-tabs-item-focus-color:         #0063ff;
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(0, 99, 255, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(0, 99, 255, 0.04) 0%, transparent 60%),
+    #f8f9fc;
+}
+
+/* Custom header injected via the components prop */
+.saltmarsh-auth-header {
+  text-align: center;
+  padding: 2rem 2rem 0.5rem;
+}
+
+.saltmarsh-auth-header h1 {
+  font-family: "Booter", sans-serif;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  color: #0063ff;
+  margin: 0 0 0.25rem;
+  line-height: 1.1;
+}
+
+.saltmarsh-auth-header p {
+  font-size: 0.875rem;
+  color: #6b7a99;
+  margin: 0;
 }
