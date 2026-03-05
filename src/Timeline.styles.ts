@@ -23,6 +23,14 @@ export const TimelineWrapper = styled.div`
   margin-bottom: 20rem;
 `;
 
+export const StickySearch = styled.div`
+  position: sticky;
+  top: var(--app-shell-header-height, 60px);
+  z-index: 100;
+  background: #f0f2f7;
+  padding: 0.5rem 0;
+`;
+
 export const LineWrapper = styled.div<{ $noHeight?: boolean; $height?: number }>`
   align-content: center;
   position: relative;

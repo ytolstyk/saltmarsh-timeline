@@ -7,6 +7,7 @@ import {
   LineDot,
   LineLeft,
   LineWrapper,
+  StickySearch,
   TimelineWrapper,
 } from "./Timeline.styles";
 import { TimelineEventGroup } from "./types";
@@ -98,12 +99,13 @@ export function Timeline() {
   return (
     <TimelineWrapper>
       <RenderIf condition={!noEvents}>
-        <TextInput
-          placeholder="Search by title, description, or tag…"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.currentTarget.value)}
-          mb="md"
-        />
+        <StickySearch>
+          <TextInput
+            placeholder="Search by title, description, or tag…"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.currentTarget.value)}
+          />
+        </StickySearch>
       </RenderIf>
       <RenderIf condition={noEvents}>
         <Text ta="center" mt="2rem">
