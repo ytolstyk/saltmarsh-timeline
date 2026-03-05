@@ -148,6 +148,22 @@ export const createCampaign = async (campaignData: CampaignFormData) => {
 };
 
 export const deleteCampaign = async (campaignId: string) => {
+  const { data: campaign } = await amplifyClient.models.Campaign.get({
+    id: campaignId,
+  });
+
+  if (campaign) {
+    const { data: events } = await campaign.events({ limit: 10000 });
+    if (events && events.length > 0) {
+      await batchDeleteEvents(events.map((e) => e.id));
+    }
+
+    const { data: settings } = await campaign.timelineSettings();
+    if (settings) {
+      await amplifyClient.models.TimelineSettings.delete({ id: settings.id });
+    }
+  }
+
   const { data, errors } = await amplifyClient.models.Campaign.delete({
     id: campaignId,
   });

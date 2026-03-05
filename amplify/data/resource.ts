@@ -42,18 +42,6 @@ const schema = a
         reverseOrder: a.boolean().default(false),
       })
       .authorization((allow) => [allow.owner()]),
-
-    // BatchCreateEvent: a
-    //   .mutation()
-    //   .arguments({ events: a.ref("EventFields").array() })
-    //   .returns(a.ref("Event").array())
-    //   .authorization((allow) => [allow.authenticated()])
-    //   .handler(
-    //     a.handler.custom({
-    //       dataSource: a.ref("Event"),
-    //       entry: "./BatchCreateEventHandler.ts",
-    //     })
-    //   ),
   })
   .authorization((allow) => [allow.authenticated()]);
 
@@ -63,8 +51,5 @@ export const data = defineData({
   schema,
   authorizationModes: {
     defaultAuthorizationMode: "userPool",
-    // apiKeyAuthorizationMode: {
-    //   expiresInDays: 30,
-    // },
   },
 });
