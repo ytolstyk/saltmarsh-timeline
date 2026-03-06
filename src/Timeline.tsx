@@ -218,8 +218,19 @@ export function Timeline() {
           {(reversed ? [...eventGroups].reverse() : eventGroups).map(
             (group, index) => {
               const event = group.events[0];
+              const handleClick = () =>
+                modals.open({
+                  title: event.title,
+                  size: "lg",
+                  children: (
+                    <CurrentEventGroup
+                      eventGroup={group}
+                      checkedTags={timelineSettings.checkedTags}
+                    />
+                  ),
+                });
               return (
-                <Paper key={index} shadow="xs" p="md" withBorder>
+                <Paper key={index} shadow="xs" p="md" withBorder style={{ cursor: "pointer" }} onClick={handleClick}>
                   <Text
                     size="xs"
                     c="blue.6"
