@@ -25,6 +25,7 @@ export const EventGroupPosition = styled.div<{
   $percentTop: number;
   $isHighlighted: boolean;
   $zIndex: number;
+  $side: "left" | "right";
 }>`
   cursor: pointer;
   top: ${(props) => props.$percentTop}%;
@@ -34,6 +35,51 @@ export const EventGroupPosition = styled.div<{
   z-index: ${(props) => props.$zIndex};
   transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out;
   animation: ${fadeIn} 0.2s ease-out;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  ${(props) =>
+    props.$side === "left"
+      ? `
+    &::before {
+      right: -9px;
+      transform: translateY(-50%);
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 9px solid ${props.$isHighlighted ? "#0063ff40" : "#dee2e6"};
+    }
+    &::after {
+      right: -8px;
+      transform: translateY(-50%);
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid white;
+    }
+  `
+      : `
+    &::before {
+      left: -9px;
+      transform: translateY(-50%);
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-right: 9px solid ${props.$isHighlighted ? "#0063ff40" : "#dee2e6"};
+    }
+    &::after {
+      left: -8px;
+      transform: translateY(-50%);
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 8px solid white;
+    }
+  `}
 
   ${(props) => {
     if (props.$isHighlighted) {

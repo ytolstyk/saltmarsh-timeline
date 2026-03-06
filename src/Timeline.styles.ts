@@ -52,6 +52,10 @@ export const LineLeft = styled.div`
   flex: 1;
   margin-right: 0.5rem;
   height: 100%;
+
+  > * {
+    right: 1rem;
+  }
 `;
 
 export const Line = styled.div`
@@ -73,6 +77,10 @@ export const LineRight = styled.div`
   flex: 1;
   margin-left: 0.5rem;
   height: 100%;
+
+  > * {
+    left: 1rem;
+  }
 `;
 
 export const LineDot = styled.div<{

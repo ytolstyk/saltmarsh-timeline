@@ -65,6 +65,7 @@ export function Timeline() {
   };
 
   const renderEventCards = (isEven: boolean) => {
+    const side = isEven ? "left" : "right";
     return eventGroups.map((group, index) => {
       if (isEven && index % 2 !== 0) {
         return null;
@@ -79,6 +80,7 @@ export function Timeline() {
           key={index}
           timelineEventGroup={group}
           index={index}
+          side={side}
           setHighlightedIndex={setHighlightedIndex}
           isHighlighted={highlightedIndex === index}
           checkedTags={timelineSettings.checkedTags}
@@ -263,6 +265,7 @@ export function Timeline() {
           <EventGroup
             timelineEventGroup={eventGroups[0]}
             index={0}
+            side="left"
             isHighlighted={true}
             setHighlightedIndex={setHighlightedIndex}
             checkedTags={timelineSettings.checkedTags}

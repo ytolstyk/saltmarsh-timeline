@@ -11,6 +11,7 @@ type Props = {
   index: number;
   percentTop: number;
   zIndex: number;
+  side: "left" | "right";
   isHighlighted: boolean;
   checkedTags: CheckedTags;
   setHighlightedIndex: (index: number | null) => void;
@@ -21,6 +22,7 @@ export function EventGroup({
   index,
   percentTop,
   zIndex,
+  side,
   isHighlighted,
   checkedTags,
   setHighlightedIndex,
@@ -100,6 +102,7 @@ export function EventGroup({
       $percentTop={percentTop}
       $isHighlighted={isHighlighted}
       $zIndex={zIndex}
+      $side={side}
       onMouseEnter={() => setHighlightedIndex(index)}
       onMouseLeave={() => setHighlightedIndex(null)}
       onClick={handleGroupClick}
