@@ -10,6 +10,7 @@ type Props = {
   timelineEventGroup: TimelineEventGroup;
   index: number;
   percentTop: number;
+  zIndex: number;
   isHighlighted: boolean;
   checkedTags: CheckedTags;
   setHighlightedIndex: (index: number | null) => void;
@@ -19,6 +20,7 @@ export function EventGroup({
   timelineEventGroup,
   index,
   percentTop,
+  zIndex,
   isHighlighted,
   checkedTags,
   setHighlightedIndex,
@@ -97,6 +99,7 @@ export function EventGroup({
     <EventGroupPosition
       $percentTop={percentTop}
       $isHighlighted={isHighlighted}
+      $zIndex={zIndex}
       onMouseEnter={() => setHighlightedIndex(index)}
       onMouseLeave={() => setHighlightedIndex(null)}
       onClick={handleGroupClick}

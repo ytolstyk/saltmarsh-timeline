@@ -15,7 +15,16 @@ import { useEvents } from "./useEvents";
 import { useFilteredEventGroups } from "./useFilteredEventGroups";
 import { percentFromTop } from "./timelineHelper";
 import { CurrentEventGroup } from "./CurrentEventGroup";
-import { Badge, Chip, Group, Paper, Stack, Text, TextInput, Title } from "@mantine/core";
+import {
+  Badge,
+  Chip,
+  Group,
+  Paper,
+  Stack,
+  Text,
+  TextInput,
+  Title,
+} from "@mantine/core";
 import { modals } from "@mantine/modals";
 import { useTimelineSettings } from "./useTimelineSettings";
 import { convertDaysToReadableDate } from "./dateHelper";
@@ -28,8 +37,14 @@ export function Timeline() {
   const ungrouped = timelineSettings.showAllEvents;
   const reversed = timelineSettings.reverseOrder;
   const { events } = useEvents();
-  const { eventGroups, offset, lineLength, filteredEvents, height, prehistoryGroup } =
-    useFilteredEventGroups(events, timelineSettings, ungrouped, searchQuery);
+  const {
+    eventGroups,
+    offset,
+    lineLength,
+    filteredEvents,
+    height,
+    prehistoryGroup,
+  } = useFilteredEventGroups(events, timelineSettings, ungrouped, searchQuery);
 
   const handleGroupClick = (group: TimelineEventGroup) => () => {
     modals.open({
@@ -68,6 +83,7 @@ export function Timeline() {
           isHighlighted={highlightedIndex === index}
           checkedTags={timelineSettings.checkedTags}
           percentTop={calcPercentTop(group.daysSinceOrigin)}
+          zIndex={reversed ? eventGroups.length - index : index}
         />
       );
     });
@@ -94,7 +110,8 @@ export function Timeline() {
   };
 
   const noEvents = !events || events.length === 0;
-  const noEventGroups = !noEvents && (!eventGroups || eventGroups.length === 0) && !prehistoryGroup;
+  const noEventGroups =
+    !noEvents && (!eventGroups || eventGroups.length === 0) && !prehistoryGroup;
 
   return (
     <TimelineWrapper>
@@ -141,20 +158,42 @@ export function Timeline() {
             });
           }}
         >
-          <Text size="xs" fw={700} tt="uppercase" c="gray.5" style={{ letterSpacing: "0.08em" }} mb={4}>
+          <Text
+            size="xs"
+            fw={700}
+            tt="uppercase"
+            c="gray.5"
+            style={{ letterSpacing: "0.08em" }}
+            mb={4}
+          >
             Pre-History
           </Text>
           <Text size="sm" c="gray.6">
-            {prehistoryGroup?.events.length} event{prehistoryGroup?.events.length === 1 ? "" : "s"} — click to view
+            {prehistoryGroup?.events.length} event
+            {prehistoryGroup?.events.length === 1 ? "" : "s"} — click to view
           </Text>
         </Paper>
       </RenderIf>
-      <RenderIf condition={(eventGroups?.length > 0 || Boolean(prehistoryGroup)) && !noEventGroups}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+      <RenderIf
+        condition={
+          (eventGroups?.length > 0 || Boolean(prehistoryGroup)) &&
+          !noEventGroups
+        }
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "1rem",
+          }}
+        >
           <Group gap="xs">
             <Chip
               checked={ungrouped}
-              onChange={(v) => update({ ...timelineSettings, showAllEvents: v })}
+              onChange={(v) =>
+                update({ ...timelineSettings, showAllEvents: v })
+              }
             >
               Show all events
             </Chip>
@@ -170,33 +209,53 @@ export function Timeline() {
           </Text>
         </div>
       </RenderIf>
-      <RenderIf condition={ungrouped && eventGroups?.length > 0 && !noEventGroups}>
+      <RenderIf
+        condition={ungrouped && eventGroups?.length > 0 && !noEventGroups}
+      >
         <Stack gap="sm">
-          {(reversed ? [...eventGroups].reverse() : eventGroups).map((group, index) => {
-            const event = group.events[0];
-            return (
-              <Paper key={index} shadow="xs" p="md" withBorder>
-                <Text size="xs" c="blue.6" fw={600} tt="uppercase" style={{ letterSpacing: "0.04em" }}>
-                  {convertDaysToReadableDate(event.daysSinceOrigin)}
-                </Text>
-                <Title order={5} mt={4} lh={1.3}>
-                  <HighlightText text={event.title} query={searchQuery} />
-                </Title>
-                <Text mt="xs" size="sm" c="gray.7">
-                  <HighlightText text={event.description} query={searchQuery} />
-                </Text>
-                {event.tags && event.tags.some(Boolean) && (
-                  <Group mt="xs" gap="xs">
-                    {(event.tags.filter(Boolean) as string[]).map((tag) => (
-                      <Badge key={tag} variant="light" color={timelineSettings.checkedTags[tag] ? "blue" : "gray"} size="sm">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </Group>
-                )}
-              </Paper>
-            );
-          })}
+          {(reversed ? [...eventGroups].reverse() : eventGroups).map(
+            (group, index) => {
+              const event = group.events[0];
+              return (
+                <Paper key={index} shadow="xs" p="md" withBorder>
+                  <Text
+                    size="xs"
+                    c="blue.6"
+                    fw={600}
+                    tt="uppercase"
+                    style={{ letterSpacing: "0.04em" }}
+                  >
+                    {convertDaysToReadableDate(event.daysSinceOrigin)}
+                  </Text>
+                  <Title order={5} mt={4} lh={1.3}>
+                    <HighlightText text={event.title} query={searchQuery} />
+                  </Title>
+                  <Text mt="xs" size="sm" c="gray.7">
+                    <HighlightText
+                      text={event.description}
+                      query={searchQuery}
+                    />
+                  </Text>
+                  {event.tags && event.tags.some(Boolean) && (
+                    <Group mt="xs" gap="xs">
+                      {(event.tags.filter(Boolean) as string[]).map((tag) => (
+                        <Badge
+                          key={tag}
+                          variant="light"
+                          color={
+                            timelineSettings.checkedTags[tag] ? "blue" : "gray"
+                          }
+                          size="sm"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </Group>
+                  )}
+                </Paper>
+              );
+            },
+          )}
         </Stack>
       </RenderIf>
       <RenderIf condition={!ungrouped && eventGroups?.length === 1}>
@@ -208,6 +267,7 @@ export function Timeline() {
             setHighlightedIndex={setHighlightedIndex}
             checkedTags={timelineSettings.checkedTags}
             percentTop={50}
+            zIndex={1}
           />
         </LineWrapper>
       </RenderIf>

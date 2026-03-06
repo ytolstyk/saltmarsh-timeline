@@ -24,12 +24,14 @@ export const EventGroupTags = styled.div`
 export const EventGroupPosition = styled.div<{
   $percentTop: number;
   $isHighlighted: boolean;
+  $zIndex: number;
 }>`
   cursor: pointer;
   top: ${(props) => props.$percentTop}%;
   transform: translateY(-50%);
   width: clamp(10rem, 100%, 22rem);
   position: absolute;
+  z-index: ${(props) => props.$zIndex};
   transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out;
   animation: ${fadeIn} 0.2s ease-out;
 
@@ -37,7 +39,7 @@ export const EventGroupPosition = styled.div<{
     if (props.$isHighlighted) {
       return `
         transform: translateY(calc(-50% - 2px));
-        z-index: 10;
+        z-index: 1000;
       `;
     }
   }}
