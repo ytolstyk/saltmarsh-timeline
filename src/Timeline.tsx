@@ -24,7 +24,9 @@ import {
   Text,
   TextInput,
   Title,
+  Tooltip,
 } from "@mantine/core";
+import { useUserRole } from "./UserRoleContext";
 import { modals } from "@mantine/modals";
 import { useTimelineSettings } from "./useTimelineSettings";
 import { convertDaysToReadableDate } from "./dateHelper";
@@ -32,6 +34,7 @@ import { HighlightText } from "./HighlightText";
 
 export function Timeline() {
   const { timelineSettings, update } = useTimelineSettings();
+  const { isGuest } = useUserRole();
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const ungrouped = timelineSettings.showAllEvents;
@@ -191,20 +194,26 @@ export function Timeline() {
           }}
         >
           <Group gap="xs">
-            <Chip
-              checked={ungrouped}
-              onChange={(v) =>
-                update({ ...timelineSettings, showAllEvents: v })
-              }
-            >
-              Show all events
-            </Chip>
-            <Chip
-              checked={reversed}
-              onChange={(v) => update({ ...timelineSettings, reverseOrder: v })}
-            >
-              Reverse order
-            </Chip>
+            <Tooltip label="Sign in to enable" disabled={!isGuest}>
+              <span style={isGuest ? { pointerEvents: "none", opacity: 0.5, display: "contents" } : undefined}>
+                <Chip
+                  checked={ungrouped}
+                  onChange={isGuest ? undefined : (v) => update({ ...timelineSettings, showAllEvents: v })}
+                >
+                  Show all events
+                </Chip>
+              </span>
+            </Tooltip>
+            <Tooltip label="Sign in to enable" disabled={!isGuest}>
+              <span style={isGuest ? { pointerEvents: "none", opacity: 0.5, display: "contents" } : undefined}>
+                <Chip
+                  checked={reversed}
+                  onChange={isGuest ? undefined : (v) => update({ ...timelineSettings, reverseOrder: v })}
+                >
+                  Reverse order
+                </Chip>
+              </span>
+            </Tooltip>
           </Group>
           <Text>
             Showing {filteredEvents.length} of {events.length} total events

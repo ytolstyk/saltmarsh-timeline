@@ -6,7 +6,9 @@ import { CheckedTags } from "./types";
 import { EditEventForm } from "./EditEventForm";
 import { useState } from "react";
 import { modals } from "@mantine/modals";
-import { Badge, Button, Divider, Flex, Group, Stack, Text, Title } from "@mantine/core";
+import { Badge, Divider, Flex, Group, Stack, Text, Title } from "@mantine/core";
+import { useUserRole } from "./UserRoleContext";
+import { LockedButton } from "./LockedButton";
 
 type Props = {
   eventGroup: TimelineEventGroup;
@@ -18,6 +20,8 @@ export function CurrentEventGroup({ eventGroup, checkedTags }: Props) {
   const [currentEventGroup, setCurrentEventGroup] =
     useState<TimelineEventGroup>(eventGroup);
   const { deleteEvent } = useEvents();
+  const { isAdmin, isGuest } = useUserRole();
+  const lockedReason = isGuest ? "Sign in to enable" : "Admin access required";
   const { events } = currentEventGroup;
 
   const handleDeleteClick = (event: TimelineEvent) => async () => {
@@ -125,12 +129,26 @@ export function CurrentEventGroup({ eventGroup, checkedTags }: Props) {
             </Group>
           </RenderIf>
           <Flex justify="space-between" align="center" mt="xs">
-            <Button variant="subtle" color="red" size="xs" onClick={handleDeleteClick(timelineEvent)}>
+            <LockedButton
+              locked={!isAdmin}
+              lockedReason={lockedReason}
+              variant="subtle"
+              color="red"
+              size="xs"
+              onClick={handleDeleteClick(timelineEvent)}
+            >
               Delete
-            </Button>
-            <Button variant="light" color="blue" size="xs" onClick={handleEditClick(timelineEvent.id)}>
+            </LockedButton>
+            <LockedButton
+              locked={!isAdmin}
+              lockedReason={lockedReason}
+              variant="light"
+              color="blue"
+              size="xs"
+              onClick={handleEditClick(timelineEvent.id)}
+            >
               Edit
-            </Button>
+            </LockedButton>
           </Flex>
           <RenderIf condition={index < events.length - 1}>
             <Divider mt="xs" />

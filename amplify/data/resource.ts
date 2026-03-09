@@ -43,7 +43,7 @@ const schema = a
       })
       .authorization((allow) => [allow.owner()]),
   })
-  .authorization((allow) => [allow.authenticated()]);
+  .authorization((allow) => [allow.authenticated(), allow.guest()]);
 
 export type Schema = ClientSchema<typeof schema>;
 

@@ -17,6 +17,8 @@ import { useEvents } from "./useEvents";
 import { JSONPreviewBlob } from "./types";
 import { BsHandIndex } from "react-icons/bs";
 import { Button, Code, Group, Table, Text } from "@mantine/core";
+import { useUserRole } from "./UserRoleContext";
+import { LockedButton } from "./LockedButton";
 import { Dropzone, FileWithPath } from "@mantine/dropzone";
 import { IconUpload, IconPhoto, IconX } from "@tabler/icons-react";
 
@@ -39,6 +41,8 @@ export function JSONModal({ initialData }: Props) {
   );
   const { appendEvents, overrideEvents } = useEvents();
   const [, setErrors] = useState<Record<number, string>>({});
+  const { isAdmin, isGuest } = useUserRole();
+  const lockedReason = isGuest ? "Sign in to enable" : "Admin access required";
 
   const reset = () => {
     setFile(null);
@@ -190,12 +194,22 @@ export function JSONModal({ initialData }: Props) {
             <IconWrapper>
               <BsHandIndex size={25} />
             </IconWrapper>
-            <Button variant="primary" onClick={handleAppendClick}>
+            <LockedButton
+              locked={!isAdmin}
+              lockedReason={lockedReason}
+              variant="filled"
+              onClick={handleAppendClick}
+            >
               Append
-            </Button>
-            <Button variant="primary" onClick={handleOverrideClick}>
+            </LockedButton>
+            <LockedButton
+              locked={!isAdmin}
+              lockedReason={lockedReason}
+              variant="filled"
+              onClick={handleOverrideClick}
+            >
               Override
-            </Button>
+            </LockedButton>
           </ImportControls>
         </Controls>
         <Table.ScrollContainer minWidth={500} maxHeight="70vh" mt="md">

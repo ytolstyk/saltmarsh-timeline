@@ -10,7 +10,9 @@ import {
 import { TagsModal } from "./TagsModal";
 import { useTimelineSettings } from "./useTimelineSettings";
 import { useEvents } from "./useEvents";
-import { Button, Chip, Divider, RangeSlider, Text } from "@mantine/core";
+import { Chip, Divider, RangeSlider, Text, Tooltip } from "@mantine/core";
+import { useUserRole } from "./UserRoleContext";
+import { LockedButton } from "./LockedButton";
 import { modals } from "@mantine/modals";
 import { CampaignContext } from "./CampaignContext";
 
@@ -112,6 +114,9 @@ export function TimelineSettings() {
     });
   };
 
+  const { isGuest } = useUserRole();
+  const lockedReason = "Sign in to enable";
+
   const selectedTagsCount = useMemo(() => {
     if (timelineSettings) {
       return Object.values(timelineSettings.checkedTags).filter((val) => val)
@@ -142,7 +147,7 @@ export function TimelineSettings() {
               min={minDateYears}
               max={maxDateYears}
               onChange={handleYearRangeChange}
-              onChangeEnd={handleYearRangeChangeEnd}
+              onChangeEnd={isGuest ? undefined : handleYearRangeChangeEnd}
               minRange={1}
               value={[
                 formData.startYear ?? minDateYears,
@@ -156,34 +161,58 @@ export function TimelineSettings() {
             />
           </RangeSelectorContainer>
           <FormRow>
-            <Button variant="default" onClick={handleRestrictClick}>
+            <LockedButton
+              locked={isGuest}
+              lockedReason={lockedReason}
+              variant="default"
+              onClick={handleRestrictClick}
+            >
               Use Campaign Timeline
-            </Button>
-            <Button variant="default" onClick={handleDatesReset}>
+            </LockedButton>
+            <LockedButton
+              locked={isGuest}
+              lockedReason={lockedReason}
+              variant="default"
+              onClick={handleDatesReset}
+            >
               Reset
-            </Button>
+            </LockedButton>
           </FormRow>
-          <Chip
-            checked={timelineSettings.excludeDowntime}
-            onChange={handleExcludeDowntimeClick}
-          >
-            Exclude downtime
-          </Chip>
-          <Chip
-            checked={timelineSettings.showAllEvents}
-            onChange={handleShowAllEventsClick}
-          >
-            Show all events
-          </Chip>
-          <Chip
-            checked={timelineSettings.reverseOrder}
-            onChange={handleReverseOrderClick}
-          >
-            Reverse order
-          </Chip>
+          <Tooltip label={lockedReason} disabled={!isGuest}>
+            <span style={isGuest ? { pointerEvents: "none", opacity: 0.5, display: "contents" } : undefined}>
+              <Chip
+                checked={timelineSettings.excludeDowntime}
+                onChange={isGuest ? undefined : handleExcludeDowntimeClick}
+              >
+                Exclude downtime
+              </Chip>
+            </span>
+          </Tooltip>
+          <Tooltip label={lockedReason} disabled={!isGuest}>
+            <span style={isGuest ? { pointerEvents: "none", opacity: 0.5, display: "contents" } : undefined}>
+              <Chip
+                checked={timelineSettings.showAllEvents}
+                onChange={isGuest ? undefined : handleShowAllEventsClick}
+              >
+                Show all events
+              </Chip>
+            </span>
+          </Tooltip>
+          <Tooltip label={lockedReason} disabled={!isGuest}>
+            <span style={isGuest ? { pointerEvents: "none", opacity: 0.5, display: "contents" } : undefined}>
+              <Chip
+                checked={timelineSettings.reverseOrder}
+                onChange={isGuest ? undefined : handleReverseOrderClick}
+              >
+                Reverse order
+              </Chip>
+            </span>
+          </Tooltip>
         </TimelineSettingsFormSection>
         <TimelineSettingsFormSection>
-          <Button
+          <LockedButton
+            locked={isGuest}
+            lockedReason={lockedReason}
             leftSection={
               selectedTagsCount === 0 ? null : (
                 <SelectedTagsCount>{selectedTagsCount}</SelectedTagsCount>
@@ -193,7 +222,7 @@ export function TimelineSettings() {
             onClick={handleTagsClick}
           >
             Filter by tags
-          </Button>
+          </LockedButton>
         </TimelineSettingsFormSection>
       </TimelineSettingsContainer>
     </>

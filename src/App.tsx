@@ -10,6 +10,8 @@ import { JSONModal } from "./JSONModal.tsx";
 import { downloadJSONEvents } from "./jsonHelper.ts";
 import { useEvents } from "./useEvents.ts";
 import { CampaignContext } from "./CampaignContext.ts";
+import { useUserRole } from "./UserRoleContext.ts";
+import { LockedButton } from "./LockedButton.tsx";
 import {
   AppShell,
   Burger,
@@ -24,7 +26,21 @@ import {
 import { modals } from "@mantine/modals";
 import { Calendar } from "./Calendar.tsx";
 
-export function App() {
+type Props = {
+  isGuest?: boolean;
+  onSignInClick?: () => void;
+};
+
+function SignOutButton() {
+  const { signOut } = useAuthenticator();
+  return (
+    <Button variant="subtle" color="gray" size="sm" onClick={signOut}>
+      Sign out
+    </Button>
+  );
+}
+
+export function App({ isGuest, onSignInClick }: Props) {
   const [opened, { toggle }] = useDisclosure();
 
   const { events, deleteAllCampaignEvents } = useEvents();
@@ -32,7 +48,9 @@ export function App() {
   const { campaign, campaigns, rawCampaign, setCampaignId, erase } =
     useContext(CampaignContext);
 
-  const { signOut } = useAuthenticator();
+  const { isAdmin } = useUserRole();
+
+  const lockedReason = isGuest ? "Sign in to enable" : "Admin access required";
 
   const handleAddEventClick = () => {
     modals.open({
@@ -125,35 +143,64 @@ export function App() {
       <ActionButtonContainer>
         <Divider my="md" label="Actions" labelPosition="center" />
         <Stack gap="xs">
-          <Button variant="filled" onClick={handleAddEventClick}>
+          <LockedButton
+            locked={!isAdmin}
+            lockedReason={lockedReason}
+            variant="filled"
+            onClick={handleAddEventClick}
+          >
             Add Event
-          </Button>
-          <Button variant="light" onClick={handleAddCampaignClick}>
+          </LockedButton>
+          <LockedButton
+            locked={!isAdmin}
+            lockedReason={lockedReason}
+            variant="light"
+            onClick={handleAddCampaignClick}
+          >
             Add Campaign
-          </Button>
-          <Button variant="light" onClick={handleEditCampaignClick}>
+          </LockedButton>
+          <LockedButton
+            locked={!isAdmin}
+            lockedReason={lockedReason}
+            variant="light"
+            onClick={handleEditCampaignClick}
+          >
             Edit Campaign
-          </Button>
-          <Button variant="subtle" color="gray" onClick={handleUploadClick}>
+          </LockedButton>
+          <LockedButton
+            locked={!isAdmin}
+            lockedReason={lockedReason}
+            variant="subtle"
+            color="gray"
+            onClick={handleUploadClick}
+          >
             Upload Events JSON
-          </Button>
+          </LockedButton>
           <Button variant="subtle" color="gray" onClick={handleDownloadClick}>
             Download Events JSON
           </Button>
           <Button variant="subtle" color="gray" onClick={handleViewCalendarClick}>
             View calendar
           </Button>
-          <Button
+          <LockedButton
+            locked={!isAdmin}
+            lockedReason={lockedReason}
             color="red"
             variant="subtle"
-            onClick={handleDeleteEverythingClick}
             mt="sm"
+            onClick={handleDeleteEverythingClick}
           >
             Delete Campaign Events
-          </Button>
-          <Button color="red" variant="light" onClick={handleDeleteCampaign}>
+          </LockedButton>
+          <LockedButton
+            locked={!isAdmin}
+            lockedReason={lockedReason}
+            color="red"
+            variant="light"
+            onClick={handleDeleteCampaign}
+          >
             Delete Campaign
-          </Button>
+          </LockedButton>
         </Stack>
       </ActionButtonContainer>
     );
@@ -188,9 +235,13 @@ export function App() {
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Header>
             <Title>{campaign.name} Timeline</Title>
-            <Button variant="subtle" color="gray" size="sm" onClick={signOut}>
-              Sign out
-            </Button>
+            {isGuest ? (
+              <Button variant="subtle" color="gray" size="sm" onClick={onSignInClick}>
+                Sign in
+              </Button>
+            ) : (
+              <SignOutButton />
+            )}
           </Header>
         </Group>
       </AppShell.Header>
