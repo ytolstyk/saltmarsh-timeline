@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { Authenticator } from "@aws-amplify/ui-react";
+import { useState, useEffect } from "react";
+import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react";
 import { App } from "./App";
 import { Amplify } from "aws-amplify";
 import outputs from "../amplify_outputs.json";
 import { CampaignProvider } from "./CampaignProvider";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, Modal } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { ModalsProvider } from "@mantine/modals";
 import { UserRoleProvider } from "./UserRoleProvider";
@@ -18,8 +18,27 @@ const AuthHeader = () => (
   </div>
 );
 
+function AuthStatusWatcher({
+  onAuthenticated,
+  onUnauthenticated,
+}: {
+  onAuthenticated: () => void;
+  onUnauthenticated: () => void;
+}) {
+  const { authStatus } = useAuthenticator((context) => [context.authStatus]);
+  useEffect(() => {
+    if (authStatus === "authenticated") {
+      onAuthenticated();
+    } else if (authStatus === "unauthenticated") {
+      onUnauthenticated();
+    }
+  }, [authStatus]);
+  return null;
+}
+
 export const AuthContextWrappers = () => {
-  const [isGuest, setIsGuest] = useState(false);
+  const [isGuest, setIsGuest] = useState(true);
+  const [signInModalOpen, setSignInModalOpen] = useState(false);
 
   const components = {
     Header: AuthHeader,
@@ -27,7 +46,7 @@ export const AuthContextWrappers = () => {
       return (
         <div style={{ textAlign: "center", paddingBottom: "1rem" }}>
           <button
-            onClick={() => setIsGuest(true)}
+            onClick={() => setSignInModalOpen(false)}
             style={{
               background: "none",
               border: "none",
@@ -44,26 +63,40 @@ export const AuthContextWrappers = () => {
     },
   };
 
-  const appContent = (
-    <UserRoleProvider isGuest={isGuest}>
-      <CampaignProvider>
-        <MantineProvider>
-          <ModalsProvider>
-            <Notifications />
-            <App isGuest={isGuest} onSignInClick={() => setIsGuest(false)} />
-          </ModalsProvider>
-        </MantineProvider>
-      </CampaignProvider>
-    </UserRoleProvider>
-  );
-
-  if (isGuest) {
-    return appContent;
-  }
-
   return (
-    <Authenticator components={components}>
-      {appContent}
-    </Authenticator>
+    <Authenticator.Provider>
+      <AuthStatusWatcher
+        onAuthenticated={() => {
+          setIsGuest(false);
+          setSignInModalOpen(false);
+        }}
+        onUnauthenticated={() => setIsGuest(true)}
+      />
+      <UserRoleProvider isGuest={isGuest}>
+        <CampaignProvider>
+          <MantineProvider>
+            <ModalsProvider>
+              <Notifications />
+              <App
+                isGuest={isGuest}
+                onSignInClick={() => setSignInModalOpen(true)}
+              />
+              <Modal
+                opened={signInModalOpen}
+                onClose={() => setSignInModalOpen(false)}
+                padding={0}
+                withCloseButton={false}
+                size="md"
+                centered
+              >
+                <div className="auth-modal-wrapper">
+                  <Authenticator components={components} />
+                </div>
+              </Modal>
+            </ModalsProvider>
+          </MantineProvider>
+        </CampaignProvider>
+      </UserRoleProvider>
+    </Authenticator.Provider>
   );
 };

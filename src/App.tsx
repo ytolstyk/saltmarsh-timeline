@@ -22,6 +22,7 @@ import {
   Divider,
   Text,
   ScrollArea,
+  LoadingOverlay,
 } from "@mantine/core";
 import { modals } from "@mantine/modals";
 import { Calendar } from "./Calendar.tsx";
@@ -43,7 +44,7 @@ function SignOutButton() {
 export function App({ isGuest, onSignInClick }: Props) {
   const [opened, { toggle }] = useDisclosure();
 
-  const { events, deleteAllCampaignEvents } = useEvents();
+  const { events, deleteAllCampaignEvents, isLoading } = useEvents();
 
   const { campaign, campaigns, rawCampaign, setCampaignId, erase } =
     useContext(CampaignContext);
@@ -263,7 +264,8 @@ export function App({ isGuest, onSignInClick }: Props) {
           {renderMenu()}
         </ScrollArea>
       </AppShell.Navbar>
-      <AppShell.Main style={{ background: "#f0f2f7" }}>
+      <AppShell.Main style={{ background: "#f0f2f7", position: "relative", minHeight: "calc(100vh - var(--app-shell-header-height, 60px))" }}>
+        <LoadingOverlay visible={isLoading} zIndex={10} />
         <Timeline />
       </AppShell.Main>
     </AppShell>

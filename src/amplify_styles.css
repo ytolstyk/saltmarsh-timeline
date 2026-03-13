@@ -48,6 +48,23 @@
     #f8f9fc;
 }
 
+/* ── Modal context overrides ─────────────────────────── */
+.auth-modal-wrapper [data-amplify-authenticator] {
+  min-height: unset;
+  background: transparent;
+  padding: 0;
+}
+
+/* ── Form headings (Reset Password, Confirm Sign Up, etc.) ── */
+[data-amplify-authenticator] .amplify-authenticator__heading {
+  font-family: "Booter", sans-serif;
+  font-size: 1.4rem;
+  color: #0063ff;
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
 /* Custom header injected via the components prop */
 .saltmarsh-auth-header {
   text-align: center;

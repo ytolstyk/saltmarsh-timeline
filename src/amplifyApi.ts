@@ -171,9 +171,10 @@ export const createCampaign = async (campaignData: CampaignFormData) => {
   }
 
   const { errors: timelineSettingsErrors } =
-    await amplifyClient.models.TimelineSettings.create({
-      campaignId: campaign.id,
-    });
+    await amplifyClient.models.TimelineSettings.create(
+      { campaignId: campaign.id },
+      { authMode: "userPool" }
+    );
 
   if (timelineSettingsErrors && timelineSettingsErrors.length > 0) {
     await amplifyClient.models.Campaign.delete({ id: campaign.id });
@@ -220,7 +221,7 @@ export const deleteCampaign = async (campaignId: string) => {
     }
 
     const { data: settings, errors: settingsErrors } =
-      await campaign.timelineSettings();
+      await campaign.timelineSettings({ authMode: "userPool" });
 
     if (settingsErrors && settingsErrors.length > 0) {
       throw settingsErrors;
@@ -228,7 +229,10 @@ export const deleteCampaign = async (campaignId: string) => {
 
     if (settings) {
       const { errors: deleteSettingsErrors } =
-        await amplifyClient.models.TimelineSettings.delete({ id: settings.id });
+        await amplifyClient.models.TimelineSettings.delete(
+          { id: settings.id },
+          { authMode: "userPool" }
+        );
 
       if (deleteSettingsErrors && deleteSettingsErrors.length > 0) {
         throw deleteSettingsErrors;
@@ -254,7 +258,9 @@ export const getTimelineSettings = async (campaign: Campaign | null) => {
     return null;
   }
 
-  const { data, errors } = await campaign.timelineSettings();
+  const { data, errors } = await campaign.timelineSettings({
+    authMode: "userPool",
+  });
 
   if (errors && errors.length > 0) {
     throw errors;
@@ -269,15 +275,18 @@ export const createTimelineSettings = async (
 ) => {
   requireId(campaignId, "campaignId");
 
-  const { data, errors } = await amplifyClient.models.TimelineSettings.create({
-    campaignId,
-    startYear: timelineSettings.startYear,
-    endYear: timelineSettings.endYear,
-    checkedTags: checkedTagsToPayload(timelineSettings.checkedTags),
-    excludeDowntime: timelineSettings.excludeDowntime,
-    showAllEvents: timelineSettings.showAllEvents,
-    reverseOrder: timelineSettings.reverseOrder,
-  });
+  const { data, errors } = await amplifyClient.models.TimelineSettings.create(
+    {
+      campaignId,
+      startYear: timelineSettings.startYear,
+      endYear: timelineSettings.endYear,
+      checkedTags: checkedTagsToPayload(timelineSettings.checkedTags),
+      excludeDowntime: timelineSettings.excludeDowntime,
+      showAllEvents: timelineSettings.showAllEvents,
+      reverseOrder: timelineSettings.reverseOrder,
+    },
+    { authMode: "userPool" }
+  );
 
   if (errors && errors.length > 0) {
     throw errors;
@@ -292,16 +301,19 @@ export const updateTimelineSettings = async (
   requireId(settings.id, "TimelineSettings id");
   requireId(settings.campaignId, "campaignId");
 
-  const { data, errors } = await amplifyClient.models.TimelineSettings.update({
-    id: settings.id,
-    campaignId: settings.campaignId,
-    startYear: settings.startYear,
-    endYear: settings.endYear,
-    checkedTags: checkedTagsToPayload(settings.checkedTags),
-    excludeDowntime: settings.excludeDowntime,
-    showAllEvents: settings.showAllEvents,
-    reverseOrder: settings.reverseOrder,
-  });
+  const { data, errors } = await amplifyClient.models.TimelineSettings.update(
+    {
+      id: settings.id,
+      campaignId: settings.campaignId,
+      startYear: settings.startYear,
+      endYear: settings.endYear,
+      checkedTags: checkedTagsToPayload(settings.checkedTags),
+      excludeDowntime: settings.excludeDowntime,
+      showAllEvents: settings.showAllEvents,
+      reverseOrder: settings.reverseOrder,
+    },
+    { authMode: "userPool" }
+  );
 
   if (errors && errors.length > 0) {
     throw errors;

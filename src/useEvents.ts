@@ -21,6 +21,7 @@ export function useEvents() {
     data: events,
     mutate,
     error,
+    isLoading,
   } = useSWR<TimelineEvent[]>(
     campaignId ? ["api/events", campaignId] : null,
     () => getEvents(rawCampaign)
@@ -210,6 +211,7 @@ export function useEvents() {
     maxDateYears,
     mutate,
     error,
+    isLoading,
     tags,
     addEvent,
     updateEvent,
