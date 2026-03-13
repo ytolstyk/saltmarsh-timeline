@@ -17,7 +17,7 @@ import { modals } from "@mantine/modals";
 import { CampaignContext } from "./CampaignContext";
 
 export function TimelineSettings() {
-  const { timelineSettings, update } = useTimelineSettings();
+  const { timelineSettings, update, setGuestFilters } = useTimelineSettings();
   const { campaign } = useContext(CampaignContext);
   const { minDateYears, maxDateYears } = useEvents();
 
@@ -41,6 +41,11 @@ export function TimelineSettings() {
 
   const handleYearRangeChangeEnd = (value: number[]) => {
     const [start, end] = value;
+
+    if (isGuest) {
+      setGuestFilters({ startYear: start, endYear: end });
+      return;
+    }
 
     update({
       ...timelineSettings,
@@ -71,6 +76,12 @@ export function TimelineSettings() {
   };
 
   const handleDatesReset = () => {
+    if (isGuest) {
+      setGuestFilters({ startYear: null, endYear: null });
+      setFormData({ startYear: minDateYears, endYear: maxDateYears });
+      return;
+    }
+
     update({
       ...timelineSettings,
       startYear: minDateYears,
@@ -91,6 +102,11 @@ export function TimelineSettings() {
   };
 
   const handleCheckedTagsSubmit = (tagChanges: CheckedTags) => {
+    if (isGuest) {
+      setGuestFilters({ checkedTags: tagChanges });
+      return;
+    }
+
     update({
       ...timelineSettings,
       checkedTags: tagChanges,
@@ -147,7 +163,7 @@ export function TimelineSettings() {
               min={minDateYears}
               max={maxDateYears}
               onChange={handleYearRangeChange}
-              onChangeEnd={isGuest ? undefined : handleYearRangeChangeEnd}
+              onChangeEnd={handleYearRangeChangeEnd}
               minRange={1}
               value={[
                 formData.startYear ?? minDateYears,
@@ -211,7 +227,7 @@ export function TimelineSettings() {
         </TimelineSettingsFormSection>
         <TimelineSettingsFormSection>
           <LockedButton
-            locked={isGuest}
+            locked={false}
             lockedReason={lockedReason}
             leftSection={
               selectedTagsCount === 0 ? null : (

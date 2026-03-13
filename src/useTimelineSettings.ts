@@ -8,9 +8,13 @@ import { useContext, useMemo } from "react";
 import { CampaignContext } from "./CampaignContext";
 import { TimelineMetadata, TimelineSettingsData } from "./types";
 import { handleErrors } from "./handleErrors";
+import { useUserRole } from "./UserRoleContext";
+import { useGuestFilters } from "./GuestFiltersContext";
 
 export const useTimelineSettings = () => {
   const { rawCampaign } = useContext(CampaignContext);
+  const { isGuest } = useUserRole();
+  const { guestFilters, setGuestFilters } = useGuestFilters();
 
   const {
     data: timelineSettings,
@@ -83,17 +87,30 @@ export const useTimelineSettings = () => {
     };
   }, [timelineSettings]);
 
-  const timelineSettingsData = useMemo(
-    () => ({
+  const timelineSettingsData = useMemo(() => {
+    const base = {
       startYear: timelineSettings?.startYear ?? null,
       endYear: timelineSettings?.endYear ?? null,
       checkedTags: timelineSettingsResult?.checkedTags || {},
       excludeDowntime: Boolean(timelineSettings?.excludeDowntime),
       showAllEvents: Boolean(timelineSettings?.showAllEvents),
       reverseOrder: Boolean(timelineSettings?.reverseOrder),
-    }),
-    [timelineSettingsResult, timelineSettings],
-  );
+    };
+
+    if (isGuest) {
+      return {
+        ...base,
+        startYear: guestFilters.startYear ?? base.startYear,
+        endYear: guestFilters.endYear ?? base.endYear,
+        checkedTags:
+          guestFilters.checkedTags !== null
+            ? guestFilters.checkedTags
+            : base.checkedTags,
+      };
+    }
+
+    return base;
+  }, [timelineSettingsResult, timelineSettings, isGuest, guestFilters]);
 
   return {
     timelineSettings: timelineSettingsData,
@@ -102,5 +119,6 @@ export const useTimelineSettings = () => {
     error,
     isLoading,
     update,
+    setGuestFilters,
   };
 };

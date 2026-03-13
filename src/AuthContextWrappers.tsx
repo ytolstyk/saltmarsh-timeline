@@ -8,6 +8,7 @@ import { MantineProvider, Modal } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { ModalsProvider } from "@mantine/modals";
 import { UserRoleProvider } from "./UserRoleProvider";
+import { GuestFiltersProvider } from "./GuestFiltersProvider";
 
 Amplify.configure(outputs);
 
@@ -73,29 +74,31 @@ export const AuthContextWrappers = () => {
         onUnauthenticated={() => setIsGuest(true)}
       />
       <UserRoleProvider isGuest={isGuest}>
-        <CampaignProvider>
-          <MantineProvider>
-            <ModalsProvider>
-              <Notifications />
-              <App
-                isGuest={isGuest}
-                onSignInClick={() => setSignInModalOpen(true)}
-              />
-              <Modal
-                opened={signInModalOpen}
-                onClose={() => setSignInModalOpen(false)}
-                padding={0}
-                withCloseButton={false}
-                size="md"
-                centered
-              >
-                <div className="auth-modal-wrapper">
-                  <Authenticator components={components} />
-                </div>
-              </Modal>
-            </ModalsProvider>
-          </MantineProvider>
-        </CampaignProvider>
+        <GuestFiltersProvider>
+          <CampaignProvider>
+            <MantineProvider>
+              <ModalsProvider>
+                <Notifications />
+                <App
+                  isGuest={isGuest}
+                  onSignInClick={() => setSignInModalOpen(true)}
+                />
+                <Modal
+                  opened={signInModalOpen}
+                  onClose={() => setSignInModalOpen(false)}
+                  padding={0}
+                  withCloseButton={false}
+                  size="md"
+                  centered
+                >
+                  <div className="auth-modal-wrapper">
+                    <Authenticator components={components} />
+                  </div>
+                </Modal>
+              </ModalsProvider>
+            </MantineProvider>
+          </CampaignProvider>
+        </GuestFiltersProvider>
       </UserRoleProvider>
     </Authenticator.Provider>
   );
