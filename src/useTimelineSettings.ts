@@ -106,6 +106,14 @@ export const useTimelineSettings = () => {
           guestFilters.checkedTags !== null
             ? guestFilters.checkedTags
             : base.checkedTags,
+        showAllEvents:
+          guestFilters.showAllEvents !== null
+            ? guestFilters.showAllEvents
+            : base.showAllEvents,
+        reverseOrder:
+          guestFilters.reverseOrder !== null
+            ? guestFilters.reverseOrder
+            : base.reverseOrder,
       };
     }
 

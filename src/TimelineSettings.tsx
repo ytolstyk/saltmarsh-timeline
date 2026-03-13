@@ -62,6 +62,10 @@ export function TimelineSettings() {
   };
 
   const handleShowAllEventsClick = (checked: boolean) => {
+    if (isGuest) {
+      setGuestFilters({ showAllEvents: checked });
+      return;
+    }
     update({
       ...timelineSettings,
       showAllEvents: checked,
@@ -69,6 +73,10 @@ export function TimelineSettings() {
   };
 
   const handleReverseOrderClick = (checked: boolean) => {
+    if (isGuest) {
+      setGuestFilters({ reverseOrder: checked });
+      return;
+    }
     update({
       ...timelineSettings,
       reverseOrder: checked,
@@ -204,26 +212,18 @@ export function TimelineSettings() {
               </Chip>
             </span>
           </Tooltip>
-          <Tooltip label={lockedReason} disabled={!isGuest}>
-            <span style={isGuest ? { pointerEvents: "none", opacity: 0.5, display: "contents" } : undefined}>
-              <Chip
-                checked={timelineSettings.showAllEvents}
-                onChange={isGuest ? undefined : handleShowAllEventsClick}
-              >
-                Show all events
-              </Chip>
-            </span>
-          </Tooltip>
-          <Tooltip label={lockedReason} disabled={!isGuest}>
-            <span style={isGuest ? { pointerEvents: "none", opacity: 0.5, display: "contents" } : undefined}>
-              <Chip
-                checked={timelineSettings.reverseOrder}
-                onChange={isGuest ? undefined : handleReverseOrderClick}
-              >
-                Reverse order
-              </Chip>
-            </span>
-          </Tooltip>
+          <Chip
+            checked={timelineSettings.showAllEvents}
+            onChange={handleShowAllEventsClick}
+          >
+            Show all events
+          </Chip>
+          <Chip
+            checked={timelineSettings.reverseOrder}
+            onChange={handleReverseOrderClick}
+          >
+            Reverse order
+          </Chip>
         </TimelineSettingsFormSection>
         <TimelineSettingsFormSection>
           <LockedButton

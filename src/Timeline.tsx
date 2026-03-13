@@ -24,7 +24,6 @@ import {
   Text,
   TextInput,
   Title,
-  Tooltip,
 } from "@mantine/core";
 import { useUserRole } from "./UserRoleContext";
 import { modals } from "@mantine/modals";
@@ -33,7 +32,7 @@ import { convertDaysToReadableDate } from "./dateHelper";
 import { HighlightText } from "./HighlightText";
 
 export function Timeline() {
-  const { timelineSettings, update } = useTimelineSettings();
+  const { timelineSettings, update, setGuestFilters } = useTimelineSettings();
   const { isGuest } = useUserRole();
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -194,26 +193,30 @@ export function Timeline() {
           }}
         >
           <Group gap="xs">
-            <Tooltip label="Sign in to enable" disabled={!isGuest}>
-              <span style={isGuest ? { pointerEvents: "none", opacity: 0.5, display: "contents" } : undefined}>
-                <Chip
-                  checked={ungrouped}
-                  onChange={isGuest ? undefined : (v) => update({ ...timelineSettings, showAllEvents: v })}
-                >
-                  Show all events
-                </Chip>
-              </span>
-            </Tooltip>
-            <Tooltip label="Sign in to enable" disabled={!isGuest}>
-              <span style={isGuest ? { pointerEvents: "none", opacity: 0.5, display: "contents" } : undefined}>
-                <Chip
-                  checked={reversed}
-                  onChange={isGuest ? undefined : (v) => update({ ...timelineSettings, reverseOrder: v })}
-                >
-                  Reverse order
-                </Chip>
-              </span>
-            </Tooltip>
+            <Chip
+              checked={ungrouped}
+              onChange={(v) => {
+                if (isGuest) {
+                  setGuestFilters({ showAllEvents: v });
+                } else {
+                  update({ ...timelineSettings, showAllEvents: v });
+                }
+              }}
+            >
+              Show all events
+            </Chip>
+            <Chip
+              checked={reversed}
+              onChange={(v) => {
+                if (isGuest) {
+                  setGuestFilters({ reverseOrder: v });
+                } else {
+                  update({ ...timelineSettings, reverseOrder: v });
+                }
+              }}
+            >
+              Reverse order
+            </Chip>
           </Group>
           <Text>
             Showing {filteredEvents.length} of {events.length} total events
@@ -239,7 +242,14 @@ export function Timeline() {
                   ),
                 });
               return (
-                <Paper key={index} shadow="xs" p="md" withBorder style={{ cursor: "pointer" }} onClick={handleClick}>
+                <Paper
+                  key={index}
+                  shadow="xs"
+                  p="md"
+                  withBorder
+                  style={{ cursor: "pointer" }}
+                  onClick={handleClick}
+                >
                   <Text
                     size="xs"
                     c="blue.6"

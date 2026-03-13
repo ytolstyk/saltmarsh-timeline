@@ -5,6 +5,8 @@ export type GuestFilters = {
   startYear: number | null;
   endYear: number | null;
   checkedTags: CheckedTags | null;
+  showAllEvents: boolean | null;
+  reverseOrder: boolean | null;
 };
 
 type GuestFiltersContextValue = {
@@ -13,7 +15,7 @@ type GuestFiltersContextValue = {
 };
 
 export const GuestFiltersContext = createContext<GuestFiltersContextValue>({
-  guestFilters: { startYear: null, endYear: null, checkedTags: null },
+  guestFilters: { startYear: null, endYear: null, checkedTags: null, showAllEvents: null, reverseOrder: null },
   setGuestFilters: () => {},
 });
 

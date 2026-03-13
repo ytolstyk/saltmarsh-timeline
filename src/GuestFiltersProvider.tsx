@@ -10,6 +10,8 @@ export function GuestFiltersProvider({
     startYear: null,
     endYear: null,
     checkedTags: null,
+    showAllEvents: null,
+    reverseOrder: null,
   });
 
   const setGuestFilters = (f: Partial<GuestFilters>) => {
