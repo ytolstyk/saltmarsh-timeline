@@ -239,7 +239,7 @@ export function App({ isGuest, onSignInClick }: Props) {
             <Title>{campaign.name} Timeline</Title>
             <Group gap="md" align="center">
               <Anchor
-                href={`/story/${encodeURIComponent(campaign.name)}`}
+                href="/story"
                 size="sm"
                 c="dimmed"
                 fw={500}
