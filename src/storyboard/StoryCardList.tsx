@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { storyCards } from "./storyboardData";
 import { useStoryBookmarks } from "./useStoryBookmarks";
 import { getFallbackGradient } from "./StoryCard.styles";
@@ -19,10 +19,9 @@ import {
 } from "./StoryCardList.styles";
 
 export const StoryCardList = () => {
-  const { campaignName = "saltmarsh" } = useParams();
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
-  const { isBookmarked } = useStoryBookmarks(campaignName);
+  const { isBookmarked } = useStoryBookmarks("saltmarsh");
 
   const filtered = storyCards.filter((card) => {
     if (!search) return true;
@@ -64,7 +63,7 @@ export const StoryCardList = () => {
               $gradient={getFallbackGradient(card.animation)}
               $bookmarked={bookmarked}
               onClick={() =>
-                navigate(`/story/${campaignName}/${card.chapter}`)
+                navigate(`/story/${card.chapter}`)
               }
               style={{ animationDelay: `${(card.chapter - 1) * 30}ms` }}
             >

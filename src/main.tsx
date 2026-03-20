@@ -46,11 +46,11 @@ createRoot(document.getElementById("root")!).render(
       <MantineProvider theme={theme}>
         <Routes>
           <Route
-            path="/story/:campaignName/:cardNumber"
+            path="/story/:cardNumber"
             element={<Storyboard />}
           />
           <Route
-            path="/story/:campaignName"
+            path="/story"
             element={<StoryCardList />}
           />
           <Route path="/*" element={<AuthContextWrappers />} />

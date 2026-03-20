@@ -11,12 +11,12 @@ import {
 } from "./Storyboard.styles";
 
 export const Storyboard = () => {
-  const { campaignName = "saltmarsh", cardNumber } = useParams();
+  const { cardNumber } = useParams();
   const navigate = useNavigate();
   const scrollRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const { toggleBookmark, isBookmarked } = useStoryBookmarks(campaignName);
+  const { toggleBookmark, isBookmarked } = useStoryBookmarks("saltmarsh");
 
   // Scroll to initial card
   useEffect(() => {
@@ -45,7 +45,7 @@ export const Storyboard = () => {
               window.history.replaceState(
                 null,
                 "",
-                `/story/${campaignName}/${card.chapter}`
+                `/story/${card.chapter}`
               );
             }
           }
@@ -59,7 +59,7 @@ export const Storyboard = () => {
     }
 
     return () => observer.disconnect();
-  }, [campaignName]);
+  }, []);
 
   // Keyboard navigation
   useEffect(() => {
@@ -102,7 +102,7 @@ export const Storyboard = () => {
         ))}
       </ScrollContainer>
 
-      <BackButton onClick={() => navigate(`/story/${campaignName}`)}>
+      <BackButton onClick={() => navigate(`/story`)}>
         ← All Chapters
       </BackButton>
 

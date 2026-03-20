@@ -115,7 +115,7 @@ export const ThumbnailOverlay = styled.div`
 
 export const ThumbnailSession = styled.span`
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
@@ -125,6 +125,10 @@ export const ThumbnailTitle = styled.span`
   font-family: "Cinzel Decorative", serif;
   color: white;
   font-size: 1.1rem;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+  display: inline-block;
 `;
 
 export const ThumbnailBookmark = styled.span`
