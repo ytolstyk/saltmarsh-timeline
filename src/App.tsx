@@ -14,6 +14,7 @@ import { useUserRole } from "./UserRoleContext.ts";
 import { LockedButton } from "./LockedButton.tsx";
 import {
   AppShell,
+  Anchor,
   Burger,
   Group,
   Button,
@@ -236,6 +237,15 @@ export function App({ isGuest, onSignInClick }: Props) {
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Header>
             <Title>{campaign.name} Timeline</Title>
+            <Group gap="md" align="center">
+              <Anchor
+                href={`/story/${encodeURIComponent(campaign.name)}`}
+                size="sm"
+                c="dimmed"
+                fw={500}
+              >
+                Storyboard
+              </Anchor>
             {isGuest ? (
               <Button variant="subtle" color="gray" size="sm" onClick={onSignInClick}>
                 Sign in
@@ -243,6 +253,7 @@ export function App({ isGuest, onSignInClick }: Props) {
             ) : (
               <SignOutButton />
             )}
+            </Group>
           </Header>
         </Group>
       </AppShell.Header>

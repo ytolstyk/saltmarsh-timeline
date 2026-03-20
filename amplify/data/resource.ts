@@ -40,6 +40,7 @@ const schema = a
         excludeDowntime: a.boolean().default(true),
         showAllEvents: a.boolean().default(false),
         reverseOrder: a.boolean().default(false),
+        storyBookmarks: a.string().array(),
       })
       .authorization((allow) => [allow.owner()]),
   })

@@ -11,11 +11,14 @@
       "mcp__plugin_chrome-devtools-mcp_chrome-devtools__wait_for",
       "mcp__plugin_chrome-devtools-mcp_chrome-devtools__resize_page",
       "mcp__plugin_chrome-devtools-mcp_chrome-devtools__evaluate_script",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "WebFetch(domain:sites.google.com)",
+      "Bash(env)",
+      "Bash(python3:*)"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "jcodemunch"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }
