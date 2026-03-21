@@ -18,19 +18,19 @@ const NUM_WISPS = 40;
 
 function createWisp(canvasWidth: number, canvasHeight: number, fromBottom = false): FogWisp {
   const lifespan = 300 + Math.random() * 200;
-  const xSpeed = (0.08 + Math.random() * 0.14) * (Math.random() < 0.5 ? 1 : -1);
-  const ySpeed = 0.06 + Math.random() * 0.1;
+  const xSpeed = (0.03 + Math.random() * 0.05) * (Math.random() < 0.5 ? 1 : -1);
+  const ySpeed = 0.02 + Math.random() * 0.03;
   const x = Math.random() * canvasWidth;
   const y = canvasHeight * (0.5 + Math.random() * 0.5);
   return {
     x,
     y,
-    radius: 60 + Math.random() * 100,
-    maxOpacity: 0.18 + Math.random() * 0.12,
+    radius: 100 + Math.random() * 150,
+    maxOpacity: 0.144 + Math.random() * 0.096,
     xSpeed,
     ySpeed,
     wobble: Math.random() * Math.PI * 2,
-    wobbleSpeed: 0.006 + Math.random() * 0.008,
+    wobbleSpeed: 0.002 + Math.random() * 0.003,
     wobbleAmp: 15 + Math.random() * 25,
     age: fromBottom ? 0 : Math.random() * lifespan * 0.5,
     lifespan,

@@ -312,7 +312,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A stormy medieval coastal town with rain-soaked streets, a grand mansion in the background hosting a party, dark atmospheric fantasy art",
     backgroundImage: "chapter_13.png",
-    animation: ["fog", "rain"],
+    animation: ["rain"],
     funFacts: [
       {
         title: "Celebrity Status",
@@ -362,7 +362,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers exploring the interior of a captured pirate ship, examining maps and treasure by lantern light, mysterious atmosphere, fantasy art",
     backgroundImage: "chapter_15.png",
-    animation: ["fog"],
+    animation: ["none"],
     funFacts: [
       {
         title: "The Clockwork Parrot",
@@ -464,7 +464,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A grimy polluted city built on rotting wooden docks over black water, fog and haze everywhere, a dripping ship suspended from a crane over a warehouse, dark oppressive fantasy art",
     backgroundImage: "chapter_19.png",
-    animation: ["fog", "smoke"],
+    animation: ["smoke"],
     funFacts: [
       {
         title: "The Welcoming Bridge",
@@ -540,7 +540,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers discovering a candlelit underground chamber with suspicious figures in red robes, one person secretly watching as a spider on the wall, tense medieval fantasy atmosphere",
     backgroundImage: "chapter_22.png",
-    animation: ["fog"],
+    animation: ["none"],
     funFacts: [
       {
         title: "Spider Intelligence",
@@ -896,7 +896,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A grimy fantasy city celebrating a chaotic festival by torchlight, bridges over dark water, shadowy massive shapes lurking beneath the surface, revelry and menace mixed",
     backgroundImage: "chapter_36.png",
-    animation: ["fog"],
+    animation: ["none"],
     funFacts: [
       {
         title: "Needfest Traditions",
@@ -1128,7 +1128,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A coastal city at night in the rain, a gnome community with multi-story stacked buildings, heroes sneaking through wet streets toward docks where a foreign ship loads urgently",
     backgroundImage: "chapter_45.png",
-    animation: ["fog", "rain"],
+    animation: ["rain"],
     funFacts: [
       {
         title: "The Boarders Three",
@@ -1642,7 +1642,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A military coastal city in urgent preparation, soldiers reinforcing harbor walls, a ship being loaded with adventurers as bait, storm clouds gathering to the north",
     backgroundImage: "chapter_65.png",
-    animation: ["ship-rocking"],
+    animation: ["none"],
     funFacts: [
       {
         title: "The Kraken Has Two Minds Active",
@@ -1668,7 +1668,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A ship racing back into a fortified harbor at dawn with a massive kraken wake cutting through the water behind it, harbor cannons rotating to track the incoming threat",
     backgroundImage: "chapter_66.png",
-    animation: ["ship-rocking"],
+    animation: ["none"],
     funFacts: [
       {
         title: "Drawmij's List",
