@@ -38,7 +38,7 @@ export const StoryCard = ({
       <BackgroundImage $gradient={gradient}>
         {!imgError && (
           <img
-            src={new URL(`../assets/images/saltmarsh_storyboard/${card.backgroundImage}`, import.meta.url).href}
+            src={`https://saltmarsh-files.s3.us-west-1.amazonaws.com/storybook/saltmarsh/${card.backgroundImage}`}
             alt=""
             onError={() => setImgError(true)}
             loading="lazy"

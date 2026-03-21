@@ -68,7 +68,7 @@ export const StoryCardList = () => {
               style={{ animationDelay: `${(card.chapter - 1) * 30}ms` }}
             >
               <img
-                src={new URL(`../assets/images/saltmarsh_storyboard/${card.backgroundImage}`, import.meta.url).href}
+                src={`https://saltmarsh-files.s3.us-west-1.amazonaws.com/storybook/saltmarsh/${card.backgroundImage}`}
                 alt=""
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = "none";
