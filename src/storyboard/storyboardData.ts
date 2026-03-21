@@ -36,7 +36,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A small sailing boat in thick ocean fog with a ghostly pirate ship visible in the background, fantasy medieval style",
     backgroundImage: "chapter_2.png",
-    animation: ["ship-rocking"],
+    animation: ["ship-rocking", "fog"],
     funFacts: [
       {
         title: "Captain Kester's Fear",

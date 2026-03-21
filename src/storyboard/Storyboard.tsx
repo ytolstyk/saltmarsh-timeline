@@ -17,7 +17,8 @@ export const Storyboard = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const navDotsRef = useRef<HTMLDivElement>(null);
   const dotRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const initialIndex = Math.max(0, storyCards.findIndex((c) => c.chapter === parseInt(cardNumber || "1", 10)));
+  const [activeIndex, setActiveIndex] = useState(initialIndex);
   const { toggleBookmark, isBookmarked } = useStoryBookmarks("saltmarsh");
 
   // Scroll to initial card
