@@ -11,8 +11,8 @@ export const storyCards: StoryCardData[] = [
       "In the coastal town of Saltmarsh, five unlikely heroes answered the call of the town council. Mornie, a skilled warrior-for-hire. Airell, a cunning linguist who speaks the tongue of dragons. Arienh, a gentle healer with a kind heart. Kellen, a young and curious wizard full of wonder. And Mah-Kaylah, a fierce fighter with a fiery spirit. Together, they were offered a handsome reward of 150 gold coins to journey north into the marshes and investigate rumors of lizardfolk stockpiling weapons. With packs loaded and spirits high, they prepared to set sail into the unknown.",
     imagePrompt:
       "Five fantasy adventurers standing on a wooden dock in a medieval coastal town at sunrise, ships in harbor, warm golden light",
-    backgroundImage: "chapter_1.png",
-    animation: ["fog"],
+    backgroundImage: "chapter_1.jpg",
+    animation: ["none"],
     funFacts: [
       {
         title: "Why Saltmarsh?",
@@ -35,7 +35,7 @@ export const storyCards: StoryCardData[] = [
       "Captain Kester and his bright sapphire kobold first mate, Bait, sailed the party northward along the coast. The sea was calm at first, but danger lurked everywhere. As they passed the mysterious Abbey Isle, they spotted the infamous pirate ship, the Falling Star! Thinking quickly, Kellen conjured an illusion of a great rock in the water. The pirates swerved to avoid it and, baffled by the phantom obstacle, blamed the priests of the Abbey and sailed away. But the sea had more surprises — a shark and two fish-warriors called sahuagin attacked the boat! After a thrilling battle on the waves, the heroes drove them off and continued their journey.",
     imagePrompt:
       "A small sailing boat in thick ocean fog with a ghostly pirate ship visible in the background, fantasy medieval style",
-    backgroundImage: "chapter_2.png",
+    backgroundImage: "chapter_2.jpg",
     animation: ["ship-rocking", "fog"],
     funFacts: [
       {
@@ -59,7 +59,7 @@ export const storyCards: StoryCardData[] = [
       "Landing on the muddy shore, the adventurers waved goodbye to Kester and Bait, then plunged into the hot, humid swamp. Arienh, who knew the area well, tracked footprints through the muck while Kellen excitedly gathered water-storing plants. Mornie scouted ahead like a shadow. They battled a raging river crossing that left them exhausted, then stumbled upon a cave full of giant lizards. After a fierce fight, they discovered a mysterious sword and half-eaten remains. Just as they settled in to rest, angry shouts echoed through the tunnels — the lizardfolk had found them!",
     imagePrompt:
       "Adventurers trudging through a misty swamp with giant twisted trees and murky water, humid atmosphere, fantasy art",
-    backgroundImage: "chapter_3.png",
+    backgroundImage: "chapter_3.jpg",
     animation: ["fog"],
     funFacts: [
       {
@@ -85,7 +85,7 @@ export const storyCards: StoryCardData[] = [
       "The lizardfolk warriors, shouting commands in Draconic, demanded the adventurers lay down their weapons. Airell tried bluffing that they were from the Falling Star, but it didn't work. A battle broke out — Kellen was dragged away and knocked unconscious, and something magical happened to her eye, turning it into a strange owl-like eye with a mysterious swirl. Eventually, overwhelmed by numbers, the party surrendered. Taken to prison cells, they spent an uneasy night. The next morning, the wise advisor Sauriv brought them before Queen Othokent, who made them a secret deal: kill the legendary giant crocodile Thousand Teeth, and earn the trust of her people.",
     imagePrompt:
       "A grand underground throne room with a regal lizardfolk queen on a bone throne, torches flickering, adventurers kneeling before her",
-    backgroundImage: "chapter_4.png",
+    backgroundImage: "chapter_4.jpg",
     animation: ["flickering-fire"],
     funFacts: [
       {
@@ -111,7 +111,7 @@ export const storyCards: StoryCardData[] = [
       "Setting out with lizardfolk guides, the party first sent word to Captain Kester to return in a week. Then, as dark clouds rolled in and rain poured down in sheets, they marched into the marsh to find Thousand Teeth. Along the way, they were ambushed twice by Bullywugs — sneaky frog-creatures who lurk in the swamp. In the first ambush, Kellen and Airell distracted them with an illusion of a crocodile while the others struck swiftly. In the second, the Bullywugs tried to kidnap Arienh, but she magically teleported away in a flash of mist, leaving the dim-witted frog-folk utterly bewildered.",
     imagePrompt:
       "Fantasy adventurers fighting frog-like creatures in heavy rain in a dark swamp, lightning in the background, dramatic action scene",
-    backgroundImage: "chapter_5.png",
+    backgroundImage: "chapter_5.jpg",
     animation: ["storm"],
     funFacts: [
       {
@@ -135,7 +135,7 @@ export const storyCards: StoryCardData[] = [
       "They found the legendary beast sunning himself in a lagoon — a crocodile so enormous that his name alone struck fear into hearts. The party planned carefully. Arienh cast glittering fairy fire to outline the monster, then transformed herself into a crocodile to wrestle it! While Thousand Teeth thrashed and pulled crocodile-Arienh underwater, the others attacked from every angle. Mornie and Airell struck blow after blow, and finally Mah-Kaylah delivered the killing strike — driving her sword through the beast's mighty skull. They took the head as proof and teeth as trophies, and discovered treasure on a long-dead adventurer in the lagoon.",
     imagePrompt:
       "Epic battle scene of adventurers fighting a massive crocodile in a jungle lagoon, one person transformed into a crocodile wrestling it, dramatic fantasy art",
-    backgroundImage: "chapter_6.png",
+    backgroundImage: "chapter_6.jpg",
     animation: ["battle-shake"],
     funFacts: [
       {
@@ -161,7 +161,7 @@ export const storyCards: StoryCardData[] = [
       "On their way back to the lizardfolk caves, the party passed a Bullywug village and heard a tremendous commotion. A lone warrior was fighting an entire camp of frog-creatures single-handedly! Without hesitation, the adventurers charged in to help. Arienh summoned a whole menagerie of magical animals — bears, insects, and even a fighting horse — to join the battle. The mysterious fighter was named Joza, a monk sent from her monastery to investigate dark cultists. The cultists had been performing a strange ritual before the Bullywugs killed them, and now a mysterious tree covered in glowing inscriptions stood at the center of the camp.",
     imagePrompt:
       "A lone female monk warrior fighting dozens of frog creatures in a swamp village, magical animals joining the battle, dynamic fantasy action",
-    backgroundImage: "chapter_7.png",
+    backgroundImage: "chapter_7.jpg",
     animation: ["battle-shake"],
     funFacts: [
       {
@@ -185,7 +185,7 @@ export const storyCards: StoryCardData[] = [
       "The glowing tree held dark secrets. When Joza accidentally misread the ancient scrolls, the tree shuddered to life — a terrifying Tree Ent with branches like crushing arms! Worse still, it summoned quick, nasty little elf-creatures that darted in to strike and vanished before anyone could react. The battle was desperate. Arienh and Mah-Kaylah blasted the tree with fire while Kellen raced to undo the dark spell. Everyone fought to buy her time, and finally Mah-Kaylah's cutlass split the tree down the middle. Kellen finished breaking the curse, reaching inside the crumbling bark to retrieve something glowing with power. Exhausted but alive, they hurried back to the lizardfolk caves.",
     imagePrompt:
       "A massive evil tree creature with glowing runes coming to life in a dark swamp, adventurers casting fire spells at it, dramatic fantasy horror",
-    backgroundImage: "chapter_8.png",
+    backgroundImage: "chapter_8.jpg",
     animation: ["fire"],
     funFacts: [
       {
@@ -211,7 +211,7 @@ export const storyCards: StoryCardData[] = [
       "Back at the caves with Thousand Teeth's massive head floating on Kellen's magic disk, the lizardfolk erupted in celebration! The Queen declared a grand feast — a binding ceremony between the two groups, like a wedding between peoples. They dined on Thousand Teeth's own meat alongside mountains of food. Kellen and Mah-Kaylah performed a dramatic retelling of the hunt with magical light effects. Then came the games: Mornie won an eating contest and earned a healing potion. Joza won a hot-water dance competition. Arienh beat the Queen herself at a lizardfolk board game called Shark. And Mah-Kaylah bested their greatest warriors in combat!",
     imagePrompt:
       "A festive underground cavern celebration with lizardfolk and human adventurers feasting together, a giant crocodile head mounted on the wall, torchlight and revelry",
-    backgroundImage: "chapter_9.png",
+    backgroundImage: "chapter_9.jpg",
     animation: ["celebration"],
     funFacts: [
       {
@@ -235,7 +235,7 @@ export const storyCards: StoryCardData[] = [
       "Sailing home with Captain Kester — who complained the whole way about taxes and pirates — the adventurers returned to Saltmarsh as heroes. They presented their findings to the town council, where the politics were as tangled as seaweed. Gellan and Eda schemed against Commander Eliander. Manistrad the dwarf was furious when she recognized a dead dwarf's weapon among their loot. But the council was impressed, and the party was rewarded handsomely. Eliander even promised to serve as ambassador to the lizardfolk himself, speaking their language. Each hero received their 150 gold, and the town buzzed with tales of their bravery.",
     imagePrompt:
       "Adventurers arriving at a medieval coastal town dock to cheering crowds, flags waving, warm sunset light, triumphant homecoming",
-    backgroundImage: "chapter_10.png",
+    backgroundImage: "chapter_10.jpg",
     animation: ["ship-rocking", "celebration"],
     funFacts: [
       {
@@ -261,7 +261,7 @@ export const storyCards: StoryCardData[] = [
       "A month of well-earned rest passed, and then the grand Festival of Richfest arrived! The whole town came alive with music, games, and merriment. Kellen won a frog race, cheering wildly as her little champion hopped across the finish line first. Mornie gambled and lost a drinking contest — even the toughest warrior has her weaknesses! Meanwhile, strange things were happening behind the scenes. Airell, under a secret disguise, had been weaving a complicated web of espionage involving a slave named Zvala who knew the secrets of making gunpowder. But for now, the festival was a time for joy and celebration.",
     imagePrompt:
       "A bustling medieval festival in a coastal town square with colorful banners, frog races, people dancing, warm festive atmosphere, fantasy art",
-    backgroundImage: "chapter_11.png",
+    backgroundImage: "chapter_11.jpg",
     animation: ["celebration"],
     funFacts: [
       {
@@ -285,7 +285,7 @@ export const storyCards: StoryCardData[] = [
       "The morning after Richfest, drums thundered through the streets. A column of angry dwarves, led by the fierce Manistrad, marched through town carrying clubs. Their mines had been sabotaged — sealed shut with magical glue! They blamed Captain Xendros and wanted justice. The town guard blocked the bridge, and tensions exploded into a brawl. Mah-Kaylah fought dwarves, Arienh tangled them in magical vines, and Mornie tried desperately to grapple Manistrad. It was Kellen who saved the day, casting a spell that convinced Manistrad to 'stand down and be nice.' Meanwhile, poor Airell was woken by an assassin's knife to his throat — but that's another story entirely!",
     imagePrompt:
       "A column of armed dwarves marching across a stone bridge confronting town guards, tense medieval standoff, morning light, fantasy art",
-    backgroundImage: "chapter_12.png",
+    backgroundImage: "chapter_12.jpg",
     animation: ["battle-shake"],
     funFacts: [
       {
@@ -311,7 +311,7 @@ export const storyCards: StoryCardData[] = [
       "With the dwarf crisis averted, the town settled into an uneasy calm. Captain Xendros revealed that only Oil of Etherealness could undo the magical glue sealing the mines, and she knew an alchemist in the far-off Styes who could make it. The councilman Anders hosted a grand brunch where the heroes learned they had become celebrities with nicknames throughout the town! But shadows lurked everywhere — Anders' servant Skerrin walked with a limp from Joza's chain, revealing he was the assassin who had attacked Airell. A storm rolled in, spoiling cargo on the docks while Kellen made illusory flying sharks dance in the rain. The adventurers prepared for their most dangerous voyage yet.",
     imagePrompt:
       "A stormy medieval coastal town with rain-soaked streets, a grand mansion in the background hosting a party, dark atmospheric fantasy art",
-    backgroundImage: "chapter_13.png",
+    backgroundImage: "chapter_13.jpg",
     animation: ["rain"],
     funFacts: [
       {
@@ -337,7 +337,7 @@ export const storyCards: StoryCardData[] = [
       "Aboard Harer Zane's merchant ship, the party sailed toward the Styes with a fortune in pearls to buy the precious Oil. But the Falling Star — that same pirate ship they'd tricked with an illusion weeks ago — caught up to them. The pirate captain boarded their vessel and, without warning, shot their captain! Battle erupted across both ships. The enemy wizard unleashed a terrible spell, but Mah-Kaylah's enchanted sword flashed with light and cancelled it! Cannons roared, swords clashed, and in a moment of brilliance, someone fired into the Falling Star's own cannon, blasting a gaping hole in the pirate ship. Victory! But now they had a captured pirate ship and a web of secrets to untangle.",
     imagePrompt:
       "Two ships locked in naval combat with cannon fire and sword fighting, pirates boarding a merchant vessel, dramatic ocean battle, fantasy art",
-    backgroundImage: "chapter_14.png",
+    backgroundImage: "chapter_14.jpg",
     animation: ["ship-rocking", "waves"],
     funFacts: [
       {
@@ -361,7 +361,7 @@ export const storyCards: StoryCardData[] = [
       "With the pirates defeated, the adventurers explored the captured Falling Star from top to bottom. Airell found maps and a world atlas in the captain's quarters. Arienh discovered magical items in the wizard's room, including a clockwork parrot! Kellen explored the gun deck but was horrified by the aftermath of battle. Below decks, she found chains meant for slaves and defiantly carved 'Kellen was here' into the wood. The captured pirate Randal revealed a shocking truth — the Falling Star had been working as smugglers, moving goods to avoid taxes. Captain Harer Zane, their own employer, was part of the scheme! The web of deception grew ever more tangled.",
     imagePrompt:
       "Adventurers exploring the interior of a captured pirate ship, examining maps and treasure by lantern light, mysterious atmosphere, fantasy art",
-    backgroundImage: "chapter_15.png",
+    backgroundImage: "chapter_15.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -387,7 +387,7 @@ export const storyCards: StoryCardData[] = [
       "Disguised as the former pirate captain, Airell sailed the Falling Star into Port Torvin to deliver the smuggled goods. The port was ruled by Yusgrolir, a wealthy dwarf mayor dripping with magical trinkets and guarded by four massive ogres. Airell played his role perfectly, even fooling the harbor master. Kellen created a fake fire on a rooftop as a distraction when Airell's disguise nearly faded — chaos erupted as everyone tried to put out a fire that didn't exist! The deal was done: the smuggled cargo was delivered and the party was paid handsomely. Then Yusgrolir invited them to a grand garden party as guests of honor. It sounded wonderful. It was a trap.",
     imagePrompt:
       "A bustling fantasy port town with a wealthy dwarf merchant surrounded by ogre bodyguards, market stalls and ships, warm afternoon light",
-    backgroundImage: "chapter_16.png",
+    backgroundImage: "chapter_16.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -413,7 +413,7 @@ export const storyCards: StoryCardData[] = [
       "At Yusgrolir's garden party, crackling lightning towers heralded the evening's entertainment. The dwarf mayor gave a speech and raised a toast of fortified wine that left everyone but young Kellen dizzy. Then the lightning tower blazed — and Mornie, Mah-Kaylah, Arienh, and Randal were zapped into a magical maze on the Ethereal Plane! Ghostly walls surrounded them as they fought spectral monsters and collected owlbear claws (Randal thought they were all mad). Meanwhile, Airell and Kellen remained with Yusgrolir and confessed the truth about the pirate captain. Yusgrolir laughed coldly — anyone who survived the maze could leave alive, but he was keeping their ship.",
     imagePrompt:
       "A glowing ethereal maze with lightning towers crackling energy, ghostly translucent walls, adventurers fighting spectral creatures, magical purple atmosphere",
-    backgroundImage: "chapter_17.png",
+    backgroundImage: "chapter_17.jpg",
     animation: ["lightning"],
     funFacts: [
       {
@@ -437,7 +437,7 @@ export const storyCards: StoryCardData[] = [
       "With their friends trapped in the maze, Kellen hatched a desperate plan. She conjured spectacular fireworks that terrified Yusgrolir's ogre guards, who panicked and started shooting everything — including their own master! In the chaos, Kellen cast a spell on the wounded Yusgrolir, convincing him it was all a misunderstanding and he should bring everyone back from the maze. It worked! The party popped back from the Ethereal Plane just in time. They sprinted for the Falling Star, where Joza and Harer had just finished fighting off a raiding party. Sails unfurled, they fled Port Torvin under cover of night, heading for the Styes and their original mission — if anyone could still remember what it was!",
     imagePrompt:
       "Adventurers running through a nighttime port city with fireworks exploding overhead, racing toward a ship at the docks, dramatic escape scene, fantasy art",
-    backgroundImage: "chapter_18.png",
+    backgroundImage: "chapter_18.jpg",
     animation: ["fireworks"],
     funFacts: [
       {
@@ -463,7 +463,7 @@ export const storyCards: StoryCardData[] = [
       "The party arrived at the Styes — a festering city of pollution, corruption, and misery built on rotting docks over foul water. After bribing the bridge guards and watching Mornie fall through a deliberately loosened plank into the sludge below, they tracked down Refrum, a healer secretly using Oil of Etherealness to free people from slavery under the local crime lord. They paid 3,000 gold in pearls for the Oil — their entire fortune — then discovered they'd forgotten to pay Mr. Dory's mandatory 50% 'tax.' Escorted directly to Dory's headquarters (a dripping ship hanging from a crane), they met a man who was clearly more than human. Dory took their pearls, took Airell's prized magical cloak, cursed Mornie so she couldn't lie, and generally ruined everyone's day. Kellen, inexplicably furious, set a fire on the way out that everyone ignored.",
     imagePrompt:
       "A grimy polluted city built on rotting wooden docks over black water, fog and haze everywhere, a dripping ship suspended from a crane over a warehouse, dark oppressive fantasy art",
-    backgroundImage: "chapter_19.png",
+    backgroundImage: "chapter_19.jpg",
     animation: ["smoke"],
     funFacts: [
       {
@@ -487,7 +487,7 @@ export const storyCards: StoryCardData[] = [
       "Refrum confessed the awful truth — Mr. Dory's men were already on their way to steal their ship. The party sprinted through the Styes, paid locals to row them across the lagoon at maximum speed, and Arienh cast Walk on Water so they could literally run across the harbor. Arienh, Joza, and Kellen all tripped and fell into the filthy water anyway. When they reached the Falling Star, it had been captured by hobgoblins and two hippogriffs! MK, Airell, and Mornie fought furiously while the wet stragglers caught up, and then a horrific water creature called a Scum rose from the depths. Arienh was knocked unconscious and splashed into the harbor, dropping the spell and dunking everyone nearby. Airell cast Spare the Dying on the submerged heroes and somehow they all made it back aboard. They fled the Styes immediately and resolved to return to destroy Mr. Dory.",
     imagePrompt:
       "Heroes fighting hobgoblins and hippogriffs on the deck of a tall ship in a polluted harbor, one figure running on water toward the ship, dramatic fantasy combat",
-    backgroundImage: "chapter_20.png",
+    backgroundImage: "chapter_20.jpg",
     animation: ["battle-shake"],
     funFacts: [
       {
@@ -513,7 +513,7 @@ export const storyCards: StoryCardData[] = [
       "Sailing home with both ships and a story nobody would believe, the party returned to Saltmarsh to an explosive welcome. The Falling Star was too big to dock, so the heroes walked alongside the rowboat on the water — Arienh's magic casually performing a miracle. The town erupted in celebration: kids chased Kellen's illusory rainbow sharks, Eliander tried to give a speech but was drowned out by cheering, and Xendros literally jumped on MK and disappeared. Mornie followed the captured pirates to prison and argued loudly with Eliander about their fate. Anders invited everyone to collect their payment the next morning, where his manservant Skerrin gave everyone suspicious stink-eyes — until Kellen used her Wand of Smiles on him and he grinned creepily for a full minute. They were officially Heroes of Saltmarsh now, and Eliander had quietly decided the Falling Star belonged to the town. He was going to be very disappointed.",
     imagePrompt:
       "Adventurers arriving triumphantly at a medieval coastal town dock, crowds cheering, illusory rainbow sharks floating through the crowd, warm celebratory afternoon light",
-    backgroundImage: "chapter_21.png",
+    backgroundImage: "chapter_21.jpg",
     animation: ["celebration"],
     funFacts: [
       {
@@ -539,7 +539,7 @@ export const storyCards: StoryCardData[] = [
       "Scaling the cliffs of Abbey Isle with levitation packs, the party found the ruins of the old abbey and signs of recent salvage. A cellar door led them to an underground chamber full of suspiciously cheerful 'priests' in red robes who were very relieved to see the Falling Star had arrived. Their leader Ozymandius was a terrible liar. Arienh quietly transformed into a spider and crawled in to eavesdrop while the others made polite conversation about the weather. The red robes were the wrong color for priests of Procan — Mornie suddenly remembered what they were: the Scarlet Brotherhood, an ancient and thoroughly evil cult. Spider-Arienh confirmed everything: they were planning to murder the party in their sleep and steal the ship. They also mentioned something called 'the Eye in the Deep.' The party made camp, taught each other hand signals for 'liar' and 'danger,' and waited for morning.",
     imagePrompt:
       "Adventurers discovering a candlelit underground chamber with suspicious figures in red robes, one person secretly watching as a spider on the wall, tense medieval fantasy atmosphere",
-    backgroundImage: "chapter_22.png",
+    backgroundImage: "chapter_22.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -563,7 +563,7 @@ export const storyCards: StoryCardData[] = [
       "Before bed, Kellen felt a strange compulsion drawing her to the ancient obelisks in the abbey ruins. She touched the largest stone and had a terrifying vision — the Chained Oblivion itself spoke to her, and she gained a level from sheer magical terror. In the morning, with the Brotherhood still sleeping, the party crept inside: MK burned an entire room of lesser priests, Mornie knocked Ozymandius unconscious in his bed, and Airell whispered 'Papa, get up' before stabbing Odium to death. In the Brotherhood's library — books bound in manta ray skin — they found the shocking truth: Kellen was the Herald, a chosen vessel meant to bond with the Kraken and serve the Chained Oblivion. Arienh had been the original candidate twelve years ago but had refused the pact, surviving the storm that killed her family. Now the Brotherhood's whole terrible scheme made terrible sense.",
     imagePrompt:
       "Heroes discovering a dark underground library lined with tomes bound in manta ray skin, an obelisk crackling with arcane energy in the background, dramatic revelation scene",
-    backgroundImage: "chapter_23.png",
+    backgroundImage: "chapter_23.jpg",
     animation: ["lightning"],
     funFacts: [
       {
@@ -589,7 +589,7 @@ export const storyCards: StoryCardData[] = [
       "With the Brotherhood's survivors in custody, the party got to work. Bayleaf the half-elf mercenary helpfully told them everything — he'd never really wanted to join an evil cult anyway, and the Falling Star's pirate attack had just trapped him there. Ozymandius was a different story: preachy, fanatical, and ultimately useless. He didn't even know Kellen was the Herald! He thought the original Herald had died in the storm. Mornie trolled him extensively. What the party did learn: the Kraken was 'still downstairs, feeding off pathetic people.' They'd need to go into the Winding Way — a maze the Brotherhood had magically dug below the abbey, full of traps, guardians, and whatever they'd been keeping in the sea cave at the bottom.",
     imagePrompt:
       "Adventurers interrogating a fanatical robed prisoner in a stone chamber, maps and books spread on a table, torchlight, tense questioning scene",
-    backgroundImage: "chapter_24.png",
+    backgroundImage: "chapter_24.jpg",
     animation: ["flickering-fire"],
     funFacts: [
       {
@@ -613,7 +613,7 @@ export const storyCards: StoryCardData[] = [
       "Down into the maze they went — and found a zombie ogre and a zombie beholder in the first room. They wisely retreated to rest first. After eight hours, the undead proved easier to kill than expected, and they pressed on through primitive traps, specter ambushes, and a jade vampire elf statue that put up more of a fight than anticipated. The most alarming discovery was a room containing a Sphere of Annihilation — a floating ball of void that destroys anything it touches — installed by the Brotherhood as a failsafe in case the Kraken got loose. One of the room's guardians got pushed into it and simply ceased to exist. They found treasure and a half-finished letter beyond, but the sea cave at the bottom held empty manacles and a broken cage: the Kraken had already escaped into the open ocean.",
     imagePrompt:
       "Adventurers in a dark underground maze fighting undead monsters, a black sphere of nothingness floating ominously in the center of a stone chamber, torchlight flickering",
-    backgroundImage: "chapter_25.png",
+    backgroundImage: "chapter_25.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -639,7 +639,7 @@ export const storyCards: StoryCardData[] = [
       "The party rested in the abbey while Arienh dreamed of the night twelve years ago when she nearly became the Herald — and remembered Ferrin Kastilar finding her washed ashore, checking her eyes with visible relief. As they prepared to leave, a storm began building and they raced back to Saltmarsh — barely making it before the weather closed in. Arriving in the harbor, they found five ships flying the red flag of Duke Marik Feldren of Seaton blockading the port. His family had taken over the council building, his soldiers were patrolling house to house, he'd suspended all fishing, and Gellan had been arrested on a piracy charge for the crime of sending the party to Abbey Isle. The Duke wanted the Falling Star. An uncertain guard's voice called for them to surrender. Mornie used her magical shouting sword and declined.",
     imagePrompt:
       "A coastal town harbor with five warships flying red flags blockading the port, heroes on the deck of the Falling Star facing the fleet, storm clouds gathering overhead",
-    backgroundImage: "chapter_26.png",
+    backgroundImage: "chapter_26.jpg",
     animation: ["storm", "ship-rocking"],
     funFacts: [
       {
@@ -665,7 +665,7 @@ export const storyCards: StoryCardData[] = [
       "Eda briefed Mornie, Airell, and Arienh in furious whispers: the Duke wanted the Falling Star and had effectively occupied the town. The plan formed quickly — use Arienh's Walk on Water to board and capture the Duke's fleet during the storm. Sending stones went to MK and Kellen. All groups moved simultaneously in the dark and driving rain. Every ship fell. The Falling Star stood ready with cannons loaded, and the Dock Watch — who had refused the Duke's orders point blank — cheered from the shore. The Duke sent a negotiation boat the next morning bearing one representative: Sir Piersym of Seconforth, a knight with magnificently platinum-blond hair that immediately earned MK's admiration. Sir Piersym arranged a parlay on the docks with all of Saltmarsh watching. Fifteen hundred people lined the waterfront.",
     imagePrompt:
       "Heroes silently boarding warships by walking across storm-dark water at night, lanterns on the ships above, driving rain, a military takeover happening in complete silence",
-    backgroundImage: "chapter_27.png",
+    backgroundImage: "chapter_27.jpg",
     animation: ["storm"],
     funFacts: [
       {
@@ -689,7 +689,7 @@ export const storyCards: StoryCardData[] = [
       "The Duke opened the formal parlay by yelling, making demands, and being insufferable. His wife tried to calm him. The priest of Heironeous looked increasingly pained. MK had heard enough and attacked the Duke. Mornie grabbed the magical sword and shouted to the crowd that the Duke was trying to steal their town — fifteen hundred Saltmarshians immediately started chanting 'Falling Star!' Xendros appeared from nowhere in full battle rage and blasted magic missiles everywhere. Arienh unleashed lightning on the Duke's guards. Kellen sent her owl to poop on the Duke, which it did, directly. Airell eventually shot the Duke unconscious. The priest of Heironeous later noted that since the Duke had violated his own oath of holy peace, everything that followed was technically the Duke's fault. Even he had to admit the logic was sound.",
     imagePrompt:
       "Chaotic battle on a seaside dock with 1500 onlookers, a woman firing magic missiles, lightning striking soldiers, an unconscious noble in fine armor surrounded by chaos",
-    backgroundImage: "chapter_28.png",
+    backgroundImage: "chapter_28.jpg",
     animation: ["battle-shake"],
     funFacts: [
       {
@@ -715,7 +715,7 @@ export const storyCards: StoryCardData[] = [
       "A second parlay was arranged at dawn. Eliander, backed by the full council and a contract making the party official guardians of Saltmarsh, faced the Duke calmly. The Duke threw the contract on the floor (his wife quietly picked it up and read it). Eda pointed out that the Duke couldn't have taken the Falling Star with his fleet anyway. The Duke tried to get physical — the guards stopped him. Eliander then delivered the speech of his career: the Duke had failed, his ships were now Saltmarsh's, he would be escorted home with enough supplies to get there, and they were done here. He walked out mid-conversation. Meanwhile Airell arrived bleeding from a head wound — Skerrin had ambushed him, pumping him for information about Abbey Isle before he escaped out a window. The web of deception was tightening, and Mornie was officially named Admiral of the Saltmarsh fleet. She got a hat.",
     imagePrompt:
       "A formal negotiation hall with a composed commander backed by a full council facing a furious noble, a contract on the floor, morning light through tall windows",
-    backgroundImage: "chapter_29.png",
+    backgroundImage: "chapter_29.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -741,7 +741,7 @@ export const storyCards: StoryCardData[] = [
       "With the Duke dealt with, the party had a few days to breathe — which they used to discover Skerrin was almost certainly Brotherhood, dig into Anders' surprisingly enormous merchant network, and visit the druid Ferrin Kastilar, who knew far more about Arienh's past than he should. Ferrin told her the Chained Oblivion had reached for her twelve years ago; he'd been glad she wasn't the Herald but warned that taking her in had put him on a path leading to his death. Arienh accepted this with the weight it deserved. The party also learned that Yusgrolir — the maze-building dwarf from Port Torvin — was gathering half a dozen ships and orc invaders to come for the Falling Star within the week. Mornie was named Admiral. Plans were made. The fleet was prepared. An orc army was coming, and Saltmarsh needed its heroes more than ever.",
     imagePrompt:
       "A thriving coastal medieval town at golden hour, the Falling Star docked in the harbor, heroes walking the busy streets as local celebrities, warmth and tension mixed",
-    backgroundImage: "chapter_30.png",
+    backgroundImage: "chapter_30.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -767,7 +767,7 @@ export const storyCards: StoryCardData[] = [
       "Yusgrolir's fleet was coming — six ships, orc invaders, planning to anchor at Abbey Isle and strike at dawn. Admiral Mornie gave the order: intercept them at sea before they could reach Saltmarsh. The Falling Star and its allies sailed out into the night to meet Yusgrolir's armada head-on. What followed was a tremendous naval battle — cannon fire roaring, lightning strikes crackling across the water, the Falling Star's broadside guns blazing. The party fought brilliantly, the Dock Watch sailors proved their worth, and Yusgrolir's fleet was shattered. The maze-loving dwarf escaped personally (of course), but several of his ships were captured or sunk. The fleet returned victorious, sails tattered and decks scorched, sailing home through the night. Then the news hit.",
     imagePrompt:
       "A massive night naval battle with cannon fire and lightning strikes, two fleets clashing on dark waters, the Falling Star dominant and blazing with gunfire",
-    backgroundImage: "chapter_31.png",
+    backgroundImage: "chapter_31.jpg",
     animation: ["ship-rocking", "smoke", "waves"],
     funFacts: [
       {
@@ -791,7 +791,7 @@ export const storyCards: StoryCardData[] = [
       "The returning heroes found Saltmarsh strangely subdued. The Sea Grove — a community of the lost and vulnerable that Ferrin Kastilar had built for years — had been massacred. Everyone killed. Ferrin was dead, his final hours marked by evidence of torture. Skerrin was waiting on the road — not to gloat, but to talk to Mornie. He revealed he worked for the Order of the Silent Ones, powerful Celoise wizards. He believed Eliander was a Scarlet Brotherhood impostor. He thought Airell worked for the Brotherhood. He told her Ferrin had been tortured for information about Arienh. Then he walked away. At Ferrin's house, the horror was complete. Arienh, who had shifted into an eagle and flown to the Grove against orders, spent a long moment considering simply flying away forever. She chose revenge instead and came back.",
     imagePrompt:
       "A quiet community utterly devastated, smoke rising from small homes, a woman in eagle form circling overhead, grief and fury in a somber dark fantasy scene",
-    backgroundImage: "chapter_32.png",
+    backgroundImage: "chapter_32.jpg",
     animation: ["smoke"],
     funFacts: [
       {
@@ -817,7 +817,7 @@ export const storyCards: StoryCardData[] = [
       "King Kimbertos Scotti arrived in Saltmarsh with a thousand soldiers and a very specific agenda. In the royal audience chamber, the heroes surrendered their weapons and answered six questions under magical oath covering smuggling, piracy, truce-breaking, and their intentions with the Falling Star. Kellen asked if the king planned to do anything about the Sea Princes and their gunpowder monopoly. He said no. The great proclamation followed: Duke Feldren was 'promoted' to fight giants in the mountains — everyone understood what that meant. Eliander became a noble. And Saltmarsh was declared a Free City with all the freedoms and responsibilities that entailed. As the celebration began, Mornie spotted her old teacher Nenredhe in the crowd — and following her led to a secret meeting, a hidden Refrum, and orders: go to the Styes, find Jarme, save him from execution.",
     imagePrompt:
       "A grand medieval throne room with a wise king announcing judgement to adventurers and nobles gathered before him, maps on the walls, golden banners and morning light",
-    backgroundImage: "chapter_33.png",
+    backgroundImage: "chapter_33.jpg",
     animation: ["celebration"],
     funFacts: [
       {
@@ -843,7 +843,7 @@ export const storyCards: StoryCardData[] = [
       "The party sailed for the Styes on the first of Needfest with a strange crew: Nenredhe (Mornie's terrifying handler), Refrum, and a new addition named Eri-Xanaphia Aaliyax, who had a winged cat and a deeply uncomfortable history with Mornie. At sunset a wyvern attacked, killed a sailor, and was shot through the throat by Airell while it was grappling Arienh — casual heroism at this point. Arriving at the Styes, Captain Sohral was given the sending stone and told to return in two weeks or show up on the third of the month if she didn't hear from them. Then they hiked to Nenredhe's manor base of operations and found it devastated — bodies of trainees strewn across the grounds, killed in their nightgowns a week ago. Whatever had done this had quadruped tracks and had dragged every magical item into the basement. The Styes mission had just gotten much more complicated.",
     imagePrompt:
       "A ship sailing toward a grim city at sunset, a wyvern diving toward the deck with heroes bracing for battle, golden light turning to shadow",
-    backgroundImage: "chapter_34.png",
+    backgroundImage: "chapter_34.jpg",
     animation: ["ship-rocking"],
     funFacts: [
       {
@@ -869,7 +869,7 @@ export const storyCards: StoryCardData[] = [
       "The manor had been hit by Chuul — giant crab-like aberrations from the Far Realm — who had killed every trainee and were still inside, hauling magical books and items to the basement and piling them in a heap. The party killed two of them. Nenredhe discovered that what appeared to be Drawmij the Archmage's corpse was a magical duplicate — suggesting the real Drawmij might still be alive somewhere. She promptly teleported away with Refrum to a 'safe location,' leaving the party holding instructions: bury the bodies, burn the books, secure Jarme. They discovered Mornie's gun had been enchanted with Magic Mouth at some point — every confirmed kill was announced with a cheerful 'BOOM! HEADSHOT!' Someone had spent 10 gold on this enchantment. MK named one of the dead Chuul 'Jean-Claude.' They burned the bodies. Kellen kept several of the books.",
     imagePrompt:
       "Adventurers battling massive crab-like aberration monsters inside a ransacked mansion library, books scattered everywhere, dark magical atmosphere",
-    backgroundImage: "chapter_35.png",
+    backgroundImage: "chapter_35.jpg",
     animation: ["battle-shake"],
     funFacts: [
       {
@@ -895,7 +895,7 @@ export const storyCards: StoryCardData[] = [
       "With the manor handled and Nenredhe gone, the party entered the Styes during Needfest — the new year festival, one of the few times this wretched city had any energy. Each quarter 'celebrated' differently: the Alchemy Quarter forced people to eat until they vomited, then eat more. After bribing the bridge guards they gathered information across the city. Jarme had already been executed weeks ago, ranting about 'the Whisperer' who made him do it. A new murder had occurred in the Lower Quarter. Mornie tried to investigate a massive whale-shaped shadow lurking beneath the harbor water — it turned out to be an aboleth, an ancient psychic creature. Kellen drank something from the local water supply and immediately developed the dreaded Water Sickness, a fatal illness with no cure. She seemed to recover somewhat. Airell picked pockets across the Styes and found nothing because everyone was already desperately poor.",
     imagePrompt:
       "A grimy fantasy city celebrating a chaotic festival by torchlight, bridges over dark water, shadowy massive shapes lurking beneath the surface, revelry and menace mixed",
-    backgroundImage: "chapter_36.png",
+    backgroundImage: "chapter_36.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -921,7 +921,7 @@ export const storyCards: StoryCardData[] = [
       "The party located the creepy beached ship that Jarme had drawn obsessively on his cell walls. Two cloaked figures stood on the deck, motionless, dripping despite no rain. Mornie tried to open dialogue. The figures attacked — translucent, mucus-coated, deeply inhuman. Then the aboleth surfaced behind the ship. Kellen accidentally cast Fear, which hit MK; MK's magical sword tried to counterspell it and failed, leaving MK frightened and armed with a counterspell failure at the worst moment. MK transformed into something demonic and fireballed most of the party. The aboleth, it turned out, didn't want them dead — its slime-covered scum creatures stabilized the fallen heroes in an extremely unpleasant fashion. Mornie was the last one standing, tried to maneuver around the aboleth, and failed. When the party woke up, they were breathing water, their skin was translucent and slimy, and a voice whispered 'You are mine now.'",
     imagePrompt:
       "Adventurers overwhelmed by translucent slime-covered creatures on a derelict beached ship, a massive squid-like aboleth emerging from dark water, horror fantasy scene",
-    backgroundImage: "chapter_37.png",
+    backgroundImage: "chapter_37.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -945,7 +945,7 @@ export const storyCards: StoryCardData[] = [
       "The party woke in an underwater grotto, breathing water, skin translucent and slimy. The aboleth — Sgothgah — had mentally enslaved them and had one demand: kill the two rival aboleths that had come to destroy the Kraken and claim its territory. Inter-aboleth politics, as it turned out, were deeply petty. Mornie submitted to Sgothgah's will first. Arienh and Eri held out one more day. MK and Kellen had already been under its influence for some time, which explained recent troubling behavior. Airell had escaped the whole situation by leaving before the fight started and was wandering the Styes alone with Water Sickness, looting warehouses and impersonating Emperor Mon for fun. 'You are mine,' Sgothgah's voice echoed in their collective minds. They had no plan, no equipment, and were made of slime. Things were bad.",
     imagePrompt:
       "Characters underwater with translucent glowing skin, trapped in a phosphorescent sea cave, a massive aboleth creature looming with tendrils, psychedelic horror fantasy",
-    backgroundImage: "chapter_38.png",
+    backgroundImage: "chapter_38.jpg",
     animation: ["underwater"],
     funFacts: [
       {
@@ -971,7 +971,7 @@ export const storyCards: StoryCardData[] = [
       "Forced to serve Sgothgah's will, the party dove into deeper water to fight the rival aboleths — a 'sovereign' and an 'enforcer.' The battle was spectacular: mind blasts, psychic compulsions, tentacles everywhere. Sgothgah then freed the Kraken believing it could control the beast — and was immediately proven wrong, as the juvenile Kraken wrapped tentacles around the enemy aboleths instead. Each party member broke free of Sgothgah's mental control when the enemy aboleths attacked them directly (getting hit in the face is apparently a reliable cure for mind control). MK single-handedly destroyed the enforcer. Mornie stabbed Sgothgah while screaming at it to get out of her head. Arienh finished the sovereign with her thorn whip. And in the chaos, Kellen briefly connected with the Kraken's mind — her eye spinning wildly — before the wounded creature fled into the open ocean. They had survived. They were still covered in slime.",
     imagePrompt:
       "An epic underwater battle between heroes and massive aboleth creatures, a juvenile kraken thrashing with tentacles in bioluminescent light, spectacular chaotic underwater combat",
-    backgroundImage: "chapter_39.png",
+    backgroundImage: "chapter_39.jpg",
     animation: ["underwater"],
     funFacts: [
       {
@@ -997,7 +997,7 @@ export const storyCards: StoryCardData[] = [
       "Emerging from the grotto still translucent and shell-shocked, the party found Sgothgah's lair ransacked — Mr. Dory's men had cleaned it out while they were busy. They were slowly regaining the ability to breathe air. City guards arrived to arrest them, but were interrupted by a ragged man of obvious noble bearing who declared the heroes his retinue and ushered them home: the bizarre Emperor Mon, who genuinely believed himself ruler of the Styes and whose confidence made it work. His manservant Manfred made tea. Then Nenredhe arrived, then Drawmij the Archmage — polite, reasonable, and the only person who could make Nenredhe behave. Drawmij identified a dangerous demonic rune on MK's hand. He had Nenredhe perform a divine ritual that gave them all a full rest. Then Nenredhe called Mornie a failed experiment and threatened to 'clear' both her and Eri. Drawmij overruled her. Good archmage.",
     imagePrompt:
       "Slimed adventurers being welcomed by a dignified man in ragged noble clothes in a modest apartment, an archmage and a severe woman arriving through the doorway",
-    backgroundImage: "chapter_40.png",
+    backgroundImage: "chapter_40.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -1023,7 +1023,7 @@ export const storyCards: StoryCardData[] = [
       "Rested, de-slimed (mostly), and furious, the party turned their full attention to Mr. Dory — crime lord, extortionist, and the man who had taken their 3,000 gold pearls and Airell's cloak. They scouted his headquarters: a ship suspended from a crane over a warehouse, surrounded by two squadrons of hobgoblin musketeers, with manticores prowling the upper floors and Dory himself working in his dripping office. Arienh went in as a spider to confirm the layout. The plan was to wait for Dory to leave and enter as guards with 'prisoners.' Dory never left. So Arienh threw a flame at a barrel. The crane exploded. The ship crashed down into the warehouse. The plan had evolved significantly from where it started, but the result was the same: chaos, fire, and an opportunity.",
     imagePrompt:
       "A ship suspended from a crane high above a warehouse surrounded by hobgoblin soldiers on the rooftops, a dramatic moment before everything explodes",
-    backgroundImage: "chapter_41.png",
+    backgroundImage: "chapter_41.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -1049,7 +1049,7 @@ export const storyCards: StoryCardData[] = [
       "The crane's collapse was magnificent. Hobgoblins scrambled in the rubble, Kellen's Hunger of Hadar consumed the manticores, Arienh smothered fires, and Mornie's gun announced every kill. Then Dory's assassin Harid turned on his own employer and shot Dory. Wounded, Dory vanished — stepping through to the ethereal plane. MK used the Oil of Etherealness (their original mission objective, seventeen sessions later) to follow him there and finished the job. In the rubble they recovered all their stolen goods, including Airell's cloak. And they met Harid properly — a member of a different, arguably saner Scarlet Brotherhood faction who had infiltrated Dory's operation. He confirmed the crazy Brotherhood had been working toward this kraken ritual for thirty years, that the kraken could not be controlled, and that Kellen's connection to the Chained Oblivion was the most dangerous thing he'd ever heard of. Everyone agreed.",
     imagePrompt:
       "A warehouse in flames with a crashed ship in the rubble, heroes fighting through fire and smoke, a figure chasing another into a ghostly ethereal dimension",
-    backgroundImage: "chapter_42.png",
+    backgroundImage: "chapter_42.jpg",
     animation: ["fire"],
     funFacts: [
       {
@@ -1075,7 +1075,7 @@ export const storyCards: StoryCardData[] = [
       "Returning to Saltmarsh covered in Styes grime, the party told Eda and Gellan what had happened. Mornie summarized: 'We battled an ancient creature, killed a couple local council members, turned into slime people, then back — the usual.' Eda said 'don't make me regret it' and walked away. Then Anders appeared at Arienh's door frantic — Skerrin was unwell, could she come heal him? They arrived to find Skerrin's room empty and a letter on the nightstand accusing everyone of everything (some fabricated, some accurate). Skerrin had fled with his Brotherhood allies. Kellen confessed she'd been casting Dream on Skerrin nightly for weeks to drive him mad. Then a sahuagin raid hit Saltmarsh — Arienh's house was demolished from inside when she transformed into a dinosaur to fight — and Eda was killed by the attackers, only to be brought back by Arienh's Revivify spell. Never a quiet night in Saltmarsh.",
     imagePrompt:
       "A coastal town under sahuagin attack at night, a massive dinosaur bursting through a house roof from inside, fish-warriors in the streets, heroes fighting in all directions",
-    backgroundImage: "chapter_43.png",
+    backgroundImage: "chapter_43.jpg",
     animation: ["battle-shake"],
     funFacts: [
       {
@@ -1101,7 +1101,7 @@ export const storyCards: StoryCardData[] = [
       "The party set off to find Skerrin before he could escape the continent. Tracking through hills and forest, they flew over troll country on conjured giant owls (including Kellen's pony Sparky, who handled this calmly), spoke with elven forest scouts who'd seen Skerrin's path, and eventually reached Turtleback Agatha's cottage — a hag whose green-glowing home sat in the middle of a burned village haunted by will-o'-wisps and red caps. Agatha knew exactly what they wanted and who they were. She had given Skerrin free passage and knew where he'd gone. After receiving a gift of one aboleth tentacle, Agatha made Arienh a deal: the location of Skerrin in exchange for Arienh permanently giving up the ability to cast Revivify. Arienh accepted without hesitation. Skerrin was heading to the coast to board a ship bound across the Azure Sea. They rode through the night.",
     imagePrompt:
       "A glowing green cottage in a desolate burned village surrounded by floating will-o-wisps, adventurers approaching a dangerous hag in the eerie light",
-    backgroundImage: "chapter_44.png",
+    backgroundImage: "chapter_44.jpg",
     animation: ["fog"],
     funFacts: [
       {
@@ -1127,7 +1127,7 @@ export const storyCards: StoryCardData[] = [
       "Giant owls carried the party to the Coast Road, where they met a travelling halfling family who asked breathlessly if they were the famous Boarders Three. They were. Arriving at Seaton after dark, they used Walk on Water to sneak past the closed city gates. Kellen's reunion with her family in the gnome quarter of Hurlem's Isle was warm, tearful, and involved her mother cornering her despite Kellen's attempt to use MK as a human shield. The family agreed to take precautions against Skerrin's threat. Mornie and Airell hit the docks separately and found what they needed: a Duxchani ship loading cargo fast in the rain, clearly trying to leave. The ship's lines were built like the Falling Star — both came from the same corner of the world. Skerrin was aboard and almost gone. They had until dawn.",
     imagePrompt:
       "A coastal city at night in the rain, a gnome community with multi-story stacked buildings, heroes sneaking through wet streets toward docks where a foreign ship loads urgently",
-    backgroundImage: "chapter_45.png",
+    backgroundImage: "chapter_45.jpg",
     animation: ["rain"],
     funFacts: [
       {
@@ -1153,7 +1153,7 @@ export const storyCards: StoryCardData[] = [
       "With Skerrin about to flee, the party had minutes to act. Airell dove into the harbor and swam to the ship unseen. The others approached the docks as Arienh transformed into a giant eagle. Mornie used the sword to shout at the captain to hold position. What followed was a brilliant chaotic fight across the ship's deck — Kellen's sickening radiance burning through the crew, Airell throwing ball bearings through windows at enemy wizards, Arienh shot by a poisoned crossbow bolt and crashing down near death. Airell killed the enemy wizard and healed Arienh. Then Skerrin turned invisible and jumped overboard. MK, who had been running from shore the entire time, spotted his splash and grappled him the moment he climbed out of the water. Trapped, poisoned by his own dream curse, and staring at MK, Skerrin chose to stab himself rather than face justice. He died with a lie on his lips.",
     imagePrompt:
       "A desperate fight on a ship deck in a rainy harbor at dawn, a gnome firing radiant energy, a giant eagle crashing down, a figure in black grappled at the water's edge",
-    backgroundImage: "chapter_46.png",
+    backgroundImage: "chapter_46.jpg",
     animation: ["battle-shake", "rain"],
     funFacts: [
       {
@@ -1177,7 +1177,7 @@ export const storyCards: StoryCardData[] = [
       "The next morning brought the full Saltmarsh delegation: Eda, Gellan, Kester, Captain Sohral, the Stoutly brothers, and even Kellen's halfling best friend Bait — all vouching for the party. The King had come in person, accompanied by Emperor Mon (who got several guards to address him as 'Your Majesty') and Archmage Drawmij who quietly confirmed Skerrin's Brotherhood connections to the court. Skerrin had sent Anders another letter; Anders had published both letters publicly, which inadvertently exposed Skerrin's timeline error — he'd claimed to know about the sahuagin attack before it happened, which was impossible unless he'd helped plan it. The case collapsed. The party was cleared of all charges and sent home with the Saltmarsh delegation. They returned to find their house fully restored by their new household staff and ready for whatever came next.",
     imagePrompt:
       "A medieval court scene with an entire delegation from a coastal town vouching for a group of adventurers, a king observing, an archmage in the background, justice served",
-    backgroundImage: "chapter_47.png",
+    backgroundImage: "chapter_47.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -1203,7 +1203,7 @@ export const storyCards: StoryCardData[] = [
       "The party returned to a Saltmarsh transformed. Months of downtime had produced an economic boom: new neighborhoods sprawled across the hillsides, a lighthouse stood on Abbey Isle, the Skull Beach had been cleared by cannon fire, and the Falling Star patrolled the bay keeping trade routes safe. Kellen had an entire neighborhood named after her. Songs about the party played in every tavern. But not everything was celebration — the sahuagin had sunk their fortress two levels deeper underwater, and no scouting party sent to investigate had returned. The council needed answers. Mornie tried and failed to rehabilitate the increasingly-drunk Sir Piersym. Arienh learned that Graz'zt's spawn — a demon-god — was searching for her family line. Kellen built something mechanical in her room for two weeks straight, producing constant ozone smell and large blueprints. At the council meeting, she began reporting on the sahuagin and the warning bell rang.",
     imagePrompt:
       "A thriving, expanded coastal city with new neighborhoods and a distant lighthouse, the Falling Star sailing the bay, but storm clouds building on the horizon",
-    backgroundImage: "chapter_48.png",
+    backgroundImage: "chapter_48.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -1229,7 +1229,7 @@ export const storyCards: StoryCardData[] = [
       "Twelve miles out, the Falling Star dropped the party into the water. Arienh became a shark and Kellen rode her; the others swam. En route they carefully avoided sahuagin herding great sharks and passed a sunken Chained Oblivion temple that Kellen could feel like a cold pressure from a distance. The fortress itself had been rebuilt and partially sunk — larger and stranger than before, with 70 sahuagin drilling formations in the south entrance alone. Finding a hidden third entrance, they crept inside, found sahuagin torturers at work, and made short work of them. They freed a prisoner named Borgas. In another cell, a dark elf named Varsis sat controlling the water pressure around himself, summoned a shadow sickle from nothing, and calmly informed them he'd been waiting for their arrival, sent by the Raven Queen. They accepted this as normal at this point in their careers.",
     imagePrompt:
       "Heroes swimming underwater toward a massive half-submerged sahuagin fortress of dark stone, giant sharks circling above, bioluminescent creatures in the depths",
-    backgroundImage: "chapter_49.png",
+    backgroundImage: "chapter_49.jpg",
     animation: ["underwater"],
     funFacts: [
       {
@@ -1255,7 +1255,7 @@ export const storyCards: StoryCardData[] = [
       "Varsis confirmed the layout: the four-armed Baron and his High Priestess lived on the middle level, which also held the ritual chamber where gladiatorial fights were held for the Eye in the Deep every several days. While Varsis explained this, a sahuagin patrol of eight marched past the doorway — the party held completely still and the guards kept walking. Pressing upward to the middle level, they stumbled into an active ritual to the Eye in the Deep. Airell threw a Silence field over the chamber. Kellen dropped Hunger of Hadar into it. The ritual collapsed, the giant shark being controlled by the priests immediately turned on a sahuagin and ate it, and Arienh's octopi grappled the freed shark while MK fought the remaining priests. In the chaos, Airell spotted ancient Oeridian carved into the altar — a fishing prayer twisted into a storm-summoning rite for the Kraken. They kept going up.",
     imagePrompt:
       "Heroes interrupting a dark ritual in an alien stone underwater chamber, a giant shark breaking free and turning on sahuagin priests, chaotic bioluminescent underwater combat",
-    backgroundImage: "chapter_50.png",
+    backgroundImage: "chapter_50.jpg",
     animation: ["underwater"],
     funFacts: [
       {
@@ -1281,7 +1281,7 @@ export const storyCards: StoryCardData[] = [
       "They were spotted. Sahuagin poured from every direction — ahead, behind, above — and the party fought running battles through dark stone corridors, killing groups only to find more around every corner. Wave after desperate wave. Kellen, running out of spell slots, reached out to the Chained Oblivion for power — and was immediately connected directly to the source. It offered to send the Kraken. She said yes, because things were dire and she wasn't thinking clearly. More fighting. They finally found stairs to the top level and barely made it through, leaving carnage behind them. The Kraken was now on its way. Kellen had not yet told anyone this.",
     imagePrompt:
       "Heroes in a desperate running battle through the dark alien stone corridors of an underwater fortress, sahuagin soldiers pouring from multiple directions, torches and chaos",
-    backgroundImage: "chapter_51.png",
+    backgroundImage: "chapter_51.jpg",
     animation: ["battle-shake"],
     funFacts: [
       {
@@ -1307,7 +1307,7 @@ export const storyCards: StoryCardData[] = [
       "Top floor! Mornie freed every slave she found and now led a group of terrified non-combatants through an active sahuagin fortress. Airell found an exit but it passed through a room full of sahuagin playing games — the party sprinted through before anyone reacted. The slaves, mostly, were recaptured. One orc named Gedik made it. Outside, the water churned with movement. Arienh conjured giant owls to lift everyone into the night air. A sahuagin threw a spear; it missed. They flew toward the Falling Star barely faster than the great shark chasing them from below. Sails were up before the owls landed. They escaped into the dark. Kellen told them the Kraken wasn't coming — she had checked — and passed out cold. No one knew what she'd done. At 1 AM, a voice from the crow's nest screamed: 'Kraken!'",
     imagePrompt:
       "Giant owls carrying heroes away from a fortified tower into a dark night sky, a massive shark leaping from the water below, the Falling Star visible in the distance",
-    backgroundImage: "chapter_52.png",
+    backgroundImage: "chapter_52.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -1333,7 +1333,7 @@ export const storyCards: StoryCardData[] = [
       "Kellen's nightmare had called the Kraken through her pact — and it had manifested alongside the ship, its aurora-lit form rising from the water. MK solved the problem by squeezing Kellen until she couldn't breathe, breaking her concentration. The Kraken faded. Arienh cast Greater Restoration to lift the curse. Crisis over — for now. Returning to Saltmarsh, the council was furious about the leaked details of their 'secret' scouting mission. Xendros showed up at MK's door frantically packing to leave — she had to return home to Dorakaa. She gave MK every healing potion she had, plus a ritual to contain the inner demon for another year, and left. MK asked her not to go. The clock on the demon ritual was now ticking. Kellen spent the downtime asking the Chained Oblivion more questions. Mornie did not think this was a good idea.",
     imagePrompt:
       "The deck of the Falling Star at night, a spectral kraken form fading into dark water, heroes catching their breath, one gnome being firmly shaken awake by a very tall woman",
-    backgroundImage: "chapter_53.png",
+    backgroundImage: "chapter_53.jpg",
     animation: ["storm", "waves", "ship-rocking"],
     funFacts: [
       {
@@ -1359,7 +1359,7 @@ export const storyCards: StoryCardData[] = [
       "Three weeks of preparation. The plan was elegant: lure the sahuagin into Crabber's Cove using the party as bait, while the Saltmarsh fleet waited with cannons at point-blank range. Sir Piersym, somewhat less drunk than usual, demanded to participate and was taken on the Falling Star mostly to keep him supervised. The trap worked perfectly — the sahuagin came straight into the cove as predicted. The signal went up, cannons roared, Sir Piersym charged with his few loyal soldiers. The sahuagin High Priestess banished Mornie to another plane in the middle of the battle. Then Arienh killed the Priestess with her wand of magic missiles, collapsing all the sahuagin illusions at once. But a desperate scrying spell mid-battle revealed the terrible truth: while they fought here, a second sahuagin force was simultaneously sacking Saltmarsh. Kellenville was on fire.",
     imagePrompt:
       "A cove battle with cannon fire and sahuagin forces in the water, a ranger firing a magical wand at a fish-warrior priestess, smoke and chaos, ships in the background",
-    backgroundImage: "chapter_54.png",
+    backgroundImage: "chapter_54.jpg",
     animation: ["battle-shake"],
     funFacts: [
       {
@@ -1385,7 +1385,7 @@ export const storyCards: StoryCardData[] = [
       "No sahuagin survived the cove battle — but there was no time to celebrate. Arienh, Airell, and Mornie were already running on water toward Saltmarsh while MK and Kellen helped coordinate the fleet's return. The trio arrived at Kellanville's cliffs and were immediately almost shot by dwarves who didn't recognize them. Inside the dwarven headquarters, Manistred showed them the terrible situation map: the sahuagin Baron and Baroness were inside the city. Liup Wain — a Brotherhood sorcerer the party had killed before — was alive again and had been casting a ritual at the standing stones on Siren's Point since 2 AM. Three men they'd already killed were here, mysteriously resurrected. The fleet was an hour out. Saltmarsh needed them now, in the middle of a city under siege, facing enemies who apparently couldn't stay dead.",
     imagePrompt:
       "A coastal medieval city under sahuagin siege, heroes climbing cliffs at speed to reach defenders, a robed figure casting dark magic from ancient standing stones above the city",
-    backgroundImage: "chapter_55.png",
+    backgroundImage: "chapter_55.jpg",
     animation: ["battle-shake"],
     funFacts: [
       {
@@ -1411,7 +1411,7 @@ export const storyCards: StoryCardData[] = [
       "MK flew Kellen and Varsis across the storm-black water invisibly to join the fight at Siren's Point. Above the standing stones, Kellen launched sickening radiance at Liup, Streth, and Nhemir — the three Brotherhood agents running the ritual. Mornie was paralyzed by a spell for most of the fight. Airell collected heads. Varsis saw a diseased raven flying impossibly against the storm and said nothing. He landed, killed a sahuagin about to murder Eda — and then beheaded Eda himself. The Raven Queen's raven had brought him his real mission. He let the townspeople knock him unconscious without resistance. Over the next hour, the sahuagin were broken: one giant shark killed, another fled, dozens slain. When the dust settled, Eda was dead, Varsis was in chains, a third of the city's population was missing or dead, and 400 were confirmed killed. The cost had been catastrophic.",
     imagePrompt:
       "A nighttime city battle in a raging storm, lightning illuminating heroes fighting on cliff-top standing stones, a betrayal happening amid the chaos, devastation in every direction",
-    backgroundImage: "chapter_56.png",
+    backgroundImage: "chapter_56.jpg",
     animation: ["lightning", "rain"],
     funFacts: [
       {
@@ -1435,7 +1435,7 @@ export const storyCards: StoryCardData[] = [
       "Morning. Eda's funeral procession wound from Uphill to the cemetery, flowers thrown into the grave. Varsis was hanged afterward and didn't resist — a raven perched on the gallows post left the moment he died, confirming the Raven Queen received what she came for. Eda's daughter gave Arienh sealed documents revealing that Arienh and Eda shared family lineage, both descended from generals who had betrayed Iuz six hundred years ago — and Iuz had hunted their bloodlines ever since. Ferrin had known. In the chaos of reconstruction, Anders offered his warehouse as a hospital and his fish stores to feed survivors. He didn't wait to be asked. When Skerrin's manipulation ended, the real Anders had finally shown up. Eliander arrived from Seaton with five black ships. Kellen began reporting to the council on incoming threats. The warning bell rang. Five ships on the horizon.",
     imagePrompt:
       "A devastated medieval coastal town the morning after battle, a funeral procession carrying flowers past smoldering ruins, survivors gathering at a dwarven mining hall for council",
-    backgroundImage: "chapter_57.png",
+    backgroundImage: "chapter_57.jpg",
     animation: ["smoke"],
     funFacts: [
       {
@@ -1461,7 +1461,7 @@ export const storyCards: StoryCardData[] = [
       "Days of slow reconstruction. Eliander gave Mornie the deed to his house. Kellen went on an awkward date with Nolan Oneshoe and had a surprisingly good time; he later brought her a chamber pot as a housewarming gift, which she appreciated. Arienh scryed on Skerrin — he was in Port Toli, very much alive again, planning to sail with enslaved passengers to a 'Sorrowful Place' in the ocean where the Kraken waited to be bound. The ritual required three hundred souls sacrificed simultaneously. They had days to catch him before the fleet launched. Mornie assembled every seaworthy ship Saltmarsh had left — Eliander's Fury of Gradsul plus the battered Falling Star — loaded the best soldiers, and set course to intercept. The Monmurg expedition was also moving. Everything was converging at sea.",
     imagePrompt:
       "A war council aboard a ship at sea, heroes planning around maps on a table, two ships visible through the porthole sailing toward a dark horizon",
-    backgroundImage: "chapter_58.png",
+    backgroundImage: "chapter_58.jpg",
     animation: ["ship-rocking", "waves"],
     funFacts: [
       {
@@ -1487,7 +1487,7 @@ export const storyCards: StoryCardData[] = [
       "The fleet sailed. On the third day out, Airell's owl spotted five sails in formation — Skerrin's ships. The Falling Star had the weather gauge. Then the Deceit rammed them and hand-to-hand combat erupted across both ships. Kellen made Skerrin see visions of everyone he'd killed at the Sea Grove, stabbing him while he suffered through the faces. MK disintegrated Skerrin — turned him into ash between one breath and the next. The battle ended. Four ships were captured, one surrendered at sea. MK needed to be healed back to consciousness and Kellen discovered a binding ritual inscribed in diamond dust and squid ink on the Deceit's hull — a Brotherhood prototype for binding the Kraken with three hundred souls. They had stopped it in time. The Fury of Gradsul was sent back to Saltmarsh with the captured ships. The Falling Star changed course for the Styes.",
     imagePrompt:
       "Two ships locked in battle on the open ocean, adventurers fighting across decks, a gnome making a man see visions of his victims, a woman turning into fire and disintegrating someone",
-    backgroundImage: "chapter_59.png",
+    backgroundImage: "chapter_59.jpg",
     animation: ["battle-shake", "waves"],
     funFacts: [
       {
@@ -1513,7 +1513,7 @@ export const storyCards: StoryCardData[] = [
       "The Falling Star arrived at the Styes to find three Brotherhood ships bombarding the city with cannon fire. Captain Sohral made an immediate tactical decision: hit them fast from the fog. Kellen's sickening radiance killed the entire crew of the first ship. Arienh called lightning onto the second. Then a rolling darkness rose from the ocean floor. A tentacle coiled around the Falling Star. The third Brotherhood ship was crushed by something immense. The Kraken had arrived at the Styes. Mornie drew the Memory of Ruin and drove it into the Kraken's flesh — and when the creature's blood touched the blade, it shuddered, glowed, and woke up. The awakening artifact surged with cold fury through Mornie's arm. The Kraken shattered the ship in two. Kellen appeared on deck and broke her pact — her owl eye dissolved into white goo — and held the Kraken in place with her last reserves. Drawmij stepped through a dimensional door. 'Get to the beach,' he said. 'Now.'",
     imagePrompt:
       "The Falling Star being crushed by a massive kraken's tentacles at night near a burning city, a glowing sword awakening in a warrior's hands, a dimension door opening on the deck",
-    backgroundImage: "chapter_60.png",
+    backgroundImage: "chapter_60.jpg",
     animation: ["storm"],
     funFacts: [
       {
@@ -1539,7 +1539,7 @@ export const storyCards: StoryCardData[] = [
       "With the Falling Star breaking apart, Drawmij ordered everyone to the beach point and began a teleportation ritual. The party fought desperately to hold the Kraken long enough — Arienh's conjured snakes, Mornie's awakened sword, Airell's arrows, MK's furious strikes. The Kraken's lightning hit Drawmij mid-cast and broke his concentration. The teleport failed. Airell, sensing what was coming, sprinted out of range. Drawmij grabbed everyone else and stepped through another door. Airell was alone on a dark beach with a kraken. He ran. The Kraken, distracted by Kellen's rainbow shark illusion, eventually turned back to sea. Airell walked into the burning Styes, looted a warehouse, and spent the night sleeping in a pile of empty crates while the archmage and the rest of the party sat in a small metal submarine sixty feet underwater, catching their breath.",
     imagePrompt:
       "Heroes fighting desperately on a dark beach against a massive kraken by night, lightning crashing everywhere, a lone figure sprinting away as others teleport to safety",
-    backgroundImage: "chapter_61.png",
+    backgroundImage: "chapter_61.jpg",
     animation: ["lightning", "rain"],
     funFacts: [
       {
@@ -1563,7 +1563,7 @@ export const storyCards: StoryCardData[] = [
       "The submarine — the Sea Cow — was Drawmij's private underwater vessel, forty feet long, with transparent walls and a kitchen replicator that could produce 'a passable version of any food.' Very comfortable for a post-kraken recovery. Drawmij briefed everyone with characteristic bluntness: the Kraken was 120 miles away, could sense Kellen, and would arrive in five days. His underwater citadel had been destroyed by the Kraken two months ago. The archmage had been stuck in Celene ever since, unable to return. He had no spellbook. His clones had been systematically murdered. He examined MK, identified the demonic rune in her hand, and in one devastating conversation revealed that MK was a constructed being — the failed first attempt at Mornie's process, her body belonging to a girl who died in an accident, with a demon that had burst out during creation. MK fainted. Then they discussed what to do about the Kraken.",
     imagePrompt:
       "Heroes inside a small underwater submarine with transparent walls showing the ocean depths, an archmage at the center briefing them on devastating information, exhausted faces",
-    backgroundImage: "chapter_62.png",
+    backgroundImage: "chapter_62.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -1589,7 +1589,7 @@ export const storyCards: StoryCardData[] = [
       "On the Sea Cow, Drawmij explained his master plan for the Kraken: go to Hokar, find the archmage who controls the continent's gunpowder supply, and make the cannons themselves magical. Airell produced a teleportation scroll to Hokar that they'd taken from the Brotherhood months ago. They teleported — and landed in a Brotherhood safehouse in Hokar's western quarter. The Brotherhood agent they'd interrupted yelled 'It's the Keolanders!' and attacked. The party killed everyone except one prisoner. Drawmij sat down, wrote the Hokar archmage a polite note saying they'd found his Brotherhood infestation and left him one alive for questioning, then ordered coffee. The city's police force arrived, then the Custodians, then a delegation to escort them to the Polar of Pool — the strange worm-man who ruled Hokar's arcane elite and hated Drawmij personally. Things were about to get very diplomatic.",
     imagePrompt:
       "Adventurers inside a Brotherhood safehouse with maps and coded letters, an archmage calmly writing a note while police gather outside, a prisoner tied in the corner",
-    backgroundImage: "chapter_63.png",
+    backgroundImage: "chapter_63.jpg",
     animation: ["flickering-fire"],
     funFacts: [
       {
@@ -1615,7 +1615,7 @@ export const storyCards: StoryCardData[] = [
       "The Polar of Pool's audience chamber had a floor made entirely of gemstone-inlaid maps and pillars of magical light. He compelled several party members to speak only truth, asked MK what was really inside her, and asked Arienh her deepest desires. He was clearly using Legend Lore to know things about them he shouldn't. Then Kellen cast rainbow sharks — the entire room erupted in Selouise counter-glyphs, two dozen half-dragon guards leveled weapons, and the Polar looked at Kellen with genuine interest. Airell discretely offered to sell him the Grimoire of the Deep. Drawmij said absolutely not. The Polar then revealed something crucial: Kellen hadn't read the Grimoire's introduction — she'd skipped straight to the spells — which is why she couldn't control the Kraken. He agreed to magically enhance Hokar's cannons. They teleported immediately to Port Toli with a full delegation of half-dragons. The Kraken was ninety miles away and moving.",
     imagePrompt:
       "A grand audience chamber with a gemstone floor map, a worm-like creature on a throne facing adventurers, magical glyphs erupting from the walls, half-dragon guards at ready",
-    backgroundImage: "chapter_64.png",
+    backgroundImage: "chapter_64.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -1641,7 +1641,7 @@ export const storyCards: StoryCardData[] = [
       "Port Toli greeted them with controlled military chaos. Princess Glia Blackswan, priestess of Fharlanghn, ran the city from a massive town hall surrounded by soldiers and bureaucrats. She and Drawmij argued productively. The plan: load the party and Kellen onto a decoy ship outside the harbor, wait for the Kraken, and lead it into the magically-enhanced cannons lining the harbor walls. They spent the day on preparations. Airell got a new owl familiar and memorized the teleportation circle sigils. Kellen reached into the Kraken's mind one more time to find its location — it was ninety miles out, sleeping, two of its multiple minds running, one of them obsessively cataloguing its traumas and desired revenge. It noticed her. It threatened her family and friends in vivid detail. Kellen woke up screaming and immediately attacked Flicker the pseudodragon, who was sleeping on her face.",
     imagePrompt:
       "A military coastal city in urgent preparation, soldiers reinforcing harbor walls, a ship being loaded with adventurers as bait, storm clouds gathering to the north",
-    backgroundImage: "chapter_65.png",
+    backgroundImage: "chapter_65.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -1667,7 +1667,7 @@ export const storyCards: StoryCardData[] = [
       "The party spent a night aboard the decoy ship in the harbor mouth, watching for the Kraken on rotating watches. Drawmij joined Mornie on the second watch and gave her a list of spy contacts, cover identities, and recognition codes from his network — in case he died in the coming battle. He also asked her to find whoever had killed the Circle of Eight mages in Greyhawk. Then he kept writing something he kept hidden. At dawn, Airell spotted a tell-tale wake cutting across the waves toward them — no creature should move that fast underwater. They had minutes. MK heaved the anchor up single-handedly, Arienh spun the wheel, Mornie scaled the rigging to drop the sails in one sprint. The ship wheeled into the harbor at speed. Kellen was clinging to the mast. The Kraken's shadow crossed the harbor entrance. Every cannon in Port Toli was now loaded and ready. Everyone waited.",
     imagePrompt:
       "A ship racing back into a fortified harbor at dawn with a massive kraken wake cutting through the water behind it, harbor cannons rotating to track the incoming threat",
-    backgroundImage: "chapter_66.png",
+    backgroundImage: "chapter_66.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -1693,7 +1693,7 @@ export const storyCards: StoryCardData[] = [
       "The Kraken entered the harbor. Arienh raised the ocean floor into a trench that trapped it while the cannons unloaded — devastating. Then the Kraken released a magical antimagic pulse that shattered every spell effect in the harbor. It grappled Kellen, Airell, and Drawmij simultaneously. The Polar of Pool, watching from his golden floating throne, launched a Disintegrate spell that blew off one of the Kraken's tentacles — then the Kraken killed the throne's magic and the Polar teleported away, letting his seneschal fall into the harbor. Kellen was squeezed to death. MK was swallowed whole, fought from the inside, and died in the acid. Mornie shot the Kraken twice through its abdomen with her awakened pistol. The Kraken keeled over dead — killed by c-section, the bullet finding MK's location inside. Airell ran to MK and breathed life back into her. Arienh used her last diamonds to revive Kellen. The Kraken was dead.",
     imagePrompt:
       "The climactic harbor battle with a massive kraken being struck by magical cannons, a warrior shooting from point-blank range, a gnome being revived on the shore, victory and loss together",
-    backgroundImage: "chapter_67.png",
+    backgroundImage: "chapter_67.jpg",
     animation: ["battle-shake"],
     funFacts: [
       {
@@ -1719,7 +1719,7 @@ export const storyCards: StoryCardData[] = [
       "Three days aboard the Sea Cow, then home. Mornie stood on the hull and shouted through her sword: 'The Kraken is dead! We're back!' A ragged cheer rose from the shore. Kellen's family was waiting at the dock and immediately buried her in hugs, her mother furious and relieved in equal measure. Someone had found Drawmij's old spellbook on the Falling Star; Kellen gave it back and Drawmij looked like he might actually express gratitude. He left on the Sea Cow. The house had been fully cleaned and restocked while they were gone. In the weeks that followed: Gellan took over Eda's council seat and was miserable about it; Kellenville was almost completely rebuilt; Kellen built a mechanical fan system for the house; a Rakshasa shapeshifter showed up wearing Mornie's face and proved immune to everything they tried. And then Arienh scryed on a powerful mage in Scant and found Bigby. Time for Greyhawk.",
     imagePrompt:
       "Heroes returning to a recovering coastal town to cheering crowds at the dock, families reuniting, the damaged Falling Star being repaired in the harbor, cautious hope",
-    backgroundImage: "chapter_68.png",
+    backgroundImage: "chapter_68.jpg",
     animation: ["celebration"],
     funFacts: [
       {
@@ -1745,7 +1745,7 @@ export const storyCards: StoryCardData[] = [
       "The party sailed to Greyhawk — the largest, most cosmopolitan city in the world — with Vohem trading gunpowder and spices to fund the trip. MK immediately grappled a man who ran into her in the crowd, accidentally broke a priceless figurine, and started a street brawl that ended with guards, a failed Suggestion spell, Kellen punched by an aggressor, and MK killing a guard she wasn't supposed to kill. Arienh paid for the broken figurine, healed the dead guard back to life, and everyone fled invisibly. MK hid in a portable hole while Arienh flew her back to the inn as a hawk. The rest of the party changed disguises and checked into the Black Dragon Inn under new names — Airell was 'Montana Smith,' which proved immediately problematic when they found wanted posters for the 'Garden Quarter Strangler' bearing a suspiciously familiar description.",
     imagePrompt:
       "An enormous medieval fantasy city with vast busy streets and markets, adventurers in disguise weaving through crowds, wanted posters on a wall, the grandeur and chaos of a great city",
-    backgroundImage: "chapter_69.png",
+    backgroundImage: "chapter_69.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -1771,7 +1771,7 @@ export const storyCards: StoryCardData[] = [
       "The Garden Quarter Strangler had been targeting wealthy Greyhawk citizens every two or three days — hanging victims from rafters and removing organs. Several victims were connected to people Airell had previously swindled. The Rakshasa was framing him. Airell decided the only way to clear his name was to submit to zone of truth at the Temple of St. Cuthbert and prove his innocence publicly. He dressed down, walked in, explained the situation to a priest, and dropped his disguise. The priest sent for a superior. The Bishop of St. Cuthbert arrived, cast a more powerful compulsion spell, and asked if he was the killer. Airell said no. The Bishop looked at the magistrate and said 'he is lying.' The Rakshasa had replaced the Bishop. Airell screamed 'Where is the real Bishop?!' and was immediately tackled by six guards. The Rakshasa gave him a look: 'Be seeing you.'",
     imagePrompt:
       "A formal temple court of justice, a man in disguise being confronted by a false bishop as magical lights reveal his answers, city guards closing in, a shapeshifter revealed",
-    backgroundImage: "chapter_70.png",
+    backgroundImage: "chapter_70.jpg",
     animation: ["none"],
     funFacts: [
       {
@@ -1795,7 +1795,7 @@ export const storyCards: StoryCardData[] = [
       "While Airell sat in Greyhawk's prison loudly insisting he'd been framed by a shapeshifter, Kellen and Arienh hit the Great Library to research Rakshasas. The findings were grim: immune to all magic below 7th level, immune to non-magical weapons, only creatures of truly pure heart could harm one, and when killed a Rakshasa simply reincarnates in the Nine Hells. The only guaranteed solution was a fire elemental. Mornie meanwhile traced the Strangler's crime scenes and found a pattern suggesting the Rakshasa was selecting victims to maximize suspicion toward Airell — some connected to his past, some not, calibrated to look plausible without being obvious. Airell spent three days in prison, observed everything, and was eventually released when Eliander's name worked its magic. The party reunited at the inn with new information, a Rakshasa still at large, a Grimoire of the Deep floating somewhere in the Styes harbor, and a city full of mysteries that could fill another adventure entirely.",
     imagePrompt:
       "Adventurers in a vast library researching by candlelight, wanted posters on the wall, an uncomfortable reunion at a busy inn, a great city's mysteries stretching in every direction",
-    backgroundImage: "chapter_71.png",
+    backgroundImage: "chapter_71.jpg",
     animation: ["flickering-fire"],
     funFacts: [
       {

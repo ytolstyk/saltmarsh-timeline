@@ -17,7 +17,10 @@ export const Storyboard = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const navDotsRef = useRef<HTMLDivElement>(null);
   const dotRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const initialIndex = Math.max(0, storyCards.findIndex((c) => c.chapter === parseInt(cardNumber || "1", 10)));
+  const initialIndex = Math.max(
+    0,
+    storyCards.findIndex((c) => c.chapter === parseInt(cardNumber || "1", 10)),
+  );
   const [activeIndex, setActiveIndex] = useState(initialIndex);
   const { toggleBookmark, isBookmarked } = useStoryBookmarks("saltmarsh");
 
@@ -28,7 +31,9 @@ export const Storyboard = () => {
     const target = idx >= 0 ? idx : 0;
 
     requestAnimationFrame(() => {
-      cardRefs.current[target]?.scrollIntoView({ behavior: "instant" as ScrollBehavior });
+      cardRefs.current[target]?.scrollIntoView({
+        behavior: "instant" as ScrollBehavior,
+      });
       setActiveIndex(target);
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -40,21 +45,17 @@ export const Storyboard = () => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             const idx = cardRefs.current.indexOf(
-              entry.target as HTMLDivElement
+              entry.target as HTMLDivElement,
             );
             if (idx >= 0) {
               setActiveIndex(idx);
               const card = storyCards[idx];
-              window.history.replaceState(
-                null,
-                "",
-                `/story/${card.chapter}`
-              );
+              window.history.replaceState(null, "", `/story/${card.chapter}`);
             }
           }
         }
       },
-      { threshold: 0.6 }
+      { threshold: 0.6 },
     );
 
     for (const ref of cardRefs.current) {
@@ -83,7 +84,8 @@ export const Storyboard = () => {
 
   // Preload adjacent chapter images
   useEffect(() => {
-    const S3_BASE = "https://saltmarsh-files.s3.us-west-1.amazonaws.com/storybook/saltmarsh/";
+    const S3_BASE =
+      "https://saltmarsh-files.s3.us-west-1.amazonaws.com/storybook/saltmarsh/jpeg/";
     [-1, 1].forEach((offset) => {
       const card = storyCards[activeIndex + offset];
       if (card?.backgroundImage) {
@@ -127,15 +129,15 @@ export const Storyboard = () => {
         ))}
       </ScrollContainer>
 
-      <BackButton onClick={() => navigate(`/story`)}>
-        ← All Chapters
-      </BackButton>
+      <BackButton onClick={() => navigate(`/story`)}>← All Chapters</BackButton>
 
       <NavDots ref={navDotsRef}>
         {storyCards.map((card, i) => (
           <NavDot
             key={card.id}
-            ref={(el) => { dotRefs.current[i] = el; }}
+            ref={(el) => {
+              dotRefs.current[i] = el;
+            }}
             $active={i === activeIndex}
             onClick={() => scrollToCard(i)}
             title={`Chapter ${card.chapter}: ${card.title}`}

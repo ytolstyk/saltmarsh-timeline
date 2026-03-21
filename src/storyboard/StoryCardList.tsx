@@ -41,7 +41,8 @@ export const StoryCardList = () => {
       <ListHeader>
         <ListTitle>The Saltmarsh Chronicles</ListTitle>
         <ListSubtitle>
-          {storyCards.length} chapters across {new Set(storyCards.map((c) => c.session)).size} sessions
+          {storyCards.length} chapters across{" "}
+          {new Set(storyCards.map((c) => c.session)).size} sessions
         </ListSubtitle>
       </ListHeader>
 
@@ -62,13 +63,11 @@ export const StoryCardList = () => {
               key={card.id}
               $gradient={getFallbackGradient(card.animation[0] ?? "none")}
               $bookmarked={bookmarked}
-              onClick={() =>
-                navigate(`/story/${card.chapter}`)
-              }
+              onClick={() => navigate(`/story/${card.chapter}`)}
               style={{ animationDelay: `${(card.chapter - 1) * 30}ms` }}
             >
               <img
-                src={`https://saltmarsh-files.s3.us-west-1.amazonaws.com/storybook/saltmarsh/${card.backgroundImage}`}
+                src={`https://saltmarsh-files.s3.us-west-1.amazonaws.com/storybook/saltmarsh/jpeg/${card.backgroundImage}`}
                 alt=""
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = "none";

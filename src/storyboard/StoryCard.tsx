@@ -37,10 +37,14 @@ export const StoryCard = ({
 
   return (
     <CardContainer>
-      <BackgroundImage $gradient={gradient} $rocking={isRocking} $shaking={isShaking}>
+      <BackgroundImage
+        $gradient={gradient}
+        $rocking={isRocking}
+        $shaking={isShaking}
+      >
         {!imgError && (
           <img
-            src={`https://saltmarsh-files.s3.us-west-1.amazonaws.com/storybook/saltmarsh/${card.backgroundImage}`}
+            src={`https://saltmarsh-files.s3.us-west-1.amazonaws.com/storybook/saltmarsh/jpeg/${card.backgroundImage}`}
             alt=""
             onError={() => setImgError(true)}
             loading="lazy"
