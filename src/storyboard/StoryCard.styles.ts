@@ -1,9 +1,23 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { media } from "../media";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+`;
+
+const rock = keyframes`
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(1.5deg); }
+`;
+
+const shake = keyframes`
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-1px, 0.5px); }
+  30% { transform: translate(1px, -0.5px); }
+  50% { transform: translate(-0.5px, 1px); }
+  70% { transform: translate(0.5px, -1px); }
+  90% { transform: translate(-1px, -0.5px); }
 `;
 
 const FALLBACK_GRADIENTS: Record<string, string> = {
@@ -17,6 +31,9 @@ const FALLBACK_GRADIENTS: Record<string, string> = {
   underwater: "linear-gradient(135deg, #001a33, #003366, #004080)",
   flying: "linear-gradient(135deg, #1a3a5c, #2980b9, #6dd5fa)",
   fireworks: "linear-gradient(135deg, #0a0a1a, #1a1a3a, #0a0a1a)",
+  "flickering-fire": "linear-gradient(135deg, #1a0800, #3d1400, #6b2800)",
+  waves: "linear-gradient(135deg, #001533, #003366, #005080)",
+  smoke: "linear-gradient(135deg, #0d0d0d, #1a1a1a, #0d0d0d)",
   none: "linear-gradient(135deg, #1a1a2e, #2d2d44, #1a1a2e)",
 };
 
@@ -33,11 +50,14 @@ export const CardContainer = styled.div`
   flex-shrink: 0;
 `;
 
-export const BackgroundImage = styled.div<{ $gradient: string }>`
+export const BackgroundImage = styled.div<{ $gradient: string; $rocking: boolean; $shaking: boolean }>`
   position: absolute;
-  inset: 0;
+  inset: -5%;
   background: ${(p) => p.$gradient};
   z-index: 0;
+  transform-origin: center bottom;
+  ${(p) => p.$rocking && css`animation: ${rock} 5.2s ease-in-out infinite;`}
+  ${(p) => p.$shaking && css`animation: ${shake} 3s ease-in-out infinite; animation-delay: 2s;`}
 
   img {
     width: 100%;
@@ -68,6 +88,10 @@ export const ContentOverlay = styled.div`
   ${media.xs} {
     padding: 1rem;
     padding-bottom: 3rem;
+  }
+
+  ${media.lg} {
+    overflow-y: visible;
   }
 `;
 
@@ -132,6 +156,12 @@ export const StoryText = styled.div`
   ${media.xs} {
     font-size: 0.85rem;
     line-height: 1.6;
+  }
+
+  ${media.lg} {
+    max-width: min(900px, 65vw);
+    max-height: 40vh;
+    overflow-y: auto;
   }
 `;
 

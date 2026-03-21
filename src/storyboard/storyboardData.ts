@@ -12,7 +12,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Five fantasy adventurers standing on a wooden dock in a medieval coastal town at sunrise, ships in harbor, warm golden light",
     backgroundImage: "chapter_1.png",
-    animation: "fog",
+    animation: ["fog"],
     funFacts: [
       {
         title: "Why Saltmarsh?",
@@ -36,7 +36,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A small sailing boat in thick ocean fog with a ghostly pirate ship visible in the background, fantasy medieval style",
     backgroundImage: "chapter_2.png",
-    animation: "ship-rocking",
+    animation: ["ship-rocking"],
     funFacts: [
       {
         title: "Captain Kester's Fear",
@@ -60,7 +60,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers trudging through a misty swamp with giant twisted trees and murky water, humid atmosphere, fantasy art",
     backgroundImage: "chapter_3.png",
-    animation: "fog",
+    animation: ["fog"],
     funFacts: [
       {
         title: "Interpretive Dance",
@@ -86,7 +86,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A grand underground throne room with a regal lizardfolk queen on a bone throne, torches flickering, adventurers kneeling before her",
     backgroundImage: "chapter_4.png",
-    animation: "none",
+    animation: ["flickering-fire"],
     funFacts: [
       {
         title: "Kellen's Owl Eye",
@@ -112,7 +112,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Fantasy adventurers fighting frog-like creatures in heavy rain in a dark swamp, lightning in the background, dramatic action scene",
     backgroundImage: "chapter_5.png",
-    animation: "storm",
+    animation: ["storm"],
     funFacts: [
       {
         title: "Bullywugs",
@@ -136,7 +136,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Epic battle scene of adventurers fighting a massive crocodile in a jungle lagoon, one person transformed into a crocodile wrestling it, dramatic fantasy art",
     backgroundImage: "chapter_6.png",
-    animation: "battle-shake",
+    animation: ["battle-shake"],
     funFacts: [
       {
         title: "Wild Shape",
@@ -162,7 +162,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A lone female monk warrior fighting dozens of frog creatures in a swamp village, magical animals joining the battle, dynamic fantasy action",
     backgroundImage: "chapter_7.png",
-    animation: "battle-shake",
+    animation: ["battle-shake"],
     funFacts: [
       {
         title: "Joza the Monk",
@@ -186,7 +186,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A massive evil tree creature with glowing runes coming to life in a dark swamp, adventurers casting fire spells at it, dramatic fantasy horror",
     backgroundImage: "chapter_8.png",
-    animation: "fire",
+    animation: ["fire"],
     funFacts: [
       {
         title: "The Scrolls",
@@ -212,7 +212,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A festive underground cavern celebration with lizardfolk and human adventurers feasting together, a giant crocodile head mounted on the wall, torchlight and revelry",
     backgroundImage: "chapter_9.png",
-    animation: "celebration",
+    animation: ["celebration"],
     funFacts: [
       {
         title: "The Game of Shark",
@@ -236,7 +236,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers arriving at a medieval coastal town dock to cheering crowds, flags waving, warm sunset light, triumphant homecoming",
     backgroundImage: "chapter_10.png",
-    animation: "ship-rocking",
+    animation: ["ship-rocking", "celebration"],
     funFacts: [
       {
         title: "Council Drama",
@@ -262,7 +262,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A bustling medieval festival in a coastal town square with colorful banners, frog races, people dancing, warm festive atmosphere, fantasy art",
     backgroundImage: "chapter_11.png",
-    animation: "celebration",
+    animation: ["celebration"],
     funFacts: [
       {
         title: "Richfest",
@@ -286,7 +286,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A column of armed dwarves marching across a stone bridge confronting town guards, tense medieval standoff, morning light, fantasy art",
     backgroundImage: "chapter_12.png",
-    animation: "battle-shake",
+    animation: ["battle-shake"],
     funFacts: [
       {
         title: "Sovereign Glue",
@@ -312,7 +312,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A stormy medieval coastal town with rain-soaked streets, a grand mansion in the background hosting a party, dark atmospheric fantasy art",
     backgroundImage: "chapter_13.png",
-    animation: "fog",
+    animation: ["fog", "rain"],
     funFacts: [
       {
         title: "Celebrity Status",
@@ -338,7 +338,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Two ships locked in naval combat with cannon fire and sword fighting, pirates boarding a merchant vessel, dramatic ocean battle, fantasy art",
     backgroundImage: "chapter_14.png",
-    animation: "ship-rocking",
+    animation: ["ship-rocking", "waves"],
     funFacts: [
       {
         title: "Counterspell Cutlass",
@@ -362,7 +362,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers exploring the interior of a captured pirate ship, examining maps and treasure by lantern light, mysterious atmosphere, fantasy art",
     backgroundImage: "chapter_15.png",
-    animation: "fog",
+    animation: ["fog"],
     funFacts: [
       {
         title: "The Clockwork Parrot",
@@ -388,7 +388,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A bustling fantasy port town with a wealthy dwarf merchant surrounded by ogre bodyguards, market stalls and ships, warm afternoon light",
     backgroundImage: "chapter_16.png",
-    animation: "none",
+    animation: ["none"],
     funFacts: [
       {
         title: "Master of Disguise",
@@ -414,7 +414,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A glowing ethereal maze with lightning towers crackling energy, ghostly translucent walls, adventurers fighting spectral creatures, magical purple atmosphere",
     backgroundImage: "chapter_17.png",
-    animation: "lightning",
+    animation: ["lightning"],
     funFacts: [
       {
         title: "The Ethereal Plane",
@@ -438,7 +438,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers running through a nighttime port city with fireworks exploding overhead, racing toward a ship at the docks, dramatic escape scene, fantasy art",
     backgroundImage: "chapter_18.png",
-    animation: "fireworks",
+    animation: ["fireworks"],
     funFacts: [
       {
         title: "Kellen's Fireworks",
@@ -464,7 +464,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A grimy polluted city built on rotting wooden docks over black water, fog and haze everywhere, a dripping ship suspended from a crane over a warehouse, dark oppressive fantasy art",
     backgroundImage: "chapter_19.png",
-    animation: "fog",
+    animation: ["fog", "smoke"],
     funFacts: [
       {
         title: "The Welcoming Bridge",
@@ -488,7 +488,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Heroes fighting hobgoblins and hippogriffs on the deck of a tall ship in a polluted harbor, one figure running on water toward the ship, dramatic fantasy combat",
     backgroundImage: "chapter_20.png",
-    animation: "battle-shake",
+    animation: ["battle-shake"],
     funFacts: [
       {
         title: "Hippogriff Hijackers",
@@ -514,7 +514,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers arriving triumphantly at a medieval coastal town dock, crowds cheering, illusory rainbow sharks floating through the crowd, warm celebratory afternoon light",
     backgroundImage: "chapter_21.png",
-    animation: "celebration",
+    animation: ["celebration"],
     funFacts: [
       {
         title: "Room Assignments",
@@ -540,7 +540,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers discovering a candlelit underground chamber with suspicious figures in red robes, one person secretly watching as a spider on the wall, tense medieval fantasy atmosphere",
     backgroundImage: "chapter_22.png",
-    animation: "fog",
+    animation: ["fog"],
     funFacts: [
       {
         title: "Spider Intelligence",
@@ -564,7 +564,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Heroes discovering a dark underground library lined with tomes bound in manta ray skin, an obelisk crackling with arcane energy in the background, dramatic revelation scene",
     backgroundImage: "chapter_23.png",
-    animation: "lightning",
+    animation: ["lightning"],
     funFacts: [
       {
         title: "Papa, Get Up",
@@ -590,7 +590,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers interrogating a fanatical robed prisoner in a stone chamber, maps and books spread on a table, torchlight, tense questioning scene",
     backgroundImage: "chapter_24.png",
-    animation: "none",
+    animation: ["flickering-fire"],
     funFacts: [
       {
         title: "Bayleaf the Cooperative",
@@ -614,7 +614,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers in a dark underground maze fighting undead monsters, a black sphere of nothingness floating ominously in the center of a stone chamber, torchlight flickering",
     backgroundImage: "chapter_25.png",
-    animation: "none",
+    animation: ["none"],
     funFacts: [
       {
         title: "Sphere of Annihilation",
@@ -640,7 +640,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A coastal town harbor with five warships flying red flags blockading the port, heroes on the deck of the Falling Star facing the fleet, storm clouds gathering overhead",
     backgroundImage: "chapter_26.png",
-    animation: "storm",
+    animation: ["storm", "ship-rocking"],
     funFacts: [
       {
         title: "The Duke's Timing",
@@ -666,7 +666,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Heroes silently boarding warships by walking across storm-dark water at night, lanterns on the ships above, driving rain, a military takeover happening in complete silence",
     backgroundImage: "chapter_27.png",
-    animation: "storm",
+    animation: ["storm"],
     funFacts: [
       {
         title: "Walk on Water, Take a Fleet",
@@ -690,7 +690,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Chaotic battle on a seaside dock with 1500 onlookers, a woman firing magic missiles, lightning striking soldiers, an unconscious noble in fine armor surrounded by chaos",
     backgroundImage: "chapter_28.png",
-    animation: "battle-shake",
+    animation: ["battle-shake"],
     funFacts: [
       {
         title: "Diplomatic Owl",
@@ -716,7 +716,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A formal negotiation hall with a composed commander backed by a full council facing a furious noble, a contract on the floor, morning light through tall windows",
     backgroundImage: "chapter_29.png",
-    animation: "none",
+    animation: ["none"],
     funFacts: [
       {
         title: "Eliander's Mic Drop",
@@ -742,7 +742,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A thriving coastal medieval town at golden hour, the Falling Star docked in the harbor, heroes walking the busy streets as local celebrities, warmth and tension mixed",
     backgroundImage: "chapter_30.png",
-    animation: "none",
+    animation: ["none"],
     funFacts: [
       {
         title: "Ferrin's Warning",
@@ -768,7 +768,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A massive night naval battle with cannon fire and lightning strikes, two fleets clashing on dark waters, the Falling Star dominant and blazing with gunfire",
     backgroundImage: "chapter_31.png",
-    animation: "ship-rocking",
+    animation: ["ship-rocking", "smoke", "waves"],
     funFacts: [
       {
         title: "Yusgrolir Escapes Again",
@@ -792,7 +792,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A quiet community utterly devastated, smoke rising from small homes, a woman in eagle form circling overhead, grief and fury in a somber dark fantasy scene",
     backgroundImage: "chapter_32.png",
-    animation: "none",
+    animation: ["smoke"],
     funFacts: [
       {
         title: "Arienh Almost Left",
@@ -818,7 +818,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A grand medieval throne room with a wise king announcing judgement to adventurers and nobles gathered before him, maps on the walls, golden banners and morning light",
     backgroundImage: "chapter_33.png",
-    animation: "celebration",
+    animation: ["celebration"],
     funFacts: [
       {
         title: "The Elegant Promotion",
@@ -844,7 +844,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A ship sailing toward a grim city at sunset, a wyvern diving toward the deck with heroes bracing for battle, golden light turning to shadow",
     backgroundImage: "chapter_34.png",
-    animation: "ship-rocking",
+    animation: ["ship-rocking"],
     funFacts: [
       {
         title: "Airhead",
@@ -870,7 +870,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers battling massive crab-like aberration monsters inside a ransacked mansion library, books scattered everywhere, dark magical atmosphere",
     backgroundImage: "chapter_35.png",
-    animation: "battle-shake",
+    animation: ["battle-shake"],
     funFacts: [
       {
         title: "Jean-Claude",
@@ -896,7 +896,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A grimy fantasy city celebrating a chaotic festival by torchlight, bridges over dark water, shadowy massive shapes lurking beneath the surface, revelry and menace mixed",
     backgroundImage: "chapter_36.png",
-    animation: "fog",
+    animation: ["fog"],
     funFacts: [
       {
         title: "Needfest Traditions",
@@ -922,7 +922,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers overwhelmed by translucent slime-covered creatures on a derelict beached ship, a massive squid-like aboleth emerging from dark water, horror fantasy scene",
     backgroundImage: "chapter_37.png",
-    animation: "underwater",
+    animation: ["none"],
     funFacts: [
       {
         title: "MK Fireballs Her Friends",
@@ -946,7 +946,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Characters underwater with translucent glowing skin, trapped in a phosphorescent sea cave, a massive aboleth creature looming with tendrils, psychedelic horror fantasy",
     backgroundImage: "chapter_38.png",
-    animation: "underwater",
+    animation: ["underwater"],
     funFacts: [
       {
         title: "Aboleth Politics",
@@ -972,7 +972,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "An epic underwater battle between heroes and massive aboleth creatures, a juvenile kraken thrashing with tentacles in bioluminescent light, spectacular chaotic underwater combat",
     backgroundImage: "chapter_39.png",
-    animation: "underwater",
+    animation: ["underwater"],
     funFacts: [
       {
         title: "The Kraken Is Nice",
@@ -998,7 +998,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Slimed adventurers being welcomed by a dignified man in ragged noble clothes in a modest apartment, an archmage and a severe woman arriving through the doorway",
     backgroundImage: "chapter_40.png",
-    animation: "none",
+    animation: ["none"],
     funFacts: [
       {
         title: "Emperor Mon",
@@ -1024,7 +1024,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A ship suspended from a crane high above a warehouse surrounded by hobgoblin soldiers on the rooftops, a dramatic moment before everything explodes",
     backgroundImage: "chapter_41.png",
-    animation: "none",
+    animation: ["none"],
     funFacts: [
       {
         title: "Dory's Manticores",
@@ -1050,7 +1050,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A warehouse in flames with a crashed ship in the rubble, heroes fighting through fire and smoke, a figure chasing another into a ghostly ethereal dimension",
     backgroundImage: "chapter_42.png",
-    animation: "fire",
+    animation: ["fire"],
     funFacts: [
       {
         title: "Oil of Etherealness, Finally",
@@ -1076,7 +1076,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A coastal town under sahuagin attack at night, a massive dinosaur bursting through a house roof from inside, fish-warriors in the streets, heroes fighting in all directions",
     backgroundImage: "chapter_43.png",
-    animation: "battle-shake",
+    animation: ["battle-shake"],
     funFacts: [
       {
         title: "Kellen's Dream Campaign",
@@ -1102,7 +1102,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A glowing green cottage in a desolate burned village surrounded by floating will-o-wisps, adventurers approaching a dangerous hag in the eerie light",
     backgroundImage: "chapter_44.png",
-    animation: "fog",
+    animation: ["fog"],
     funFacts: [
       {
         title: "Agatha's Price",
@@ -1128,7 +1128,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A coastal city at night in the rain, a gnome community with multi-story stacked buildings, heroes sneaking through wet streets toward docks where a foreign ship loads urgently",
     backgroundImage: "chapter_45.png",
-    animation: "fog",
+    animation: ["fog", "rain"],
     funFacts: [
       {
         title: "The Boarders Three",
@@ -1154,7 +1154,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A desperate fight on a ship deck in a rainy harbor at dawn, a gnome firing radiant energy, a giant eagle crashing down, a figure in black grappled at the water's edge",
     backgroundImage: "chapter_46.png",
-    animation: "battle-shake",
+    animation: ["battle-shake", "rain"],
     funFacts: [
       {
         title: "Skerrin's Last Lie",
@@ -1178,7 +1178,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A medieval court scene with an entire delegation from a coastal town vouching for a group of adventurers, a king observing, an archmage in the background, justice served",
     backgroundImage: "chapter_47.png",
-    animation: "none",
+    animation: ["none"],
     funFacts: [
       {
         title: "Emperor Mon, Courtroom Edition",
@@ -1204,7 +1204,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A thriving, expanded coastal city with new neighborhoods and a distant lighthouse, the Falling Star sailing the bay, but storm clouds building on the horizon",
     backgroundImage: "chapter_48.png",
-    animation: "ship-rocking",
+    animation: ["none"],
     funFacts: [
       {
         title: "Kellenville",
@@ -1230,7 +1230,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Heroes swimming underwater toward a massive half-submerged sahuagin fortress of dark stone, giant sharks circling above, bioluminescent creatures in the depths",
     backgroundImage: "chapter_49.png",
-    animation: "underwater",
+    animation: ["underwater"],
     funFacts: [
       {
         title: "Arienh the Shark-Taxi",
@@ -1256,7 +1256,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Heroes interrupting a dark ritual in an alien stone underwater chamber, a giant shark breaking free and turning on sahuagin priests, chaotic bioluminescent underwater combat",
     backgroundImage: "chapter_50.png",
-    animation: "underwater",
+    animation: ["underwater"],
     funFacts: [
       {
         title: "Corrupted Prayer",
@@ -1282,7 +1282,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Heroes in a desperate running battle through the dark alien stone corridors of an underwater fortress, sahuagin soldiers pouring from multiple directions, torches and chaos",
     backgroundImage: "chapter_51.png",
-    animation: "battle-shake",
+    animation: ["battle-shake"],
     funFacts: [
       {
         title: "Kellen Called the Kraken",
@@ -1308,7 +1308,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Giant owls carrying heroes away from a fortified tower into a dark night sky, a massive shark leaping from the water below, the Falling Star visible in the distance",
     backgroundImage: "chapter_52.png",
-    animation: "ship-rocking",
+    animation: ["none"],
     funFacts: [
       {
         title: "Gedik",
@@ -1334,7 +1334,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "The deck of the Falling Star at night, a spectral kraken form fading into dark water, heroes catching their breath, one gnome being firmly shaken awake by a very tall woman",
     backgroundImage: "chapter_53.png",
-    animation: "storm",
+    animation: ["storm", "waves", "ship-rocking"],
     funFacts: [
       {
         title: "Squeeze Therapy",
@@ -1360,7 +1360,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A cove battle with cannon fire and sahuagin forces in the water, a ranger firing a magical wand at a fish-warrior priestess, smoke and chaos, ships in the background",
     backgroundImage: "chapter_54.png",
-    animation: "battle-shake",
+    animation: ["battle-shake"],
     funFacts: [
       {
         title: "Sir Piersym's Charge",
@@ -1386,7 +1386,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A coastal medieval city under sahuagin siege, heroes climbing cliffs at speed to reach defenders, a robed figure casting dark magic from ancient standing stones above the city",
     backgroundImage: "chapter_55.png",
-    animation: "battle-shake",
+    animation: ["battle-shake"],
     funFacts: [
       {
         title: "Liup Wain, Again",
@@ -1412,7 +1412,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A nighttime city battle in a raging storm, lightning illuminating heroes fighting on cliff-top standing stones, a betrayal happening amid the chaos, devastation in every direction",
     backgroundImage: "chapter_56.png",
-    animation: "lightning",
+    animation: ["lightning", "rain"],
     funFacts: [
       {
         title: "Varsis's Mission",
@@ -1436,7 +1436,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A devastated medieval coastal town the morning after battle, a funeral procession carrying flowers past smoldering ruins, survivors gathering at a dwarven mining hall for council",
     backgroundImage: "chapter_57.png",
-    animation: "none",
+    animation: ["smoke"],
     funFacts: [
       {
         title: "The Real Anders",
@@ -1462,7 +1462,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A war council aboard a ship at sea, heroes planning around maps on a table, two ships visible through the porthole sailing toward a dark horizon",
     backgroundImage: "chapter_58.png",
-    animation: "ship-rocking",
+    animation: ["ship-rocking", "waves"],
     funFacts: [
       {
         title: "Nolan's Housewarming Gift",
@@ -1488,7 +1488,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Two ships locked in battle on the open ocean, adventurers fighting across decks, a gnome making a man see visions of his victims, a woman turning into fire and disintegrating someone",
     backgroundImage: "chapter_59.png",
-    animation: "battle-shake",
+    animation: ["battle-shake", "waves"],
     funFacts: [
       {
         title: "Skerrin's Final Moments",
@@ -1514,7 +1514,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "The Falling Star being crushed by a massive kraken's tentacles at night near a burning city, a glowing sword awakening in a warrior's hands, a dimension door opening on the deck",
     backgroundImage: "chapter_60.png",
-    animation: "storm",
+    animation: ["storm"],
     funFacts: [
       {
         title: "The Sword Awakens",
@@ -1540,7 +1540,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Heroes fighting desperately on a dark beach against a massive kraken by night, lightning crashing everywhere, a lone figure sprinting away as others teleport to safety",
     backgroundImage: "chapter_61.png",
-    animation: "lightning",
+    animation: ["lightning", "rain"],
     funFacts: [
       {
         title: "Airell, Abandoned Again",
@@ -1564,7 +1564,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Heroes inside a small underwater submarine with transparent walls showing the ocean depths, an archmage at the center briefing them on devastating information, exhausted faces",
     backgroundImage: "chapter_62.png",
-    animation: "underwater",
+    animation: ["none"],
     funFacts: [
       {
         title: "The Sea Cow",
@@ -1590,7 +1590,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers inside a Brotherhood safehouse with maps and coded letters, an archmage calmly writing a note while police gather outside, a prisoner tied in the corner",
     backgroundImage: "chapter_63.png",
-    animation: "none",
+    animation: ["flickering-fire"],
     funFacts: [
       {
         title: "Drawmij's Note",
@@ -1616,7 +1616,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A grand audience chamber with a gemstone floor map, a worm-like creature on a throne facing adventurers, magical glyphs erupting from the walls, half-dragon guards at ready",
     backgroundImage: "chapter_64.png",
-    animation: "none",
+    animation: ["none"],
     funFacts: [
       {
         title: "The Introduction",
@@ -1642,7 +1642,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A military coastal city in urgent preparation, soldiers reinforcing harbor walls, a ship being loaded with adventurers as bait, storm clouds gathering to the north",
     backgroundImage: "chapter_65.png",
-    animation: "ship-rocking",
+    animation: ["ship-rocking"],
     funFacts: [
       {
         title: "The Kraken Has Two Minds Active",
@@ -1668,7 +1668,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A ship racing back into a fortified harbor at dawn with a massive kraken wake cutting through the water behind it, harbor cannons rotating to track the incoming threat",
     backgroundImage: "chapter_66.png",
-    animation: "ship-rocking",
+    animation: ["ship-rocking"],
     funFacts: [
       {
         title: "Drawmij's List",
@@ -1694,7 +1694,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "The climactic harbor battle with a massive kraken being struck by magical cannons, a warrior shooting from point-blank range, a gnome being revived on the shore, victory and loss together",
     backgroundImage: "chapter_67.png",
-    animation: "battle-shake",
+    animation: ["battle-shake"],
     funFacts: [
       {
         title: "Death by C-Section",
@@ -1720,7 +1720,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Heroes returning to a recovering coastal town to cheering crowds at the dock, families reuniting, the damaged Falling Star being repaired in the harbor, cautious hope",
     backgroundImage: "chapter_68.png",
-    animation: "celebration",
+    animation: ["celebration"],
     funFacts: [
       {
         title: "The Fan System",
@@ -1746,7 +1746,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "An enormous medieval fantasy city with vast busy streets and markets, adventurers in disguise weaving through crowds, wanted posters on a wall, the grandeur and chaos of a great city",
     backgroundImage: "chapter_69.png",
-    animation: "none",
+    animation: ["none"],
     funFacts: [
       {
         title: "Montana Smith",
@@ -1772,7 +1772,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "A formal temple court of justice, a man in disguise being confronted by a false bishop as magical lights reveal his answers, city guards closing in, a shapeshifter revealed",
     backgroundImage: "chapter_70.png",
-    animation: "none",
+    animation: ["none"],
     funFacts: [
       {
         title: "The Rakshasa's Long Game",
@@ -1796,7 +1796,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers in a vast library researching by candlelight, wanted posters on the wall, an uncomfortable reunion at a busy inn, a great city's mysteries stretching in every direction",
     backgroundImage: "chapter_71.png",
-    animation: "none",
+    animation: ["flickering-fire"],
     funFacts: [
       {
         title: "Rakshasa Rules",

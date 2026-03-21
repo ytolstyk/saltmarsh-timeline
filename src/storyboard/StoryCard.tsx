@@ -31,11 +31,13 @@ export const StoryCard = ({
 }: StoryCardProps) => {
   const [imgError, setImgError] = useState(false);
   const [textVisible, setTextVisible] = useState(true);
-  const gradient = getFallbackGradient(card.animation);
+  const gradient = getFallbackGradient(card.animation[0] ?? "none");
+  const isRocking = card.animation.includes("ship-rocking");
+  const isShaking = card.animation.includes("battle-shake");
 
   return (
     <CardContainer>
-      <BackgroundImage $gradient={gradient}>
+      <BackgroundImage $gradient={gradient} $rocking={isRocking} $shaking={isShaking}>
         {!imgError && (
           <img
             src={`https://saltmarsh-files.s3.us-west-1.amazonaws.com/storybook/saltmarsh/${card.backgroundImage}`}

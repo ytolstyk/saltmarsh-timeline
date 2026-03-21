@@ -15,6 +15,8 @@ export const Storyboard = () => {
   const navigate = useNavigate();
   const scrollRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const navDotsRef = useRef<HTMLDivElement>(null);
+  const dotRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const { toggleBookmark, isBookmarked } = useStoryBookmarks("saltmarsh");
 
@@ -78,6 +80,17 @@ export const Storyboard = () => {
     return () => window.removeEventListener("keydown", handler);
   }, [activeIndex]);
 
+  // Scroll active NavDot into view
+  useEffect(() => {
+    const dot = dotRefs.current[activeIndex];
+    const container = navDotsRef.current;
+    if (!dot || !container) return;
+    container.scrollTo({
+      top: dot.offsetTop - container.offsetHeight / 2 + dot.offsetHeight / 2,
+      behavior: "smooth",
+    });
+  }, [activeIndex]);
+
   const scrollToCard = useCallback((idx: number) => {
     cardRefs.current[idx]?.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -106,10 +119,11 @@ export const Storyboard = () => {
         ← All Chapters
       </BackButton>
 
-      <NavDots>
+      <NavDots ref={navDotsRef}>
         {storyCards.map((card, i) => (
           <NavDot
             key={card.id}
+            ref={(el) => { dotRefs.current[i] = el; }}
             $active={i === activeIndex}
             onClick={() => scrollToCard(i)}
             title={`Chapter ${card.chapter}: ${card.title}`}

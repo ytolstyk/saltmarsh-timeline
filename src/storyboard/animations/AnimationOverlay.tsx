@@ -9,17 +9,23 @@ import { BattleShake } from "./BattleShake";
 import { LightningFlash } from "./LightningFlash";
 import { FogEffect } from "./FogEffect";
 import { FlyingEffect } from "./FlyingEffect";
+import { FlickeringFireEffect } from "./FlickeringFireEffect";
+import { WavesEffect } from "./WavesEffect";
+import { SmokeEffect } from "./SmokeEffect";
 
 interface AnimationOverlayProps {
-  animation: AnimationType;
+  animation: AnimationType[];
   isActive: boolean;
 }
 
-export const AnimationOverlay = ({
-  animation,
+const SingleAnimation = ({
+  type,
   isActive,
-}: AnimationOverlayProps) => {
-  switch (animation) {
+}: {
+  type: AnimationType;
+  isActive: boolean;
+}) => {
+  switch (type) {
     case "fireworks":
       return <FireworksEffect isActive={isActive} />;
     case "rain":
@@ -43,9 +49,9 @@ export const AnimationOverlay = ({
         </>
       );
     case "ship-rocking":
-      return <ShipRocking isActive={isActive} />;
+      return null;
     case "battle-shake":
-      return <BattleShake isActive={isActive} />;
+      return null;
     case "lightning":
       return <LightningFlash isActive={isActive} />;
     case "fog":
@@ -59,7 +65,26 @@ export const AnimationOverlay = ({
           <LightningFlash isActive={isActive} />
         </>
       );
+    case "flickering-fire":
+      return <FlickeringFireEffect isActive={isActive} />;
+    case "waves":
+      return <WavesEffect isActive={isActive} />;
+    case "smoke":
+      return <SmokeEffect isActive={isActive} />;
     case "none":
       return null;
   }
+};
+
+export const AnimationOverlay = ({
+  animation,
+  isActive,
+}: AnimationOverlayProps) => {
+  return (
+    <>
+      {animation.map((type, i) => (
+        <SingleAnimation key={i} type={type} isActive={isActive} />
+      ))}
+    </>
+  );
 };

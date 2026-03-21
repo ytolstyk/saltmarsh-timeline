@@ -38,6 +38,13 @@ export const NavDots = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
+  max-height: 80vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const NavDot = styled.button<{ $active: boolean }>`

@@ -10,6 +10,9 @@ export type AnimationType =
   | "underwater"
   | "flying"
   | "storm"
+  | "flickering-fire"
+  | "waves"
+  | "smoke"
   | "none";
 
 export interface FunFact {
@@ -25,6 +28,6 @@ export interface StoryCardData {
   story: string;
   imagePrompt: string;
   backgroundImage: string;
-  animation: AnimationType;
+  animation: AnimationType[];
   funFacts: FunFact[];
 }
