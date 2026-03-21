@@ -60,7 +60,7 @@ export const StoryCardList = () => {
           return (
             <CardThumbnail
               key={card.id}
-              $gradient={getFallbackGradient(card.animation)}
+              $gradient={getFallbackGradient(card.animation[0] ?? "none")}
               $bookmarked={bookmarked}
               onClick={() =>
                 navigate(`/story/${card.chapter}`)

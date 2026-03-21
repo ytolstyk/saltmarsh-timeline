@@ -4,8 +4,6 @@ import { RainEffect } from "./RainEffect";
 import { FireEffect } from "./FireEffect";
 import { CelebrationEffect } from "./CelebrationEffect";
 import { UnderwaterEffect } from "./UnderwaterEffect";
-import { ShipRocking } from "./ShipRocking";
-import { BattleShake } from "./BattleShake";
 import { LightningFlash } from "./LightningFlash";
 import { FogEffect } from "./FogEffect";
 import { FlyingEffect } from "./FlyingEffect";
