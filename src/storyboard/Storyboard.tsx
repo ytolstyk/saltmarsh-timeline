@@ -81,6 +81,17 @@ export const Storyboard = () => {
     return () => window.removeEventListener("keydown", handler);
   }, [activeIndex]);
 
+  // Preload adjacent chapter images
+  useEffect(() => {
+    const S3_BASE = "https://saltmarsh-files.s3.us-west-1.amazonaws.com/storybook/saltmarsh/";
+    [-1, 1].forEach((offset) => {
+      const card = storyCards[activeIndex + offset];
+      if (card?.backgroundImage) {
+        new Image().src = S3_BASE + card.backgroundImage;
+      }
+    });
+  }, [activeIndex]);
+
   // Scroll active NavDot into view
   useEffect(() => {
     const dot = dotRefs.current[activeIndex];
