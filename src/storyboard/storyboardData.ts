@@ -236,7 +236,7 @@ export const storyCards: StoryCardData[] = [
     imagePrompt:
       "Adventurers arriving at a medieval coastal town dock to cheering crowds, flags waving, warm sunset light, triumphant homecoming",
     backgroundImage: "chapter_10.jpg",
-    animation: ["ship-rocking", "celebration"],
+    animation: ["celebration"],
     funFacts: [
       {
         title: "Council Drama",
