@@ -9,6 +9,7 @@ import { Notifications } from "@mantine/notifications";
 import { ModalsProvider } from "@mantine/modals";
 import { UserRoleProvider } from "./UserRoleProvider";
 import { GuestFiltersProvider } from "./GuestFiltersProvider";
+import fallingStarShip from "./assets/images/falling_star_ship4.jpg";
 
 Amplify.configure(outputs);
 
@@ -44,23 +45,7 @@ export const AuthContextWrappers = () => {
   const components = {
     Header: AuthHeader,
     Footer() {
-      return (
-        <div style={{ textAlign: "center", paddingBottom: "1rem" }}>
-          <button
-            onClick={() => setSignInModalOpen(false)}
-            style={{
-              background: "none",
-              border: "none",
-              color: "#868e96",
-              cursor: "pointer",
-              fontSize: "0.875rem",
-              textDecoration: "underline",
-            }}
-          >
-            Continue as guest
-          </button>
-        </div>
-      );
+      return <div style={{ height: "6rem" }} />;
     },
   };
 
@@ -88,8 +73,15 @@ export const AuthContextWrappers = () => {
                   onClose={() => setSignInModalOpen(false)}
                   padding={0}
                   withCloseButton={false}
-                  size="md"
+                  size="xl"
                   centered
+                  styles={{
+                    body: {
+                      backgroundImage: `url(${fallingStarShip})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    },
+                  }}
                 >
                   <div className="auth-modal-wrapper">
                     <Authenticator components={components} />

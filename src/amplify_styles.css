@@ -74,7 +74,8 @@
 .saltmarsh-auth-header h1 {
   font-family: "Booter", sans-serif;
   font-size: clamp(1.6rem, 5vw, 2.4rem);
-  color: #0063ff;
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(0, 99, 255, 0.9), 0 0 24px rgba(0, 99, 255, 0.6);
   margin: 0 0 0.25rem;
   line-height: 1.1;
 }
