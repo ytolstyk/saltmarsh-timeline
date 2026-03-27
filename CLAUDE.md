@@ -30,6 +30,7 @@ Run before committing:
 ### Stack
 
 - React 19 + TypeScript + Vite
+- React Router v6 (client-side routing)
 - Mantine v8 UI (AppShell, modals, notifications)
 - AWS Amplify Gen 2 (AppSync GraphQL backend, `amplify/data/resource.ts`)
 - AWS Cognito (authentication via `@aws-amplify/ui-react`)
@@ -56,12 +57,34 @@ Run before committing:
 
 **Timeline settings** (`src/useTimelineSettings.ts`): `timelineSettingsData` is the normalized settings object used throughout the app. `checkedTags` is converted from `string[]` (DB) to `Record<string, boolean>` (UI). `showAllEvents` and `reverseOrder` are booleans with `Boolean()` coercion.
 
+**User roles** (`src/UserRoleContext.ts`, `src/UserRoleProvider.tsx`): Three roles — `"guest"`, `"user"`, `"admin"`. `useUserRole()` exposes `role`, `isGuest`, `isAdmin`, `isAuthenticated`. Editing actions are gated on `isAdmin`. `LockedButton.tsx` renders a disabled button with a tooltip when `locked={true}`.
+
+**Guest mode** (`src/GuestFiltersContext.ts`, `src/GuestFiltersProvider.tsx`): Unauthenticated visitors can view campaigns. Their filter state (`startYear`, `endYear`, `checkedTags`, `showAllEvents`, `reverseOrder`) is stored in `GuestFiltersContext` instead of persisted TimelineSettings.
+
+**Auth wrappers** (`src/AuthContextWrappers.tsx`): Wraps the main `App` with Amplify auth, campaign context, user-role context, and guest-filters context. Handles the sign-in screen with background image and the guest-mode entry path.
+
+**Routing** (`src/main.tsx`): React Router with three routes — `/story/:cardNumber` → `Storyboard`, `/story` → `StoryCardList`, `/*` → `AuthContextWrappers` (main app).
+
+### Storyboard (`src/storyboard/`)
+
+A separate illustrated story reader at `/story`. Cards are sourced from `storyboardData.ts` (static data). `StoryCardList` shows chapter thumbnails; `Storyboard` is the full-screen reader with snap-scroll, keyboard navigation (arrow keys), IntersectionObserver-based active tracking, nav dots, image preloading, and bookmark persistence via `useStoryBookmarks`. Deep links: `/story/:cardNumber`.
+
 ### Component Overview
 
-- `App.tsx` — AppShell layout with sidebar (campaign selector, settings, actions) and main timeline area
+- `App.tsx` — AppShell layout with sidebar (campaign selector, settings, actions) and main timeline area; nav links to `/story`
+- `AuthContextWrappers.tsx` — auth + context providers; routes between sign-in screen, guest view, and authenticated app
 - `Timeline.tsx` — vertical timeline: sticky search bar, pre-history banner, show-all-events flat list, grouped dot timeline
 - `EventGroup.tsx` / `CurrentEventGroup.tsx` — positioned event card on timeline and expanded event detail/edit modal content
+- `EventForm.tsx` — modal form for adding a new event
+- `EditEventForm.tsx` — inline edit form for a single event including date editing and pre-history toggle
+- `CampaignForm.tsx` — modal form for adding/editing a campaign
 - `TimelineSettings.tsx` — year range slider, tag filter chips, and other filter controls in the sidebar
+- `TagsModal.tsx` — manage available tags for a campaign
+- `LockedButton.tsx` — button that shows a tooltip and is disabled when `locked={true}`
 - `Calendar.tsx` / `CalendarMonth.tsx` / `Datepicker.tsx` — custom Greyhawk calendar UI
 - `JSONModal.tsx` — bulk import events from JSON; `jsonHelper.ts` handles parse/download
-- `EditEventForm.tsx` — inline edit form for a single event including date editing and pre-history toggle
+- `HighlightText.tsx` — highlights search query matches within text
+- `RenderIf.tsx` — simple conditional render wrapper
+- `storyboard/Storyboard.tsx` — full-screen story card reader with scroll snap and nav dots
+- `storyboard/StoryCardList.tsx` — chapter grid/list for the storyboard landing page
+- `storyboard/StoryCard.tsx` — individual illustrated story card with bookmark support

@@ -18,6 +18,7 @@ A campaign event tracker for Dungeons & Dragons, built around the Greyhawk calen
 - **Calendar view** — browse events in a monthly calendar layout
 - **JSON import/export** — bulk-import events from a JSON file or download all events for backup
 - **Guest mode** — view any campaign without an account; editing is restricted to admins
+- **Storyboard** — illustrated story cards browseable at `/story`, with per-chapter deep links, keyboard navigation, and bookmarks
 
 ## Running Locally
 
@@ -73,3 +74,4 @@ Example:
 - AWS Amplify Gen 2 (AppSync GraphQL backend)
 - AWS Cognito (authentication)
 - SWR (data fetching)
+- React Router v6 (client-side routing)

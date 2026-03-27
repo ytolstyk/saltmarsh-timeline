@@ -15,6 +15,7 @@ import { LockedButton } from "./LockedButton.tsx";
 import {
   AppShell,
   Anchor,
+  Box,
   Burger,
   Group,
   Button,
@@ -254,24 +255,26 @@ export function App({ isGuest, onSignInClick }: Props) {
               )}
             </Group>
             {/* Mobile nav dropdown */}
-            <Menu shadow="md" width={160} hiddenFrom="sm">
-              <Menu.Target>
-                <ActionIcon variant="subtle" color="gray" size="md" style={{ flexShrink: 0 }}>
-                  <IconDotsVertical size={18} />
-                </ActionIcon>
-              </Menu.Target>
-              <Menu.Dropdown>
-                <Menu.Item component="a" href="/story">
-                  Storyboard
-                </Menu.Item>
-                <Menu.Divider />
-                {isGuest ? (
-                  <Menu.Item onClick={onSignInClick}>Sign in</Menu.Item>
-                ) : (
-                  <Menu.Item onClick={signOut}>Sign out</Menu.Item>
-                )}
-              </Menu.Dropdown>
-            </Menu>
+            <Box hiddenFrom="sm">
+              <Menu shadow="md" width={160}>
+                <Menu.Target>
+                  <ActionIcon variant="subtle" color="gray" size="md" style={{ flexShrink: 0 }}>
+                    <IconDotsVertical size={18} />
+                  </ActionIcon>
+                </Menu.Target>
+                <Menu.Dropdown>
+                  <Menu.Item component="a" href="/story">
+                    Storyboard
+                  </Menu.Item>
+                  <Menu.Divider />
+                  {isGuest ? (
+                    <Menu.Item onClick={onSignInClick}>Sign in</Menu.Item>
+                  ) : (
+                    <Menu.Item onClick={signOut}>Sign out</Menu.Item>
+                  )}
+                </Menu.Dropdown>
+              </Menu>
+            </Box>
           </Header>
         </Group>
       </AppShell.Header>
