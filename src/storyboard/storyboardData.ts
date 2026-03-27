@@ -1586,7 +1586,7 @@ export const storyCards: StoryCardData[] = [
     chapter: 63,
     title: "Deus ex Drawmij",
     story:
-      "On the Sea Cow, Drawmij explained his master plan for the Kraken: go to Hokar, find the archmage who controls the continent's gunpowder supply, and make the cannons themselves magical. Airell produced a teleportation scroll to Hokar that they'd taken from the Brotherhood months ago. They teleported — and landed in a Brotherhood safehouse in Hokar's western quarter. The Brotherhood agent they'd interrupted yelled 'It's the Keolanders!' and attacked. The party killed everyone except one prisoner. Drawmij sat down, wrote the Hokar archmage a polite note saying they'd found his Brotherhood infestation and left him one alive for questioning, then ordered coffee. The city's police force arrived, then the Custodians, then a delegation to escort them to the Polar of Pool — the strange worm-man who ruled Hokar's arcane elite and hated Drawmij personally. Things were about to get very diplomatic.",
+      "On the Sea Cow, Drawmij explained his master plan for the Kraken: go to Hokar, find the archmage who controls the continent's gunpowder supply, and make the cannons themselves magical. Airell produced a teleportation scroll to Hokar that they'd taken from the Brotherhood months ago. They teleported — and landed in a Brotherhood safehouse in Hokar's western quarter. The Brotherhood agent they'd interrupted yelled 'It's the Keolanders!' and attacked. The party killed everyone except one prisoner. Drawmij sat down, wrote the Hokar archmage a polite note saying they'd found his Brotherhood infestation and left him one alive for questioning, then ordered coffee. The city's police force arrived, then the Custodians, then a delegation to escort them to the Plar of Hool — the strange worm-man who ruled Hokar's arcane elite and hated Drawmij personally. Things were about to get very diplomatic.",
     imagePrompt:
       "Adventurers inside a Brotherhood safehouse with maps and coded letters, an archmage calmly writing a note while police gather outside, a prisoner tied in the corner",
     backgroundImage: "chapter_63.jpg",
@@ -1598,9 +1598,9 @@ export const storyCards: StoryCardData[] = [
           "After the fight, Drawmij sat down, drank coffee, and wrote the Hokar archmage a polite letter informing him of the Brotherhood infiltration and thanking him for his city's hospitality. Airell put back everything he'd pocketed. Mostly.",
       },
       {
-        title: "The Polar of Pool",
+        title: "The Plar of Hool",
         content:
-          "The Polar of Pool rules Hokar's arcane establishment and is literally a worm-man — transformed by decades of magical experimentation. He and Drawmij have a long history of mutual attempted assassination. The meeting went about as expected.",
+          "The Plar of Hool rules Hokar's arcane establishment and is literally a worm-man — transformed by decades of magical experimentation. He and Drawmij have a long history of mutual attempted assassination. The meeting went about as expected.",
       },
     ],
   },
@@ -1612,7 +1612,7 @@ export const storyCards: StoryCardData[] = [
     chapter: 64,
     title: "Underwater Deliberations",
     story:
-      "The Polar of Pool's audience chamber had a floor made entirely of gemstone-inlaid maps and pillars of magical light. He compelled several party members to speak only truth, asked MK what was really inside her, and asked Arienh her deepest desires. He was clearly using Legend Lore to know things about them he shouldn't. Then Kellen cast rainbow sharks — the entire room erupted in Selouise counter-glyphs, two dozen half-dragon guards leveled weapons, and the Polar looked at Kellen with genuine interest. Airell discretely offered to sell him the Grimoire of the Deep. Drawmij said absolutely not. The Polar then revealed something crucial: Kellen hadn't read the Grimoire's introduction — she'd skipped straight to the spells — which is why she couldn't control the Kraken. He agreed to magically enhance Hokar's cannons. They teleported immediately to Port Toli with a full delegation of half-dragons. The Kraken was ninety miles away and moving.",
+      "The Plar of Hool's audience chamber had a floor made entirely of gemstone-inlaid maps and pillars of magical light. He compelled several party members to speak only truth, asked MK what was really inside her, and asked Arienh her deepest desires. He was clearly using Legend Lore to know things about them he shouldn't. Then Kellen cast rainbow sharks — the entire room erupted in Selouise counter-glyphs, two dozen half-dragon guards leveled weapons, and the Plar looked at Kellen with genuine interest. Airell discretely offered to sell him the Grimoire of the Deep. Drawmij said absolutely not. The Polar then revealed something crucial: Kellen hadn't read the Grimoire's introduction — she'd skipped straight to the spells — which is why she couldn't control the Kraken. He agreed to magically enhance Hokar's cannons. They teleported immediately to Port Toli with a full delegation of half-dragons. The Kraken was ninety miles away and moving.",
     imagePrompt:
       "A grand audience chamber with a gemstone floor map, a worm-like creature on a throne facing adventurers, magical glyphs erupting from the walls, half-dragon guards at ready",
     backgroundImage: "chapter_64.jpg",
@@ -1626,7 +1626,7 @@ export const storyCards: StoryCardData[] = [
       {
         title: "Rainbow Sharks, Wrong Venue",
         content:
-          "Kellen cast rainbow sharks in the Polar of Pool's audience chamber. The room's automatic Selouise counter-glyphs activated instantly and the guards leveled weapons. The Polar found this delightful. It is unclear if Kellen did this on purpose.",
+          "Kellen cast rainbow sharks in the Plar of Hool's audience chamber. The room's automatic Selouise counter-glyphs activated instantly and the guards leveled weapons. The Plar found this delightful. It is unclear if Kellen did this on purpose.",
       },
     ],
   },
@@ -1690,7 +1690,7 @@ export const storyCards: StoryCardData[] = [
     chapter: 67,
     title: "A Long Awaited Deliverance",
     story:
-      "The Kraken entered the harbor. Arienh raised the ocean floor into a trench that trapped it while the cannons unloaded — devastating. Then the Kraken released a magical antimagic pulse that shattered every spell effect in the harbor. It grappled Kellen, Airell, and Drawmij simultaneously. The Polar of Pool, watching from his golden floating throne, launched a Disintegrate spell that blew off one of the Kraken's tentacles — then the Kraken killed the throne's magic and the Polar teleported away, letting his seneschal fall into the harbor. Kellen was squeezed to death. MK was swallowed whole, fought from the inside, and died in the acid. Mornie shot the Kraken twice through its abdomen with her awakened pistol. The Kraken keeled over dead — killed by c-section, the bullet finding MK's location inside. Airell ran to MK and breathed life back into her. Arienh used her last diamonds to revive Kellen. The Kraken was dead.",
+      "The Kraken entered the harbor. Arienh raised the ocean floor into a trench that trapped it while the cannons unloaded — devastating. Then the Kraken released a magical antimagic pulse that shattered every spell effect in the harbor. It grappled Kellen, Airell, and Drawmij simultaneously. The Plar of Hool, watching from his golden floating throne, launched a Disintegrate spell that blew off one of the Kraken's tentacles — then the Kraken killed the throne's magic and the Plar teleported away, letting his seneschal fall into the harbor. Kellen was squeezed to death. MK was swallowed whole, fought from the inside, and died in the acid. Mornie shot the Kraken twice through its abdomen with her awakened pistol. The Kraken keeled over dead — killed by c-section, the bullet finding MK's location inside. Airell ran to MK and breathed life back into her. Arienh used her last diamonds to revive Kellen. The Kraken was dead.",
     imagePrompt:
       "The climactic harbor battle with a massive kraken being struck by magical cannons, a warrior shooting from point-blank range, a gnome being revived on the shore, victory and loss together",
     backgroundImage: "chapter_67.jpg",
@@ -1702,9 +1702,9 @@ export const storyCards: StoryCardData[] = [
           "Mornie killed the Kraken by shooting it through the abdomen to reach MK inside. Captain Sohral received the message 'dead by c-section.' The phrase has entered Saltmarsh maritime vocabulary.",
       },
       {
-        title: "The Polar Bails",
+        title: "The Plar Bails",
         content:
-          "When the Kraken's antimagic pulse destroyed his floating throne, the Polar of Pool teleported away and let his loyal seneschal fall to the harbor floor. He is technically a dick. This is established fact.",
+          "When the Kraken's antimagic pulse destroyed his floating throne, the Plar of Hool teleported away and let his loyal seneschal fall to the harbor floor. He is technically a dick. This is established fact.",
       },
     ],
   },
