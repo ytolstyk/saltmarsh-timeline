@@ -1482,7 +1482,7 @@ export const storyCards: StoryCardData[] = [
     id: "ch-59",
     session: 43,
     chapter: 59,
-    title: "The Shopping Episode",
+    title: "The Ashes of Skerrin",
     story:
       "The fleet sailed. On the third day out, Airell's owl spotted five sails in formation — Skerrin's ships. The Falling Star had the weather gauge. Then the Deceit rammed them and hand-to-hand combat erupted across both ships. Kellen made Skerrin see visions of everyone he'd killed at the Sea Grove, stabbing him while he suffered through the faces. MK disintegrated Skerrin — turned him into ash between one breath and the next. The battle ended. Four ships were captured, one surrendered at sea. MK needed to be healed back to consciousness and Kellen discovered a binding ritual inscribed in diamond dust and squid ink on the Deceit's hull — a Brotherhood prototype for binding the Kraken with three hundred souls. They had stopped it in time. The Fury of Gradsul was sent back to Saltmarsh with the captured ships. The Falling Star changed course for the Styes.",
     imagePrompt:
@@ -1503,12 +1503,12 @@ export const storyCards: StoryCardData[] = [
     ],
   },
 
-  // === SESSION 44: Unto the Breach ===
+  // === SESSION 44: The Sword Awakens ===
   {
     id: "ch-60",
     session: 44,
     chapter: 60,
-    title: "Unto the Breach",
+    title: "The Sword Awakens",
     story:
       "The Falling Star arrived at the Styes to find three Brotherhood ships bombarding the city with cannon fire. Captain Sohral made an immediate tactical decision: hit them fast from the fog. Kellen's sickening radiance killed the entire crew of the first ship. Arienh called lightning onto the second. Then a rolling darkness rose from the ocean floor. A tentacle coiled around the Falling Star. The third Brotherhood ship was crushed by something immense. The Kraken had arrived at the Styes. Mornie drew the Memory of Ruin and drove it into the Kraken's flesh — and when the creature's blood touched the blade, it shuddered, glowed, and woke up. The awakening artifact surged with cold fury through Mornie's arm. The Kraken shattered the ship in two. Kellen appeared on deck and broke her pact — her owl eye dissolved into white goo — and held the Kraken in place with her last reserves. Drawmij stepped through a dimensional door. 'Get to the beach,' he said. 'Now.'",
     imagePrompt:
@@ -1529,12 +1529,12 @@ export const storyCards: StoryCardData[] = [
     ],
   },
 
-  // === SESSION 45: The Eye in the Deep ===
+  // === SESSION 45: One Man Ashore ===
   {
     id: "ch-61",
     session: 45,
     chapter: 61,
-    title: "The Eye in the Deep",
+    title: "One Man Ashore",
     story:
       "With the Falling Star breaking apart, Drawmij ordered everyone to the beach point and began a teleportation ritual. The party fought desperately to hold the Kraken long enough — Arienh's conjured snakes, Mornie's awakened sword, Airell's arrows, MK's furious strikes. The Kraken's lightning hit Drawmij mid-cast and broke his concentration. The teleport failed. Airell, sensing what was coming, sprinted out of range. Drawmij grabbed everyone else and stepped through another door. Airell was alone on a dark beach with a kraken. He ran. The Kraken, distracted by Kellen's rainbow shark illusion, eventually turned back to sea. Airell walked into the burning Styes, looted a warehouse, and spent the night sleeping in a pile of empty crates while the archmage and the rest of the party sat in a small metal submarine sixty feet underwater, catching their breath.",
     imagePrompt:
@@ -1558,7 +1558,7 @@ export const storyCards: StoryCardData[] = [
     id: "ch-62",
     session: 45,
     chapter: 62,
-    title: "Deus ex Drawmij",
+    title: "The First Attempt",
     story:
       "The submarine — the Sea Cow — was Drawmij's private underwater vessel, forty feet long, with transparent walls and a kitchen replicator that could produce 'a passable version of any food.' Very comfortable for a post-kraken recovery. Drawmij briefed everyone with characteristic bluntness: the Kraken was 120 miles away, could sense Kellen, and would arrive in five days. His underwater citadel had been destroyed by the Kraken two months ago. The archmage had been stuck in Celene ever since, unable to return. He had no spellbook. His clones had been systematically murdered. He examined MK, identified the demonic rune in her hand, and in one devastating conversation revealed that MK was a constructed being — the failed first attempt at Mornie's process, her body belonging to a girl who died in an accident, with a demon that had burst out during creation. MK fainted. Then they discussed what to do about the Kraken.",
     imagePrompt:
@@ -1579,12 +1579,12 @@ export const storyCards: StoryCardData[] = [
     ],
   },
 
-  // === SESSION 46: Deus ex Drawmij ===
+  // === SESSION 46: A Polite Letter ===
   {
     id: "ch-63",
     session: 46,
     chapter: 63,
-    title: "Deus ex Drawmij",
+    title: "A Polite Letter",
     story:
       "On the Sea Cow, Drawmij explained his master plan for the Kraken: go to Hokar, find the archmage who controls the continent's gunpowder supply, and make the cannons themselves magical. Airell produced a teleportation scroll to Hokar that they'd taken from the Brotherhood months ago. They teleported — and landed in a Brotherhood safehouse in Hokar's western quarter. The Brotherhood agent they'd interrupted yelled 'It's the Keolanders!' and attacked. The party killed everyone except one prisoner. Drawmij sat down, wrote the Hokar archmage a polite note saying they'd found his Brotherhood infestation and left him one alive for questioning, then ordered coffee. The city's police force arrived, then the Custodians, then a delegation to escort them to the Plar of Hool — the strange worm-man who ruled Hokar's arcane elite and hated Drawmij personally. Things were about to get very diplomatic.",
     imagePrompt:
@@ -1605,12 +1605,12 @@ export const storyCards: StoryCardData[] = [
     ],
   },
 
-  // === SESSION 47: Underwater Deliberations ===
+  // === SESSION 47: The Worm King ===
   {
     id: "ch-64",
     session: 47,
     chapter: 64,
-    title: "Underwater Deliberations",
+    title: "The Worm King",
     story:
       "The Plar of Hool's audience chamber had a floor made entirely of gemstone-inlaid maps and pillars of magical light. He compelled several party members to speak only truth, asked MK what was really inside her, and asked Arienh her deepest desires. He was clearly using Legend Lore to know things about them he shouldn't. Then Kellen cast rainbow sharks — the entire room erupted in Selouise counter-glyphs, two dozen half-dragon guards leveled weapons, and the Plar looked at Kellen with genuine interest. Airell discretely offered to sell him the Grimoire of the Deep. Drawmij said absolutely not. The Polar then revealed something crucial: Kellen hadn't read the Grimoire's introduction — she'd skipped straight to the spells — which is why she couldn't control the Kraken. He agreed to magically enhance Hokar's cannons. They teleported immediately to Port Toli with a full delegation of half-dragons. The Kraken was ninety miles away and moving.",
     imagePrompt:
@@ -1631,12 +1631,12 @@ export const storyCards: StoryCardData[] = [
     ],
   },
 
-  // === SESSION 48: Hokar ===
+  // === SESSION 48: Into the Kraken's Mind ===
   {
     id: "ch-65",
     session: 48,
     chapter: 65,
-    title: "Hokar",
+    title: "Into the Kraken's Mind",
     story:
       "Port Toli greeted them with controlled military chaos. Princess Glia Blackswan, priestess of Fharlanghn, ran the city from a massive town hall surrounded by soldiers and bureaucrats. She and Drawmij argued productively. The plan: load the party and Kellen onto a decoy ship outside the harbor, wait for the Kraken, and lead it into the magically-enhanced cannons lining the harbor walls. They spent the day on preparations. Airell got a new owl familiar and memorized the teleportation circle sigils. Kellen reached into the Kraken's mind one more time to find its location — it was ninety miles out, sleeping, two of its multiple minds running, one of them obsessively cataloguing its traumas and desired revenge. It noticed her. It threatened her family and friends in vivid detail. Kellen woke up screaming and immediately attacked Flicker the pseudodragon, who was sleeping on her face.",
     imagePrompt:
@@ -1657,12 +1657,12 @@ export const storyCards: StoryCardData[] = [
     ],
   },
 
-  // === SESSION 49: Hurry Up and Wait ===
+  // === SESSION 49: The Wake ===
   {
     id: "ch-66",
     session: 49,
     chapter: 66,
-    title: "Hurry Up and Wait",
+    title: "The Wake",
     story:
       "The party spent a night aboard the decoy ship in the harbor mouth, watching for the Kraken on rotating watches. Drawmij joined Mornie on the second watch and gave her a list of spy contacts, cover identities, and recognition codes from his network — in case he died in the coming battle. He also asked her to find whoever had killed the Circle of Eight mages in Greyhawk. Then he kept writing something he kept hidden. At dawn, Airell spotted a tell-tale wake cutting across the waves toward them — no creature should move that fast underwater. They had minutes. MK heaved the anchor up single-handedly, Arienh spun the wheel, Mornie scaled the rigging to drop the sails in one sprint. The ship wheeled into the harbor at speed. Kellen was clinging to the mast. The Kraken's shadow crossed the harbor entrance. Every cannon in Port Toli was now loaded and ready. Everyone waited.",
     imagePrompt:
@@ -1683,12 +1683,12 @@ export const storyCards: StoryCardData[] = [
     ],
   },
 
-  // === SESSION 50: A Long Awaited Deliverance ===
+  // === SESSION 50: Dead by C-Section ===
   {
     id: "ch-67",
     session: 50,
     chapter: 67,
-    title: "A Long Awaited Deliverance",
+    title: "Dead by C-Section",
     story:
       "The Kraken entered the harbor. Arienh raised the ocean floor into a trench that trapped it while the cannons unloaded — devastating. Then the Kraken released a magical antimagic pulse that shattered every spell effect in the harbor. It grappled Kellen, Airell, and Drawmij simultaneously. The Plar of Hool, watching from his golden floating throne, launched a Disintegrate spell that blew off one of the Kraken's tentacles — then the Kraken killed the throne's magic and the Plar teleported away, letting his seneschal fall into the harbor. Kellen was squeezed to death. MK was swallowed whole, fought from the inside, and died in the acid. Mornie shot the Kraken twice through its abdomen with her awakened pistol. The Kraken keeled over dead — killed by c-section, the bullet finding MK's location inside. Airell ran to MK and breathed life back into her. Arienh used her last diamonds to revive Kellen. The Kraken was dead.",
     imagePrompt:
