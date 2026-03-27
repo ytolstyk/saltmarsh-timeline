@@ -36,22 +36,17 @@ type Props = {
   onSignInClick?: () => void;
 };
 
-function SignOutButton() {
-  const { signOut } = useAuthenticator();
+function SignOutButton({ onClick }: { onClick: () => void }) {
   return (
-    <Button variant="subtle" color="gray" size="sm" onClick={signOut}>
+    <Button variant="subtle" color="gray" size="sm" onClick={onClick}>
       Sign out
     </Button>
   );
 }
 
-function SignOutMenuItem() {
-  const { signOut } = useAuthenticator();
-  return <Menu.Item onClick={signOut}>Sign out</Menu.Item>;
-}
-
 export function App({ isGuest, onSignInClick }: Props) {
   const [opened, { toggle }] = useDisclosure();
+  const { signOut } = useAuthenticator();
 
   const { events, deleteAllCampaignEvents, isLoading } = useEvents();
 
@@ -255,7 +250,7 @@ export function App({ isGuest, onSignInClick }: Props) {
                   Sign in
                 </Button>
               ) : (
-                <SignOutButton />
+                <SignOutButton onClick={signOut} />
               )}
             </Group>
             {/* Mobile nav dropdown */}
@@ -273,7 +268,7 @@ export function App({ isGuest, onSignInClick }: Props) {
                 {isGuest ? (
                   <Menu.Item onClick={onSignInClick}>Sign in</Menu.Item>
                 ) : (
-                  <SignOutMenuItem />
+                  <Menu.Item onClick={signOut}>Sign out</Menu.Item>
                 )}
               </Menu.Dropdown>
             </Menu>
