@@ -24,7 +24,10 @@ import {
   Text,
   ScrollArea,
   LoadingOverlay,
+  Menu,
+  ActionIcon,
 } from "@mantine/core";
+import { IconDotsVertical } from "@tabler/icons-react";
 import { modals } from "@mantine/modals";
 import { Calendar } from "./Calendar.tsx";
 
@@ -40,6 +43,11 @@ function SignOutButton() {
       Sign out
     </Button>
   );
+}
+
+function SignOutMenuItem() {
+  const { signOut } = useAuthenticator();
+  return <Menu.Item onClick={signOut}>Sign out</Menu.Item>;
 }
 
 export function App({ isGuest, onSignInClick }: Props) {
@@ -237,23 +245,38 @@ export function App({ isGuest, onSignInClick }: Props) {
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Header>
             <Title>{campaign.name} Timeline</Title>
-            <Group gap="md" align="center">
-              <Anchor
-                href="/story"
-                size="sm"
-                c="dimmed"
-                fw={500}
-              >
+            {/* Desktop nav */}
+            <Group gap="md" align="center" visibleFrom="sm" style={{ flexShrink: 0 }}>
+              <Anchor href="/story" size="sm" c="dimmed" fw={500}>
                 Storyboard
               </Anchor>
-            {isGuest ? (
-              <Button variant="subtle" color="gray" size="sm" onClick={onSignInClick}>
-                Sign in
-              </Button>
-            ) : (
-              <SignOutButton />
-            )}
+              {isGuest ? (
+                <Button variant="subtle" color="gray" size="sm" onClick={onSignInClick}>
+                  Sign in
+                </Button>
+              ) : (
+                <SignOutButton />
+              )}
             </Group>
+            {/* Mobile nav dropdown */}
+            <Menu shadow="md" width={160} hiddenFrom="sm">
+              <Menu.Target>
+                <ActionIcon variant="subtle" color="gray" size="md" style={{ flexShrink: 0 }}>
+                  <IconDotsVertical size={18} />
+                </ActionIcon>
+              </Menu.Target>
+              <Menu.Dropdown>
+                <Menu.Item component="a" href="/story">
+                  Storyboard
+                </Menu.Item>
+                <Menu.Divider />
+                {isGuest ? (
+                  <Menu.Item onClick={onSignInClick}>Sign in</Menu.Item>
+                ) : (
+                  <SignOutMenuItem />
+                )}
+              </Menu.Dropdown>
+            </Menu>
           </Header>
         </Group>
       </AppShell.Header>

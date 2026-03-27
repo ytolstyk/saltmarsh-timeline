@@ -9,6 +9,10 @@ export const Title = styled.h1`
   line-height: 1;
   color: #0063ff;
   letter-spacing: 0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 `;
 
 export const Header = styled.div`
@@ -16,6 +20,8 @@ export const Header = styled.div`
   flex: 1;
   justify-content: space-between;
   align-items: center;
+  min-width: 0;
+  gap: 0.5rem;
 `;
 
 export const ActionButtonContainer = styled.div`
