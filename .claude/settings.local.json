@@ -19,7 +19,9 @@
       "mcp__plugin_chrome-devtools-mcp_chrome-devtools__new_page",
       "Bash(./node_modules/.bin/tsc --noEmit)",
       "Bash(rtk npm:*)",
-      "Bash(./node_modules/.bin/vite build:*)"
+      "Bash(./node_modules/.bin/vite build:*)",
+      "Bash(rtk type:*)",
+      "Bash(rtk err:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

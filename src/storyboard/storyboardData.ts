@@ -1810,12 +1810,768 @@ export const storyCards: StoryCardData[] = [
       },
     ],
   },
+
+  // === SESSION 54: The Owl's Jig ===
+  {
+    id: "ch-72",
+    session: 54,
+    chapter: 72,
+    title: "The Owl's Jig",
+    story:
+      "Airell sat in Greyhawk's prison swapping stories with the local drunks and pickpockets, very much not panicking. Then his owl familiar appeared at the cell window with a forked twig clenched in its beak — the components for a locate-object spell. Airell cast it through the bars and tracked down the whereabouts of his stolen gear. Meanwhile, the Rakshasa drifted invisibly through the cell block, whispering taunts directly into Airell's ear. Rattled but unbroken, Airell composed himself. A Brother Sebastian from the Church of Olidammara arrived to speak with the party — apparently he'd been tracking the same Rakshasa for months. Outside, Kellen had a better idea: she polymorphed Airell into a rat. A small, unimprisoned rat. Flicker the familiar crashed through the window in dramatic fashion as Airell-rat scurried through the prison's shadows. By the time the guards noticed anything wrong, Airell had borrowed a guard's cloak, walked through the front gate, and the whole party was reuniting at the Arena with their gear accounted for, a new clerical ally, and one very undignified story Airell would never be allowed to forget.",
+    imagePrompt:
+      "A small owl delivering a twig through prison bars to a cloaked elf, a shapeshifter lurking invisibly in the shadows, a tiny rat scurrying toward freedom",
+    backgroundImage: "chapter_72.jpg",
+    animation: ["flickering-fire"],
+    funFacts: [
+      {
+        title: "The Owl Delivery",
+        content:
+          "Airell's owl familiar navigated Greyhawk's winding streets, identified the correct prison block, and delivered spell components through the bars. Owls are smarter than they look. Or maybe Airell is just very lucky.",
+      },
+      {
+        title: "A Rat's Dignity",
+        content:
+          "Being polymorphed into a rat and squeezed out of a prison by your friends is technically a successful jailbreak. Airell insists on being called a 'tactical escape artist.' Nobody agrees.",
+      },
+    ],
+  },
+
+  // === SESSION 55: The Rakshasa's Web ===
+  {
+    id: "ch-73",
+    session: 55,
+    chapter: 73,
+    title: "The Rakshasa's Web",
+    story:
+      "Free from prison and full of righteous fury, Airell contacted other planes to speak with Eda, a powerful entity he trusted. The answers were grim and specific: the Rakshasa lived at the Bishop's house, and its next target was a man named Hacrar — specifically, a fanboy who'd been loudly admiring the creature in its Bishop disguise. Mornie sent her rat familiar to scout the Bishop's residence. The little rat squeezed inside and found fiends waiting in the shadows. Then it was killed. Mornie felt the snap of the familiar bond across the city. Grieving and angry, the party pivoted to protecting Hacrar. They tracked his movements and followed his companion Ilbryn, a poised woman who seemed out of place. As they watched, Ilbryn's form shifted — wings unfurled, her eyes went solid black, and the smell of brimstone hit the air. She was a succubus. Before the party could act, Flicker — brave, reckless, beloved Flicker — lunged to stop the attack. The succubus struck him down. The street went quiet. Flicker was gone.",
+    imagePrompt:
+      "A glamorous woman transforming into a winged demon on a Greyhawk street at night, a small creature lying still in the cobblestone shadows",
+    backgroundImage: "chapter_73.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "The Cost of Scouting",
+        content:
+          "Familiars are not just tools — they are magical bonds. When Mornie's rat was killed, she felt it physically. Losing a familiar is genuinely traumatic for a spellcaster.",
+      },
+      {
+        title: "Flicker",
+        content:
+          "Flicker had survived ambushes, sea battles, dungeon traps, and a Rakshasa's taunts. A succubus in an alley finally ended the streak. The party would not forget it.",
+      },
+    ],
+  },
+
+  // === SESSION 56: The Final Confrontation ===
+  {
+    id: "ch-74",
+    session: 56,
+    chapter: 74,
+    title: "The Final Confrontation",
+    story:
+      "The party didn't grieve long — they had a succubus to kill. The fight was brutal and fast. Brother Sebastian saved the poisoned Hacrar's life while the rest of the group cornered the fiend. Then came a surprise: Zuterhes, an Arcanaloth — a fox-headed fiend scholar — approached the party with an offer of information in exchange for future favors. They accepted, warily. The real showdown came at Vivian's house, where the Rakshasa had retreated. After a fierce battle across parlor and hallway, Airell managed to trap the Rakshasa inside the Warden of the Fore, a magical bow, imprisoning it permanently. Victory — but at a price. Airell himself had died in the fighting and was reincarnated by magical ritual as a halfling. He was not thrilled. The Lord Mayor of Greyhawk received them as heroes and paid handsomely. The Thieves Guild, impressed by how much trouble they'd caused, offered a deal instead of a war. The arc was closed. A new one was opening.",
+    imagePrompt:
+      "A fox-headed demon scholar gesturing toward a glowing magical bow that traps a tiger-faced creature inside, heroes standing weary and triumphant in a destroyed parlor",
+    backgroundImage: "chapter_74.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "Trapped Forever",
+        content:
+          "A Rakshasa killed on the material plane just reincarnates in the Nine Hells. Trapping one inside a magical item is actually the better solution — it removes the threat without sending it home.",
+      },
+      {
+        title: "Airell the Halfling",
+        content:
+          "Reincarnation magic brings back the soul in a new body — which the magic chooses randomly. Airell came back as a halfling. He is approximately three feet shorter than he was this morning.",
+      },
+    ],
+  },
+
+  // === SESSION 56 DT: MK's Family ===
+  {
+    id: "ch-75",
+    session: 56,
+    chapter: 75,
+    title: "MK's Family",
+    story:
+      "While the rest of the party navigated Greyhawk's aftermath, MK slipped away on personal business that was long overdue. She traveled to the Yeomanry, a quiet land of small farms and strong people, to find the family she'd left behind years ago. Her father Ricart was older and quieter than she remembered. Her brother Arne was almost as tall as she was now. The reunion was awkward at first — words didn't come easily for any of them. Then a giant attacked the village. That broke the tension. MK and her family fought side by side, and something unspoken was understood between them. Afterward came harder business: Duke Feldrin confronted MK about a sword she'd taken years ago, a prized family heirloom she had needed and borrowed without asking. She returned it, and in exchange her father pressed something into her hands — the family mithril axe, passed down through generations, now hers to carry. She rode back to Greyhawk a little heavier and a little lighter at the same time.",
+    imagePrompt:
+      "A fierce blonde woman embracing an older human farmer while a young man watches, mithril axe gleaming on a rough-hewn table, green hills in the background",
+    backgroundImage: "chapter_75.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "Downtime Detours",
+        content:
+          "Between major sessions, the party often takes 'downtime' — time to handle personal matters, recover, and develop. MK's family trip is one of the campaign's most personal quiet moments.",
+      },
+      {
+        title: "The Mithril Axe",
+        content:
+          "Mithril is rarer and lighter than steel but tougher than iron. A family mithril axe is not just a weapon — it's an inheritance, a statement, and a responsibility all in one.",
+      },
+    ],
+  },
+
+  // === SESSION 57: The Lightning Stairs ===
+  {
+    id: "ch-76",
+    session: 57,
+    chapter: 76,
+    title: "The Lightning Stairs",
+    story:
+      "Castle Greyhawk loomed above the city like a broken crown, its upper towers collapsed, its lower depths mostly unexplored by anyone sane. The party arrived at the ruins with torches and curiosity and extremely poor judgment. The entrance opened into a corridor lined with lightning-bolt traps that fired at irregular intervals. Nine flights of stairs descended below the castle, each one stranger than the last. MK had been dreaming of Iuz again — the demon prince appeared in her sleep as a figure with smoke pouring from his eyes, kneeling before a naked king she didn't recognize. The dreams were getting more vivid. Below, skeletons began to appear in the corridors, not attacking yet, just watching. The walls bore inscriptions — not warnings but philosophical taunts written by Zagyg, the mad archmage who'd built this place, mocking explorers for assuming treasure justified danger. The party laughed. Then the skeletons started moving.",
+    imagePrompt:
+      "Adventurers descending a crackling lightning-filled staircase into darkness, skeletons watching from alcoves, bizarre philosophical text carved into ancient stone walls",
+    backgroundImage: "chapter_76.jpg",
+    animation: ["lightning"],
+    funFacts: [
+      {
+        title: "Zagyg's Sense of Humor",
+        content:
+          "Zagyg the Archmage was famously eccentric to the point of madness. His dungeon inscriptions include jokes, riddles, and pointed philosophical observations about why anyone would be down here in the first place.",
+      },
+      {
+        title: "Nine Flights Down",
+        content:
+          "Castle Greyhawk's dungeon descends much deeper than its towers ever rose. Adventurers have mapped perhaps a third of it over the years. Nobody has mapped all of it and come back reliably.",
+      },
+    ],
+  },
+
+  // === SESSION 58: The Skeleton Crypts ===
+  {
+    id: "ch-77",
+    session: 58,
+    chapter: 77,
+    title: "The Skeleton Crypts",
+    story:
+      "The skeleton level was exactly as advertised: wall-to-wall undead, treasure rooms tucked between crypt alcoves, and traps designed by someone who really wanted people to stop coming down here. The party fought their way through swarms of animated bones while simultaneously committing enthusiastic theft from every chest they passed. Arienh built a wall of stone to seal off one corridor and buy breathing room. Then came the purple sword. It jutted from a stone plinth — beautiful, clearly magical, definitely trapped. Airell grabbed it. Nothing happened. Airell pulled. Nothing moved. The sword was immovable. MK walked over, grabbed the hilt, and pulled it free in one easy motion like it had been waiting for her specifically. Airell stood there for a long moment. Then came the staircase: a Fibonacci-sequence puzzle. Numbers carved into each step had to be solved in order to descend safely. Kellen cracked it, the stairs unlocked, and the party pressed deeper into Castle Greyhawk.",
+    imagePrompt:
+      "A powerful fighter effortlessly pulling a glowing purple sword from a stone plinth while a shorter companion stares in disbelief, skeleton warriors collapsing around them",
+    backgroundImage: "chapter_77.jpg",
+    animation: ["battle-shake"],
+    funFacts: [
+      {
+        title: "The Fibonacci Sequence",
+        content:
+          "The Fibonacci sequence is a mathematical pattern where each number is the sum of the two before it: 1, 1, 2, 3, 5, 8, 13... Zagyg apparently appreciated mathematics. Or wanted to keep out people who didn't.",
+      },
+      {
+        title: "The Sword Chose",
+        content:
+          "Airell, the party's most magically attuned member, couldn't budge the purple sword. MK, who hits things for a living, pulled it free immediately. Dungeons have opinions about their treasures.",
+      },
+    ],
+  },
+
+  // === SESSION 59: Flicker's Last Mission ===
+  {
+    id: "ch-78",
+    session: 59,
+    chapter: 78,
+    title: "Flicker's Last Mission",
+    story:
+      "Kellen stood before a mysterious sealed door in the dungeon's lower reaches. The safe play was to send something expendable through first. She had a new familiar — a replacement for the Flicker who had been lost in Greyhawk's streets. She sent the new Flicker through the door. The door opened. The familiar was shot dead within seconds. Kellen made a sound that could charitably be described as ugly-crying, sat down on the dungeon floor, and refused to move for several minutes. MK described her recurring Iuz dreams in more detail to fill the silence — the demon's army, a king kneeling, a throne built from something she couldn't name. Arienh quietly tested the purple Sword of Betrayers on MK — the blade had no reaction, confirming MK was not currently a betrayer by the sword's reckoning. For the door they'd lost Flicker to, the solution turned out to be balloon packs — improvised magical flotation — and the party's owl, which survived. Barely.",
+    imagePrompt:
+      "A wizard weeping dramatically on a dungeon floor while her companions look on helplessly, a sealed mystical door glowing ominously behind them",
+    backgroundImage: "chapter_78.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "The Second Flicker",
+        content:
+          "Kellen named each replacement familiar Flicker. It was both a tribute and a bad habit. The dungeon's hostile architecture had opinions about both.",
+      },
+      {
+        title: "The Sword of Betrayers",
+        content:
+          "The purple sword reacts to betrayers — those who have turned against their companions or oaths. Arienh's test on MK came back clean. That's either reassuring or means the sword hasn't checked yet.",
+      },
+    ],
+  },
+
+  // === SESSION 60: The Goblin and the Medusa ===
+  {
+    id: "ch-79",
+    session: 60,
+    chapter: 79,
+    title: "The Goblin and the Medusa",
+    story:
+      "The next level introduced illusions. A chasm stretched across the floor — Bearienh stepped confidently forward and fell twenty feet before the illusion gave out. Real floor, fake pit, real bruises. A goblin in an immaculate purple suit sprinted past them, dove at a wall, and disappeared through what looked like solid stone — a fake tunnel entrance. Someone was having fun. The party found teleportation circles hidden beneath ornate rugs, and a collection of orreries — mechanical models of the cosmos — that Arienh immediately considered stealing. She stole them. Then came the medusa: a creature so dangerous that looking at her face would turn flesh to stone. MK closed her eyes and fought her by sound alone, trusting instinct and muscle memory. It worked, mostly. Airell finished the job with a clean decapitation. In the chapel beyond, a statue caught MK's attention — a stone figure of a woman who looked exactly like the woman MK privately called her 'memory mom,' a face from before she could remember. No one could explain it.",
+    imagePrompt:
+      "A warrior fighting with eyes closed against a snake-haired medusa in a torchlit dungeon, a goblin in a purple suit fleeing through an illusory wall in the background",
+    backgroundImage: "chapter_79.jpg",
+    animation: ["battle-shake"],
+    funFacts: [
+      {
+        title: "Fighting Blind",
+        content:
+          "Medusas turn creatures to stone with their gaze. The only safe options are mirrors, blindfolds, or extreme confidence in your other senses. MK chose confidence. It is, statistically, not the safest option.",
+      },
+      {
+        title: "The Goblin in Purple",
+        content:
+          "The well-dressed goblin reappeared throughout the dungeon without explanation, apparently living there, navigating its secrets, and occasionally enjoying the chaos. Nobody ever caught him.",
+      },
+    ],
+  },
+
+  // === SESSION 61: Haazir the Djinn ===
+  {
+    id: "ch-80",
+    session: 61,
+    chapter: 80,
+    title: "Haazir the Djinn",
+    story:
+      "Deeper still, the dungeon opened into an aviary — a massive chamber filled with hybrid creatures, part bird and part something else, swooping through artificial updrafts. A secret door at the chamber's far end was wired with a lightning trap that Kellen disarmed with impressive calm. Beyond it waited the lowest floor — and Haazir, a powerful Djinn who regarded the party with the particular patience of someone who has been guarding the same room for several centuries. He wasn't hostile exactly, just uninterested in letting them pass. The walls of his chamber were painted with murals of the Company of Seven, a legendary adventuring group that had explored this dungeon decades ago. Kellen cast Contact Other Plane and reached something extraordinary: Hoapala, a celestial couatl — a feathered serpent of pure goodness — who answered questions about the Godtrap and a sorceress named Tasha with careful precision. The answers were unsettling. Tasha was not a myth. The Godtrap was real. And something was waiting for them at the bottom of the dungeon.",
+    imagePrompt:
+      "A magnificent blue djinn in swirling robes guards a chamber covered with painted murals of legendary adventurers, a feathered celestial serpent glowing in a magical summoning circle",
+    backgroundImage: "chapter_80.jpg",
+    animation: ["flickering-fire"],
+    funFacts: [
+      {
+        title: "The Company of Seven",
+        content:
+          "The Company of Seven were legendary adventurers who explored Castle Greyhawk long before the current party. Their murals appear throughout the deepest levels, suggesting they made it very far — and that something eventually stopped them.",
+      },
+      {
+        title: "Couatls",
+        content:
+          "Couatls are winged, feathered serpents from the upper planes — among the most purely good creatures in existence. Getting one to answer your questions directly means your cause has passed some kind of moral inspection.",
+      },
+    ],
+  },
+
+  // === SESSION 62: Automaton Chase ===
+  {
+    id: "ch-81",
+    session: 62,
+    chapter: 81,
+    title: "Automaton Chase",
+    story:
+      "Rest in a dungeon is never truly restful. The party had barely settled when six iron automatons came clanking down the corridor — mechanical warriors running a patrol protocol that had apparently been set several hundred years ago and never updated. They were relentless, durable, and immune to most of the party's usual tricks. Mornie improvised: she scattered ball bearings across the floor. Three automatons went down in a clanging pile. The others kept coming. Kellen triggered the dimension-door cloaks — magical garments that let the party teleport short distances — and the group blinked to safety while the automatons stumped around looking confused. During the retreat, the goblin in the purple suit shot Arienh with a small crossbow from a gallery above, grinning, then vanished again. The party reached the lowest floor at last. The murals here depicted Zagyg himself — the mad archmage — in a series of elemental adventures: drowning, burning, flying, being buried, surviving all of it through stubbornness and impossible magic.",
+    imagePrompt:
+      "Six iron automatons clanging across a floor covered in ball bearings, adventurers disappearing through crackling dimension doors, a grinning goblin watching from an upper gallery",
+    backgroundImage: "chapter_81.jpg",
+    animation: ["battle-shake"],
+    funFacts: [
+      {
+        title: "Ball Bearings",
+        content:
+          "Ball bearings are a classic adventurer tool: cheap, light, and absurdly effective against anything that walks. Medieval ball bearings are small metal spheres. Modern ones are in every bicycle wheel.",
+      },
+      {
+        title: "Dimension Door Cloaks",
+        content:
+          "Dimension door cloaks are rare enchanted garments that allow short-range teleportation on command — essentially an emergency exit button. Useful in a dungeon. Useful everywhere, really.",
+      },
+    ],
+  },
+
+  // === SESSION 63: Mirror Kellen ===
+  {
+    id: "ch-82",
+    session: 63,
+    chapter: 82,
+    title: "Mirror Kellen",
+    story:
+      "A silver orb in the center of the lowest chamber hummed with barely contained magic. Before anyone could stop her, the orb activated and produced an exact copy of Kellen — same robes, same owl, same slightly distracted expression, and a complete mirror inversion of her alignment. The fight that followed was genuine chaos: nobody could reliably tell which Kellen was which, and both were casting the same spells. The real Kellen solved the problem by trapping mirror-Kellen inside a forcecage — an immovable cube of pure magical force. The duplicate raged silently inside while the real one dusted herself off. The gallery beyond contained Company of Seven portraits with biographical plaques telling the story of how that famous group had slowly fallen apart: betrayal, ambition, divergent goals, the usual heroic tragedy. And there, named in an old portrait, was Tasha — who the plaques identified by another name: Iggwilv. The Witch Queen. Arguably one of the most dangerous people to have ever lived. The couatl Hoapala appeared again to answer final questions. The party was much less comfortable than when they'd started.",
+    imagePrompt:
+      "Two identical wizards casting spells at each other in a portrait gallery, one trapped inside a glowing magical cube, Company of Seven paintings watching from the walls",
+    backgroundImage: "chapter_82.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "Iggwilv",
+        content:
+          "Iggwilv, known as the Witch Queen, is one of the most powerful and feared archmages in the history of the Flanaess. The party learning that Tasha and Iggwilv are the same person is like discovering a new acquaintance is actually the most dangerous person alive.",
+      },
+      {
+        title: "The Forcecage Solution",
+        content:
+          "A forcecage creates an immovable prison of pure magical force — invisible walls that cannot be broken or phased through by most means. Kellen essentially built an instant magic jail mid-combat. The real Kellen, obviously.",
+      },
+    ],
+  },
+
+  // === SESSION 64: Waking Tasha ===
+  {
+    id: "ch-83",
+    session: 64,
+    chapter: 83,
+    title: "Waking Tasha",
+    story:
+      "A teleportation circle at the lowest level carried the party to the Godtrap room — a chamber designed to contain something vast and old. In the center, a mirror held a demon mid-attack, frozen at the moment of impact. A central pillar offered four portal destinations. And against one wall, turned to stone, was a woman. Tasha. Iggwilv. The Witch Queen herself, petrified and waiting. Arienh reversed the petrification and Tasha drew her first breath in years. MK spotted the Demonicon — Tasha's legendary grimoire, the source of her power — and grabbed it. For three seconds MK's eyes went fully black and horns began to rise from her temples before she let go. Tasha was already proposing a deal: she could bind MK's demon heritage, preventing further transformations, and she could remove the scrying glyphs Xendros had placed on the party. The price was future service. As they negotiated, the demon imprisoned in the room's mirror turned its head and looked at Arienh. It whispered: 'She will betray you.'",
+    imagePrompt:
+      "A powerful sorceress returning to life from stone form, a blonde woman fighter briefly transforming with black eyes and emerging horns while holding an ancient grimoire, a demon watching from inside a mirror",
+    backgroundImage: "chapter_83.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "The Demonicon",
+        content:
+          "The Demonicon of Iggwilv is one of the most dangerous books ever written — a comprehensive study of demons and the methods to summon and bind them. MK holding it for three seconds was already dangerous.",
+      },
+      {
+        title: "Scrying Glyphs",
+        content:
+          "Xendros the arcanaloth had placed magical tracking marks on the party — invisible glyphs that allowed remote surveillance. Tasha's offer to remove them would restore the party's privacy for the first time in months.",
+      },
+    ],
+  },
+
+  // === SESSION 65: Zagyg's Tower ===
+  {
+    id: "ch-84",
+    session: 65,
+    chapter: 84,
+    title: "Zagyg's Tower",
+    story:
+      "Tasha led them to a nine-sided chamber — the godtrap proper, shaped to match the geometry of divine imprisonment. Then she betrayed them. The walls sealed, magical wards snapped into place, and Tasha's simulacrum — a duplicate made of packed snow and stolen spells — stepped from behind a pillar to watch the party destroy themselves. Mornie rolled a natural twenty and shot the simulacrum directly in the head. It collapsed into slush. Kellen was killed in the chaos that followed, then revived by Arienh before the dust settled. Then the room changed. Zagyg appeared — the mad archmage himself, older than expected, sharper-eyed than his reputation suggested — and offered the truth. MK was a shard of Iuz. Not metaphorically. Literally. The demon prince had been shattered into nine pieces and scattered, and one of those pieces had become MK's identity, her soul, her selfhood. The obelisks dotting the world were anchors. Zagyg explained all of it with the tone of someone who had been waiting to deliver this particular speech for a long time. He gave Kellen a pearl amulet and a new patron to replace the one she had lost. The party walked out of Castle Greyhawk and into a completely different story.",
+    imagePrompt:
+      "An ancient eccentric archmage in nine-sided chamber delivering revelations to stunned adventurers, a simulacrum of snow collapsing in the background, glowing obelisk imagery on the walls",
+    backgroundImage: "chapter_84.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "Simulacrums",
+        content:
+          "A simulacrum is a magical duplicate of a creature, made from ice and snow and shaped by powerful illusion magic. It has half the original's abilities and dissolves when destroyed. Mornie's headshot was extremely satisfying.",
+      },
+      {
+        title: "Shards of a God",
+        content:
+          "The idea that a demon prince could be broken into nine pieces and scattered as mortal souls is a genuinely terrifying cosmological concept. Each shard lives a life, makes choices, and doesn't know what it is. Until now.",
+      },
+    ],
+  },
+
+  // === SESSION 66: Dreams and Departures ===
+  {
+    id: "ch-85",
+    session: 66,
+    chapter: 85,
+    title: "Dreams and Departures",
+    story:
+      "Drawmij, the mysterious wizard who'd been watching the party from a distance for months, finally reached out through dream conversations — speaking directly to MK while she slept. He explained what Zagyg had left incomplete: MK had been created as a memory-clone experiment, a deliberate vessel for Iuz's Memory shard. She wasn't an accident. She was designed. Elsewhere, the party unpetrified Irrik, a figure who had encountered Tasha before his stoning and knew things no one else did — including the location of a Word of Recall scroll that would matter later. Arienh cast scrying on Xendros and caught a glimpse of the arcanaloth in meeting with a shadowy figure named Baedron, whose purpose was unclear and whose name was new. Kellen made contact with the Circle of Eight through careful research and learned that only three of its eight members had survived recent events. The Lord Mayor of Greyhawk, shaken by everything the party had uncovered, asked them to leave the city for a year — not as punishment, but as protection. The city needed time. So did they.",
+    imagePrompt:
+      "A blonde warrior woman receiving dream communications from a distant wizard, an arcanaloth in secret meeting with a shadowed figure, adventurers departing a great city at dawn",
+    backgroundImage: "chapter_85.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "Drawmij",
+        content:
+          "Drawmij is a member of the Circle of Eight — a legendary conclave of archmages dedicated to maintaining balance in the world. His interest in MK is professional, personal, and deeply complicated.",
+      },
+      {
+        title: "Memory Clone",
+        content:
+          "A memory-clone is a theoretical construct — a being created to carry the memories and identity of another. Discovering you were built for a purpose rather than born for one changes how you understand every choice you've ever made.",
+      },
+    ],
+  },
+
+  // === SESSION 67: The City of Scant ===
+  {
+    id: "ch-86",
+    session: 67,
+    chapter: 86,
+    title: "The City of Scant",
+    story:
+      "A month at sea gave everyone time to breathe, argue, heal, and practice skills they'd been neglecting. The destination was Scant, a coastal city perched at the edge of the Pomarj — a tense, politically fractured region where Oeridian traditionalists and Selouise progressives argued constantly about governance, trade, and who really owned what. Airell reached into his pack on day two of the voyage and found his lost bonnet, which had been missing since a heist three sessions ago. He put it on and felt immediately better about everything. Scant itself was a city of layered intrigue: Kellen spent long hours in the lighthouse archives researching anything connected to Bigby, a legendary archmage she suspected was in the city. Mornie made contact with a spy named Aelar at a tavern called the Sturdy Spruce — a cheerful name for a place full of people with secrets. The news from Aelar was inconvenient: Bigby had a reputation for paranoia and only left the lighthouse once a month, on a schedule nobody could predict.",
+    imagePrompt:
+      "A coastal city of towers and political tension, an elf adjusting a battered bonnet with evident satisfaction, a ranger meeting a spy at a weathered tavern",
+    backgroundImage: "chapter_86.jpg",
+    animation: ["waves"],
+    funFacts: [
+      {
+        title: "Bigby",
+        content:
+          "Bigby is one of the most famous archmages in history, best known for inventing a series of hand-shaped force spells. Bigby's Hand, Bigby's Crushing Grasp, and others all bear his name. He is extremely powerful and famously difficult to meet.",
+      },
+      {
+        title: "The Lost Bonnet",
+        content:
+          "Airell's bonnet is a personal talisman — a battered piece of headwear that functions as a focus for his magic and his identity. Finding it again after weeks was, for Airell, genuinely emotional.",
+      },
+    ],
+  },
+
+  // === SESSION 68: Meeting Bigby ===
+  {
+    id: "ch-87",
+    session: 68,
+    chapter: 87,
+    title: "Meeting Bigby",
+    story:
+      "A storm rolled in the night the party decided to approach the lighthouse. They swam and walked through driving rain to reach the door, led by a local guide named Aerie who claimed she could get them inside. She did. Bigby was waiting in his study, surrounded by stacked research notes and the particular energy of a man who has been interrupted by visitors before and never liked it. When he saw MK, he went very still. He recognized what she was — or rather, recognized the shard inside her. He named all six shards of Iuz he knew of, placing MK in a cosmological context that made her feel simultaneously more significant and more terrified. Iuz's Memory. Then Aerie stabbed Mornie in the back. It was a trap — Aerie had been working for someone else all along. Before anyone could fully process this, the door burst open and Nenredhe arrived with a force of armed followers. The lighthouse exploded into chaos.",
+    imagePrompt:
+      "A legendary elderly archmage staring in stunned recognition at a blonde warrior woman, a trusted guide turning a blade on a surprised ranger, armed forces breaking through the lighthouse door",
+    backgroundImage: "chapter_87.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "The Six Shards",
+        content:
+          "Iuz was broken into pieces that became living souls. Each shard represents an aspect of the demon prince — Memory, Strength, and others. Finding them all is the kind of quest that reshapes the entire world.",
+      },
+      {
+        title: "Trust in Dungeons and Dragons",
+        content:
+          "A trusted NPC guide betraying the party is one of the oldest storytelling moves in tabletop games. It works because players want to trust people. The blade in the back is always a surprise, even when it probably shouldn't be.",
+      },
+    ],
+  },
+
+  // === SESSION 69: The Lighthouse Falls ===
+  {
+    id: "ch-88",
+    session: 69,
+    chapter: 88,
+    title: "The Lighthouse Falls",
+    story:
+      "The battle inside the lighthouse was enormous and messy. Spells flew in every direction, walls cracked, and Bigby — cornered and desperate — threw a fireball that hit practically everyone in the room, friend and foe alike. He died in the chaos, and his Strength shard tore free from his body and launched itself skyward, growing as it rose until a sixty-foot fire demon blazed above the ocean, roaring at the storm clouds. The party chased it into the sea. The battle continued in the waves, swords and spells against a towering elemental thing born from a broken god. Arienh was struck down beneath the water. Mornie, still bleeding from Aerie's blade, ripped the revivification ring from her own hand and pressed it to Arienh. She breathed again. The fire demon eventually collapsed into the sea in a hiss of steam. Behind them, the lighthouse groaned and fell into the ocean in pieces. Nenredhe's forces scattered. The party floated in the dark water, exhausted, victorious, and very wet.",
+    imagePrompt:
+      "A sixty-foot fire demon rising from the ocean during a storm, adventurers fighting in the crashing waves below, a great lighthouse crumbling into the sea behind them",
+    backgroundImage: "chapter_88.jpg",
+    animation: ["storm"],
+    funFacts: [
+      {
+        title: "The Revivification Ring",
+        content:
+          "A ring of revivification is a single-use magic item — it brings one creature back from death, then the magic is spent. Mornie giving hers to Arienh in the middle of combat is the kind of move that defines friendships.",
+      },
+      {
+        title: "The Strength Shard",
+        content:
+          "Bigby's shard was Strength — which is why he was one of the most powerful archmages in history. Power that large, released all at once, becomes something elemental and dangerous before it dissipates.",
+      },
+    ],
+  },
+
+  // === SESSION 70: Adrift ===
+  {
+    id: "ch-89",
+    session: 70,
+    chapter: 89,
+    title: "Adrift",
+    story:
+      "The party flew home on owls through the pouring rain, soaked and processing what had just happened. That night, Drawmij appeared in Airell's dreams again — professional, focused, asking for a full debrief. Airell gave it. Drawmij asked one practical question: did they retrieve Nenredhe's head? They had not. Airell swam back through a fleet of anchored ships at dawn to retrieve it from the wreckage, navigating hostile patrols and very cold water. He returned with the head. Reunited aboard the Falling Star, the party took stock. Then the captain reported a stowaway: Hareed, a man who had been living quietly in the cargo hold for three days and seemed annoyed to be discovered. A dragon turtle had also been spotted in the nearby shipping lanes — massive, old, and methodically attacking merchant vessels. Everyone agreed to deal with Hareed before the dragon turtle. Only slightly before.",
+    imagePrompt:
+      "An elf swimming through rainy seas past warships to retrieve something from the water, adventurers reuniting aboard a sailing vessel, a massive turtle-dragon shape visible beneath dark waves",
+    backgroundImage: "chapter_89.jpg",
+    animation: ["rain", "ship-rocking"],
+    funFacts: [
+      {
+        title: "Dragon Turtles",
+        content:
+          "Dragon turtles are among the most dangerous creatures in any ocean — part dragon, part turtle, entirely lethal. They breathe scalding steam instead of fire. Merchant ships encountering one rarely get to report it.",
+      },
+      {
+        title: "The Dream Debrief",
+        content:
+          "Drawmij's dream communication technique is rare and difficult magic. That he uses it for intelligence debriefs suggests he considers the party important enough to spend significant magical resources monitoring.",
+      },
+    ],
+  },
+
+  // === SESSION 71: Hareed's Deal ===
+  {
+    id: "ch-90",
+    session: 71,
+    chapter: 90,
+    title: "Hareed's Deal",
+    story:
+      "Hareed, extracted from the cargo hold and given something to eat, was remarkably forthcoming once it became clear that evasion wasn't working. He and Nenredhe had been partners for years — a fact he revealed with the particular tone of someone admitting to a past they're not proud of. His current goal was ambitious: he wanted to take the Hold of the Sea Princes, a nation built on piracy and exploitation, and deliver it to the Scarlet Brotherhood as a power base. In exchange for the party's help, he was offering access to the Tower of the Eye — a place they very much needed to reach. The deal was unappealing but tactically sound. While the adults argued politics, MK gathered the Falling Star's crew on deck and told them the full story of the fire demon battle in the ocean — gesturing broadly, imitating roaring flames, clearly enjoying the telling. The crew listened in rapt silence. The vote to trust Hareed, when it came, was not unanimous, but it was enough.",
+    imagePrompt:
+      "A weathered rogue explaining his ambitious plans to skeptical adventurers aboard a ship, while a blonde warrior woman tells dramatic battle stories to an enthralled crew on deck",
+    backgroundImage: "chapter_90.jpg",
+    animation: ["ship-rocking"],
+    funFacts: [
+      {
+        title: "The Hold of the Sea Princes",
+        content:
+          "The Hold of the Sea Princes is a coastal nation built on centuries of piracy and the slave trade. It is not well-governed. The Scarlet Brotherhood wanting to control it is concerning for different but related reasons.",
+      },
+      {
+        title: "MK the Storyteller",
+        content:
+          "MK's battle recounting is a tradition — after major encounters, she tells the story to whoever will listen, usually with significant dramatic embellishment. The crew of the Falling Star loves it.",
+      },
+    ],
+  },
+
+  // === SESSION 72: The Grimoire's Price ===
+  {
+    id: "ch-91",
+    session: 72,
+    chapter: 91,
+    title: "The Grimoire's Price",
+    story:
+      "Mornie had been carrying the Grimoire of the Deep since the events in the Styes, and she finally decided to read it. She sat down with the ancient text, opened to the first page, and proceeded to go completely catatonic. She sat motionless for hours, breathing but entirely absent — whatever the book had done to her mind, it had done it thoroughly. A Greater Restoration spell eventually brought her back, pale and shaken and very reluctant to describe what she'd seen. That night, Arienh dreamed of a woman she'd never met who was clearly responsible for her parents' deaths — a face with no name, burned into her memory. Hareed, apparently, had been busy while they processed all this: he reappeared at a Scant bathhouse with a new plan involving infiltration and a stolen chalice he'd already acquired. Arienh cast an augury spell to evaluate the choice of working with him. The cosmic response was weal — better than not. The party accepted. Arienh read the Grimoire herself afterward, braced for the worst. She came out of it unsettled but functional. Some people just have better defenses.",
+    imagePrompt:
+      "A ranger sitting catatonic and glassy-eyed over an ancient open book while her companions look on in alarm, a healer casting restorative magic, storm lanterns swaying overhead",
+    backgroundImage: "chapter_91.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "The Grimoire of the Deep",
+        content:
+          "The Grimoire of the Deep is not just a book — it is a repository of knowledge that actively resists being read by minds not prepared for it. Mornie's catatonia was the book making its opinion clear.",
+      },
+      {
+        title: "Augury",
+        content:
+          "Augury is a divination spell that consults cosmic forces about a proposed action. The response is weal (good), woe (bad), weal and woe (complicated), or nothing (unknowable). Getting weal from Hareed's plan is the universe damning with faint praise.",
+      },
+    ],
+  },
+
+  // === SESSION 73: Into the Brotherhood ===
+  {
+    id: "ch-92",
+    session: 73,
+    chapter: 92,
+    title: "Into the Brotherhood",
+    story:
+      "Airell and Kellen posed as an engaged couple to extract a sage's magical research notes, deploying the full weight of Airell's charm and Kellen's willingness to pretend she found him interesting. The notes were obtained without paying. Arienh read the Grimoire a second time — still unsettled, still no headache, still refusing to explain what she saw. Three thieves named Rath, Anselme, and Tiren joined the crew on a trial basis, reluctant and suspicious of everyone. A valuable statue was lifted from the Sage's collection. The stolen chalice was retrieved. Quietly, this was also the three-year anniversary of the party coming together in Saltmarsh — three years of marshes and sea battles and demon princes and lighthouse explosions. Nobody mentioned it aloud. They arrived at Kro Terlep wearing number collars — the Scarlet Brotherhood used them to mark the worth of their contacts — and presented themselves as people with something to sell. The Brotherhood was listening.",
+    imagePrompt:
+      "An elf and wizard posing as a couple charming a nervous scholar, three reluctant thieves being interviewed by a ranger, ships arriving at a fortified Brotherhood port wearing identification collars",
+    backgroundImage: "chapter_92.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "Three Years",
+        content:
+          "Three years of adventuring together means the party has survived dozens of encounters that should have killed them, changed the political landscape of multiple regions, and grown from a group of strangers into something that doesn't have a clean name.",
+      },
+      {
+        title: "Number Collars",
+        content:
+          "The Scarlet Brotherhood assigns numerical ratings to people they deal with — a coldly transactional system where your value is literally worn around your neck. Nobody in the party liked wearing them.",
+      },
+    ],
+  },
+
+  // === SESSION 74: Escape from Kro Terlep ===
+  {
+    id: "ch-93",
+    session: 74,
+    chapter: 93,
+    title: "Escape from Kro Terlep",
+    story:
+      "The negotiations in Kro Terlep went almost immediately sideways. The Brotherhood offered one hundred thousand gold pieces for the Falling Star's registration paperwork — a price that meant they wanted the ship's legitimate identity more than they wanted the ship. Kellen tried to banish a Brotherhood bodyguard as a negotiating point. She received daggers in the chest in response. The Brotherhood's counter-offer was less of an offer and more of a threat. The party went invisible and ran. Getting out with forty crew members still alive required a nine-success skill challenge — the kind of coordinated effort where every person does exactly the right thing at exactly the right time. Arienh coordinated the barracks extraction. MK cleared the gate. Mornie handled the docks. Wyverns launched from the harbor. Brotherhood ships cut off the sea lanes. The Falling Star made it to open water with her crew intact and two very large flying lizards in pursuit.",
+    imagePrompt:
+      "A party of invisible adventurers coordinating a mass rescue from fortified Brotherhood barracks, wyverns launching from harbor towers, a sailing ship breaking through naval blockade",
+    backgroundImage: "chapter_93.jpg",
+    animation: ["battle-shake"],
+    funFacts: [
+      {
+        title: "Skill Challenges",
+        content:
+          "A skill challenge is a structured encounter where the party needs to succeed on a set number of ability checks before accumulating too many failures. Nine successes for a mass crew extraction is an extremely high bar.",
+      },
+      {
+        title: "Wyverns",
+        content:
+          "Wyverns are two-legged dragon relatives with a poisoned stinger in their tail. They are faster than sailing ships, don't get tired, and have no opinion on weather. The Brotherhood keeps them specifically for pursuit.",
+      },
+    ],
+  },
+
+  // === SESSION 75: Breaking Through ===
+  {
+    id: "ch-94",
+    session: 75,
+    chapter: 94,
+    title: "Breaking Through",
+    story:
+      "The Brotherhood had a river blockade: a chain stretched across the waterway with a fortified cannon-ship anchored in the middle. The party developed a plan in the fifteen minutes they had before contact. Kellen and MK flew invisible above the cannon-ship, targeting the artillery before it could fire. Airell went aboard alone with nothing but his wits and a head start. Mornie climbed to the ship's rail and fought a wyvern bare-handed over open water, refusing to be knocked off the side. The chain itself was the real obstacle — strong enough to stop the hull and thick enough to resist most cutting tools. Arienh went into the water, reached underneath the chain, and lifted. The water surged. The chain came up. The Falling Star passed over it at full sail. The cannon-ship's surviving crew stared as the blockade simply ceased to be. The Falling Star hit open sea at speed, with Brotherhood ships in pursuit and the wind finally, mercifully in her favor.",
+    imagePrompt:
+      "A druid lifting a massive chain from beneath the river while a sailing ship passes overhead, a ranger fighting a wyvern on the ship's railing, two invisible figures destroying cannons above a warship",
+    backgroundImage: "chapter_94.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "Chain Blockades",
+        content:
+          "River chain blockades were a real historical naval tactic — a heavy chain suspended across a waterway at surface level could stop or damage ships attempting to pass. Lifting one from underwater is not the intended countermeasure.",
+      },
+      {
+        title: "Mornie vs. Wyvern",
+        content:
+          "Mornie is a ranger — trained in tracking, archery, and wilderness survival. Fighting a wyvern with her bare hands on a ship's railing was not in any ranger training manual. She won anyway.",
+      },
+    ],
+  },
+
+  // === SESSION 76: After the Storm ===
+  {
+    id: "ch-95",
+    session: 76,
+    chapter: 95,
+    title: "After the Storm",
+    story:
+      "Fourteen of the forty rescued crew were dead by the time the Falling Star cleared Brotherhood waters. Arienh moved through the ship methodically, triaging the wounded by severity, using every healing spell and potion she had. Fourteen. She knew all their names by the third day. MK's aquatic companions — creatures she had befriended in deeper waters during earlier adventures — surfaced near the ship and rejoined her, swimming alongside in formation. Mornie sat quietly with the two captured wyverns, not restraining them, just present. By the second day, she could read their moods. By the third, she had extracted useful tactical information about Brotherhood patrol routes from their recent memories. The wyverns were still circling the ship's masts at week's end, neither free nor imprisoned, apparently deciding. The ship needed repairs that would take days. The crew needed time that would take longer.",
+    imagePrompt:
+      "A healer moving through a damaged ship tending to the wounded, a ranger communicating with two circling wyverns on the mast, aquatic creatures swimming in formation alongside the vessel",
+    backgroundImage: "chapter_95.jpg",
+    animation: ["ship-rocking"],
+    funFacts: [
+      {
+        title: "Animal Empathy",
+        content:
+          "Mornie's ability to read and communicate with animals extends even to creatures that tried to kill her recently. Wyverns are not domesticated — her rapport with them is a genuine magical talent.",
+      },
+      {
+        title: "The Cost",
+        content:
+          "Fourteen deaths out of forty rescued is a success by rescue mission metrics. It doesn't feel like one. Arienh knowing every name is her way of refusing to let the math replace the people.",
+      },
+    ],
+  },
+
+  // === SESSION 77: Grimoire at Sea ===
+  {
+    id: "ch-96",
+    session: 77,
+    chapter: 96,
+    title: "Grimoire at Sea",
+    story:
+      "The dog-headed warriors came over the rails without warning — Bosok'shar, servants of the Father of Obedience, boarding in numbers that suggested the Brotherhood had called in a debt. Arienh went over the side with the Grimoire clutched to her chest and transformed into a giant octopus in the water — eight arms, ink, and the full weight of the ocean as a defensive perimeter. Kellen went in after her as a giant shark, circling to guard the perimeter. On the deck above, MK's demon heritage broke its restraints. She went full transformation — eyes black, horns out, power radiating off her skin — and rained destruction across the boarding party. It was overwhelming and terrifying and extremely effective. Tiren was killed in the melee, then revivified by Arienh before permanent damage set in. The Bosok'shar attack was breaking when a new figure appeared on the deck: the Voice of the Father of Obedience, composed and polite, offering a truce.",
+    imagePrompt:
+      "A giant octopus clutching an ancient book beneath the ocean waves while a shark guards the perimeter, a blonde warrior woman in full demonic transformation defending a ship's deck against dog-headed warriors",
+    backgroundImage: "chapter_96.jpg",
+    animation: ["lightning"],
+    funFacts: [
+      {
+        title: "Wildshape Extremes",
+        content:
+          "Druids in wildshape retain their mental faculties but gain the physical form of the chosen creature. Arienh as a giant octopus guarding an ancient grimoire in open ocean is one of the more creative defensive strategies the party has attempted.",
+      },
+      {
+        title: "The Father of Obedience",
+        content:
+          "The Father of Obedience leads the Scarlet Brotherhood's enforcement arm — a figure of immense authority within the organization. Sending his Voice rather than coming personally means the Brotherhood considers this a negotiation, not an execution.",
+      },
+    ],
+  },
+
+  // === SESSION 78: The Father of Obedience ===
+  {
+    id: "ch-97",
+    session: 78,
+    chapter: 97,
+    title: "The Father of Obedience",
+    story:
+      "The formal meeting happened back in Kro Terlep, arranged by the Voice's truce. The Father of Obedience sat across the table — older than expected, more controlled than anyone that dangerous has a right to be. Beside him sat Inzarne: a name Arienh recognized from years of private research. Inzarne had murdered her parents. She was sitting eight feet away and smiling pleasantly. Hareed was there too, damaged and pale, evidence of what the Brotherhood did to partners who failed. The Grimoire nearly enslaved the Father mid-meeting — it activated on its own, reaching for the most powerful mind in the room. Inzarne attacked. Fire elementals burst from nowhere. Shadow copies of each party member peeled off the walls and joined the fight. The Father escaped through a prepared ward. His Voice pulled the party out via emergency teleportation to the Tower of the Eye — apparently a relocation both sides found acceptable, for completely different reasons.",
+    imagePrompt:
+      "A tense formal meeting erupting into chaos as fire elementals appear, shadow-copies battle their originals, and a scarred noblewoman attacks across a conference table",
+    backgroundImage: "chapter_97.jpg",
+    animation: ["battle-shake"],
+    funFacts: [
+      {
+        title: "Shadow Copies",
+        content:
+          "Magical shadow duplicates are illusions given temporary substance — they mimic their originals' combat style, which means the party had to fight versions of themselves that knew all their moves.",
+      },
+      {
+        title: "A Face and a Name",
+        content:
+          "Arienh had been searching for the person responsible for her parents' deaths for years. Finally having a name and a face sitting across a table was the kind of moment that reorders everything — the question was no longer who, but when.",
+      },
+    ],
+  },
+
+  // === SESSION 79: Tower of the Eye ===
+  {
+    id: "ch-98",
+    session: 79,
+    chapter: 98,
+    title: "Tower of the Eye",
+    story:
+      "The teleportation deposited them inside the Tower of the Eye, which was not in good condition. The Bosok'shar stationed there had gone berserk — something had driven the dog-headed warriors into a frenzy, and the blood on the walls suggested it had been going on for a while. The party fought through the remaining creatures floor by floor. Arienh located the Grimoire copies using her detection magic — the Brotherhood had been duplicating the book, which explained a great deal about how their power had grown so quickly. She burned them all. The copies went to ash one by one. Loh-zerhith, a Brotherhood commander they'd encountered before, was killed in a room sealed by magical silence, surrounded by the evidence of her work. Then Inzarne returned. She was faster and angrier than before, and the fight was tight. Arienh finished it with fire — a sustained blast that melted Inzarne's face. It was not a clean ending. It was an ending. The party wind-walked out of the tower toward the sea.",
+    imagePrompt:
+      "A druid burning a collection of ancient books while a ranger strikes down a Brotherhood commander, fire consuming forbidden copies, adventurers wind-walking out through a tower window toward the ocean",
+    backgroundImage: "chapter_98.jpg",
+    animation: ["fire"],
+    funFacts: [
+      {
+        title: "Grimoire Copies",
+        content:
+          "If one Grimoire of the Deep could drive a ranger catatonic, a library of copies represents an exponential threat. The Brotherhood had been using them systematically. Burning the copies was necessary and deeply satisfying.",
+      },
+      {
+        title: "Wind Walk",
+        content:
+          "Wind walk transforms the caster and companions into gaseous forms that travel at extraordinary speed — hundreds of miles in hours. As an escape route from a hostile tower, it is essentially unchallengeable.",
+      },
+    ],
+  },
+
+  // === SESSION 80: Into the Wind ===
+  {
+    id: "ch-99",
+    session: 80,
+    chapter: 99,
+    title: "Into the Wind",
+    story:
+      "They wind-walked west from Ekul at speed, barely corporeal, trading altitude for distance as the Brotherhood's eastern holdings shrank behind them. The Voice of Obedience departed with the tower's forbidden books collected under his arm — he had, apparently, his own agenda that overlapped with the party's on this one point. The party flew north to a quiet cove, reassembled into solid bodies, and sat with the water for a while. That night, Arienh's nightmare returned: Iuz spreading like darkness across a map, allies falling silent one by one, a horizon that was simply absence. She didn't tell anyone what she'd seen until morning. When she did, nobody dismissed it. The crew of the Falling Star found them by midday — the ship had been following their projected course, and the reunion on the shore involved a great deal of shouting and at least one person crying who claimed not to be crying. The party was whole again. What came next was unclear. It was always unclear.",
+    imagePrompt:
+      "Translucent gaseous forms flying high above a coastline, adventurers solidifying in a peaceful cove, a ship appearing on the horizon to reunite with her crew",
+    backgroundImage: "chapter_99.jpg",
+    animation: ["none"],
+    funFacts: [
+      {
+        title: "Iuz the Evil",
+        content:
+          "Iuz is a demigod of evil — literally half-human, half-demon — who rules a nation of cruelty and darkness. His spreading influence in Arienh's dreams is not metaphorical. He is actively expanding across the Flanaess.",
+      },
+      {
+        title: "Reunions",
+        content:
+          "The Falling Star's crew has followed the party through two naval battles, a pirate encounter, a Brotherhood blockade, and a wyvern attack. At this point they are not just hired sailors. They are in on it.",
+      },
+    ],
+  },
+
+  // === SESSION 81: Richfest and the Dragon Turtle ===
+  {
+    id: "ch-100",
+    session: 81,
+    chapter: 100,
+    title: "Richfest and the Dragon Turtle",
+    story:
+      "Richfest is a week of summer festival celebrated across the Flanaess, and Gryrax — a proudly dwarven city with excellent stonework and extremely competitive athletic traditions — throws the best version of it anyone has ever attended. The party arrived in time for the trials. MK entered everything. She won the sprint. She won the barrel race. She placed third overall in the combined standings, which she was loudly and cheerfully unhappy about. Kord's priests presented her with gold arm cuffs engraved with the athletic symbols of the god of strength — an honor almost no one receives. Kellen sold the wizard's statue they'd been hauling around for eighty gold pieces, which barely covered the trouble they'd had carrying it. Airell discovered that twelve of the Falling Star's crew had formed a small theft ring called 'the Hands of Airell,' using techniques they'd observed and half-understood from watching him work. He was horrified. He was also, clearly, a little bit proud. He agreed to teach them properly. In the Tilva Strait, a massive shape surfaced near the ship — a dragon turtle, ancient and enormous, that watched the ship with focused intelligence. Then it climbed aboard. It was a man. The man had questions.",
+    imagePrompt:
+      "A blonde warrior woman celebrating an athletic victory wearing gold arm cuffs at a dwarven festival, a dragon turtle transforming into a human figure stepping onto a ship's deck in open water",
+    backgroundImage: "chapter_100.jpg",
+    animation: ["celebration"],
+    funFacts: [
+      {
+        title: "Richfest",
+        content:
+          "Richfest is the midsummer festival in the Greyhawk calendar — a week of games, feasting, and competition that falls between the sixth and seventh months. Athletic trials during Richfest are taken seriously. Very seriously.",
+      },
+      {
+        title: "The Hands of Airell",
+        content:
+          "A crew theft ring named after their idol, using techniques they'd reverse-engineered from watching him. Airell's response — horrified pride followed by agreeing to teach them — is one of the most Airell things Airell has ever done.",
+      },
+    ],
+  },
 ];
 
 export const storyArcs = [
-  { name: "The Danger at Dunwater",     startChapter: 1,  endChapter: 10 },
+  { name: "The Danger at Dunwater", startChapter: 1, endChapter: 10 },
   { name: "The Free City of Saltmarsh", startChapter: 11, endChapter: 33 },
-  { name: "The Scarlet Brotherhood",    startChapter: 34, endChapter: 47 },
-  { name: "The Eye in the Deep",        startChapter: 48, endChapter: 67 },
-  { name: "Greyhawk Bound",             startChapter: 68, endChapter: 71 },
+  { name: "The Scarlet Brotherhood", startChapter: 34, endChapter: 47 },
+  { name: "The Eye in the Deep", startChapter: 48, endChapter: 67 },
+  { name: "Greyhawk Bound", startChapter: 68, endChapter: 73 },
+  { name: "Castle Greyhawk", startChapter: 74, endChapter: 84 },
+  { name: "The Watchers of Oblivion", startChapter: 85, endChapter: 100 },
 ];
