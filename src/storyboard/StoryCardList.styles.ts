@@ -139,6 +139,11 @@ export const ThumbnailBookmark = styled.span`
   color: #ffd93d;
 `;
 
+export const ArcSection = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
 export const BackLink = styled.a`
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;

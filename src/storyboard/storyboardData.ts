@@ -1811,3 +1811,11 @@ export const storyCards: StoryCardData[] = [
     ],
   },
 ];
+
+export const storyArcs = [
+  { name: "The Danger at Dunwater",     startChapter: 1,  endChapter: 10 },
+  { name: "The Free City of Saltmarsh", startChapter: 11, endChapter: 33 },
+  { name: "The Scarlet Brotherhood",    startChapter: 34, endChapter: 47 },
+  { name: "The Eye in the Deep",        startChapter: 48, endChapter: 67 },
+  { name: "Greyhawk Bound",             startChapter: 68, endChapter: 71 },
+];

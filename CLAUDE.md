@@ -7,9 +7,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 npm install        # Install dependencies
 npm run dev        # Start dev server (requires Amplify sandbox)
-npm run build      # TypeScript check + Vite build
-npm run lint       # ESLint
-npm run type-check # TypeScript type check only
+rtk err npm run build       # Production build (vite build)
+rtk lint           # ESLint
+rtk type           # TypeScript type check only
 npm run preview    # Preview production build
 ```
 
