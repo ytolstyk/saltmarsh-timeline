@@ -76,7 +76,7 @@ export const ContentOverlay = styled.div`
   justify-content: flex-end;
   padding: 2rem;
   padding-bottom: 4rem;
-  overflow-y: auto;
+  overflow: hidden;
   background: linear-gradient(
     to bottom,
     transparent 0%,
@@ -88,10 +88,6 @@ export const ContentOverlay = styled.div`
   ${media.xs} {
     padding: 1rem;
     padding-bottom: 3rem;
-  }
-
-  ${media.lg} {
-    overflow-y: visible;
   }
 `;
 
@@ -147,6 +143,8 @@ export const StoryText = styled.div`
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   line-height: 1.7;
   max-width: 680px;
+  max-height: 35vh;
+  overflow-y: auto;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 8px;
   padding: 1rem 1.25rem;
@@ -161,7 +159,6 @@ export const StoryText = styled.div`
   ${media.lg} {
     max-width: min(900px, 65vw);
     max-height: 40vh;
-    overflow-y: auto;
   }
 `;
 
