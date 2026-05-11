@@ -6,13 +6,12 @@ export function Calendar() {
   const renderMonths = () => {
     return MONTHS.map((month, monthIndex) => {
       const [, numDays] = month;
-      const span = numDays === 7 ? 6 : 4;
-      const offset = numDays === 7 ? 3 : 0;
+      const isSpecialWeek = numDays === 7;
 
       return (
         <Grid.Col
-          span={{ base: 12, md: span }}
-          offset={{ base: 0, md: offset }}
+          span={{ base: 12, sm: 6, md: isSpecialWeek ? 6 : 4 }}
+          offset={{ base: 0, md: isSpecialWeek ? 3 : 0 }}
           key={month[0]}
         >
           <CalendarMonth monthIndex={monthIndex} />
