@@ -22,18 +22,18 @@ export const DAYS_ABBR = [
   "Sun",
   "Moon",
   "Gods",
-  "Winds",
+  "Water",
   "Earth",
-  "Fire",
+  "Free",
 ];
 export const DAYS = [
   "Starday",
   "Sunday",
   "Moonday",
   "Godsday",
-  "Windsday",
+  "Waterday",
   "Earthday",
-  "Fireday",
+  "Freeday",
 ];
 export const MONTHS: Array<[string, number]> = [
   ["Fireseek", 28],
@@ -58,13 +58,13 @@ export const CALENDAR = MONTHS.reduce(
     // Fill the array with the month names for each day in the month
     const monthDays: MonthObj[] = Array.from(
       { length: daysInMonth },
-      (_, i) => ({ monthName, monthIndex: index, day: i + 1 })
+      (_, i) => ({ monthName, monthIndex: index, day: i + 1 }),
     );
 
     acc.push(...monthDays);
     return acc;
   },
-  [] as MonthObj[]
+  [] as MonthObj[],
 );
 
 export function daysOptionsNumToDayName(dayNum: number): string {
@@ -123,7 +123,7 @@ export function convertYearsToDays(years: number): number {
 export function filterEventsByDateRange(
   events: TimelineEvent[],
   startYear: number | string | null,
-  endYear: number | string | null
+  endYear: number | string | null,
 ): TimelineEvent[] {
   if (!events || events.length === 0) {
     return [];
@@ -161,7 +161,7 @@ export function filterEventsByDateRange(
 export function filterEventsByTags(
   events: TimelineEvent[],
   checkedTags: CheckedTags,
-  excludeDowntime: boolean
+  excludeDowntime: boolean,
 ) {
   if (!events || events.length === 0) {
     return [];
@@ -211,18 +211,14 @@ export function numValueOrZero(value: number | string): number | string {
 }
 
 function getTerms(query: string): string[] {
-  return query
-    .trim()
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(Boolean);
+  return query.trim().toLowerCase().split(/\s+/).filter(Boolean);
 }
 
 function termMatchesAnyField(
   term: string,
   title: string,
   description: string,
-  tags: (string | null)[] | null | undefined
+  tags: (string | null)[] | null | undefined,
 ): boolean {
   const t = term.toLowerCase();
   return (
@@ -236,7 +232,7 @@ function termMatchesAnyField(
 // merged so the highlighter can render them in a single pass.
 export function getFuzzyMatchRanges(
   query: string,
-  text: string
+  text: string,
 ): Array<[number, number]> {
   const terms = getTerms(query);
   const t = text.toLowerCase();
@@ -260,7 +256,7 @@ export function getFuzzyMatchRanges(
     if (merged.length > 0 && range[0] <= merged[merged.length - 1][1] + 1) {
       merged[merged.length - 1][1] = Math.max(
         merged[merged.length - 1][1],
-        range[1]
+        range[1],
       );
     } else {
       merged.push([range[0], range[1]]);
@@ -271,21 +267,21 @@ export function getFuzzyMatchRanges(
 
 export function filterEventsBySearch(
   events: TimelineEvent[],
-  query: string
+  query: string,
 ): TimelineEvent[] {
   if (!query.trim()) return events;
   const terms = getTerms(query);
   return events.filter((event) =>
     terms.every((term) =>
-      termMatchesAnyField(term, event.title, event.description, event.tags)
-    )
+      termMatchesAnyField(term, event.title, event.description, event.tags),
+    ),
   );
 }
 
 export function radiusInDays(
   lineLength: number,
   totalDays: number,
-  dotRadius: number
+  dotRadius: number,
 ): number {
   return Math.ceil((dotRadius / lineLength) * totalDays);
 }
