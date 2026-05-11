@@ -12,6 +12,7 @@ import { AuthContextWrappers } from "./AuthContextWrappers";
 import { createTheme, MantineProvider } from "@mantine/core";
 import { Storyboard } from "./storyboard/Storyboard";
 import { StoryCardList } from "./storyboard/StoryCardList";
+import { GreyhawkCalendarPage } from "./GreyhawkCalendarPage";
 
 const theme = createTheme({
   primaryColor: "blue",
@@ -53,6 +54,7 @@ createRoot(document.getElementById("root")!).render(
             path="/story"
             element={<StoryCardList />}
           />
+          <Route path="/greyhawk-calendar" element={<GreyhawkCalendarPage />} />
           <Route path="/*" element={<AuthContextWrappers />} />
         </Routes>
       </MantineProvider>

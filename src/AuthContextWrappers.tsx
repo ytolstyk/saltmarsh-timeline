@@ -34,7 +34,7 @@ function AuthStatusWatcher({
     } else if (authStatus === "unauthenticated") {
       onUnauthenticated();
     }
-  }, [authStatus]);
+  }, [authStatus]); // eslint-disable-line react-hooks/exhaustive-deps
   return null;
 }
 
